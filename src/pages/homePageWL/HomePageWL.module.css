@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+/* .container {
+    width: 1248px;
+    margin: 0 auto;
+}  */
+
+
+/******************title__area*******************/
+.title__area__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #2D2652;
+    height: 379px;
+    margin: 200px 0px;
+    padding: 0px 100px;
+}
+
+.title__area__inner__text {
+    width: 617px;
+    height: 249px;
+    color: #FFFFFF;
+}
+
+.title__area__inner__text h1{
+    font-family: SF Pro Display;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 57px;
+    letter-spacing: 0em;
+    width: 480px;
+    margin: 0px;
+}
+
+.title__area__inner__text p{
+    font-family: SF Pro Display;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    width: 420px;
+    margin: 23px 0px;
+}
+
+.title__area__inner__text button {
+    width: 95px;
+    height: 51px;
+    padding: 16px, 20px, 16px, 20px;
+    border-radius: 8px;
+    font-family: SF Pro Display;
+    font-size: 15px;
+    font-weight: 100;
+    line-height: 19px;
+    letter-spacing: 0em;
+    border: none;
+    background: #FFFFFF;
+    transition: .2s;
+}
+
+.title__area__inner__text button:hover {
+    transform: translateY(-5px);
+    background: #f34b75;
+    cursor: pointer;
+    border: 2px solid #6f4150;
+}
+
+.title__area__inner__img {
+    position: relative;
+}
+
+.title__area__inner__img img {
+    position: absolute;
+    width: 492px;
+    height: 494px;
+    top: 143px;
+    left: 817.5px;
+    border-radius: 322px;
+    transform: translate(-795px,-122px);
+}
+
+.circle {
+    width: 536px;
+    height: 536px;
+    top: 122px;
+    left: 797px;
+    border: 8px;
+    border-radius: 50%;;
+    background: linear-gradient(0deg, #2D2652, #2D2652);
+}
+
+.circle2 {
+    position: absolute;
+    width: 517px;
+    height: 517px;
+    top: 122px;
+    left: 797px;
+    border: 8px;
+    border-radius: 50%;;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    transform: translate(-788px, -113px);
+}
+
+
+/******************content*******************/
+.content__inner__title h1 {
+    font-family: SF Pro Display;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 60px;
+}
