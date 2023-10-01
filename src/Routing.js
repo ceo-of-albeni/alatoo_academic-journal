@@ -6,7 +6,7 @@ const Routing = () => {
   const PUBLIC_ROUTES = [
     {
       link: "/",
-      element: <HomePage />,
+      element: <HomePage/>,
       id: 1,
     },
   ];
