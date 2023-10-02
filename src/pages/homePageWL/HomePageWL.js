@@ -6,6 +6,7 @@ import content from "./img/content.png";
 export default function HomePageWL() {
     return (
         <div className={classes.container}>
+
             <div className={classes.title__area}>
                 <div className={classes.title__area__inner}>
                     <div className={classes.title__area__inner__text}>
@@ -39,6 +40,27 @@ export default function HomePageWL() {
                     </div>
                 </div>
             </div>
+
+
+            <div className={classes.article__list}>
+                <div className={classes.article__list__inner}>
+                    <div className={classes.article__list__inner__nav}>
+                        <button></button>
+                        <button></button>
+                        <button></button>
+                        <button></button>
+                    </div>
+                    <div className={classes.article__list__inner__tools}>
+                        <div className={classes.article__list__inner__tools__1}>
+
+                        </div>
+                        <div className={classes.article__list__inner__tools__2}>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }
