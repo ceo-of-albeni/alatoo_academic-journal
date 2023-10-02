@@ -1,14 +1,14 @@
 * {
     box-sizing: border-box;
+    margin: 0px;
+    font-family: SF Pro Display;
 }
 
-/* .container {
-    width: 1248px;
-    margin: 0 auto;
-}  */
-
-
 /******************title__area*******************/
+.title__area {
+    position: relative;
+}
+
 .title__area__inner {
     display: flex;
     flex-wrap: nowrap;
@@ -26,8 +26,7 @@
     color: #FFFFFF;
 }
 
-.title__area__inner__text h1{
-    font-family: SF Pro Display;
+.title__area__inner__text h1 {
     font-size: 48px;
     font-weight: 700;
     line-height: 57px;
@@ -37,7 +36,6 @@
 }
 
 .title__area__inner__text p{
-    font-family: SF Pro Display;
     font-size: 16px;
     font-weight: normal;
     line-height: 19px;
@@ -51,7 +49,6 @@
     height: 51px;
     padding: 16px, 20px, 16px, 20px;
     border-radius: 8px;
-    font-family: SF Pro Display;
     font-size: 15px;
     font-weight: 100;
     line-height: 19px;
@@ -106,9 +103,75 @@
 
 
 /******************content*******************/
+.content {
+    position: relative;
+    width: 1224px;
+    height: 491px;
+    top: 120px;
+    margin: auto;
+}
+
+.content__inner__frame__text {
+    width: 451px;
+    height: 348px;
+    padding: 40px;
+}
+
 .content__inner__title h1 {
-    font-family: SF Pro Display;
     font-size: 50px;
     font-weight: 700;
     line-height: 60px;
+    margin-bottom: 66px;
+}
+
+.content__inner__frame {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.content__inner__frame__text h2 {
+    width: 371px;
+    height: 123px;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 41px;
+    text-align: left;
+}
+
+.content__inner__frame__text p {
+    width: 340px;
+    height: 57px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 19px;
+    margin: 20px 0px;
+    border: none;
+}
+
+.content__inner__frame__text button {
+    font-size: 16px;
+    font-weight: 300;
+    width: 133px;
+    height: 40px;
+    padding: 16px, 20px, 16px, 20px;
+    border-radius: 8px;
+    color: white;
+    background-color: black;
+    transition: .2s;
+}
+
+.content__inner__frame__text button:hover {
+    transform: translateY(-5px);
+    color: black;
+    background: wheat;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.content__inner__frame img {
+    width: 629px;
+    height: 334px;
+    border-radius: 16px;
 }
