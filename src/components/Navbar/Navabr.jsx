@@ -6,10 +6,12 @@ const Navabr = () => {
     <div className="header_navbar">
       <div className="container_header">
         <div className="header_logo">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/0/07/Ala-Too_International_University_Seal.png"
-            alt=""
-          />
+          <a href="/">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/0/07/Ala-Too_International_University_Seal.png"
+              alt=""
+            />
+          </a>
         </div>
 
         <div className="header_links">
