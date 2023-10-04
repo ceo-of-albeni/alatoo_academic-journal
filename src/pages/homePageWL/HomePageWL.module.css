@@ -8,7 +8,6 @@
 .title__area {
     position: relative;
     background: #2D2652;
-    margin: 200px auto;
     padding: 0px 100px;
 }
 
@@ -19,6 +18,7 @@
     align-items: center;
     width: 1224px;
     height: 379px;
+    margin: 200px auto;
 }
 
 .title__area__text {
@@ -53,7 +53,6 @@
     font-size: 15px;
     font-weight: 100;
     line-height: 19px;
-    letter-spacing: 0em;
     border: none;
     background: #FFFFFF;
     transition: .2s;
@@ -61,9 +60,9 @@
 
 .title__area__text button:hover {
     transform: translateY(-5px);
-    background: #f34b75;
+    background: #c6b1f6;
     cursor: pointer;
-    border: 2px solid #6f4150;
+    border: 1px solid black;
 }
 
 .title__area__img {
@@ -182,7 +181,11 @@
     position: relative;
     width: 1224px;
     height: 773px;
-    margin: 65px auto;
+    margin: 35px auto;
+}
+
+.article__list__nav {
+    margin: 20px 0px;
 }
 
 .article__list__nav button {
@@ -205,13 +208,35 @@
     box-shadow: rgba(0, 0, 0, 0.19) 0px 2px 10px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.article__list__tools__cards img{
-    width: 285px;
-    height: 200px;
-    border-radius: 10px;
+.article__list__tool {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.article__list__tools__cards__text p{
+.article__list__tool__card {
+    width: 285px;
+    height: 375px;
+    border-radius: 15px;
+    margin: 25px 0px;
+    transition: .2s;
+}
+
+.article__list__tool__card:hover {
+    border: 1px solid blue;
+    width: 287px;
+    transform: translateY(-10px);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.article__list__tool__card img{
+    width: 286px;
+    height: 200px;
+    border-radius: 15px;
+}
+
+.article__list__tool__card__text p{
     font-size: 14px;
     font-weight: 510;
     text-align: left;
@@ -222,7 +247,7 @@
     text-align: center;
 }
 
-.article__list__tools__cards__text h3 {
+.article__list__tool__card__text h3 {
     font-size: 24px;
     font-weight: 700;
     line-height: 29px;
@@ -231,7 +256,7 @@
     margin: 12px 20px 25px;
 }
 
-.article__list__tools__cards__text a {
+.article__list__tool__card__text a {
     font-size: 16px;
     font-weight: 700;
     line-height: 19px;
@@ -239,4 +264,87 @@
     width: 80px;
     height: 19px;
     color: #4E4E4E;
+}
+
+.article__list__tool__card__text a:hover {
+    color: burlywood;
+    text-decoration: none;
+}
+
+
+/******************article__list*******************/
+.horizontal__cards__inner {
+    width: 1173px;
+    height: 1358px;
+    margin: 250px auto;
+}
+
+.horizontal__cards__inner h2 {
+    font-size: 34px;
+    font-weight: 510;
+    line-height: 41px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.horizontal__cards__card {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 1170px;
+    height: 391px;
+    padding: 0px 20px;
+}
+
+.horizontal__card__text {
+    width: 405px;
+    height: 212px;
+    padding: 0px, 110px, 0px, 0px;
+    opacity: 0.74px;
+    color: #424242;
+}
+
+.horizontal__card__text h3 {
+    font-size: 24px;
+    font-weight: 510;
+    line-height: 29px;
+}
+
+.horizontal__card__text p {
+    font-size: 16px;
+    font-weight: 310;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    margin: 25px 0px;
+    width: 295px;
+    height: 95px;
+}
+
+.horizontal__card__text button {
+    width: 120px;
+    height: 40px;
+    padding: 16px, 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 510;
+    line-height: 19px;
+    color: white;
+    background: #424242;
+    border: none;
+    transition: .2s;
+}
+
+.horizontal__card__text button:hover {
+    transform: translateY(-5px);
+    background: white;
+    color: #424242;
+    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 2px 10px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.horizontal__card__img {
+    width: 467px;
+    height: 295px;
+    border-radius: 25px;
 }
