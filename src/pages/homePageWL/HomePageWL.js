@@ -3,6 +3,9 @@ import classes from "./HomePageWL.module.css";
 import circle from "./img/circle.png";
 import content from "./img/content.png";
 import article from "./img/article.png";
+import horizontal from "./img/horizontal.png";
+import horizontal2 from "./img/horizontal2.png";
+import horizontal3 from "./img/horizontal3.png";
 
 export default function HomePageWL() {
     return (
@@ -52,21 +55,118 @@ export default function HomePageWL() {
                         <button>Category 3</button>
                     </div>
                     <div className={classes.article__list__tools}>
-                        <div className={classes.article__list__tools__1}>
-                            <div className={classes.article__list__tools__cards}>
+                        <div className={classes.article__list__tool}>
+                            <div className={classes.article__list__tool__card}>
                                 <img src={article} alt="article"></img>
-                                <div className={classes.article__list__tools__cards__text}>
+                                <div className={classes.article__list__tool__card__text}>
+                                    <p>CATEGORY 1</p>
+                                    <h3>Change the article headline</h3>
+                                    <a href="a">Read Now</a>
+                                </div>
+                            </div>
+                            <div className={classes.article__list__tool__card}>
+                                <img src={article} alt="article"></img>
+                                <div className={classes.article__list__tool__card__text}>
+                                    <p>CATEGORY 1</p>
+                                    <h3>Change the article headline</h3>
+                                    <a href="a">Read Now</a>
+                                </div>
+                            </div>
+                            <div className={classes.article__list__tool__card}>
+                                <img src={article} alt="article"></img>
+                                <div className={classes.article__list__tool__card__text}>
+                                    <p>CATEGORY 1</p>
+                                    <h3>Change the article headline</h3>
+                                    <a href="a">Read Now</a>
+                                </div>
+                            </div>
+                            <div className={classes.article__list__tool__card}>
+                                <img src={article} alt="article"></img>
+                                <div className={classes.article__list__tool__card__text}>
                                     <p>CATEGORY 1</p>
                                     <h3>Change the article headline</h3>
                                     <a href="a">Read Now</a>
                                 </div>
                             </div>
                         </div>
-                        <div className={classes.article__list__tools__2}>
-                                
+                        <div className={classes.article__list__tool}>
+                        <div className={classes.article__list__tool__card}>
+                                <img src={article} alt="article"></img>
+                                <div className={classes.article__list__tool__card__text}>
+                                    <p>CATEGORY 1</p>
+                                    <h3>Change the article headline</h3>
+                                    <a href="a">Read Now</a>
+                                </div>
+                            </div>
+                            <div className={classes.article__list__tool__card}>
+                                <img src={article} alt="article"></img>
+                                <div className={classes.article__list__tool__card__text}>
+                                    <p>CATEGORY 1</p>
+                                    <h3>Change the article headline</h3>
+                                    <a href="a">Read Now</a>
+                                </div>
+                            </div>
+                            <div className={classes.article__list__tool__card}>
+                                <img src={article} alt="article"></img>
+                                <div className={classes.article__list__tool__card__text}>
+                                    <p>CATEGORY 1</p>
+                                    <h3>Change the article headline</h3>
+                                    <a href="a">Read Now</a>
+                                </div>
+                            </div>
+                            <div className={classes.article__list__tool__card}>
+                                <img src={article} alt="article"></img>
+                                <div className={classes.article__list__tool__card__text}>
+                                    <p>CATEGORY 1</p>
+                                    <h3>Change the article headline</h3>
+                                    <a href="a">Read Now</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+
+            <div className={classes.horizontal__cards}>
+                <div className={classes.horizontal__cards__inner}>
+                    <h2>Horizontal Cards section</h2>
+                    <div className={classes.horizontal__cards__card}>
+                        <div className={classes.horizontal__card__text}>
+                            <h3>Update headline here</h3>
+                            <p>SIMILAR HERE: Horizontal card description - this is where we describe maybe some features or benefits in more detail, provide more context, or just show anything we perceive to be important  </p>
+                            <button>Learn more</button>
+                        </div>
+                        <div className={classes.horizontal__card__img}>
+                            <img src={horizontal} alt="horizontal"></img> 
+                        </div>
+                    </div>
+                    <div className={classes.horizontal__cards__card}>
+                        <div className={classes.horizontal__card__img}>
+                            <img src={horizontal2} alt="horizontal2"></img> 
+                        </div>
+                        <div className={classes.horizontal__card__text}>
+                            <h3>Second headline here</h3>
+                            <p>Description of the second horizontal card here: Horizontal card description - this is where we describe maybe some features or benefits in more detail, provide more context, or just show anything we perceive to be important  </p>
+                            <button>Learn more</button>
+                        </div>
+                    </div>
+                    <div className={classes.horizontal__cards__card}>
+                        <div className={classes.horizontal__card__text}>
+                            <h3>Third headline text</h3>
+                            <p>Horizontal card description - this is where we describe maybe some features or benefits in more detail, provide more context, or just show anything we perceive to be important  </p>
+                            <button>Learn more</button>
+                        </div>
+                        <div className={classes.horizontal__card__img}>
+                            <img src={horizontal3} alt="horizontal3"></img> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                
             </div>
 
         </div>
