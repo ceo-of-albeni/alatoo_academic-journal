@@ -1,7 +1,9 @@
 import React from "react";
 import "./Navbar.scss";
+import { useNavigate } from "react-router-dom";
 
 const Navabr = () => {
+  const navigate = useNavigate();
   return (
     <div className="header_navbar">
       <div className="container_header">
@@ -16,16 +18,18 @@ const Navabr = () => {
 
         <div className="header_links">
           <a href="/" className="header_links__item">
-            О нас
+            Publishes
           </a>
           <a href="/" className="header_links__item">
-            Петиции
+            Articles
           </a>
           <a href="/" className="header_links__item">
-            Что-то
+            About Us
           </a>
-          <a href="/" className="header_links__item">
-            Контакты
+          <a
+            onClick={() => navigate("/profile")}
+            className="header_links__item">
+            Profile
           </a>
         </div>
 

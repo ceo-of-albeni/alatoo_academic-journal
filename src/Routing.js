@@ -11,7 +11,7 @@ const Routing = () => {
       id: 1,
     },
     {
-      link: "/profile:id",
+      link: "/profile",
       element: <UserProfilePage />,
       id: 2,
     },
