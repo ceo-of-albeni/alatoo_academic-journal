@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.scss";
+import { Login } from "./modals/Login";
 import { useNavigate } from "react-router-dom";
 
 const Navabr = () => {
+  const [openLogin, setOpenLogin] = useState(false);
+  
   const navigate = useNavigate();
   return (
     <div className="header_navbar">
@@ -33,11 +36,15 @@ const Navabr = () => {
           </a>
         </div>
 
-        <div className="login_btn">
+        <div className="login_btn"
+          onClick={() => {
+            setOpenLogin(true);
+          }}>
           <div>Войти</div>
           {/* {isAuth ? <button>Выход</button> : <button>Войти</button>} */}
         </div>
       </div>
+      {openLogin && <Login closeModal={setOpenLogin} />}
     </div>
   );
 };
