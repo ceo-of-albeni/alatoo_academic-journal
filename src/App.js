@@ -6,7 +6,7 @@ import HomePageWL from "./pages/homePageWL/HomePageWL";
 const App = () => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <Routing />
       <HomePageWL/>
     </>
