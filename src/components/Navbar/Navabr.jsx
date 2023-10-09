@@ -18,18 +18,18 @@ const Navabr = () => {
 
         <div className="header_links">
           <a href="/" className="header_links__item">
-            Publishes
+            Исследования
           </a>
           <a href="/" className="header_links__item">
-            Articles
+            Статьи
           </a>
           <a href="/" className="header_links__item">
-            About Us
+            О нас
           </a>
           <a
             onClick={() => navigate("/profile")}
             className="header_links__item">
-            Profile
+            Профиль
           </a>
         </div>
 

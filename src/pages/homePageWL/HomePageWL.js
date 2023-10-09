@@ -13,12 +13,13 @@ export default function HomePageWL() {
       <div className={classes.title__area}>
         <div className={classes.title__area__inner}>
           <div className={classes.title__area__text}>
-            <h1>Alatoo Academic Studies</h1>
+            <h1>Академический журнал Ала-Тоо</h1>
+            <h3><b>Добро пожаловать на издательский сайт Международного Университета Ала-Тоо!</b></h3>
             <p>
-              This is a website for fictional company that develops an app that
-              provides features and services its users{" "}
+              Здесь у каждого пользователя появится возможность публиковать статьи и следить за страницей!<br></br>
+              Присоединитесь, чтоб свободно добавлять информацию!{" "}
             </p>
-            <button>Join us</button>
+            <button>Присоединиться</button>
           </div>
           <div className={classes.title__area__img}>
             <div className={classes.circle}></div>
@@ -54,7 +55,7 @@ export default function HomePageWL() {
       <div className={classes.article__list}>
         <div className={classes.article__list__inner}>
           <div className={classes.article__list__nav}>
-            <button>All articles</button>
+            <button>Все статьи</button>
             <button>Category 1</button>
             <button>Category 2</button>
             <button>Category 3</button>
