@@ -1,14 +1,20 @@
 import React from "react";
 import Routing from "./Routing";
 import Navbar from "./components/Navbar/Navabr";
-import HomePageWL from "./pages/homePageWL/HomePageWL";
+import Footer from "./components/Footer/Footer";
+import AuthContextProvider from "./contexts/authContext";
+import ArticleContextsProvider from "./contexts/articleContext";
 
 const App = () => {
   return (
     <>
-      <Navbar/>
+      {/* <ArticleContextsProvider> */}
+      {/* <AuthContextProvider> */}
+      <Navbar />
       <Routing />
-      <HomePageWL/>
+      <Footer />
+      {/* </AuthContextProvider> */}
+      {/* </ArticleContextsProvider> */}
     </>
   );
 };
