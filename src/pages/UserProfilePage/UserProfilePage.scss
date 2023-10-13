@@ -1,14 +1,18 @@
 .main_div {
   background-color: #f5f5f5;
-  padding: 10px;
-  // display: flex;
-  // flex-direction: column;
+  // padding: 10px;
+  display: flex;
+  padding: 136px 19px;
+  justify-content: space-between;
+}
+
+.mainest {
+  background-color: white;
+  padding: 28px 140px;
 }
 .profile_card {
   background-color: white;
-  margin: 50px 50px 0px 50px;
-  display: flex;
-  flex-direction: column;
+  // margin: 50px 0px 0px 0px;
   width: 500px;
   height: 400px;
   img {
@@ -26,7 +30,9 @@
   position: relative;
   bottom: 120px;
   left: 230px;
-  text-decoration: underline;
+  font-size: 16px;
+  // font-weight: 600;
+  text-decoration-line: underline;
 
   p {
     margin-top: 8px;
@@ -35,15 +41,124 @@
 
 .profile_info-bio {
   position: relative;
-  bottom: 50px;
+  bottom: 90px;
   width: 85%;
   left: 40px;
-  // margin-left: 40px;
   text-align: center;
   color: rgba(0, 0, 0, 0.5);
   font-size: 18px;
-  font-style: italic;
-  font-weight: 508;
-  line-height: normal;
+  // font-style: italic;
+  font-weight: 400;
   letter-spacing: -0.36px;
+}
+
+.bio_bio {
+  position: relative;
+  bottom: 100px;
+  left: 40px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.32px;
+}
+
+.edit_profile {
+  position: relative;
+  bottom: 70px;
+  left: 210px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.edit_bio {
+  position: relative;
+  bottom: 60px;
+  left: 232px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.article_form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  border-radius: 20px;
+  background: #fffefe;
+  padding: 60px 12px;
+  align-items: center;
+  h4 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  h5 {
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.article_form-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .short_inp {
+    width: 280px;
+  }
+  // width: 280px;
+  .input_p {
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.26px;
+  }
+  .text_input {
+    display: flex;
+    width: 279px;
+    padding: 16px 20px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  #card_input {
+    // display: flex;
+    padding: 16px 20px;
+    // align-items: flex-start;
+    // gap: 10px;
+    // align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    width: 490px;
+  }
+  button {
+    width: 278px;
+    height: 38px;
+    padding: 10px 39px;
+    gap: 10px;
+    border-radius: 5px;
+    background: #2d2652;
+    //text
+    color: #fff;
+    font-size: 16px;
+    font-weight: 510;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: #5848a7;
+  }
+  #clear_all {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.32px;
+    text-decoration-line: underline;
+    margin: 20px 0;
+  }
+  #clear_all:hover {
+    cursor: pointer;
+    color: rgb(100, 100, 100);
+  }
 }
