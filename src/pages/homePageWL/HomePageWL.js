@@ -14,9 +14,15 @@ export default function HomePageWL() {
         <div className={classes.title__area__inner}>
           <div className={classes.title__area__text}>
             <h1>Академический журнал Ала-Тоо</h1>
-            <h3><b>Добро пожаловать на издательский сайт Международного Университета Ала-Тоо!</b></h3>
+            <h3>
+              <b>
+                Добро пожаловать на издательский сайт Международного
+                Университета Ала-Тоо!
+              </b>
+            </h3>
             <p>
-              Здесь у каждого пользователя появится возможность публиковать статьи и следить за страницей!<br></br>
+              Здесь у каждого пользователя появится возможность публиковать
+              статьи и следить за страницей!<br></br>
               Присоединитесь, чтоб свободно добавлять информацию!{" "}
             </p>
             <button>Присоединиться</button>
@@ -147,12 +153,12 @@ export default function HomePageWL() {
               <button>Learn more</button>
             </div>
             <div className={classes.horizontal__card__img}>
-              <img src={horizontal} alt="horizontal"></img>
+              <img src={horizontal} alt="horizontal" />
             </div>
           </div>
           <div className={classes.horizontal__cards__card}>
             <div className={classes.horizontal__card__img}>
-              <img src={horizontal2} alt="horizontal2"></img>
+              <img src={horizontal2} alt="horizontal2" />
             </div>
             <div className={classes.horizontal__card__text}>
               <h3>Second headline here</h3>
@@ -176,7 +182,7 @@ export default function HomePageWL() {
               <button>Learn more</button>
             </div>
             <div className={classes.horizontal__card__img}>
-              <img src={horizontal3} alt="horizontal3"></img>
+              <img src={horizontal3} alt="horizontal3" />
             </div>
           </div>
         </div>
