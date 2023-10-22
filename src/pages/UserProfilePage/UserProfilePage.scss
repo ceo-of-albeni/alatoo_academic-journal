@@ -1,6 +1,5 @@
 .main_div {
   background-color: #f5f5f5;
-  // padding: 10px;
   display: flex;
   padding: 136px 19px;
   justify-content: space-between;
@@ -12,14 +11,18 @@
 }
 .profile_card {
   background-color: white;
-  // margin: 50px 0px 0px 0px;
-  width: 500px;
-  height: 400px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 1px 0px 0px rgba(0, 0, 0, 0.25) inset;
+  width: 450px;
+  height: 175px;
+  flex-shrink: 0;
   img {
-    width: 140px;
+    width: 120px;
     position: relative;
     bottom: 40px;
-    left: 40px;
+    left: 25px;
     box-shadow: 0px 23px 34px 0px rgba(0, 0, 0, 0.2);
     height: 140px;
     border-radius: 50%;
@@ -29,9 +32,8 @@
 .profile_main-info {
   position: relative;
   bottom: 120px;
-  left: 230px;
+  left: 180px;
   font-size: 16px;
-  // font-weight: 600;
   text-decoration-line: underline;
 
   p {
@@ -39,45 +41,52 @@
   }
 }
 
-.profile_info-bio {
-  position: relative;
-  bottom: 90px;
-  width: 85%;
-  left: 40px;
+// .profile_info-bio {
+//   position: relative;
+//   bottom: 90px;
+//   width: 85%;
+//   left: 40px;
+//   text-align: center;
+//   color: rgba(0, 0, 0, 0.5);
+//   font-size: 18px;
+//   // font-style: italic;
+//   font-weight: 400;
+//   letter-spacing: -0.36px;
+// }
+
+.edit_prof {
+  color: rgba(0, 0, 0, 0.5);
   text-align: center;
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 18px;
-  // font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.36px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  position: relative;
+  bottom: 140px;
+  right: 144px;
+  // color: rgba(0, 0, 0, 0.5);
+  // font-size: 16px;
+  // font-weight: 700;
+  // letter-spacing: -0.32px;
 }
 
-.bio_bio {
-  position: relative;
-  bottom: 100px;
-  left: 40px;
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: -0.32px;
-}
+// .edit_profile {
+//   position: relative;
+//   bottom: 70px;
+//   left: 210px;
+//   font-size: 20px;
+//   font-weight: 700;
+// }
 
-.edit_profile {
-  position: relative;
-  bottom: 70px;
-  left: 210px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.edit_bio {
-  position: relative;
-  bottom: 60px;
-  left: 232px;
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 16px;
-  font-weight: 700;
-}
+// .edit_bio {
+//   position: relative;
+//   bottom: 60px;
+//   left: 232px;
+//   color: rgba(0, 0, 0, 0.5);
+//   font-size: 16px;
+//   font-weight: 700;
+// }
 
 .article_form {
   display: flex;
@@ -106,7 +115,6 @@
   .short_inp {
     width: 280px;
   }
-  // width: 280px;
   .input_p {
     color: rgba(0, 0, 0, 0.6);
     margin-top: 20px;
@@ -125,11 +133,7 @@
     border: 1px solid rgba(0, 0, 0, 0.5);
   }
   #card_input {
-    // display: flex;
     padding: 16px 20px;
-    // align-items: flex-start;
-    // gap: 10px;
-    // align-self: stretch;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     width: 490px;
@@ -148,6 +152,7 @@
   }
   button:hover {
     cursor: pointer;
+    color: white;
     background-color: #5848a7;
   }
   #clear_all {
@@ -161,4 +166,21 @@
     cursor: pointer;
     color: rgb(100, 100, 100);
   }
+}
+
+.sc-bdnyFh {
+  margin-top: 30px;
+  padding: 16px 20px;
+  // border-radius: 8px;
+  // border: 1px solid rgba(0, 0, 0, 0.5);
+  width: 490px;
+}
+
+label input {
+  text-align: center;
+}
+
+#field-wrapper {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
