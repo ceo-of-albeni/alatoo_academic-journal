@@ -44,7 +44,7 @@ export function Login({ closeModal }) {
         <img src={arrow} alt="back" onClick={() => closeModal(false)} />
         <form action="">
           <div>LOGIN</div>
-          <label for="email">Email</label>
+          <label text="email">Email</label>
           <input
             className={classes.modal_inp}
             value={email}
@@ -53,7 +53,7 @@ export function Login({ closeModal }) {
             placeholder="Enter your email"
             name="email"
           />
-          <label for="password">Password</label>
+          <label text="password">Password</label>
           <input
             className={classes.modal_inp}
             value={password}
