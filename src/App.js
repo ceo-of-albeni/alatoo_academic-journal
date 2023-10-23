@@ -9,11 +9,11 @@ const App = () => {
   return (
     <>
       {/* <ArticleContextsProvider> */}
-      {/* <AuthContextProvider> */}
-      <Navbar />
-      <Routing />
-      <Footer />
-      {/* </AuthContextProvider> */}
+      <AuthContextProvider>
+        <Navbar />
+        <Routing />
+        <Footer />
+      </AuthContextProvider>
       {/* </ArticleContextsProvider> */}
     </>
   );

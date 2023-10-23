@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.scss";
 import classes from "./login.module.css"
-import arrow from "../modals/img/arrow.svg";
-import { Register } from "../modals/register/Register";
-import { Success } from "../modals/success/Success";
+import arrow from "../Navbar/modals/img/arrow.svg";
+import { Register } from "./modals/register/Register";
+import { Success } from "./modals/success/Success";
 // import { Login } from "../modals/login/Login";
 import { useNavigate } from "react-router-dom";
 
 const Navabr = () => {
   const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
-  const [openSuccess, setOpenSuccess] = useState(false);
-  // useEffect(() => {
-  //   document.body.style.overflow = "hidden";
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //   }
-  // }, [])
-
+  const [openSuccess, setOpenSuccess] = useState(false)
+  
   if (openLogin || openRegister || openSuccess) {
     document.body.style.overflow = "hidden";
   } else {
@@ -51,15 +45,19 @@ const Navabr = () => {
         </div>
 
         <div className="header_links">
-          <a href="/" className="header_links__item">
-            Исследования
+          <a href="/rules1" className="header_links__item">
+            Rules for authors
           </a>
           <a href="/" className="header_links__item">
-            Статьи
+            Archive
           </a>
           <a href="/" className="header_links__item">
-            О нас
+            Articles
           </a>
+          <a href="/" className="header_links__item">
+            Contacts
+          </a>
+
           <a
             onClick={() => navigate("/profile")}
             className="header_links__item">
@@ -67,7 +65,8 @@ const Navabr = () => {
           </a>
         </div>
 
-        <div className="login_btn"
+        <div
+          className="login_btn"
           onClick={() => {
             setOpenLogin(true);
           }}>

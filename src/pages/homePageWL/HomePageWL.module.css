@@ -61,6 +61,7 @@
   font-weight: 100;
   line-height: 19px;
   border: none;
+  color: black;
   background: #ffffff;
   transition: 0.2s;
 }
@@ -205,6 +206,7 @@
   border-radius: 40px;
   border: none;
   background: #e8e8e8;
+  color: #000000;
   margin: 0px 5px;
   font-size: 16px;
   font-weight: 500;
@@ -358,7 +360,7 @@
   box-shadow: rgba(0, 0, 0, 0.19) 0px 2px 10px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-.horizontal__card__img {
+.horizontal__card__img img {
   width: 467px;
   height: 295px;
   border-radius: 25px;
