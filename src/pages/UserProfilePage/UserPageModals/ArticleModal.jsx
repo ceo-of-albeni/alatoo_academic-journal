@@ -1,97 +1,7 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import "../UserProfilePage.scss";
-import { articlesContext } from "../../../contexts/articleContext";
-import { useNavigate } from "react-router-dom";
 
 const ArticleModal = () => {
-  const { createArticle } = useContext(articlesContext);
-
-  const navigate = useNavigate();
-
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [author, setAuthor] = useState("");
-  const [email, setEmail] = useState("");
-  const [file, setFile] = useState(null);
-  const [phone, setPhone] = useState("");
-
-  // function handleFileChange(event) {
-  //   const selectedFile = event.target.files[0];
-
-  //   if (selectedFile) {
-  //     const reader = new FileReader();
-
-  //     reader.onload = function (e) {
-  //       const fileData = e.target.result; // This will be the file content
-
-  //       // Save the file data to local storage
-  //       localStorage.setItem("file", fileData);
-  //     };
-
-  //     // Read the file as a data URL (base64-encoded string)
-  //     reader.readAsDataURL(selectedFile);
-  //   }
-  // }
-
-  function saveArticle() {
-    if (!title || !category || !author || !email || !file || !phone) {
-      alert("Some inputs are empty!");
-      return;
-    }
-
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        const fileData = e.target.result;
-
-        let newArticle = {
-          title,
-          category,
-          author,
-          email,
-          file,
-          phone,
-        };
-
-        createArticle(newArticle);
-
-        localStorage.setItem("file", fileData);
-      };
-
-      // Read the file as a data URL (base64-encoded string)
-      reader.readAsDataURL(file);
-    }
-
-    // let newArticle = {
-    //   title,
-    //   category,
-    //   author,
-    //   email,
-    //   file,
-    //   phone,
-    // };
-
-    // let newArticle = new FormData();
-    // newArticle.append("title", title);
-    // newArticle.append("category", category);
-    // newArticle.append("author", author);
-    // newArticle.append("email", email);
-    // newArticle.append("file", file);
-    // newArticle.append("phone", phone);
-    // createArticle(newArticle, navigate);
-
-    // createArticle(newArticle);
-
-    setTitle("");
-    setCategory("");
-    setAuthor("");
-    setEmail("");
-    setFile("");
-    setPhone("");
-
-    // navigate("/");
-  }
 
   return (
     <div className="article_form" id="article_div">
@@ -101,54 +11,35 @@ const ArticleModal = () => {
           <p className="input_p">Article title*</p>
           <input
             className="text_input"
-            value={title}
-            onChange={e => setTitle(e.target.value)}
             placeholder="Click and start typing"
             type="text"
           />
           <p className="input_p">Category*</p>
           <input
             className="text_input"
-            value={category}
-            onChange={e => setCategory(e.target.value)}
             placeholder="Click and start typing"
             type="text"
           />
           <p className="input_p">Full name of each author of the article*</p>
           <input
-            value={author}
-            onChange={e => setAuthor(e.target.value)}
             className="text_input"
             placeholder="Click and start typing"
             type="text"
           />
           <p className="input_p">Email of each author of the article*</p>
           <input
-            value={email}
-            onChange={e => setEmail(e.target.value)}
             className="text_input"
             placeholder="Click and start typing"
             type="text"
           />
-          {/* <input
-          
+          <input
             className="text_input"
             placeholder="Click and start typing"
             type="text"
-          /> */}
+          />
           <p className="input_p">Article file*</p>
           <label className="custom-file-upload">
-            {/* <input
-              type="file"
-              // value={file}
-              // accept="image/*"
-              onChange={e => handleFileChange(e.target.files[0])}
-            /> */}
-            <input
-              type="file"
-              id="fileInput"
-              onChange={e => setFile(e.target.files[0])}
-            />
+            <input type="file" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="1em"
@@ -159,8 +50,6 @@ const ArticleModal = () => {
 
           <p className="input_p">Phone*</p>
           <input
-            value={phone}
-            onChange={e => setPhone(e.target.value)}
             className="text_input"
             placeholder="Click and start typing"
             type="text"
@@ -168,7 +57,7 @@ const ArticleModal = () => {
         </div>
 
         <br />
-        <button onClick={saveArticle}>Done</button>
+        <button>Next</button>
         <p id="clear_all">Clear all</p>
         <div>
           <input type="checkbox" /> By submitting this form, you agree to
