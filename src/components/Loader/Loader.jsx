@@ -4,7 +4,7 @@ import "./Loader.scss";
 const Loader = () => {
   return (
     <div>
-      <div class="loader"></div>
+      <div className="loader"></div>
     </div>
   );
 };
