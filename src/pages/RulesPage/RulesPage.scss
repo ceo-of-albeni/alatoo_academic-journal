@@ -6,9 +6,19 @@
   font-size: 24px;
   h3 {
     font-size: 24px;
+    width: 700px;
+    margin-top: 10px;
+    text-align: center;
   }
   p,
   h4 {
-    margin: 17px 0px;
+    margin: 15px 0px 0px 0px;
   }
+  .center_text {
+    text-align: center;
+  }
+}
+
+.blue_text {
+  color: #120ec9;
 }

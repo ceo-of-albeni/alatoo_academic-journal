@@ -1,8 +1,9 @@
 import React from "react";
 import "./RulesPage.scss";
-// import Pagination from "../../components/Pagination/Pagination";
+import Pagination from "../../components/Pagination/Pagination";
 
 const RulesPage = () => {
+  // const items = Array.from({ length: 3 }, (_, i) => `Item ${i + 1}`);
   return (
     <div className="rules_main-div">
       <h3>ПРАВИЛА ДЛЯ АВТОРОВ</h3>
@@ -88,7 +89,7 @@ const RulesPage = () => {
           </li>
         </ul>
       </ol>
-      {/* <Pagination /> */}
+      <Pagination />
     </div>
   );
 };
