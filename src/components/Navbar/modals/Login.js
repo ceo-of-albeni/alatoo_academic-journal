@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import classes from "./modals.module.css";
+import classes from "./modals.module.scss";
 import arrow from "./img/arrow.svg";
 import { authContext } from "../../../contexts/authContext";
 import Loader from "../../Loader/Loader";

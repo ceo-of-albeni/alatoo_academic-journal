@@ -19,6 +19,28 @@
   background-color: white;
   text-align: center;
   align-items: center;
+
+  button {
+    width: 134px;
+    height: 38px;
+    padding: 10px, 39px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(45, 38, 82, 1);
+    font-family: SF Pro Display;
+    font-size: 16px;
+    font-weight: 310;
+    line-height: 19px;
+    color: white;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background-color: white;
+    color: rgb(48, 33, 126);
+    border: 1px solid black;
+    box-shadow: 0px 0px 17px 0px;
+  }
 }
 .modal__inner img {
   margin: 38px 50px 22px;
@@ -75,28 +97,6 @@ label {
   border: 1px solid black;
   margin-bottom: 22px;
   color: #b3b2b2;
-}
-
-button {
-  width: 134px;
-  height: 38px;
-  padding: 10px, 39px;
-  border-radius: 5px;
-  border: none;
-  background: rgba(45, 38, 82, 1);
-  font-family: SF Pro Display;
-  font-size: 16px;
-  font-weight: 310;
-  line-height: 19px;
-  color: white;
-  transition: 0.2s;
-}
-
-button:hover {
-  background-color: white;
-  color: rgb(48, 33, 126);
-  border: 1px solid black;
-  box-shadow: 0px 0px 17px 0px;
 }
 
 .model__signup {

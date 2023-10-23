@@ -20,7 +20,7 @@ const Navabr = () => {
         </div>
 
         <div className="header_links">
-          <a href="/rules" className="header_links__item">
+          <a href="/rules1" className="header_links__item">
             Rules for authors
           </a>
           <a href="/" className="header_links__item">

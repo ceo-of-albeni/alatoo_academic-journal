@@ -3,6 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import HomePageWL from "./pages/homePageWL/HomePageWL";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 import RulesPage from "./pages/RulesPage/RulesPage";
+import RulesPage2 from "./pages/RulesPage/RulesPage2";
+import RulesPage3 from "./pages/RulesPage/RulesPage3";
+import RulesPage4 from "./pages/RulesPage/RulesPage4";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -17,9 +20,24 @@ const Routing = () => {
       id: 2,
     },
     {
-      link: "/rules",
+      link: "/rules1",
       element: <RulesPage />,
       id: 3,
+    },
+    {
+      link: "/rules2",
+      element: <RulesPage2 />,
+      id: 4,
+    },
+    {
+      link: "/rules3",
+      element: <RulesPage3 />,
+      id: 5,
+    },
+    {
+      link: "/rules4",
+      element: <RulesPage4 />,
+      id: 6,
     },
   ];
   return (
