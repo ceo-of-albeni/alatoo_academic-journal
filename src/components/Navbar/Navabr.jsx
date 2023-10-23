@@ -1,37 +1,71 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./Navbar.scss";
-import classes from "./login.module.css"
+import classes from "./login.module.scss";
 import arrow from "../Navbar/modals/img/arrow.svg";
 import { Register } from "./modals/register/Register";
 import { Success } from "./modals/success/Success";
 // import { Login } from "../modals/login/Login";
 import { useNavigate } from "react-router-dom";
+import { authContext } from "../../contexts/authContext";
+import Loader from "../Loader/Loader";
 
 const Navabr = () => {
   const [openLogin, setOpenLogin] = useState(false);
   const [openRegister, setOpenRegister] = useState(false);
-  const [openSuccess, setOpenSuccess] = useState(false)
-  
+  const [openSuccess, setOpenSuccess] = useState(false);
+
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { handleLogin, setError, loading } = useContext(authContext);
+
+  function loginUser() {
+    if (!email.trim() || !password.trim()) {
+      alert("Some inputs are empty!");
+      return;
+    }
+
+    let newObj = {
+      email: email,
+      password: password,
+    };
+    handleLogin(newObj, email, navigate);
+    console.log(newObj);
+    closeOpenSuccess();
+
+    setEmail("");
+    setPassword("");
+  }
+
+  useEffect(() => {
+    setError(false);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   if (openLogin || openRegister || openSuccess) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "auto";
   }
 
-  const handleLoginClick = (e) => {
-      e.stopPropagation();
+  const handleLoginClick = e => {
+    e.stopPropagation();
   };
 
   const handleOutsideClick = () => {
-      setOpenLogin(false);
+    setOpenLogin(false);
   };
 
   const closeOpenSuccess = () => {
-      setOpenLogin(false);
-      setOpenSuccess(true);
-  }
+    setOpenLogin(false);
+    setOpenSuccess(true);
+  };
 
-  const navigate = useNavigate();
   return (
     <div className="header_navbar">
       <div className="container_header">
@@ -74,25 +108,45 @@ const Navabr = () => {
           {/* {isAuth ? <button>Выход</button> : <button>Войти</button>} */}
         </div>
       </div>
-      {openLogin && (<div className={classes.login} onClick={handleOutsideClick}>
-            <div className={classes.login__inner} onClick={handleLoginClick}>
-                <img src={arrow} alt="back" onClick={() => setOpenLogin(false)}/>
-                <form action="">
-                    <div>LOGIN</div>
-                    <label for="email">Email</label>
-                    <input type="text" placeholder="Enter your email" name="email"/>
-                    <label for="password">Password</label>
-                    <input type="text" placeholder="Enter your password" name="password"/>
-                    <button onClick={closeOpenSuccess}>Sign in</button>
-                    <div className={classes.login__signup} onClick={() => setOpenRegister(true)}>
-                        <a href="javascript:void(0);" className={classes.sign}>Sign up</a>
-                    </div>
-                    <div className={classes.login__fpassword}><a href="">Forgot password?</a></div>
-                </form>
-            </div>
-        </div>)}
-        {openRegister && <Register closeModal={setOpenRegister}/>}
-        {openSuccess && <Success closeModal={setOpenSuccess}/>}
+      {openLogin && (
+        <div className={classes.login} onClick={handleOutsideClick}>
+          <div className={classes.login__inner} onClick={handleLoginClick}>
+            <img src={arrow} alt="back" onClick={() => setOpenLogin(false)} />
+            <form action="">
+              <div>LOGIN</div>
+              <label for="email">Email</label>
+              <input
+                type="text"
+                placeholder="Enter your email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                name="email"
+              />
+              <label for="password">Password</label>
+              <input
+                type="text"
+                placeholder="Enter your password"
+                name="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
+              <button onClick={loginUser}>Sign in</button>
+              <div
+                className={classes.login__signup}
+                onClick={() => setOpenRegister(true)}>
+                <a href="javascript:void(0);" className={classes.sign}>
+                  Sign up
+                </a>
+              </div>
+              <div className={classes.login__fpassword}>
+                <a href="">Forgot password?</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+      {openRegister && <Register closeModal={setOpenRegister} />}
+      {openSuccess && <Success closeModal={setOpenSuccess} />}
     </div>
   );
 };

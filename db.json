@@ -1,0 +1,64 @@
+{
+  "articles": [
+    {
+      "title": "Picnic Zone",
+      "category": "https://visitlakeiseo.info/wp-content/uploads/2020/10/Zone-004.jpg",
+      "author": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure id iste maxime et. Voluptatum beatae illum, repellat esse debitis",
+      "email": "B block",
+      "file": "pdf",
+      "phone": "0000000",
+      "id": 1
+    },
+    {
+      "title": "Name",
+      "category": "COM",
+      "author": "Aliia Malaeva",
+      "email": "malaeva@gmail.com",
+      "file": "file",
+      "phone": "0200332",
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "title": "sfdghjk",
+      "category": "gfhgjhjk",
+      "author": "xcbvnbmn,m",
+      "email": "cvnbm,",
+      "file": {},
+      "phone": "e5767",
+      "id": 8
+    },
+    {
+      "title": "cvbvnm,",
+      "category": "hjghfgdfxcz",
+      "author": "xcbvnbmn,",
+      "email": "dgfhgjhkj",
+      "file": {},
+      "phone": "354657687",
+      "id": 9
+    },
+    {
+      "title": "dfgh",
+      "category": "jkhgfdcx",
+      "author": "kjhgbfcv",
+      "email": "jkhgbvc",
+      "file": {},
+      "phone": "5465767",
+      "id": 10
+    }
+  ]
+}

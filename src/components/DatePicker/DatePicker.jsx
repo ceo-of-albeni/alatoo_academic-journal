@@ -6,12 +6,10 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 export default function BasicDatePicker() {
   return (
-    <div style={{ height: "40px" }}>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DemoContainer components={["DatePicker"]}>
-          <DatePicker label="MM/DD/YYYY" />
-        </DemoContainer>
-      </LocalizationProvider>
-    </div>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DemoContainer components={["DatePicker"]}>
+        <DatePicker label="MM/DD/YYYY" />
+      </DemoContainer>
+    </LocalizationProvider>
   );
 }

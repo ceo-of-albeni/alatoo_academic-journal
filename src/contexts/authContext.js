@@ -16,9 +16,9 @@ const AuthContextProvider = ({ children }) => {
   async function handleRegister(formData, navigate) {
     setLoading(true);
     try {
-      const res = await axios.post(`${API}/account/register/`, formData);
+      const res = await axios.post(`${API}/auth/register`, formData);
       console.log(res);
-      navigate("/register-success");
+      navigate("/profile");
     } catch (err) {
       console.log(err);
       setError(err);
@@ -79,8 +79,9 @@ const AuthContextProvider = ({ children }) => {
 
   function handleLogout() {
     localStorage.removeItem("tokens");
-    localStorage.removeItem("username");
+    localStorage.removeItem("email");
     setCurrentUser(false);
+    navigate("/");
   }
 
   return (

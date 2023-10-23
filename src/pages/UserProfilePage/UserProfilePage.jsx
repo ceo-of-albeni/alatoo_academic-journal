@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./UserProfilePage.scss";
-import PaymentModal from "./UserPageModals/PaymentModal";
 import ArticleModal from "./UserPageModals/ArticleModal";
-import SuccessModal from "./UserPageModals/SuccessModal";
 import DataTable from "../../components/Table/Table";
 import BasicDatePicker from "../../components/DatePicker/DatePicker";
 import BasicTextFields from "../../components/Search/Search";
 import MultipleSelectPlaceholder from "../../components/StatusDrop/Status";
 import Category from "../../components/Category/Category";
 import PaginationControlled from "../../components/Pagination/PaginationTable";
+import { authContext } from "../../contexts/authContext";
 
 const UserProfilePage = () => {
+  const { currentUser, handleLogout } = useContext(authContext);
+
+  const navigate = useNavigate();
   return (
     <div className="mainest">
       <div className="main_div">
@@ -21,19 +24,22 @@ const UserProfilePage = () => {
           />
           <div className="profile_main-info">
             <p>
-              <strong>First Name: </strong> Aliia
+              <strong>First Name: </strong> Sardar
             </p>
             <p>
-              <strong>Last Name: </strong> Malaeva
+              <strong>Last Name: </strong> Kasmaliev
             </p>
             <p>
               <strong>Position: </strong> Author
             </p>
             <p>
-              <strong>Email: </strong> aliia.malaeva@alatoo.edu.kg
+              <strong>Email: </strong> sardarkasmaliev@gmail.com
             </p>
           </div>
           <p className="edit_prof">Edit Profile</p>
+          <p className="logout" onClick={handleLogout}>
+            Log Out
+          </p>
         </div>
         {/* <PaymentModal /> */}
         <ArticleModal />

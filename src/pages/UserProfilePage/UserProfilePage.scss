@@ -54,6 +54,23 @@
   right: 144px;
 }
 
+.logout {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  position: relative;
+  bottom: 130px;
+  right: 144px;
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
 #article_div {
   width: 600px;
 }
