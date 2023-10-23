@@ -2,6 +2,7 @@ import React from "react";
 import "../UserProfilePage.scss";
 
 const ArticleModal = () => {
+
   return (
     <div className="article_form" id="article_div">
       <h4>ARTICLE</h4>

@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "../UserProfilePage.scss";
+import SuccessModal from "./SuccessModal";
 
-const PaymentModal = () => {
+function PaymentModal({closeModal}) {
+  const [openSuccess, setOpenSuccess] = useState(false);
+
+  const closeOpenSuccess = () => {
+    closeModal();
+    setOpenSuccess(true);
+  }
+
   return (
     <div className="article_form">
       <h4>Payment</h4>
@@ -43,7 +51,7 @@ const PaymentModal = () => {
           />
         </div>
         <br />
-        <button>Get instant access now</button>
+        <button onClick={closeOpenSuccess}>Get instant access now</button>
         <p id="clear_all">Clear all</p>
         <div>
           <input type="checkbox" /> By submitting this form, you agree to
