@@ -92,7 +92,6 @@ const AuthContextProvider = ({ children }) => {
         handleRegister,
         setError,
         handleLogin,
-        // login,
 
         handleLogout,
         handleUser,

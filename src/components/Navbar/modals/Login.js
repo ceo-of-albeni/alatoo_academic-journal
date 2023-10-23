@@ -17,14 +17,18 @@ export function Login({ closeModal }) {
       alert("Some inputs are empty!");
       return;
     }
-    let formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-    handleLogin(formData, email, navigate);
 
-    console.log(formData);
-    console.log(email);
-    console.log(password);
+    let newObj = {
+      email: email,
+      password: password,
+    };
+    handleLogin(newObj, email, navigate);
+    // let formData = new FormData();
+    // formData.append("email", email);
+    // formData.append("password", password);
+    // handleLogin(formData, email, navigate);
+
+    console.log(newObj);
   }
 
   useEffect(() => {
@@ -34,13 +38,6 @@ export function Login({ closeModal }) {
   if (loading) {
     return <Loader />;
   }
-
-  const onFinish = values => {
-    console.log("Success:", values);
-  };
-  const onFinishFailed = errorInfo => {
-    console.log("Failed:", errorInfo);
-  };
 
   return (
     <div className={classes.modal}>
@@ -55,7 +52,6 @@ export function Login({ closeModal }) {
             onChange={e => setEmail(e.target.value)}
             type="text"
             placeholder="Enter your email"
-            // name="email"
           />
           <label text="password">Password</label>
           <input
@@ -64,7 +60,6 @@ export function Login({ closeModal }) {
             onChange={e => setPassword(e.target.value)}
             type="password"
             placeholder="Enter your password"
-            // name="password"
           />
           <button type="submit" onClick={loginUser}>
             Sign in
