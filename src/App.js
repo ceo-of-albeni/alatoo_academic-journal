@@ -8,13 +8,13 @@ import ArticleContextsProvider from "./contexts/articleContext";
 const App = () => {
   return (
     <>
-      {/* <ArticleContextsProvider> */}
-      <AuthContextProvider>
-        <Navbar />
-        <Routing />
-        <Footer />
-      </AuthContextProvider>
-      {/* </ArticleContextsProvider> */}
+      <ArticleContextsProvider>
+        <AuthContextProvider>
+          <Navbar />
+          <Routing />
+          <Footer />
+        </AuthContextProvider>
+      </ArticleContextsProvider>
     </>
   );
 };

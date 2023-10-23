@@ -10,19 +10,19 @@ import Category from "../../components/Category/Category";
 import PaginationControlled from "../../components/Pagination/PaginationTable";
 
 const UserProfilePage = () => {
-  const [openArticle, setOpenArticle] = useState(true)
-  const [openPayment, setOpenPayment] = useState(false)
+  const [openArticle, setOpenArticle] = useState(true);
+  const [openPayment, setOpenPayment] = useState(false);
   const [openSuccess, setOpenSuccess] = useState(false);
 
   const closeOpenPayment = () => {
     setOpenArticle(false);
     setOpenPayment(true);
-  }
+  };
 
   const closeOpenSuccess = () => {
     setOpenPayment(false);
     setOpenSuccess(true);
-  }
+  };
 
   return (
     <div className="mainest">
@@ -49,73 +49,78 @@ const UserProfilePage = () => {
           <p className="edit_prof">Edit Profile</p>
         </div>
 
-        {openArticle && (<div className="article_form" id="article_div">
-          <h4>ARTICLE</h4>
-          <div className="article_form-inputs">
-            <div className="short_inp">
-              <p className="input_p">Article title*</p>
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              />
-              <p className="input_p">Category*</p>
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              />
-              <p className="input_p">Full name of each author of the article*</p>
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              />
-              <p className="input_p">Email of each author of the article*</p>
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              />
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              />
-              <p className="input_p">Article file*</p>
-              <label className="custom-file-upload">
-                <input type="file" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 640 512">
-                  <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z" />
-                </svg>
-              </label>
+        {openArticle && (
+          <div className="article_form" id="article_div">
+            <h4>ARTICLE</h4>
+            <div className="article_form-inputs">
+              <div className="short_inp">
+                <p className="input_p">Article title*</p>
+                <input
+                  className="text_input"
+                  placeholder="Click and start typing"
+                  type="text"
+                />
+                <p className="input_p">Category*</p>
+                <input
+                  className="text_input"
+                  placeholder="Click and start typing"
+                  type="text"
+                />
+                <p className="input_p">
+                  Full name of each author of the article*
+                </p>
+                <input
+                  className="text_input"
+                  placeholder="Click and start typing"
+                  type="text"
+                />
+                <p className="input_p">Email of each author of the article*</p>
+                <input
+                  className="text_input"
+                  placeholder="Click and start typing"
+                  type="text"
+                />
+                <input
+                  className="text_input"
+                  placeholder="Click and start typing"
+                  type="text"
+                />
+                <p className="input_p">Article file*</p>
+                <label className="custom-file-upload">
+                  <input type="file" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 640 512">
+                    <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z" />
+                  </svg>
+                </label>
 
-              <p className="input_p">Phone*</p>
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              />
-            </div>
+                <p className="input_p">Phone*</p>
+                <input
+                  className="text_input"
+                  placeholder="Click and start typing"
+                  type="text"
+                />
+              </div>
 
-            <br />
-            <button onClick={closeOpenPayment}>Next</button>
-            <p id="clear_all">Clear all</p>
-            <div>
-              <input type="checkbox" /> By submitting this form, you agree to
-              Privacy Policy
+              <br />
+              <button onClick={closeOpenPayment}>Next</button>
+              <p id="clear_all">Clear all</p>
+              <div>
+                <input type="checkbox" /> By submitting this form, you agree to
+                Privacy Policy
+              </div>
             </div>
           </div>
-        </div>)}
-        {openPayment && (<div className="article_form">
-          <h4>Payment</h4>
-          <h5>Hero Trio Annual plan: $150 charged every 12 months</h5>
-          <div className="article_form-inputs">
-            <div className="short_inp">
-              {/* <p className="input_p">First name*</p>
+        )}
+        {openPayment && (
+          <div className="article_form">
+            <h4>Payment</h4>
+            <h5>Hero Trio Annual plan: $150 charged every 12 months</h5>
+            <div className="article_form-inputs">
+              <div className="short_inp">
+                {/* <p className="input_p">First name*</p>
                   <input
                     className="text_input"
                     placeholder="Click and start typing"
@@ -127,39 +132,39 @@ const UserProfilePage = () => {
                     placeholder="Click and start typing"
                     type="text"
                   /> */}
-              {/* <p className="input_p">Country*</p>
+                {/* <p className="input_p">Country*</p>
                   <input
                     className="text_input"
                     placeholder="Click and start typing"
                     type="text"
                   /> */}
-              {/* <p className="input_p">Zip code*</p>
+                {/* <p className="input_p">Zip code*</p>
                   <input
                     className="text_input"
                     placeholder="Click and start typing"
                     type="text"
                   /> */}
-            </div>
-            <div className="card_inp">
-              <p className="input_p">Credit card details*</p>
-              <input
-                // className="text_input"
-                id="card_input"
-                placeholder="Card number  MM    YYYY   CVV"
-                type="text"
-              />
-            </div>
-            <br />
-            <button onClick={closeOpenSuccess}>Get instant access now</button>
-            <p id="clear_all">Clear all</p>
-            <div>
-              <input type="checkbox" /> By submitting this form, you agree to
-              Privacy Policy
+              </div>
+              <div className="card_inp">
+                <p className="input_p">Credit card details*</p>
+                <input
+                  // className="text_input"
+                  id="card_input"
+                  placeholder="Card number  MM    YYYY   CVV"
+                  type="text"
+                />
+              </div>
+              <br />
+              <button onClick={closeOpenSuccess}>Get instant access now</button>
+              <p id="clear_all">Clear all</p>
+              <div>
+                <input type="checkbox" /> By submitting this form, you agree to
+                Privacy Policy
+              </div>
             </div>
           </div>
-        </div>)}
-        {openSuccess && <SuccessModal closeModal={setOpenSuccess}/>}
-        
+        )}
+        {openSuccess && <SuccessModal closeModal={setOpenSuccess} />}
       </div>
 
       <div className="filtration">
@@ -175,3 +180,4 @@ const UserProfilePage = () => {
 };
 
 export default UserProfilePage;
+

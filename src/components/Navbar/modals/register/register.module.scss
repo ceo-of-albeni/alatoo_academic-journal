@@ -1,4 +1,4 @@
-.modal {
+.register {
   position: fixed;
   display: block;
   z-index: 1050;
@@ -6,9 +6,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  backdrop-filter: blur(5px);
 
   form {
     display: flex;
@@ -29,16 +27,6 @@
     margin-bottom: 6px;
     color: #666666;
   }
-}
-
-.modal__inner {
-  margin: 150px auto;
-  width: 470px;
-  height: 518px;
-  border-radius: 20px;
-  background-color: white;
-  text-align: center;
-  align-items: center;
 
   button {
     width: 134px;
@@ -61,26 +49,54 @@
     border: 1px solid black;
     box-shadow: 0px 0px 17px 0px;
   }
+
+  input {
+    flex: 1;
+    outline: none;
+    width: 279px;
+    height: 51px;
+    padding: 16px 20px;
+    color: #7a7f82;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-bottom: 22px;
+    color: #b3b2b2;
+  }
 }
-.modal__inner img {
-  margin: 38px 50px 22px;
+
+.register__inner {
+  margin: 40px auto;
+  width: 500px;
+  height: 680px;
+  border-radius: 20px;
+  background-color: white;
+  text-align: center;
+  align-items: center;
+}
+
+.register__inner img {
+  margin: 28px 100px 0px;
   margin-left: -275px;
   border-radius: 50%;
   transition: 0.2s;
 }
 
-.modal__inner img:hover {
+.register__inner img:hover {
   background-color: rgb(244, 222, 161);
   box-shadow: 0px 0px 10px 0px rgb(247, 202, 76);
   border-radius: 50%;
 }
 
-.modal__inner div:nth-child(1) {
+.register__inner div:nth-child(1) {
   font-family: SF Pro Display;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 700;
-  line-height: 30px;
-  margin-bottom: 22px;
+  line-height: 26px;
+  text-align: left;
+  margin: 20px auto;
 }
 
 // form {
@@ -103,54 +119,40 @@
 //   color: #666666;
 // }
 
-.modal_inp {
-  flex: 1;
-  outline: none;
-  width: 279px;
-  height: 51px;
-  padding: 16px 20px;
-  color: #7a7f82;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 21px;
-  border-radius: 8px;
-  border: 1px solid black;
-  margin-bottom: 22px;
-  color: #b3b2b2;
-}
+/* input {
+    flex: 1;
+    outline: none;
+    width: 279px;
+    height: 51px;
+    padding: 16px 20px;
+    color: #7A7F82;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-bottom: 22px;
+    color: #B3B2B2;
+} */
 
-.model__signup {
-  margin: 22px 0px;
-}
+// button {
+//   width: 134px;
+//   height: 38px;
+//   padding: 10px, 39px;
+//   border-radius: 5px;
+//   border: none;
+//   background: rgba(45, 38, 82, 1);
+//   font-family: SF Pro Display;
+//   font-size: 16px;
+//   font-weight: 310;
+//   line-height: 19px;
+//   color: white;
+//   transition: 0.2s;
+// }
 
-.model__signup a {
-  font-family: SF Pro Display;
-  font-size: 16px;
-  font-weight: 510;
-  line-height: 19px;
-  letter-spacing: -0.02em;
-  color: #666666;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.model__signup a:hover {
-  color: black;
-  text-decoration: underline;
-}
-
-.model__fpassword a {
-  text-decoration: none;
-  color: #666666;
-  font-family: SF Pro Display;
-  font-size: 14px;
-  font-weight: 510;
-  line-height: 17px;
-  letter-spacing: -0.02em;
-  transition: 0.2s;
-}
-
-.model__fpassword a:hover {
-  color: black;
-  text-decoration: underline;
-}
+// button:hover {
+//   background-color: white;
+//   color: rgb(48, 33, 126);
+//   border: 1px solid black;
+//   box-shadow: 0px 0px 17px 0px;
+// }
