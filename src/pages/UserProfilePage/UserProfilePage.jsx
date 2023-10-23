@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "./UserProfilePage.scss";
-// import CreditCardInput from "react-credit-card-input";
+import PaymentModal from "./UserPageModals/PaymentModal";
+import ArticleModal from "./UserPageModals/ArticleModal";
+import SuccessModal from "./UserPageModals/SuccessModal";
+import DataTable from "../../components/Table/Table";
+import BasicDatePicker from "../../components/DatePicker/DatePicker";
+import BasicTextFields from "../../components/Search/Search";
+import MultipleSelectPlaceholder from "../../components/StatusDrop/Status";
+import Category from "../../components/Category/Category";
+import PaginationControlled from "../../components/Pagination/PaginationTable";
 
 const UserProfilePage = () => {
-  const [cardNumber, setCardNumber] = useState("");
-  const [expiry, setExpiry] = useState("");
-  const [cvc, setCvc] = useState("");
-
   return (
     <div className="mainest">
       <div className="main_div">
@@ -30,84 +34,18 @@ const UserProfilePage = () => {
             </p>
           </div>
           <p className="edit_prof">Edit Profile</p>
-          {/* <p className="bio_bio">Bio</p>
-          <p className="profile_info-bio">
-            "This is a staff quote. The staff is going to share their opinion
-            about our product or service, hopefully it’s going to be a positive
-            one. The social proof section is important when you increase trust
-            and trustworthiness of your company with your website visitors.trust
-            and trustworthiness of your company with..."
-          </p>
-          <h2 className="edit_profile">Edit Profile</h2>
-          <h5 className="edit_bio">Edit Bio</h5> */}
         </div>
-        <div className="article_form">
-          <h4>Payment method</h4>
-          <h5>Hero Trio Annual plan: $150 charged every 12 months</h5>
-          <div className="article_form-inputs">
-            <div className="short_inp">
-              {/* <p className="input_p">First name*</p>
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              />
-              <p className="input_p">Last name*</p>
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              /> */}
-              {/* <p className="input_p">Country*</p>
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              /> */}
-              {/* <p className="input_p">Zip code*</p>
-              <input
-                className="text_input"
-                placeholder="Click and start typing"
-                type="text"
-              /> */}
-            </div>
-            <div className="card_inp">
-              <p className="input_p">Credit card details*</p>
-              <input
-                // className="text_input"
-                id="card_input"
-                placeholder="Card number  MM    YYYY   CVV"
-                type="text"
-              />
-              {/* <CreditCardInput
-                cardNumberInputProps={{
-                  value: cardNumber,
-                  // onChange: this.handleCardNumberChange,
-                  onChange: e => setCardNumber(e.target.value),
-                }}
-                cardExpiryInputProps={{
-                  value: expiry,
-                  // onChange: this.handleCardExpiryChange,
-                  onChange: e => setExpiry(e.target.value),
-                }}
-                cardCVCInputProps={{
-                  value: cvc,
-                  // onChange: this.handleCardCVCChange,
-                  onChange: e => setCvc(e.target.value),
-                }}
-                fieldClassName="input"
-              /> */}
-            </div>
-            <br />
-            <button>Get instant access now</button>
-            <p id="clear_all">Clear all</p>
-            <div>
-              <input type="checkbox" /> By submitting this form, you agree to
-              Privacy Policy
-            </div>
-          </div>
-        </div>
+        {/* <PaymentModal /> */}
+        <ArticleModal />
       </div>
+      <div className="filtration">
+        <BasicDatePicker />
+        <BasicTextFields />
+        <MultipleSelectPlaceholder />
+        <Category />
+      </div>
+      <DataTable />
+      <PaginationControlled />
     </div>
   );
 };
