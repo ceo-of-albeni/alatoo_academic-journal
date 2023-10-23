@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export const authContext = React.createContext();
 
-const API = "http://10.129.0.230:3000/api";
+const API = "http://52.91.159.64:3000/api";
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
@@ -45,11 +45,6 @@ const AuthContextProvider = ({ children }) => {
   }
 
   // async function handleLogin(email, password, navigate) {
-  //   if (!email || !password) {
-  //     alert("Some inputs are empty!");
-  //     return;
-  //   }
-
   //   fetch(`${API}/auth/login`)
   //     .then(res => res.json())
   //     .then(data => {
