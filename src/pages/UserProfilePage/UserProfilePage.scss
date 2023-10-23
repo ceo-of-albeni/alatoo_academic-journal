@@ -41,19 +41,6 @@
   }
 }
 
-// .profile_info-bio {
-//   position: relative;
-//   bottom: 90px;
-//   width: 85%;
-//   left: 40px;
-//   text-align: center;
-//   color: rgba(0, 0, 0, 0.5);
-//   font-size: 18px;
-//   // font-style: italic;
-//   font-weight: 400;
-//   letter-spacing: -0.36px;
-// }
-
 .edit_prof {
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
@@ -65,29 +52,26 @@
   position: relative;
   bottom: 140px;
   right: 144px;
-  // color: rgba(0, 0, 0, 0.5);
-  // font-size: 16px;
-  // font-weight: 700;
-  // letter-spacing: -0.32px;
 }
 
-// .edit_profile {
-//   position: relative;
-//   bottom: 70px;
-//   left: 210px;
-//   font-size: 20px;
-//   font-weight: 700;
-// }
+#article_div {
+  width: 600px;
+}
+.success_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 420px;
+  height: 250px;
 
-// .edit_bio {
-//   position: relative;
-//   bottom: 60px;
-//   left: 232px;
-//   color: rgba(0, 0, 0, 0.5);
-//   font-size: 16px;
-//   font-weight: 700;
-// }
-
+  .ok_btn {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .article_form {
   display: flex;
   gap: 20px;
@@ -112,24 +96,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .short_inp {
-    width: 280px;
-  }
+  // .short_inp {
+  //   // width: 280px;
+  // }
   .input_p {
     color: rgba(0, 0, 0, 0.6);
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 8px;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: -0.26px;
   }
   .text_input {
     display: flex;
-    width: 279px;
+    width: 400px;
     padding: 16px 20px;
     align-items: flex-start;
     gap: 10px;
     border-radius: 8px;
+    margin-bottom: 15px;
     border: 1px solid rgba(0, 0, 0, 0.5);
   }
   #card_input {
@@ -183,4 +168,27 @@ label input {
 #field-wrapper {
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 50px;
+  padding: 16px 20px;
+  align-items: flex-start;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.filtration {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  background-color: #f5f5f5;
 }
