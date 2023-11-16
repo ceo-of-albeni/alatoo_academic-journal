@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./InfoPage2.module.css";
-import info from "./img/info.svg";
+import classes from "./PhilologyPage2.module.css";
+import philology from "./img/philology.svg";
 import { useNavigate } from "react-router-dom";
 import search from "./img/search.svg";
 import arrow from "./img/arrow.svg";
@@ -9,7 +9,7 @@ import BasicDatePicker from "../../components/DatePicker/DatePicker";
 
 
 
-export default function InfoPage2() {
+export default function PhilologyPage2() {
 
     const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ export default function InfoPage2() {
                         <a onClick={() => navigate("/archive")}>Back</a>
                     </div>
                     <div className={classes.category}>
-                        <h3>Category: Informatics Science</h3>
+                        <h3>Category: Philological Science</h3>
                     </div>
                     <div className={classes.search}>
                         <div className={classes.filtration}>
@@ -35,42 +35,42 @@ export default function InfoPage2() {
                     </div>
                     <div className={classes.category__tools}>
                         <div className={classes.category__tool}>
-                            <div id={classes.img2} className={classes.category__tool__card}>
-                                <img src={info} alt="inforamtics"/>
+                            <div id={classes.img5} className={classes.category__tool__card}>
+                                <img src={philology} alt="philology"/>
                             </div>
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
-                                <h4>Informatics Science</h4>
+                                <h4>Philological Science</h4>
                                 <a href="">2011, Tome 11</a>
                             </div>
                         </div>
                         <div className={classes.category__tool}>
-                            <div id={classes.img2} className={classes.category__tool__card}>
-                                <img src={info} alt="inforamtics"/>
+                            <div id={classes.img5} className={classes.category__tool__card}>
+                                <img src={philology} alt="philology"/>
                             </div>
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
-                                <h4>Informatics Science</h4>
+                                <h4>Philological Science</h4>
                                 <a href="">2010, Tome 10</a>
                             </div>
                         </div>
                         <div className={classes.category__tool}>
-                            <div id={classes.img2} className={classes.category__tool__card}>
-                                <img src={info} alt="inforamtics"/>
+                            <div id={classes.img5} className={classes.category__tool__card}>
+                                <img src={philology} alt="philology"/>
                             </div>
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
-                                <h4>Informatics Science</h4>
+                                <h4>Philological Science</h4>
                                 <a href="">2009, Tome 9</a>
                             </div>
                         </div>
                         <div className={classes.category__tool}>
-                            <div id={classes.img2} className={classes.category__tool__card}>
-                                <img src={info} alt="inforamtics"/>
+                            <div id={classes.img5} className={classes.category__tool__card}>
+                                <img src={philology} alt="philology"/>
                             </div>
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
-                                <h4>Informatics Science</h4>
+                                <h4>Philological Science</h4>
                                 <a href="">2008, Tome 8</a>
                             </div>
                         </div>
@@ -78,32 +78,32 @@ export default function InfoPage2() {
 
                     <div id={classes.ct_child2} className={classes.category__tools}>
                         <div className={classes.category__tool}>
-                            <div id={classes.img2} className={classes.category__tool__card}>
-                                <img src={info} alt="inforamtics"/>
+                            <div id={classes.img5} className={classes.category__tool__card}>
+                                <img src={philology} alt="philology"/>
                             </div>
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
-                                <h4>Informatics Science</h4>
+                                <h4>Philological Science</h4>
                                 <a href="">2007, Tome 7</a>
                             </div>
                         </div>
                         <div className={classes.category__tool}>
-                            <div id={classes.img2} className={classes.category__tool__card}>
-                                <img src={info} alt="inforamtics"/>
+                            <div id={classes.img5} className={classes.category__tool__card}>
+                                <img src={philology} alt="philology"/>
                             </div>
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
-                                <h4>Informatics Science</h4>
+                                <h4>Philological Science</h4>
                                 <a href="">2006, Tome 6</a>
                             </div>
                         </div>
                     </div>
 
                     <div className={classes.pagination__container}>
-                        <button onClick={() => navigate("/informatics_science")} id={classes.pagination_btn}>
+                        <button onClick={() => navigate("/philological_science")} id={classes.pagination_btn}>
                             1
                         </button>
-                        <button onClick={() => navigate("/informatics_science2")} id={classes.pagination_btn}>
+                        <button onClick={() => navigate("/philological_science2")} id={classes.pagination_btn}>
                             2
                         </button>
                     </div>
