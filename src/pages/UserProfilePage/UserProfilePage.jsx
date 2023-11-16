@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./UserProfilePage.scss";
-import PaymentModal from "./UserPageModals/PaymentModal";
+// import PaymentModal from "./UserPageModals/PaymentModal";
 import SuccessModal from "./UserPageModals/SuccessModal";
 import DataTable from "../../components/Table/Table";
 import BasicDatePicker from "../../components/DatePicker/DatePicker";
@@ -61,11 +61,12 @@ const UserProfilePage = () => {
                   type="text"
                 />
                 <p className="input_p">Category*</p>
-                <input
+                <Category />
+                {/* <input
                   className="text_input"
                   placeholder="Click and start typing"
                   type="text"
-                />
+                /> */}
                 <p className="input_p">
                   Full name of each author of the article*
                 </p>
@@ -180,4 +181,3 @@ const UserProfilePage = () => {
 };
 
 export default UserProfilePage;
-

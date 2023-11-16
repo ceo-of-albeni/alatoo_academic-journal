@@ -60,6 +60,8 @@ const RulesPage4 = () => {
           <span className="blue_text">3000 сом</span>;
         </strong>
       </p>
+      <br />
+      {/* <br /> */}
       <h4 className="blue_text">БАНКОВСКИЕ РЕКВИЗИТЫ:</h4>
       <p>
         <strong>Международный университет «Ала-Тоо»</strong>
