@@ -25,7 +25,7 @@ export default function ArchivePage() {
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
                                 <h4>Biology</h4>
-                                <a href="">Go to</a>
+                                <a onClick={() => navigate("/biology")}>Go to</a>
                             </div>
                         </div>
                         <div className={classes.category__tool}>
@@ -45,7 +45,7 @@ export default function ArchivePage() {
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
                                 <h4>Mathematics Science</h4>
-                                <a href="">Go to</a>
+                                <a onClick={() => navigate("/mathematics_science")}>Go to</a>
                             </div>
                         </div>
                         <div className={classes.category__tool}>
@@ -55,7 +55,7 @@ export default function ArchivePage() {
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
                                 <h4>Medical Science</h4>
-                                <a href="">Go to</a>
+                                <a onClick={() => navigate("/medical_science")}>Go to</a>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ export default function ArchivePage() {
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
                                 <h4>Philological Science</h4>
-                                <a href="">Go to</a>
+                                <a onClick={() => navigate("/philological_science")}>Go to</a>
                             </div>
                         </div>
                         <div className={classes.category__tool}>
@@ -78,7 +78,7 @@ export default function ArchivePage() {
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
                                 <h4>Pedagogical Science</h4>
-                                <a href="">Go to</a>
+                                <a onClick={() => navigate("/pedagogical_science")}>Go to</a>
                             </div>
                         </div>
                         <div className={classes.category__tool}>
@@ -88,7 +88,7 @@ export default function ArchivePage() {
                             <div className={classes.category__tool__text}>
                                 <p>CATEGORY</p>
                                 <h4>Social and Humanitrain Science</h4>
-                                <a href="">Go to</a>
+                                <a onClick={() => navigate("/social_humanitrain_science")}>Go to</a>
                             </div>
                         </div>
                     </div>

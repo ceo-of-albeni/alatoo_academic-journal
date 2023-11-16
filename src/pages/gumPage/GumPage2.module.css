@@ -52,7 +52,6 @@
     padding: 5px 203px 5px 24px;
     margin: 42px 0px 50px;
 }
-
 /******************Search********************/
 
 .search {
@@ -113,6 +112,10 @@
     margin: 15px 0px;
 }
 
+#ct_child2 {
+    width: 570px;
+}
+
 .category__tool {
     position: relative;
     width: 276px;
@@ -135,8 +138,8 @@
     border-radius: 12px 12px 0px 0px;
 }
 
-#img2 {
-    padding: 4px 17px 0px;
+#img7 {
+    padding: 4px 18px 0px;
 }
 
 .category__tool__text {
