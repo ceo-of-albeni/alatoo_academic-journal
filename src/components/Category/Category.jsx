@@ -13,10 +13,16 @@ export default function Category() {
   };
 
   return (
-    <div style={{ height: "40px" }}>
-      <FormControl sx={{ m: 1, minWidth: 120, height: "40px" }}>
+    <div style={{ height: "49px" }}>
+      <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
         <Select
-          style={{ height: "40px" }}
+          className="text_input max_mb"
+          style={{
+            height: "49px",
+            marginBottom: "120px",
+            // display: "flex",
+            // alignItems: "center",
+          }}
           value={category}
           onChange={handleChange}
           displayEmpty

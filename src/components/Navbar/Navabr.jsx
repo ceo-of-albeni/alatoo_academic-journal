@@ -4,7 +4,6 @@ import classes from "./login.module.scss";
 import arrow from "../Navbar/modals/img/arrow.svg";
 import { Register } from "./modals/register/Register";
 import { Success } from "./modals/success/Success";
-// import { Login } from "../modals/login/Login";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../contexts/authContext";
 import Loader from "../Loader/Loader";
@@ -76,11 +75,12 @@ const Navabr = () => {
               alt=""
             />
           </a>
+          <p className="logo_p">Ala-Too Academic Journal</p>
         </div>
 
         <div className="header_links">
           <a href="/rules1" className="header_links__item">
-            Rules for authors
+            Rules
           </a>
           <a href="/archive" className="header_links__item">
             Archive
@@ -114,7 +114,7 @@ const Navabr = () => {
             <img src={arrow} alt="back" onClick={() => setOpenLogin(false)} />
             <form action="">
               <div>LOGIN</div>
-              <label for="email">Email</label>
+              <label>Email</label>
               <input
                 type="text"
                 placeholder="Enter your email"
@@ -122,7 +122,7 @@ const Navabr = () => {
                 onChange={e => setEmail(e.target.value)}
                 name="email"
               />
-              <label for="password">Password</label>
+              <label>Password</label>
               <input
                 type="text"
                 placeholder="Enter your password"

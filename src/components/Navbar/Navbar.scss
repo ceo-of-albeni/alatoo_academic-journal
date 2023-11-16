@@ -22,14 +22,15 @@
 }
 
 .header_links {
-  border: 1px solid black;
+  // border: 1px solid black;
   padding: 15px;
+  margin-left: 120px;
   border-radius: 30px;
   .header_links__item {
     color: gray;
     text-decoration: none;
     margin: 0 30px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: light;
   }
   .header_links__item:hover {
@@ -49,4 +50,14 @@
 .login_btn:hover {
   background: #f6f9fe;
   cursor: pointer;
+}
+
+.logo_p {
+  color: #000;
+  font-family: SF Pro Display;
+  font-size: 15px;
+  width: 100px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
