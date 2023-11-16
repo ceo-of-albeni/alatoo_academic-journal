@@ -1,0 +1,50 @@
+.header_navbar {
+  padding: 25px 0;
+}
+
+.container_header {
+  padding: 0px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header_logo {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+.header_logo img {
+  width: 76px;
+  margin-right: 10px;
+}
+
+.header_links {
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 30px;
+}
+.header_links .header_links__item {
+  color: gray;
+  text-decoration: none;
+  margin: 0 30px;
+  font-size: 18px;
+  font-weight: light;
+}
+.header_links .header_links__item:hover {
+  color: rgb(57, 17, 106);
+  cursor: pointer;
+}
+
+.login_btn {
+  font-size: 16px;
+  padding: 10px 25px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px, rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  border-radius: 24px;
+}
+
+.login_btn:hover {
+  background: #f6f9fe;
+  cursor: pointer;
+}/*# sourceMappingURL=Navbar.css.map */

@@ -82,7 +82,7 @@ const Navabr = () => {
           <a href="/rules1" className="header_links__item">
             Rules for authors
           </a>
-          <a href="/" className="header_links__item">
+          <a href="/archive" className="header_links__item">
             Archive
           </a>
           <a href="/" className="header_links__item">
