@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Metrophobic';
+    src: url('Metrophobic-Regular.eot');
+    src: url('Metrophobic-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Metrophobic-Regular.woff2') format('woff2'),
+        url('Metrophobic-Regular.woff') format('woff'),
+        url('Metrophobic-Regular.ttf') format('truetype'),
+        url('Metrophobic-Regular.svg#Metrophobic-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
