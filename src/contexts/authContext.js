@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 export const authContext = React.createContext();
 
-const API = "http://52.91.159.64:3000/api";
+// const API = "http://52.91.159.64:3000/api";
+// const API = "http://localhost:3000/api";
+const API = "http://localhost:3000/api";
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
@@ -13,10 +15,11 @@ const AuthContextProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  async function handleRegister(formData, navigate) {
+  async function handleRegister(newObj) {
     setLoading(true);
+    console.log(newObj);
     try {
-      const res = await axios.post(`${API}/auth/register`, formData);
+      const res = await axios.post(`${API}/auth/register`, newObj);
       console.log(res);
       navigate("/profile");
     } catch (err) {
@@ -27,7 +30,7 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
-  async function handleLogin(formData, email, navigate) {
+  async function handleLogin(formData, email) {
     setLoading(true);
     try {
       const res = await axios.post(`${API}/auth/login`, formData);
@@ -43,23 +46,6 @@ const AuthContextProvider = ({ children }) => {
       setLoading(false);
     }
   }
-
-  // async function handleLogin(email, password, navigate) {
-  //   fetch(`${API}/auth/login`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       data.map(item => {
-  //         console.log(item);
-  //         if (item.email == email && item.password == password) {
-  //           localStorage.setItem("email", email);
-  //           localStorage.setItem("password", password);
-  //           navigate("/");
-  //         } else {
-  //           alert("invalid username or password");
-  //         }
-  //       });
-  //     });
-  // }
 
   async function handleUser(newProduct, navigate) {
     try {

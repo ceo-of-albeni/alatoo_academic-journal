@@ -131,6 +131,7 @@
   .text_input {
     display: flex;
     width: 400px;
+    // height: fit-content;
     padding: 16px 20px;
     // align-items: flex-start;
     gap: 10px;
@@ -184,22 +185,26 @@ label input {
   text-align: center;
 }
 
+// .input_p-text {
+//   height: fit-content;
+// }
+
 #field-wrapper {
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 input[type="file"] {
-  display: none;
+  display: inline;
 }
 .custom-file-upload {
   border: 1px solid #ccc;
   display: flex;
-  align-items: center;
+  // align-items: center;
   width: 400px;
   height: 50px;
   padding: 16px 20px;
-  align-items: flex-start;
+  // align-items: flex-start;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 8px;

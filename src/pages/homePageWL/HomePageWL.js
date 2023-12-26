@@ -31,7 +31,7 @@ export default function HomePageWL() {
           <div className={classes.title__area__img}>
             <div className={classes.circle}></div>
             <div className={classes.circle2}></div>
-            <img src={ruslanagay} alt="circle"></img>
+            <img src={circle} alt="circle"></img>
           </div>
         </div>
       </div>

@@ -18,7 +18,8 @@ const Navabr = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { handleLogin, setError, loading } = useContext(authContext);
+  const { handleLogin, setError, loading, currentUser } =
+    useContext(authContext);
 
   function loginUser() {
     if (!email.trim() || !password.trim()) {
@@ -30,7 +31,7 @@ const Navabr = () => {
       email: email,
       password: password,
     };
-    handleLogin(newObj, email, navigate);
+    handleLogin(newObj, email);
     console.log(newObj);
     closeOpenSuccess();
 
@@ -92,11 +93,19 @@ const Navabr = () => {
             Contacts
           </a>
 
-          <a
-            onClick={() => navigate("/profile")}
-            className="header_links__item">
-            Профиль
-          </a>
+          {currentUser.isActive ? (
+            <a
+              onClick={() => navigate("/profile")}
+              className="header_links__item">
+              Profile
+            </a>
+          ) : (
+            <a
+              onClick={() => navigate("/profile")}
+              className="header_links__item">
+              NO
+            </a>
+          )}
         </div>
 
         <div

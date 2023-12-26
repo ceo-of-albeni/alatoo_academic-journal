@@ -9,7 +9,7 @@
   background: rgba(0, 0, 0, 0.5);
   overflow: hidden;
   -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 .modal form {
   display: flex;
@@ -131,4 +131,4 @@
 .model__fpassword a:hover {
   color: black;
   text-decoration: underline;
-}/*# sourceMappingURL=modals.module.css.map */
+} /*# sourceMappingURL=modals.module.css.map */

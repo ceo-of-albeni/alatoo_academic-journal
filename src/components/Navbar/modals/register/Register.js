@@ -38,7 +38,8 @@ export function Register({ closeModal }) {
       email: email,
       password: password,
     };
-    handleRegister(newObj, navigate);
+    console.log(newObj);
+    handleRegister(newObj);
   }
   useEffect(() => {
     setError(false);
