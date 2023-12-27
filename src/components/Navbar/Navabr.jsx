@@ -1,19 +1,17 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./Navbar.scss";
-import classes from "./login.module.scss";
-import arrow from "../Navbar/modals/img/arrow.svg";
-import { Register } from "./modals/register/Register";
-import { Success } from "./modals/success/Success";
+// import classes from "./login.module.scss";
+// import arrow from "../Navbar/modals/img/arrow.svg";
+// import { Register } from "./modals/register/Register";
+// import { Success } from "./modals/success/Success";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../contexts/authContext";
-import Loader from "../Loader/Loader";
+// import Loader from "../Loader/Loader";
+import { Login } from "./modals/login/Login";
 
-const Navabr = () => {
-  const [openLogin, setOpenLogin] = useState(false);
-  const [openRegister, setOpenRegister] = useState(false);
-  const [openSuccess, setOpenSuccess] = useState(false);
+const Navabr = ({closeModal}) => {
 
-  const navigate = useNavigate();
+  // const [isLoginModalOpen, setLoginModalOpen] = useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,27 +41,10 @@ const Navabr = () => {
     setError(false);
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+  const navigate = useNavigate();
 
-  if (openLogin || openRegister || openSuccess) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-  }
-
-  const handleLoginClick = e => {
-    e.stopPropagation();
-  };
-
-  const handleOutsideClick = () => {
-    setOpenLogin(false);
-  };
-
-  const closeOpenSuccess = () => {
-    setOpenLogin(false);
-    setOpenSuccess(true);
+  const openLoginModal = () => {
+    setLoginModalOpen(true);
   };
 
   return (
@@ -110,52 +91,14 @@ const Navabr = () => {
 
         <div
           className="login_btn"
-          onClick={() => {
-            setOpenLogin(true);
-          }}>
+          onClick={
+            openLoginModal
+          }>
           <div>Войти</div>
           {/* {isAuth ? <button>Выход</button> : <button>Войти</button>} */}
         </div>
       </div>
-      {openLogin && (
-        <div className={classes.login} onClick={handleOutsideClick}>
-          <div className={classes.login__inner} onClick={handleLoginClick}>
-            <img src={arrow} alt="back" onClick={() => setOpenLogin(false)} />
-            <form action="">
-              <div>LOGIN</div>
-              <label>Email</label>
-              <input
-                type="text"
-                placeholder="Enter your email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                name="email"
-              />
-              <label>Password</label>
-              <input
-                type="text"
-                placeholder="Enter your password"
-                name="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-              />
-              <button onClick={loginUser}>Sign in</button>
-              <div
-                className={classes.login__signup}
-                onClick={() => setOpenRegister(true)}>
-                <a href="javascript:void(0);" className={classes.sign}>
-                  Sign up
-                </a>
-              </div>
-              <div className={classes.login__fpassword}>
-                <a href="">Forgot password?</a>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-      {openRegister && <Register closeModal={setOpenRegister} />}
-      {openSuccess && <Success closeModal={setOpenSuccess} />}
+      {isLoginModalOpen && <Login closeModal={() => setLoginModalOpen(false)} />}
     </div>
   );
 };

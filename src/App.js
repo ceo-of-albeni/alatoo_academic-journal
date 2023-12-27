@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar/Navabr";
 import Footer from "./components/Footer/Footer";
 import AuthContextProvider from "./contexts/authContext";
 import ArticleContextsProvider from "./contexts/articleContext";
-import ArchivePage from "./pages/archivePage/ArchivePage";
 
 const App = () => {
   return (

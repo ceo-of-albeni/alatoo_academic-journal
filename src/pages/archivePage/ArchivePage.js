@@ -1,99 +1,159 @@
-import React from "react"
-import classes from "./ArchivePage.module.css";
-import biology from "./img/biology.svg";
-import info from "./img/info.svg";
-import math from "./img/math.svg";
-import med from "./img/med.svg";
-import philology from "./img/philology.svg";
-import pedagog from "./img/pedagog.svg";
-import gum from "./img/gum.svg";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import classes from './ArchivePage.module.css';
+import search from "./img/search.svg";
+import arrow from "./img/arrow.svg";
+import BasicDatePicker from "../../components/DatePicker/DatePicker";
+import { useNavigate } from 'react-router-dom';
+
+
 
 export default function ArchivePage() {
 
     const navigate = useNavigate();
 
+    const [openSubs, setOpenSubs] = useState(false);
+
+    const toggleOpenSub = () => {
+        setOpenSubs(!openSubs)
+    };
+
     return (
         <div className={classes.container}>
             <div className={classes.archive}>
                 <div className={classes.archive__inner}>
-                    <div className={classes.category__tools}>
-                        <div className={classes.category__tool}>
-                            <div id={classes.img1} className={classes.category__tool__card}>
-                                <img src={biology} alt="biology"/>
+                    <div className={classes.archive__inner__1}>
+                        <div className={classes.back}>
+                            <img src={arrow} alt="arrow"/>
+                            <a onClick={() => navigate("/")}>Back</a>
+                        </div>
+                        <div className={classes.search}>
+                            <div className={classes.filtration}>
+                                <BasicDatePicker />
                             </div>
-                            <div className={classes.category__tool__text}>
-                                <p>CATEGORY</p>
-                                <h4>Biology</h4>
-                                <a href="">Go to</a>
+                            <form action="" className={classes.search__bar}>
+                                <input type="text" placeholder="Search..." name="search"/>
+                                <button><img src={search} alt="search"/></button>
+                            </form>
+                        </div>
+                        <div className={classes.table}>
+                            <table>
+                                <tr>
+                                    <th>№</th>
+                                    <th>Category</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a onClick={() => navigate("/category")}>Pedagogical science</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><a onClick={() => navigate("/category")}>Philological science</a></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><a onClick={() => navigate("/category")}>Social and humanitrian science</a></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><a onClick={() => navigate("/category")}>Informatics</a></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><a onClick={() => navigate("/category")}>Mathematics</a></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td><a onClick={() => navigate("/category")}>Biology</a></td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td><a onClick={() => navigate("/category")}>Medical science</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div className={classes.ethics}>
+                            <div className={classes.ethics__inner}>
+                                <div className={classes.ethic1}>
+                                    <a>Publication Ethics and Publication Malpractice</a>
+                                </div>
+                                <div className={classes.ethic2}>
+                                    <a>Этика публикации журнала</a>
+                                </div>
                             </div>
                         </div>
-                        <div className={classes.category__tool}>
-                            <div id={classes.img2} className={classes.category__tool__card}>
-                                <img src={info} alt="inforamtics"/>
+                        <div className={`${openSubs ? '' : classes.sub__menu__end}`}>
+                            <div className={`${classes.council} ${openSubs ? classes.rotate : classes.rotate__end}` } onClick={toggleOpenSub}>
+                                <p>Члены Совета</p>
+                                <i class='bx bx-chevron-right'></i>
                             </div>
-                            <div className={classes.category__tool__text}>
-                                <p>CATEGORY</p>
-                                <h4>Informatics Science</h4>
-                                <a onClick={() => navigate("/informatics_science")}>Go to</a>
-                            </div>
-                        </div>
-                        <div className={classes.category__tool}>
-                            <div id={classes.img3} className={classes.category__tool__card}>
-                                <img src={math} alt="math"/>
-                            </div>
-                            <div className={classes.category__tool__text}>
-                                <p>CATEGORY</p>
-                                <h4>Mathematics Science</h4>
-                                <a href="">Go to</a>
-                            </div>
-                        </div>
-                        <div className={classes.category__tool}>
-                            <div id={classes.img4} className={classes.category__tool__card}>
-                                <img src={med} alt="medicine"/>
-                            </div>
-                            <div className={classes.category__tool__text}>
-                                <p>CATEGORY</p>
-                                <h4>Medical Science</h4>
-                                <a href="">Go to</a>
+                            <div className={openSubs ? classes.sub__menu : classes.sub__menu__hide}>
+                                <div className={classes.members}>
+                                    <p>1. Эдилова Мариям Миталиповна, д. филос. наук, профессор МУА (философия);</p>
+                                    <p>2. Тогусаков Осмон Асанкулович, д. филос. наук, профессор, член-корреспондент НАН КР (философия);</p>
+                                    <p>3. Дыйканбаева Гульнура Каныбековна, канд. филос. наук, доцент МУА (философия);</p>
+                                    <p>4. Гусейнова Мавлюда Джабировна, канд. куль. наук, доцент МУА (культурология);</p>
+                                    <p>5. Кенан Гумуштекин, PhD, доцент МУА (медицина);</p>
+                                    <p>6. Кыдыралиева Рыскуль Бекбоевна, д. мед. наук, профессор, МУА (медицина);</p>
+                                    <p>7. Мусуралиева Гульнара Турсунбековна, канд. мед. наук, доцент, МУА (микробиология);</p>
+                                    <p>8. Малтабаров Бакытбек Амирович, канд. социол. наук, доцент БГУ им. К. Карасаева (социология);</p>
+                                    <p>9. Халил Коч, канд. экон. наук, доцент МУА (экономика);</p>
+                                    <p>10. Эсеналиева Назира Солтонбекона, канд. экон. наук, доцент МУА (экономика);</p>
+                                    <p>11. Акмолдоев Кыялбек Маматалиевич, PhD, доцент МУА (экономика);</p>
+                                    <p>12. Жоробеков Жолборс Жоробекович, д. полит. наук, профессор КНУ им. Ж. Баласагына (политология);</p>
+                                    <p>13. Халим Незихоглу, канд. полит. наук, доцент МУА (политология);</p>
+                                    <p>14. Ибрахим Конжак, канд. полит. наук, доцент МУА (политология);</p>
+                                    <p>15. Усубалиев Бейшенбай Шеңкеевич, д. филол. наук, профессор Восточного Университета им. М. Кашгари-Барскани (кыргызское языкознание);</p>
+                                    <p>16. Жузупекова Кундуз Нуркалыковна, канд. филол. наук, доцент МУА (филология);</p>
+                                    <p>17. Садыков Ташполот Садыкович д. филол. наук, профессор МУА (тюркология);</p>
+                                    <p>18. Казакова Нурзат Аскаровна, канд. филол. наук, доцент МУА (филология);</p>
+                                    <p>19. Жаманбаев Мурат Адырович д.физ.-мат. наук, профессор КТУ им. И. Раззакова (математика);</p>
+                                    <p>20. Иса Муслу, PhD, доцент МУА (математика);</p>
+                                    <p>21. Исаев Руслан Рамилевич, к. физ.-мат. наук., доцент МУА (информатика);</p>
+                                    <p>22. Жакшылыков Жылдызбек Жакшылыкович, канд. пед. наук, доцент МУА (педагогика);</p>
+                                    <p>23. Жолчиева Айнуру Алибековна, канд. пед. наук, доцент МУА (педагогика);</p>
+                                    <p>24. Исмаилов Нурлан Асанович, канд. юрид. наук, доцент МУА (юриспруденция);</p>
+                                    <p>25. Тегизбекова Жылдыз Чынарбековна, канд. юрид. наук, доцент МУА (юриспруденция).</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div className={classes.category__tools}>
-                        <div className={classes.category__tool}>
-                            <div id={classes.img5} className={classes.category__tool__card}>
-                                <img src={philology} alt="philology"/>
-                            </div>
-                            <div className={classes.category__tool__text}>
-                                <p>CATEGORY</p>
-                                <h4>Philological Science</h4>
-                                <a href="">Go to</a>
-                            </div>
+                    <div className={classes.archive__inner__2}>
+                        <div className={classes.slider}>
+                            {/* SLIDER ALIIA */}
                         </div>
-                        <div className={classes.category__tool}>
-                            <div id={classes.img6} className={classes.category__tool__card}>
-                                <img src={pedagog} alt="pedagogocal"/>
+                        <div className={classes.text}>
+                            <h3>Ежеквартальный научный журнал</h3>
+                            <div className={classes.text1}>
+                                <p>Учредитель:</p>
+                                <p>Международный университет Ала-Тоо</p>
                             </div>
-                            <div className={classes.category__tool__text}>
-                                <p>CATEGORY</p>
-                                <h4>Pedagogical Science</h4>
-                                <a href="">Go to</a>
+                            <div className={classes.text2}>
+                                <p><b>Журнал</b> «Alatoo Academic Studies» включен в Перечень 
+                                    рекомендованных Высшей аттестационной комиссией Кыргызской 
+                                    Республики (ВАК КР) рецензируемых периодических изданий 
+                                    (Приказ № 2 от 12 февраля 2008 г.)</p>
                             </div>
-                        </div>
-                        <div className={classes.category__tool}>
-                            <div id={classes.img7} className={classes.category__tool__card}>
-                                <img src={gum} alt="humanitarian"/>
+                            <div className={classes.text3}>
+                                <p>ISSN: 1694-5263 <span>(печатная версия)</span></p>
+                                <p>ISSN: 1694-7916 <span>(электронная версия)</span></p>
                             </div>
-                            <div className={classes.category__tool__text}>
-                                <p>CATEGORY</p>
-                                <h4>Social and Humanitrain Science</h4>
-                                <a href="">Go to</a>
+                            <div className={classes.text4}>
+                                <p><b>Адрес редакции:</b></p>
+                                <p>720048, Кыргызская Республика, г. Бишкек, мкр. Тунгуч, ул. Анкара, 1/8</p>
+                                <p><b>тел.: </b>+996 (312) 63 14 25</p>
+                                <p><b>факс: </b>+996(312) 630409</p>
+                                <p><b>Е-mail: </b>aas@iaau.edu.kg</p>
+                            </div>
+                            <div className={classes.text5}>
+                                <p><b>РЕДАКЦИОННЫЙ СОВЕТ ЖУРНАЛА</b></p>
+                                <p><b>Санжарбек Эрдолатов – </b>главный редактор, ректор Международного университета «Ала-Тоо», канд.пед.наук;</p>
+                                <p><b>Салидин Калдыбаев – </b>зам. гл. редактора, д-р пед.наук, профессор МУА (педагогика);</p>
+                                <p><b>Зеки Пекташ – </b>aas@iaau.edu.kg</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
