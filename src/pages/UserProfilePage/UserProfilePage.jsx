@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./UserProfilePage.scss";
-// import PaymentModal from "./UserPageModals/PaymentModal";
 import SuccessModal from "./UserPageModals/SuccessModal";
 import DataTable from "../../components/Table/Table";
 import BasicDatePicker from "../../components/DatePicker/DatePicker";
@@ -8,8 +7,73 @@ import BasicTextFields from "../../components/Search/Search";
 import MultipleSelectPlaceholder from "../../components/StatusDrop/Status";
 import Category from "../../components/Category/Category";
 import PaginationControlled from "../../components/Pagination/PaginationTable";
+import { articlesContext } from "../../contexts/articleContext";
+import { useNavigate } from "react-router-dom";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const UserProfilePage = () => {
+  const { createArticle, categories } = useContext(articlesContext);
+
+  const navigate = useNavigate();
+
+  function clearAll() {
+    setTitle("");
+    setCategory("");
+    setCoauthors("");
+    // setEmail("");
+    setText("");
+    setFile(null);
+  }
+
+  function clearAllCard() {
+    setCardNum("");
+  }
+
+  const handleChange = event => {
+    setCategory(event.target.value);
+  };
+
+  const [cardNum, setCardNum] = useState("");
+
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [coauthors, setCoauthors] = useState("");
+  const [file, setFile] = useState(null);
+  const [text, setText] = useState("");
+  // const [email, setEmail] = useState("");
+
+  function saveArticle() {
+    if (!title || !coauthors || !text || !file || !category) {
+      alert("Some inputs are empty!");
+      return;
+    }
+
+    let newArticle = {
+      title,
+      category,
+      coauthors,
+      // email,
+      text,
+      file,
+    };
+
+    createArticle(newArticle);
+
+    setTitle("");
+    setCategory("");
+    setCoauthors("");
+    // setEmail("");
+    setText("");
+    setFile(null);
+
+    console.log(file);
+    console.log(category);
+
+    // navigate("/archive");
+  }
+
   const [openArticle, setOpenArticle] = useState(true);
   const [openPayment, setOpenPayment] = useState(false);
   const [openSuccess, setOpenSuccess] = useState(false);
@@ -22,6 +86,7 @@ const UserProfilePage = () => {
   const closeOpenSuccess = () => {
     setOpenPayment(false);
     setOpenSuccess(true);
+    saveArticle();
   };
 
   return (
@@ -59,14 +124,35 @@ const UserProfilePage = () => {
                   className="text_input"
                   placeholder="Click and start typing"
                   type="text"
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
                 />
                 <p className="input_p">Category*</p>
-                <Category />
-                {/* <input
-                  className="text_input"
-                  placeholder="Click and start typing"
-                  type="text"
-                /> */}
+                <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
+                  <Select
+                    className="text_input max_mb"
+                    style={{
+                      height: "49px",
+                      marginBottom: "120px",
+                      // display: "flex",
+                      // alignItems: "center",
+                    }}
+                    value={category}
+                    onChange={handleChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}>
+                    <MenuItem value="">
+                      <p style={{ color: "lightgrey" }}>Category</p>
+                    </MenuItem>
+                    {categories.map(item => (
+                      <MenuItem value={item}>{item}</MenuItem>
+                    ))}
+                    {/* <MenuItem value={"Philosophy"}>Philosophy</MenuItem>
+                    <MenuItem value={"Mathematics"}>Mathematics</MenuItem>
+                    <MenuItem value={"Languages"}>Languages</MenuItem>
+                    <MenuItem value={"History"}>History</MenuItem> */}
+                  </Select>
+                </FormControl>
                 <p className="input_p">
                   Full name of each author of the article*
                 </p>
@@ -74,21 +160,24 @@ const UserProfilePage = () => {
                   className="text_input"
                   placeholder="Click and start typing"
                   type="text"
+                  value={coauthors}
+                  onChange={e => setCoauthors(e.target.value)}
                 />
-                <p className="input_p">Email of each author of the article*</p>
+                {/* <p className="input_p">Email of each author of the article*</p>
                 <input
                   className="text_input"
                   placeholder="Click and start typing"
                   type="text"
-                />
-                <input
-                  className="text_input"
-                  placeholder="Click and start typing"
-                  type="text"
-                />
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                /> */}
                 <p className="input_p">Article file*</p>
                 <label className="custom-file-upload">
-                  <input type="file" />
+                  <input
+                    type="file"
+                    accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    onChange={e => setFile(e.target.files[0])}
+                  />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height="1em"
@@ -97,17 +186,22 @@ const UserProfilePage = () => {
                   </svg>
                 </label>
 
-                <p className="input_p">Phone*</p>
+                <p className="input_p input_p-text">Text*</p>
                 <input
                   className="text_input"
                   placeholder="Click and start typing"
                   type="text"
+                  value={text}
+                  onChange={e => setText(e.target.value)}
                 />
               </div>
 
               <br />
               <button onClick={closeOpenPayment}>Next</button>
-              <p id="clear_all">Clear all</p>
+              {/* onClick={closeOpenPayment}  */}
+              <p id="clear_all" onClick={clearAll}>
+                Clear all
+              </p>
               <div>
                 <input type="checkbox" /> By submitting this form, you agree to
                 Privacy Policy
@@ -118,7 +212,7 @@ const UserProfilePage = () => {
         {openPayment && (
           <div className="article_form">
             <h4>Payment</h4>
-            <h5>Hero Trio Annual plan: $150 charged every 12 months</h5>
+            {/* <h5>Hero Trio Annual plan: $150 charged every 12 months</h5> */}
             <div className="article_form-inputs">
               <div className="short_inp">
                 {/* <p className="input_p">First name*</p>
@@ -151,13 +245,17 @@ const UserProfilePage = () => {
                 <input
                   // className="text_input"
                   id="card_input"
-                  placeholder="Card number  MM    YYYY   CVV"
+                  placeholder="Card number         MM    YYYY   CVV"
                   type="text"
+                  value={cardNum}
+                  onChange={e => setCardNum(e.target.value)}
                 />
               </div>
               <br />
               <button onClick={closeOpenSuccess}>Get instant access now</button>
-              <p id="clear_all">Clear all</p>
+              <p id="clear_all" onClick={clearAllCard}>
+                Clear all
+              </p>
               <div>
                 <input type="checkbox" /> By submitting this form, you agree to
                 Privacy Policy

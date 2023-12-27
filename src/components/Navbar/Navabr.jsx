@@ -5,13 +5,41 @@ import "./Navbar.scss";
 // import { Register } from "./modals/register/Register";
 // import { Success } from "./modals/success/Success";
 import { useNavigate } from "react-router-dom";
-// import { authContext } from "../../contexts/authContext";
+import { authContext } from "../../contexts/authContext";
 // import Loader from "../Loader/Loader";
 import { Login } from "./modals/login/Login";
 
 const Navabr = ({closeModal}) => {
 
-  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  // const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { handleLogin, setError, loading, currentUser } =
+    useContext(authContext);
+
+  function loginUser() {
+    if (!email.trim() || !password.trim()) {
+      alert("Some inputs are empty!");
+      return;
+    }
+
+    let newObj = {
+      email: email,
+      password: password,
+    };
+    handleLogin(newObj, email);
+    console.log(newObj);
+    closeOpenSuccess();
+
+    setEmail("");
+    setPassword("");
+  }
+
+  useEffect(() => {
+    setError(false);
+  }, []);
 
   const navigate = useNavigate();
 
@@ -46,11 +74,19 @@ const Navabr = ({closeModal}) => {
             Contacts
           </a>
 
-          <a
-            onClick={() => navigate("/profile")}
-            className="header_links__item">
-            Профиль
-          </a>
+          {currentUser.isActive ? (
+            <a
+              onClick={() => navigate("/profile")}
+              className="header_links__item">
+              Profile
+            </a>
+          ) : (
+            <a
+              onClick={() => navigate("/profile")}
+              className="header_links__item">
+              NO
+            </a>
+          )}
         </div>
 
         <div

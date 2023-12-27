@@ -1,12 +1,14 @@
 import React, { useReducer } from "react";
 import axios from "axios";
-import { JSON_API_ARTICLES } from "../helpers/consts.js";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const articlesContext = React.createContext();
 
 const INIT_STATE = {
   articles: [],
   oneArticle: [],
+  categories: [],
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -15,6 +17,8 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, articles: action.payload };
     case "GET_ONE_ARTICLE":
       return { ...state, oneArticle: action.payload };
+    case "GET_CATEGORIES":
+      return { ...state, categories: action.payload };
     default:
       return state;
   }
@@ -23,135 +27,127 @@ function reducer(state = INIT_STATE, action) {
 const ArticleContextsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  const API = "http://localhost:8000/articles";
-  // const location = useLocation();
-  // const navigate = useNavigate();
+  // const API = "http://54.82.234.216:3000/api";
+  const API = "http://localhost:3000/api";
 
-  async function createArticle(newArticle) {
-    await axios.post(JSON_API_ARTICLES, newArticle);
-    getArticles();
+  // const location = useLocation();
+  const navigate = useNavigate();
+
+  async function getCategories() {
+    try {
+      // const tokens = JSON.parse(localStorage.getItem("tokens"));
+      // const Authorization = `Bearer ${tokens.access}`;
+      // const config = {
+      //   headers: {
+      //     Authorization,
+      //   },
+      // };
+      const res = await axios(`${API}/category/list`);
+      dispatch({
+        type: "GET_CATEGORIES",
+        payload: res.data,
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  const getArticles = async () => {
-    const res = await axios(API);
-    dispatch({
-      type: "GET_ARTICLES",
-      payload: res.data,
-    });
-  };
+  async function createArticle(newArticle) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API}/article/create`, newArticle, config);
+      console.log(res);
+      navigate("/archive");
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-  async function deleteArticle(id) {
-    await axios.delete(`${JSON_API_ARTICLES}/${id}`);
-    getArticles();
+  async function getArticles() {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(
+        `${API}/article/all/${window.location.search}`,
+        config
+      );
+      dispatch({
+        type: "GET_ARTICLES",
+        payload: res.data,
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async function getOneArticle(id) {
-    const { data } = await axios(`${JSON_API_ARTICLES}/${id}`);
-    dispatch({
-      type: "GET_ONE_ARTICLE",
-      payload: data,
-    });
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(`${API}/article/${id}/`, config);
+      dispatch({
+        type: "GET_ONE_ARTICLE",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  // async function createArticle(newArticle, navigate) {
-  //   for (const val of newArticle) {
-  //     console.log(val);
-  //   }
-  //   // console.log(newArticle)
-  //   try {
-  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
-  //     const Authorization = `Bearer ${tokens.access}`;
-  //     const config = {
-  //       headers: {
-  //         Authorization,
-  //       },
-  //     };
-  //     const res = await axios.post(`${API2}article/`, newArticle, config);
-  //     console.log(res);
-  //     navigate("/articles");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  async function updateArticle(slug, editedArticle) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.put(
+        `${API}article/${slug}`,
+        editedArticle,
+        config
+      );
+      navigate("/articles");
+      getArticles();
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-  // async function getArticles() {
-  //   try {
-  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
-  //     const Authorization = `Bearer ${tokens.access}`;
-  //     const config = {
-  //       headers: {
-  //         Authorization,
-  //       },
-  //     };
-  //     const res = await axios(
-  //       `${API2}article/${window.location.search}`,
-  //       config
-  //     );
-  //     dispatch({
-  //       type: "GET_ARTICLES",
-  //       payload: res.data,
-  //     });
-  //     console.log(res.data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
-  // async function getOneArticle(slug) {
-  //   try {
-  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
-  //     const Authorization = `Bearer ${tokens.access}`;
-  //     const config = {
-  //       headers: {
-  //         Authorization,
-  //       },
-  //     };
-  //     const res = await axios(`${API2}article/${slug}/`, config);
-  //     dispatch({
-  //       type: "GET_ONE_ARTICLE",
-  //       payload: res.data,
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
-  // async function UpdateArticle(slug, editedArticle, navigate) {
-  //   try {
-  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
-  //     const Authorization = `Bearer ${tokens.access}`;
-  //     const config = {
-  //       headers: {
-  //         Authorization,
-  //       },
-  //     };
-  //     const res = await axios.put(
-  //       `${API2}article/${slug}`,
-  //       editedArticle,
-  //       config
-  //     );
-  //     navigate("/articles");
-  //     getArticles();
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
-  // async function deleteArticle(slug) {
-  //   try {
-  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
-  //     const Authorization = `Bearer ${tokens.access}`;
-  //     const config = {
-  //       headers: {
-  //         Authorization,
-  //       },
-  //     };
-  //     const res = await axios.delete(`${API2}article/${slug}/`, config);
-  //     getArticles();
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  async function deleteArticle(slug) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.delete(`${API}/article/${slug}/`, config);
+      getArticles();
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <articlesContext.Provider
@@ -159,9 +155,10 @@ const ArticleContextsProvider = ({ children }) => {
         articles: state.articles,
         // pages: state.pages,
         oneArticle: state.oneArticle,
+        categories: state.categories,
         deleteArticle,
 
-        // UpdateArticle,
+        updateArticle,
         getOneArticle,
         createArticle,
         getArticles,

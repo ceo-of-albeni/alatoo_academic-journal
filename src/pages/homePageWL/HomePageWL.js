@@ -6,6 +6,7 @@ import article from "./img/article.png";
 import horizontal from "./img/horizontal.png";
 import horizontal2 from "./img/horizontal2.png";
 import horizontal3 from "./img/horizontal3.png";
+import ruslanagay from "./img/ruslanagay.jpg";
 
 export default function HomePageWL() {
   return (
