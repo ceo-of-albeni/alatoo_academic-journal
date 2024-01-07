@@ -11,7 +11,6 @@ import { ForgotPassword } from "../forgotPassword/ForgotPassword";
 export function Login({ closeModal }) {
   const [openLogin, setOpenLogin] = useState(true);
   const [openRegister, setOpenRegister] = useState(false);
-  const [openSuccess, setOpenSuccess] = useState(false);
   const [openForgot, setOpenForgot] = useState(false);
 
   const navigate = useNavigate();
@@ -33,7 +32,6 @@ export function Login({ closeModal }) {
     };
     handleLogin(newObj, email, navigate);
     console.log(newObj);
-    closeOpenSuccess();
 
     setEmail("");
     setPassword("");
@@ -47,7 +45,7 @@ export function Login({ closeModal }) {
     return <Loader />;
   }
 
-  if (openLogin || openRegister || openSuccess || openForgot) {
+  if (openLogin || openRegister || openForgot) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "auto";
@@ -64,11 +62,6 @@ export function Login({ closeModal }) {
   const closeOpenRegister = () => {
     setOpenLogin(false);
     setOpenRegister(true);
-  };
-
-  const closeOpenSuccess = () => {
-    setOpenLogin(false);
-    setOpenSuccess(true);
   };
 
   const closeOpenForgot = e => {
@@ -119,7 +112,6 @@ export function Login({ closeModal }) {
         </div>
       )}
       {openRegister && <Register closeModal={setOpenRegister} />}
-      {openSuccess && <Success closeModal={setOpenSuccess} />}
       {openForgot && <ForgotPassword closeModal={setOpenForgot} />}
     </>
   );
