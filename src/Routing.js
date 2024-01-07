@@ -8,6 +8,7 @@ import RulesPage3 from "./pages/RulesPage/RulesPage3";
 import RulesPage4 from "./pages/RulesPage/RulesPage4";
 import ArchiveCategoryPage from "./pages/archiveCategoryPage/ArchiveCategoryPage";
 import ArchivePage from "./pages/archivePage/ArchivePage";
+import CategoryPage from "./pages/categoryPage/CategoryPage";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -50,6 +51,11 @@ const Routing = () => {
       link: "/category",
       element: <ArchiveCategoryPage/>,
       id: 8,
+    },
+    {
+      link: "/category__",
+      element: <CategoryPage/>,
+      id: 9,
     },
 
   ];
