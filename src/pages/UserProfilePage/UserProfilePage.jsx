@@ -144,13 +144,13 @@ const UserProfilePage = () => {
                     <MenuItem value="">
                       <p style={{ color: "lightgrey" }}>Category</p>
                     </MenuItem>
-                    {categories.map(item => (
+                    {/* {categories.map(item => (
                       <MenuItem value={item}>{item}</MenuItem>
-                    ))}
-                    {/* <MenuItem value={"Philosophy"}>Philosophy</MenuItem>
+                    ))} */}
+                    <MenuItem value={"Philosophy"}>Philosophy</MenuItem>
                     <MenuItem value={"Mathematics"}>Mathematics</MenuItem>
                     <MenuItem value={"Languages"}>Languages</MenuItem>
-                    <MenuItem value={"History"}>History</MenuItem> */}
+                    <MenuItem value={"History"}>History</MenuItem>
                   </Select>
                 </FormControl>
                 <p className="input_p">

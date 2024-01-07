@@ -36,7 +36,7 @@ const ArticleContextsProvider = ({ children }) => {
   async function getCategories() {
     try {
       // const tokens = JSON.parse(localStorage.getItem("tokens"));
-      // const Authorization = `Bearer ${tokens.access}`;
+      // const Authorization = `Bearer ${tokens.access_token}`;
       // const config = {
       //   headers: {
       //     Authorization,
@@ -56,7 +56,7 @@ const ArticleContextsProvider = ({ children }) => {
   async function createArticle(newArticle) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access}`;
+      const Authorization = `Bearer ${tokens.access_token}`;
       const config = {
         headers: {
           Authorization,
@@ -73,7 +73,7 @@ const ArticleContextsProvider = ({ children }) => {
   async function getArticles() {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access}`;
+      const Authorization = `Bearer ${tokens.access_token}`;
       const config = {
         headers: {
           Authorization,
@@ -96,7 +96,7 @@ const ArticleContextsProvider = ({ children }) => {
   async function getOneArticle(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access}`;
+      const Authorization = `Bearer ${tokens.access_token}`;
       const config = {
         headers: {
           Authorization,
@@ -115,7 +115,7 @@ const ArticleContextsProvider = ({ children }) => {
   async function updateArticle(slug, editedArticle) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access}`;
+      const Authorization = `Bearer ${tokens.access_token}`;
       const config = {
         headers: {
           Authorization,
@@ -136,7 +136,7 @@ const ArticleContextsProvider = ({ children }) => {
   async function deleteArticle(slug) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access}`;
+      const Authorization = `Bearer ${tokens.access_token}`;
       const config = {
         headers: {
           Authorization,
@@ -160,6 +160,7 @@ const ArticleContextsProvider = ({ children }) => {
 
         updateArticle,
         getOneArticle,
+        getCategories,
         createArticle,
         getArticles,
       }}>
