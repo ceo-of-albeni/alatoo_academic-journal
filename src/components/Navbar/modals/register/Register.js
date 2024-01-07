@@ -22,50 +22,53 @@ export function Register({ closeModal }) {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
-  // function createUser() {
-  //   if (
-  //     !firstName.trim() ||
-  //     !lastName.trim() ||
-  //     !email.trim() ||
-  //     !password.trim() ||
-  //     !passwordConfirm.trim()
-  //   ) {
-  //     alert("Some inputs are empty!");
-  //     return;
-  //   }
+  const closeOpenConfirm = e => {
+    // e.preventDefault();
+    setModalOpen(false);
+    setOpenConfirm(true);
+  };
 
-  //   if (password != passwordConfirm) {
-  //     alert("Passwords are not same!");
-  //     return;
-  //   }
-  //   let newObj = {
-  //     firstName: firstName,
-  //     lastName: lastName,
-  //     email: email,
-  //     password: password,
-  //   };
-  //   handleRegister(newObj, navigate);
-  // }
-  // useEffect(() => {
-  //   setError(false);
-  // }, []);
+  function createUser() {
+    if (
+      !firstName.trim() ||
+      !lastName.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !passwordConfirm.trim()
+    ) {
+      alert("Some inputs are empty!");
+      return;
+    }
 
-  // if (loading) {
-  //   return <Loader />;
-  // }
+    if (password !== passwordConfirm) {
+      alert("Passwords are not same!");
+      return;
+    }
+    let newObj = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+    };
 
-  const handleRegisterClick = (e) => {
+    handleRegister(newObj);
+    closeOpenConfirm();
+  }
+
+  useEffect(() => {
+    setError(false);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  const handleRegisterClick = e => {
     e.stopPropagation();
   };
 
   const handleOutsideClick = () => {
     closeModal();
-  };
-
-  const closeOpenConfirm = (e) => {
-    e.preventDefault();
-    setModalOpen(false);
-    setOpenConfirm(true);
   };
 
   const closeOpenLogin = () => {
@@ -75,60 +78,62 @@ export function Register({ closeModal }) {
 
   return (
     // <div className={classes.register} onClick={handleOutsideClick}>
-      <>
-        {modalOpen && (
-          <div className={classes.register} onClick={handleOutsideClick}>
-            <div className={classes.register__inner} onClick={handleRegisterClick}>
-              <img src={arrow} alt="back" onClick={closeOpenLogin} />
-              <form action="">
-                <div>REGISTRATION</div>
-                <label for="name">First name</label>
-                <input
-                  type="text"
-                  value={firstName}
-                  onChange={e => setFirstName(e.target.value)}
-                  placeholder="Enter your name"
-                  name="name"
-                />
-                <label for="surname">Last name</label>
-                <input
-                  type="text"
-                  value={lastName}
-                  onChange={e => setLastName(e.target.value)}
-                  placeholder="Enter your surname"
-                  name="surname"
-                />
-                <label for="email">Email</label>
-                <input
-                  type="text"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  name="email"
-                />
-                <label for="password">Password</label>
-                <input
-                  type="text"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  placeholder="Enter your password"
-                  name="password"
-                />
-                <label for="con_password">Confirm Password</label>
-                <input
-                  type="text"
-                  value={passwordConfirm}
-                  onChange={e => setPasswordConfirm(e.target.value)}
-                  placeholder="Enter your password"
-                  name="con_password"
-                />
-                <button onClick={closeOpenConfirm}>Sign Up</button>
-              </form>
-            </div>
+    <>
+      {modalOpen && (
+        <div className={classes.register} onClick={handleOutsideClick}>
+          <div
+            className={classes.register__inner}
+            onClick={handleRegisterClick}>
+            <img src={arrow} alt="back" onClick={closeOpenLogin} />
+            <form action="">
+              <div>REGISTRATION</div>
+              <label>First name</label>
+              <input
+                type="text"
+                value={firstName}
+                onChange={e => setFirstName(e.target.value)}
+                placeholder="Enter your name"
+                name="name"
+              />
+              <label>Last name</label>
+              <input
+                type="text"
+                value={lastName}
+                onChange={e => setLastName(e.target.value)}
+                placeholder="Enter your surname"
+                name="surname"
+              />
+              <label>Email</label>
+              <input
+                type="text"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                name="email"
+              />
+              <label>Password</label>
+              <input
+                type="text"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Enter your password"
+                name="password"
+              />
+              <label>Confirm Password</label>
+              <input
+                type="text"
+                value={passwordConfirm}
+                onChange={e => setPasswordConfirm(e.target.value)}
+                placeholder="Enter your password"
+                name="con_password"
+              />
+              <button onClick={createUser}>Sign Up</button>
+            </form>
           </div>
-        )}
-        {openLogin && <Login closeModal={setOpenLogin}/>}
-        {openConfirm && <ConfirmReg closeModal={setOpenConfirm}/>}
-      </>
+        </div>
+      )}
+      {openLogin && <Login closeModal={setOpenLogin} />}
+      {openConfirm && <ConfirmReg closeModal={setOpenConfirm} />}
+    </>
   );
 }

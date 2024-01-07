@@ -9,37 +9,36 @@ import { authContext } from "../../contexts/authContext";
 // import Loader from "../Loader/Loader";
 import { Login } from "./modals/login/Login";
 
-const Navabr = ({closeModal}) => {
+const Navabr = ({ closeModal }) => {
+  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
 
-  // const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const { handleLogin, setError, loading, currentUser } =
+  //   useContext(authContext);
 
-  const { handleLogin, setError, loading, currentUser } =
-    useContext(authContext);
+  // function loginUser() {
+  //   if (!email.trim() || !password.trim()) {
+  //     alert("Some inputs are empty!");
+  //     return;
+  //   }
 
-  function loginUser() {
-    if (!email.trim() || !password.trim()) {
-      alert("Some inputs are empty!");
-      return;
-    }
+  //   let newObj = {
+  //     email: email,
+  //     password: password,
+  //   };
+  //   handleLogin(newObj, email);
+  //   console.log(newObj);
+  //   closeOpenSuccess();
 
-    let newObj = {
-      email: email,
-      password: password,
-    };
-    handleLogin(newObj, email);
-    console.log(newObj);
-    closeOpenSuccess();
+  //   setEmail("");
+  //   setPassword("");
+  // }
 
-    setEmail("");
-    setPassword("");
-  }
-
-  useEffect(() => {
-    setError(false);
-  }, []);
+  // useEffect(() => {
+  //   setError(false);
+  // }, []);
 
   const navigate = useNavigate();
 
@@ -74,31 +73,21 @@ const Navabr = ({closeModal}) => {
             Contacts
           </a>
 
-          {currentUser.isActive ? (
-            <a
-              onClick={() => navigate("/profile")}
-              className="header_links__item">
-              Profile
-            </a>
-          ) : (
-            <a
-              onClick={() => navigate("/profile")}
-              className="header_links__item">
-              NO
-            </a>
-          )}
+          <a
+            onClick={() => navigate("/profile")}
+            className="header_links__item">
+            Профиль
+          </a>
         </div>
 
-        <div
-          className="login_btn"
-          onClick={
-            openLoginModal
-          }>
+        <div className="login_btn" onClick={openLoginModal}>
           <div>Войти</div>
           {/* {isAuth ? <button>Выход</button> : <button>Войти</button>} */}
         </div>
       </div>
-      {isLoginModalOpen && <Login closeModal={() => setLoginModalOpen(false)} />}
+      {isLoginModalOpen && (
+        <Login closeModal={() => setLoginModalOpen(false)} />
+      )}
     </div>
   );
 };

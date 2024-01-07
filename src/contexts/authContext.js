@@ -21,7 +21,7 @@ const AuthContextProvider = ({ children }) => {
     try {
       const res = await axios.post(`${API}/auth/register`, newObj);
       console.log(res);
-      navigate("/profile");
+      // navigate("/profile");
     } catch (err) {
       console.log(err);
       setError(err);
@@ -47,10 +47,24 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
+  async function handleConfirm(formData) {
+    setLoading(true);
+    try {
+      const res = await axios.post(`${API}/auth/confirmEmail`, formData);
+      console.log(res);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   async function handleUser(newProduct, navigate) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access}`;
+      const Authorization = `Bearer ${tokens.access_token}`;
       const config = {
         headers: {
           Authorization,
@@ -77,6 +91,7 @@ const AuthContextProvider = ({ children }) => {
         error,
         loading,
         handleRegister,
+        handleConfirm,
         setError,
         handleLogin,
 
