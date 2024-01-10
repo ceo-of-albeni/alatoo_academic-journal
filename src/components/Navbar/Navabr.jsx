@@ -6,39 +6,11 @@ import "./Navbar.scss";
 // import { Success } from "./modals/success/Success";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../contexts/authContext";
-// import Loader from "../Loader/Loader";
 import { Login } from "./modals/login/Login";
 
 const Navabr = ({ closeModal }) => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // const { handleLogin, setError, loading, currentUser } =
-  //   useContext(authContext);
-
-  // function loginUser() {
-  //   if (!email.trim() || !password.trim()) {
-  //     alert("Some inputs are empty!");
-  //     return;
-  //   }
-
-  //   let newObj = {
-  //     email: email,
-  //     password: password,
-  //   };
-  //   handleLogin(newObj, email);
-  //   console.log(newObj);
-  //   closeOpenSuccess();
-
-  //   setEmail("");
-  //   setPassword("");
-  // }
-
-  // useEffect(() => {
-  //   setError(false);
-  // }, []);
+  const { handleLogout } = useContext(authContext);
 
   const navigate = useNavigate();
 
@@ -69,21 +41,30 @@ const Navabr = ({ closeModal }) => {
           <a href="/" className="header_links__item">
             Articles
           </a>
-          <a href="/" className="header_links__item">
+          {/* <a href="/" className="header_links__item">
             Contacts
-          </a>
+          </a> */}
 
-          <a
-            onClick={() => navigate("/profile")}
-            className="header_links__item">
-            Профиль
-          </a>
+          {localStorage.getItem("email") === null ? (
+            <p> </p>
+          ) : (
+            <a
+              onClick={() => navigate("/profile")}
+              className="header_links__item">
+              Profile
+            </a>
+          )}
         </div>
 
-        <div className="login_btn" onClick={openLoginModal}>
-          <div>Войти</div>
-          {/* {isAuth ? <button>Выход</button> : <button>Войти</button>} */}
-        </div>
+        {localStorage.getItem("email") === null ? (
+          <div className="login_btn" onClick={openLoginModal}>
+            <div>Войти</div>
+          </div>
+        ) : (
+          <div className="login_btn" onClick={handleLogout}>
+            <div>Выйти</div>
+          </div>
+        )}
       </div>
       {isLoginModalOpen && (
         <Login closeModal={() => setLoginModalOpen(false)} />
