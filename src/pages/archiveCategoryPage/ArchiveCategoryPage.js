@@ -70,10 +70,10 @@ export default function ArchiveCategoryPage() {
                                             <div  className={classes.release}>
                                                 <p>{release}</p>
                                                 <ul className={classes.sub__menu2}>
-                                                    <li><a href="#">ФИЛОЛОГИЧЕСКИЕ НАУКИ <span>(10)</span></a></li>
-                                                    <li><a href="#">ПЕДАГОГИЧЕСКИЕ НАУКИ <span>(20)</span></a></li>
-                                                    <li><a href="#">ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ <span>(16)</span></a></li>
-                                                    <li><a href="#">МАТЕМАТИКА, ИНФОРМАТИКА <span>(4)</span></a></li>
+                                                    <li><a href="/category__">ФИЛОЛОГИЧЕСКИЕ НАУКИ <span>(10)</span></a></li>
+                                                    <li><a href="/category__">ПЕДАГОГИЧЕСКИЕ НАУКИ <span>(20)</span></a></li>
+                                                    <li><a href="/category__">ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ <span>(16)</span></a></li>
+                                                    <li><a href="/category__">МАТЕМАТИКА, ИНФОРМАТИКА <span>(4)</span></a></li>
                                                 </ul>
                                             </div>
                                         ))}

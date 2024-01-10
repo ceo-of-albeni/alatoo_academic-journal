@@ -14,19 +14,11 @@ export default function HomePageWL() {
       <div className={classes.title__area}>
         <div className={classes.title__area__inner}>
           <div className={classes.title__area__text}>
-            <h1>Академический журнал Ала-Тоо</h1>
-            <h3>
-              <b>
-                Добро пожаловать на издательский сайт Международного
-                Университета Ала-Тоо!
-              </b>
-            </h3>
+            <h1>Ala-Too Academic Journal</h1>
             <p>
-              Здесь у каждого пользователя появится возможность публиковать
-              статьи и следить за страницей!<br></br>
-              Присоединитесь, чтоб свободно добавлять информацию!{" "}
+              We eagerly await your fascinating research!
             </p>
-            <button>Присоединиться</button>
+            <button>Join us</button>
           </div>
           <div className={classes.title__area__img}>
             <div className={classes.circle}></div>
@@ -38,17 +30,17 @@ export default function HomePageWL() {
 
       <div className={classes.content}>
         <div className={classes.content__inner}>
-          <div className={classes.content__title} id="homepage_articles">
-            <h1>Content</h1>
-          </div>
           <div className={classes.content__frame}>
             <div className={classes.content__frame__text}>
               <h2>
-                This is a featured article - the most important piece of content
+                "Ala-Too Academic Studies" - the way to scientific 
+                leadership in the Kyrgyz Republic
               </h2>
               <p>
-                Very short description what’s actually being discussed in this
-                article, maybe the first senteces to provide a preview
+                It is noteworthy that in 2020, the impact factor of 
+                the scientific journal was 0.171, and by 2021, it increased
+                to 0.210. By the end of 2022, it further rose to 0.421, 
+                and the journal continues to maintain its high rating.
               </p>
               <button>Read Now</button>
             </div>
@@ -59,130 +51,57 @@ export default function HomePageWL() {
         </div>
       </div>
 
-      <div className={classes.article__list}>
-        <div className={classes.article__list__inner}>
-          <div className={classes.article__list__nav}>
-            <button>Все статьи</button>
-            <button>Category 1</button>
-            <button>Category 2</button>
-            <button>Category 3</button>
-          </div>
-          <div className={classes.article__list__tools}>
-            <div className={classes.article__list__tool}>
-              <div className={classes.article__list__tool__card}>
-                <img src={article} alt="article"></img>
-                <div className={classes.article__list__tool__card__text}>
-                  <p>CATEGORY 1</p>
-                  <h3>Change the article headline</h3>
-                  <a href="a">Read Now</a>
-                </div>
-              </div>
-              <div className={classes.article__list__tool__card}>
-                <img src={article} alt="article"></img>
-                <div className={classes.article__list__tool__card__text}>
-                  <p>CATEGORY 1</p>
-                  <h3>Change the article headline</h3>
-                  <a href="a">Read Now</a>
-                </div>
-              </div>
-              <div className={classes.article__list__tool__card}>
-                <img src={article} alt="article"></img>
-                <div className={classes.article__list__tool__card__text}>
-                  <p>CATEGORY 1</p>
-                  <h3>Change the article headline</h3>
-                  <a href="a">Read Now</a>
-                </div>
-              </div>
-              <div className={classes.article__list__tool__card}>
-                <img src={article} alt="article"></img>
-                <div className={classes.article__list__tool__card__text}>
-                  <p>CATEGORY 1</p>
-                  <h3>Change the article headline</h3>
-                  <a href="a">Read Now</a>
-                </div>
-              </div>
-            </div>
-            <div className={classes.article__list__tool}>
-              <div className={classes.article__list__tool__card}>
-                <img src={article} alt="article"></img>
-                <div className={classes.article__list__tool__card__text}>
-                  <p>CATEGORY 1</p>
-                  <h3>Change the article headline</h3>
-                  <a href="a">Read Now</a>
-                </div>
-              </div>
-              <div className={classes.article__list__tool__card}>
-                <img src={article} alt="article"></img>
-                <div className={classes.article__list__tool__card__text}>
-                  <p>CATEGORY 1</p>
-                  <h3>Change the article headline</h3>
-                  <a href="a">Read Now</a>
-                </div>
-              </div>
-              <div className={classes.article__list__tool__card}>
-                <img src={article} alt="article"></img>
-                <div className={classes.article__list__tool__card__text}>
-                  <p>CATEGORY 1</p>
-                  <h3>Change the article headline</h3>
-                  <a href="a">Read Now</a>
-                </div>
-              </div>
-              <div className={classes.article__list__tool__card}>
-                <img src={article} alt="article"></img>
-                <div className={classes.article__list__tool__card__text}>
-                  <p>CATEGORY 1</p>
-                  <h3>Change the article headline</h3>
-                  <a href="a">Read Now</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className={classes.horizontal__cards}>
         <div className={classes.horizontal__cards__inner}>
-          <h2>Horizontal Cards section</h2>
+          <h2>About us</h2>
           <div className={classes.horizontal__cards__card}>
             <div className={classes.horizontal__card__text}>
-              <h3>Update headline here</h3>
+              <h3>The way to scientific leadership in the Kyrgyz Republic</h3>
               <p>
-                SIMILAR HERE: Horizontal card description - this is where we
-                describe maybe some features or benefits in more detail, provide
-                more context, or just show anything we perceive to be important{" "}
+                  Ala-Too International University provides young 
+                  generations not only with high-quality education in English, 
+                  but also attaches particular importance to scientific activities{" "}
               </p>
-              <button>Learn more</button>
             </div>
             <div className={classes.horizontal__card__img}>
               <img src={horizontal} alt="horizontal" />
             </div>
           </div>
           <div className={classes.horizontal__cards__card}>
-            <div className={classes.horizontal__card__img}>
+            <div className={classes.horizontal__card__img__2}>
               <img src={horizontal2} alt="horizontal2" />
             </div>
-            <div className={classes.horizontal__card__text}>
-              <h3>Second headline here</h3>
+            <div className={classes.horizontal__card__text__2}>
+              <h3>Status as a leader among scientific publications in the republic</h3>
               <p>
-                Description of the second horizontal card here: Horizontal card
-                description - this is where we describe maybe some features or
-                benefits in more detail, provide more context, or just show
-                anything we perceive to be important{" "}
+                At the end of 2022, according to the calculation of the scientific metric 
+                base of the RSCI, the impact factor of a scientific journal
+                "Ala-Too Academic Studies" has increased to 0.421, making them one 
+                of the most significant academic journals in the Kyrgyz Republic.{" "}
               </p>
-              <button>Learn more</button>
+              <p>
+                This indicator testifies to the high level of quality of scientific research 
+                presented in the journal "Alatoo Academic Studies".
+              </p>
             </div>
           </div>
           <div className={classes.horizontal__cards__card}>
-            <div className={classes.horizontal__card__text}>
-              <h3>Third headline text</h3>
+            <div className={classes.horizontal__card__text__3}>
+              <h3>About the processes of receiving scientific articles:</h3>
               <p>
                 Horizontal card description - this is where we describe maybe
-                some features or benefits in more detail, provide more context,
-                or just show anything we perceive to be important{" "}
+                Our process of receiving scientific articles involves strict 
+                control and cooperation with the authors. Each scientific article 
+                is subject to a mandatory check for uniqueness through an anti-plagiarism 
+                system and is published only if it meets our requirements.
               </p>
-              <button>Learn more</button>
+              <p>
+                Therefore, we strongly recommend that authors strictly 
+                follow our requirements before submitting an article for 
+                publication in a scientific journal
+              </p>
             </div>
-            <div className={classes.horizontal__card__img}>
+            <div className={classes.horizontal__card__img__3}>
               <img src={horizontal3} alt="horizontal3" />
             </div>
           </div>
