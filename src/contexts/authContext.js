@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const authContext = React.createContext();
 
-// const API = "http://52.91.159.64:3000/api";
-// const API = "http://localhost:3000/api";
+const INIT_STATE = {
+  users: [],
+  oneUser: [],
+};
+
+function reducer(state = INIT_STATE, action) {
+  switch (action.type) {
+    case "GET_USERS":
+      return { ...state, users: action.payload };
+    case "GET_ONE_USER":
+      return { ...state, oneUser: action.payload };
+    default:
+      return state;
+  }
+}
+
 const API = "http://localhost:3000/api";
 
 const AuthContextProvider = ({ children }) => {
@@ -13,7 +27,41 @@ const AuthContextProvider = ({ children }) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
   const navigate = useNavigate();
+
+  async function getUsers() {
+    try {
+      const res = await axios(`${API}/user`);
+      dispatch({
+        type: "GET_USERS",
+        payload: res.data,
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function getOneUser(id) {
+    try {
+      // const tokens = JSON.parse(localStorage.getItem("tokens"));
+      // const Authorization = `Bearer ${tokens.access_token}`;
+      // const config = {
+      //   headers: {
+      //     Authorization,
+      //   },
+      // };
+      const res = await axios(`${API}/user/${id}`); //config
+      dispatch({
+        type: "GET_ONE_USER",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   async function handleRegister(newObj) {
     setLoading(true);
@@ -90,11 +138,15 @@ const AuthContextProvider = ({ children }) => {
         currentUser,
         error,
         loading,
+        users: state.users,
+        oneUser: state.oneUser,
+
         handleRegister,
         handleConfirm,
         setError,
         handleLogin,
-
+        getOneUser,
+        getUsers,
         handleLogout,
         handleUser,
       }}>

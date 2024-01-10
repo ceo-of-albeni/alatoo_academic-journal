@@ -38,7 +38,7 @@ export default function HomePageWL() {
 
       <div className={classes.content}>
         <div className={classes.content__inner}>
-          <div className={classes.content__title}>
+          <div className={classes.content__title} id="homepage_articles">
             <h1>Content</h1>
           </div>
           <div className={classes.content__frame}>
