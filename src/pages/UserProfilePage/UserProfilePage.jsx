@@ -213,7 +213,6 @@ const UserProfilePage = () => {
                 <p className="input_p">Article file*</p>
                 <label className="custom-file-upload">
                   <input
-                    multiple
                     type="file"
                     // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                     // onChange={e => setFile(e.target.files[0])}
