@@ -59,7 +59,7 @@ const ArticleContextsProvider = ({ children }) => {
       const Authorization = `Bearer ${tokens.access_token}`;
       const config = {
         headers: {
-          "Content-Type": "multipart/form-data",
+          // "Content-Type": "multipart/form-data",
           Authorization,
         },
         // headers: {

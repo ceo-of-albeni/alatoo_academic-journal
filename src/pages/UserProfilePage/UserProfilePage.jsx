@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import * as encoding from "encoding-japanese";
 
 const UserProfilePage = () => {
   const { createArticle, categories, oneUser } = useContext(articlesContext);
@@ -47,9 +46,15 @@ const UserProfilePage = () => {
   // const [fileEncoding, setFileEncoding] = useState(null);
 
   const handleFileChange = event => {
-    setFile(event.target.files[0]);
+    let upFile = event.target.files[0];
 
-    // const reader = new FileReader();
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      newFile.buffer = event.target.result;
+      // console.log("File Object:", newFile);
+    };
+    reader.readAsArrayBuffer(upFile);
 
     // reader.onloadend = () => {
     //   const fileContent = reader.result;
@@ -85,7 +90,16 @@ const UserProfilePage = () => {
     //   size: event.target.files[0].size,
     // };
 
-    // setFile(newFile);
+    const newFile = {
+      fieldname: "file",
+      originalname: upFile.name,
+      encoding: "7bit", // Указываем 7bit вручную
+      mimetype: upFile.type,
+      buffer: null, // Загрузка буфера произойдет асинхронно
+      size: upFile.size,
+    };
+
+    setFile(newFile);
   };
 
   function saveArticle() {
@@ -212,6 +226,8 @@ const UserProfilePage = () => {
                 /> */}
                 <p className="input_p">Article file*</p>
                 <label className="custom-file-upload">
+                  {/* <input type="file" onChange={handleFileChange} />
+                  <button onClick={handleUpload}>Upload</button> */}
                   <input
                     type="file"
                     // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
