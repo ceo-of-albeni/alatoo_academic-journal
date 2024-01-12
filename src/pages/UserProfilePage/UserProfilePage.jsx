@@ -43,6 +43,64 @@ const UserProfilePage = () => {
   const [file, setFile] = useState(null);
   const [text, setText] = useState("");
   // const [email, setEmail] = useState("");
+  // const [fileEncoding, setFileEncoding] = useState(null);
+
+  const handleFileChange = event => {
+    let upFile = event.target.files[0];
+
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      newFile.buffer = event.target.result;
+      // console.log("File Object:", newFile);
+    };
+    reader.readAsArrayBuffer(upFile);
+
+    // reader.onloadend = () => {
+    //   const fileContent = reader.result;
+
+    //   const detectedEncoding = encoding.detect(fileContent);
+
+    //   if (detectedEncoding) {
+    //     setFileEncoding(detectedEncoding);
+    //   } else {
+    //     console.log(
+    //       "Unable to detect encoding. Consider specifying it manually."
+    //     );
+    //   }
+
+    //   reader.readAsText(event.target.files[0]);
+    // };
+
+    // // buffer
+    // const bufferr = new ArrayBuffer(event.target.files[0]);
+    // // const nodeBuffer = Buffer.from(bufferr);
+    // const view = new Int32Array(bufferr);
+
+    // // field name
+    // const substrings = event.target.files[0].name.split(".");
+    // const substringAfter = substrings[1].trim();
+
+    // let newFile = {
+    //   fieldname: substringAfter,
+    //   originalname: event.target.files[0].name,
+    //   encoding: fileEncoding,
+    //   mimetype: event.target.files[0].type,
+    //   buffer: view,
+    //   size: event.target.files[0].size,
+    // };
+
+    const newFile = {
+      fieldname: "file",
+      originalname: upFile.name,
+      encoding: "7bit", // Указываем 7bit вручную
+      mimetype: upFile.type,
+      buffer: null, // Загрузка буфера произойдет асинхронно
+      size: upFile.size,
+    };
+
+    setFile(newFile);
+  };
 
   function saveArticle() {
     if (!title || !coauthors || !text || !file || !category) {
@@ -50,16 +108,14 @@ const UserProfilePage = () => {
       return;
     }
 
-    let newArticle = {
-      title,
-      category,
-      coauthors,
-      // email,
-      text,
-      file,
-    };
-
+    let newArticle = new FormData();
+    newArticle.append("title", title);
+    newArticle.append("category", category);
+    newArticle.append("coauthors", coauthors);
+    newArticle.append("text", text);
+    newArticle.append("file", file);
     createArticle(newArticle);
+    console.log(file);
 
     setTitle("");
     setCategory("");
@@ -68,10 +124,7 @@ const UserProfilePage = () => {
     setText("");
     setFile(null);
 
-    console.log(file);
     console.log(category);
-
-    // navigate("/archive");
   }
 
   const [openArticle, setOpenArticle] = useState(true);
@@ -173,10 +226,13 @@ const UserProfilePage = () => {
                 /> */}
                 <p className="input_p">Article file*</p>
                 <label className="custom-file-upload">
+                  {/* <input type="file" onChange={handleFileChange} />
+                  <button onClick={handleUpload}>Upload</button> */}
                   <input
                     type="file"
-                    accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                    onChange={e => setFile(e.target.files[0])}
+                    // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    // onChange={e => setFile(e.target.files[0])}
+                    onChange={handleFileChange}
                   />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +268,6 @@ const UserProfilePage = () => {
         {openPayment && (
           <div className="article_form">
             <h4>Payment</h4>
-            {/* <h5>Hero Trio Annual plan: $150 charged every 12 months</h5> */}
             <div className="article_form-inputs">
               <div className="short_inp">
                 {/* <p className="input_p">First name*</p>
