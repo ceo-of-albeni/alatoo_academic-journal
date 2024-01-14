@@ -57,7 +57,7 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
-  async function handleLogin(formData, email) {
+  async function handleLogin(formData, email, closeModal) {
     setLoading(true);
     try {
       const res = await axios.post(`${API}/auth/login`, formData);
@@ -65,6 +65,9 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("tokens", JSON.stringify(res.data));
       localStorage.setItem("email", email);
 
+      closeModal();
+      document.body.style.overflow = "unhidden";
+      
       navigate("/");
     } catch (err) {
       console.log(err);
