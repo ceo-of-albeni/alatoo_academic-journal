@@ -11,6 +11,8 @@ export function ConfirmReg({ closeModal }) {
   const [openRegister, setOpenRegister] = useState(false);
   const [modalOpen, setModalOpen] = useState(true);
   const [openSuccess, setOpenSuccess] = useState(false);
+  const [seconds, setSeconds] = useState(59);
+  const [timerRunning, setTimerRunning] = useState(true);
 
   const navigate = useNavigate();
 
@@ -19,7 +21,7 @@ export function ConfirmReg({ closeModal }) {
 
   const { handleConfirm, setError, loading } = useContext(authContext);
 
-  function confirmUser() {
+  const handleSigninClick = () => {
     if (!email.trim() || !password.trim()) {
       alert("Some inputs are empty!");
       return;
@@ -29,13 +31,14 @@ export function ConfirmReg({ closeModal }) {
       email: email,
       password: password,
     };
+
     handleConfirm(newObj, email);
-    console.log(newObj);
     closeOpenSuccess();
 
     setEmail("");
     setPassword("");
-  }
+    setTimerRunning(true);
+  };
 
   useEffect(() => {
     setError(false);
@@ -51,6 +54,24 @@ export function ConfirmReg({ closeModal }) {
   //     document.body.style.overflow = "auto";
   // }
 
+  useEffect(() => {
+    const tick = () => {
+      setSeconds((prevSeconds) => (prevSeconds > 0 ? prevSeconds - 1 : 0));
+    };
+
+    const timer = setInterval(tick, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (seconds === 0) {
+      setTimerRunning(false);
+    }
+  }, [seconds])
+
   const handleConfirmClick = e => {
     e.stopPropagation();
   };
@@ -65,10 +86,23 @@ export function ConfirmReg({ closeModal }) {
   };
 
   const closeOpenSuccess = e => {
-    // e.preventDefault();
+    e.preventDefault();
     setModalOpen(false);
     setOpenSuccess(true);
   };
+
+  const handleResendClick = () => {
+    setSeconds(59);
+    setTimerRunning(true);
+  };
+
+  const handleButtonClick = () => {
+    if (timerRunning) {
+      handleResendClick();
+    } else {
+      handleSigninClick();
+    }
+  }
 
   return (
     <>
@@ -86,7 +120,7 @@ export function ConfirmReg({ closeModal }) {
                 onChange={e => setEmail(e.target.value)}
                 name="email"
               />
-              <label>Code</label>
+              <label>Code <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span></label>
               <input
                 type="text"
                 placeholder="Enter your code"
@@ -94,7 +128,9 @@ export function ConfirmReg({ closeModal }) {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
               />
-              <button onClick={confirmUser}>Sign in</button>
+              <button onClick={handleButtonClick} disabled={loading}>
+                {timerRunning ? "Sign in" : "Resend"}
+              </button>
             </form>
           </div>
         </div>
