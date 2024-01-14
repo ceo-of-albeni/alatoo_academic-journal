@@ -56,7 +56,7 @@ export function Login({ closeModal }) {
   };
 
   const handleOutsideClick = () => {
-    closeModal();
+    setOpenLogin(false)
   };
 
   const closeOpenRegister = () => {
@@ -75,7 +75,7 @@ export function Login({ closeModal }) {
       {openLogin && (
         <div className={classes.login} onClick={handleOutsideClick}>
           <div className={classes.login__inner} onClick={handleLoginClick}>
-            <img src={arrow} alt="back" onClick={() => closeModal(false)} />
+            <img src={arrow} alt="back" onClick={() => setOpenLogin(false)} />
             <form action="">
               <div>LOGIN</div>
               <label>Email</label>

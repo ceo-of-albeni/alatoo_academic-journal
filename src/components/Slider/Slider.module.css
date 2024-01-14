@@ -1,0 +1,15 @@
+.slider_container {
+    display: block;
+    margin: auto;
+    width: 300px;
+    padding: 30px;
+}
+
+h3 {
+    color: black;
+}
+
+.custom_carousel_arrow {
+    color: #000000;
+    font-size: 30px;
+}

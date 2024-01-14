@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./HomePageWL.module.css";
 import circle from "./img/circle.png";
 import content from "./img/content.png";
@@ -8,9 +8,17 @@ import horizontal2 from "./img/horizontal2.png";
 import horizontal3 from "./img/horizontal3.png";
 import ruslanagay from "./img/ruslanagay.jpg";
 import { useNavigate } from "react-router-dom";
+import { Login } from "../../components/Navbar/modals/login/Login";
 
-export default function HomePageWL() {
+export default function HomePageWL(closeModal) {
+  
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const navigate = useNavigate();
+
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
+  }
+
   return (
     <div className={classes.container}>
       <div className={classes.title__area}>
@@ -19,7 +27,7 @@ export default function HomePageWL() {
             <h1>Ala-Too Academic Journal</h1>
             <p>We eagerly await your fascinating research!</p>
             {localStorage.getItem("email") === null ? (
-              <button onClick={() => navigate("/")}>Join us</button> // сделай чтоб открывался Логин
+              <button onClick={openLoginModal}>Join us</button> // сделай чтоб открывался Логин
             ) : (
               <button onClick={() => navigate("/profile")}>Join us</button>
             )}
@@ -116,6 +124,7 @@ export default function HomePageWL() {
           </div>
         </div>
       </div>
+      {isLoginModalOpen && <Login closeModal={setIsLoginModalOpen}/>}
 
       {/* <footer>
         <p>© 2023, Name</p>
