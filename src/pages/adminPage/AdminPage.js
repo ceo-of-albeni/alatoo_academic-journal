@@ -1,9 +1,12 @@
-import React from 'react';
+import React from "react";
+import BasicTableAdmin from "../../components/TableAdmin/TableAdmin";
 
-export default function AdminPage() {
-    return (
-        <div>
-            
-        </div>
-    );
-}
+const AdminPage = () => {
+  return (
+    <div style={{ padding: "60px" }}>
+      <BasicTableAdmin />
+    </div>
+  );
+};
+
+export default AdminPage;

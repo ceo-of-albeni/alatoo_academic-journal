@@ -22,6 +22,8 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, oneArticle: action.payload };
     case "GET_CATEGORIES":
       return { ...state, categories: action.payload };
+    // case "APPROVE_ARTICLE":
+    //   return {...state, approved}
     default:
       return state;
   }
@@ -107,6 +109,44 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
+  async function approveArticle(id) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}/article/approve/${id}`, config);
+      // dispatch({
+      //   type: "APPROVE_ARTICLE",
+      //   payload: res.data,
+      // });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function deleteArticle(id) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}/article/delete/${id}`, config);
+      // dispatch({
+      //   type: "APPROVE_ARTICLE",
+      //   payload: res.data,
+      // });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   async function updateArticle(slug, editedArticle) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -174,6 +214,8 @@ const ArticleContextsProvider = ({ children }) => {
         getAllMyArticles,
         fetchByParams,
         getArticles,
+        approveArticle,
+        deleteArticle,
       }}>
       {children}
     </articlesContext.Provider>

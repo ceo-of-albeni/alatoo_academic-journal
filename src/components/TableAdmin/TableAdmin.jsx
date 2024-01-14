@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { articlesContext } from "../../contexts/articleContext";
-import "./Table.scss";
+import "../Table/Table.scss";
 
 function createData(
   id,
@@ -17,17 +17,27 @@ function createData(
   pages,
   category,
   status,
-  fileUrl
+  fileUrl,
+  buttons
 ) {
-  return { id, title, createdAt, coauthors, pages, category, status, fileUrl };
+  return {
+    id,
+    title,
+    createdAt,
+    coauthors,
+    pages,
+    category,
+    status,
+    fileUrl,
+    buttons,
+  };
 }
 
-export default function BasicTable() {
-  const { getAllMyArticles, my_articles, getArticles } =
+export default function BasicTableAdmin() {
+  const { articles, getArticles, approveArticle, deleteArticle } =
     React.useContext(articlesContext);
 
   React.useEffect(() => {
-    getAllMyArticles();
     getArticles();
   }, []);
 
@@ -39,7 +49,7 @@ export default function BasicTable() {
   // }
 
   let rows = [];
-  my_articles.map(item =>
+  articles.map(item =>
     rows.push(
       createData(
         item.id,
@@ -80,9 +90,12 @@ export default function BasicTable() {
             <TableCell width="90px" align="right">
               <strong>Status</strong>
             </TableCell>
+            <TableCell width="90px" align="right">
+              <strong></strong>
+            </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody className="tableBody">
           {rows.map(row => (
             <TableRow
               key={row.id}
@@ -100,6 +113,14 @@ export default function BasicTable() {
               <TableCell align="right">{row.pages}</TableCell>
               <TableCell align="right">{row.category.name}</TableCell>
               <TableCell align="right">{row.status}</TableCell>
+              <TableCell align="right">
+                <button onClick={() => approveArticle(row.id)} id="approve">
+                  Approve
+                </button>
+                <button id="decline" onClick={() => deleteArticle(row.id)}>
+                  Decline
+                </button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

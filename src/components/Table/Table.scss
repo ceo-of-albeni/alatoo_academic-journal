@@ -1,0 +1,37 @@
+* {
+  font-family: SF Pro Display;
+}
+.table_a {
+  text-decoration: none;
+  color: black;
+}
+
+.tableBody button {
+  font-size: 14px;
+  font-weight: 300;
+  width: 123px;
+  height: 30px;
+  padding: 16px, 20px;
+  border: 0px;
+  // border-radius: 8px;
+  color: white;
+  // background-color: black;
+  transition: 0.2s;
+}
+
+#approve {
+  background-color: rgb(27, 198, 27);
+  margin-bottom: 5px;
+}
+
+#approve:hover {
+  background-color: green;
+}
+
+#decline {
+  background-color: red;
+}
+
+#decline:hover {
+  background-color: rgb(151, 3, 3);
+}
