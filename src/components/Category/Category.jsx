@@ -28,7 +28,7 @@ export default function Category() {
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}>
           <MenuItem value="">
-            <p style={{ color: "lightgrey" }}>Category</p>
+            <p style={{ color: "lightgrey", marginBottom: "0px" }}>Category</p>
           </MenuItem>
           <MenuItem value={10}>Philosophy</MenuItem>
           <MenuItem value={20}>Mathematics</MenuItem>

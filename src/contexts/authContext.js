@@ -44,20 +44,6 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
-  // async function getOneUser() {
-  //   try {
-  //     const res = await axios.get(`${API}/user/1`);
-  //     setOneUser(res.data);
-  //     // dispatch({
-  //     //   type: "GET_ONE_USER",
-  //     //   payload: res.data,
-  //     // });
-  //     console.log(res);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
   async function handleRegister(newObj) {
     setLoading(true);
     try {
