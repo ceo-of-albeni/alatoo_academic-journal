@@ -51,7 +51,7 @@ export default function ArchivePage() {
 
                 {categories ? (
                   categories.map(item => (
-                    <tr>
+                    <tr key={item.id}>
                       <td>{item.id}</td>
                       <td>
                         <a onClick={() => navigate("/category")}>{item.name}</a>
@@ -69,7 +69,9 @@ export default function ArchivePage() {
                   <a>Publication Ethics and Publication Malpractice</a>
                 </div>
                 <div className={classes.ethic2}>
-                  <a>Этика публикации журнала</a>
+                  <a onClick={() => navigate("/rules1")}>
+                    Этика публикации журнала
+                  </a>
                 </div>
               </div>
             </div>

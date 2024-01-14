@@ -36,11 +36,13 @@ export default function HomePageWL(closeModal) {
             ) : (
               users.map(item =>
                 localStorage.getItem("email") === item.email ? (
-                  <button onClick={() => navigate(`/profile/${item.id}`)}>
+                  <button
+                    key={item.id}
+                    onClick={() => navigate(`/profile/${item.id}`)}>
                     Join us
                   </button>
                 ) : (
-                  <span></span>
+                  <span key={item.id}></span>
                 )
               )
             )}

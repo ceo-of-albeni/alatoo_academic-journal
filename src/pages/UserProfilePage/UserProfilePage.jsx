@@ -35,7 +35,7 @@ const UserProfilePage = () => {
     getAllMyArticles();
     getCategories();
   }, []);
-
+  console.log(my_articles);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [coauthors, setCoauthors] = useState("");
@@ -231,10 +231,10 @@ const UserProfilePage = () => {
               <p id="clear_all" onClick={clearAll}>
                 Clear all
               </p>
-              <div>
+              {/* <div>
                 <input type="checkbox" /> By submitting this form, you agree to
                 Privacy Policy
-              </div>
+              </div> */}
             </div>
           </div>
         )}
