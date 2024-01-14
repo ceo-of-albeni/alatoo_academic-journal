@@ -18,7 +18,7 @@ const Routing = () => {
       id: 1,
     },
     {
-      link: "/profile",
+      link: "/profile/:id",
       element: <UserProfilePage />,
       id: 2,
     },
@@ -44,20 +44,19 @@ const Routing = () => {
     },
     {
       link: "/archive",
-      element: <ArchivePage/>,
+      element: <ArchivePage />,
       id: 7,
     },
     {
       link: "/category",
-      element: <ArchiveCategoryPage/>,
+      element: <ArchiveCategoryPage />,
       id: 8,
     },
     {
       link: "/category__",
-      element: <CategoryPage/>,
+      element: <CategoryPage />,
       id: 9,
     },
-
   ];
   return (
     <Routes>

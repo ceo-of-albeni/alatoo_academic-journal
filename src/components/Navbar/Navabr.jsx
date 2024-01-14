@@ -7,12 +7,18 @@ import "./Navbar.scss";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../contexts/authContext";
 import { Login } from "./modals/login/Login";
+import UserProfilePage from "../../pages/UserProfilePage/UserProfilePage";
 
 const Navabr = ({ closeModal }) => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-  const { handleLogout } = useContext(authContext);
+  const { handleLogout, users, getUsers, currentUser } =
+    useContext(authContext);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   const openLoginModal = () => {
     setLoginModalOpen(true);
@@ -41,18 +47,21 @@ const Navabr = ({ closeModal }) => {
           <a href="/" className="header_links__item">
             Articles
           </a>
-          {/* <a href="/" className="header_links__item">
-            Contacts
-          </a> */}
 
           {localStorage.getItem("email") === null ? (
-            <p> </p>
+            <span></span>
           ) : (
-            <a
-              onClick={() => navigate("/profile")}
-              className="header_links__item">
-              Profile
-            </a>
+            users.map(item =>
+              localStorage.getItem("email") === item.email ? (
+                <a
+                  onClick={() => navigate(`/profile/${item.id}`)}
+                  className="header_links__item">
+                  Profile
+                </a>
+              ) : (
+                <span></span>
+              )
+            )
           )}
         </div>
 

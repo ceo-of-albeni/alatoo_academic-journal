@@ -9,12 +9,15 @@ const INIT_STATE = {
   articles: [],
   oneArticle: [],
   categories: [],
+  my_articles: [],
 };
 
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_ARTICLES":
       return { ...state, articles: action.payload };
+    case "GET_MY_ARTICLES":
+      return { ...state, my_articles: action.payload };
     case "GET_ONE_ARTICLE":
       return { ...state, oneArticle: action.payload };
     case "GET_CATEGORIES":
@@ -27,7 +30,6 @@ function reducer(state = INIT_STATE, action) {
 const ArticleContextsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  // const API = "http://54.82.234.216:3000/api";
   const API = "http://localhost:3000/api";
 
   // const location = useLocation();
@@ -35,40 +37,11 @@ const ArticleContextsProvider = ({ children }) => {
 
   async function getCategories() {
     try {
-      // const tokens = JSON.parse(localStorage.getItem("tokens"));
-      // const Authorization = `Bearer ${tokens.access_token}`;
-      // const config = {
-      //   headers: {
-      //     Authorization,
-      //   },
-      // };
       const res = await axios(`${API}/category/list`);
       dispatch({
         type: "GET_CATEGORIES",
         payload: res.data,
       });
-      console.log(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  async function createArticle(newArticle) {
-    try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          // "Content-Type": "multipart/form-data",
-          Authorization,
-        },
-        // headers: {
-        //   Authorization,
-        // },
-      };
-      const res = await axios.post(`${API}/article/create`, newArticle, config);
-      console.log(res);
-      navigate("/archive");
     } catch (err) {
       console.log(err);
     }
@@ -89,6 +62,25 @@ const ArticleContextsProvider = ({ children }) => {
       );
       dispatch({
         type: "GET_ARTICLES",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function getAllMyArticles() {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(`${API}/article/allMy`, config);
+      dispatch({
+        type: "GET_MY_ARTICLES",
         payload: res.data,
       });
       console.log(res.data);
@@ -160,12 +152,14 @@ const ArticleContextsProvider = ({ children }) => {
         // pages: state.pages,
         oneArticle: state.oneArticle,
         categories: state.categories,
+        my_articles: state.my_articles,
         deleteArticle,
 
         updateArticle,
         getOneArticle,
         getCategories,
-        createArticle,
+        getAllMyArticles,
+        // createArticle,
         getArticles,
       }}>
       {children}
