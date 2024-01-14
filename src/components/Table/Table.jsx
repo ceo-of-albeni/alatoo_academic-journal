@@ -8,100 +8,33 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { articlesContext } from "../../contexts/articleContext";
 
-function createData(id, title, date, author, amount, pages, category, status) {
-  return { id, title, date, author, amount, pages, category, status };
+function createData(id, title, createdAt, coauthors, pages, category, status) {
+  return { id, title, createdAt, coauthors, pages, category, status };
 }
 
-const rows = [
-  createData(
-    1,
-    "Mathematical and Statistical Skills",
-    "23/01/23",
-    "So Hyun Kim",
-    "$150",
-    140,
-    "COM",
-    "Declined"
-  ),
-  createData(
-    2,
-    "Applied Mathematics and Informatics",
-    "23/01/23",
-    "So Hyun Kim",
-    "$150",
-    43,
-    "COM",
-    "Pending"
-  ),
-  createData(
-    3,
-    "Machine Learning Algorithms",
-    "23/01/23",
-    "So Hyun Kim",
-    "$150",
-    60,
-    "COM",
-    "Declined"
-  ),
-  createData(
-    4,
-    "Organ-on-a-Chip",
-    "23/01/23",
-    "So Hyun Kim",
-    "$150",
-    43,
-    "COM",
-    "Published"
-  ),
-  createData(
-    5,
-    "Robotic Surgeons and Rehabilitation",
-    "23/01/23",
-    "So Hyun Kim",
-    "$150",
-    33,
-    "COM",
-    "Pending"
-  ),
-  createData(
-    6,
-    "Microbubbles",
-    "23/01/23",
-    "So Hyun Kim",
-    "$150",
-    33,
-    "COM",
-    " Payment"
-  ),
-  createData(
-    7,
-    "Robotic Surgeons and Rehabilitation",
-    "23/01/23",
-    "So Hyun Kim",
-    "$150",
-    33,
-    "COM",
-    "Pending"
-  ),
-  createData(
-    8,
-    "Microbubbles",
-    "23/01/23",
-    "So Hyun Kim",
-    "$150",
-    33,
-    "COM",
-    " Payment"
-  ),
-];
-
-export default function BasicTable({ user, id }) {
-  const { getAllMyArticles, my_articles } = React.useContext(articlesContext);
+export default function BasicTable() {
+  const { getAllMyArticles, my_articles, getArticles } =
+    React.useContext(articlesContext);
 
   React.useEffect(() => {
     getAllMyArticles();
-    console.log(my_articles);
+    getArticles();
   }, []);
+
+  let rows = [];
+  my_articles.map(item =>
+    rows.push(
+      createData(
+        item.id,
+        item.title,
+        item.createdAt.slice(0, 10),
+        item.coauthors,
+        "???",
+        item.category,
+        item.isApproved === null ? "Pending" : "Approved"
+      )
+    )
+  );
 
   return (
     <TableContainer component={Paper}>
@@ -111,7 +44,7 @@ export default function BasicTable({ user, id }) {
             <TableCell align="left">
               <strong>Nº</strong>
             </TableCell>
-            <TableCell align="left">
+            <TableCell align="right">
               <strong>Title</strong>
             </TableCell>
             <TableCell align="center">
@@ -119,9 +52,6 @@ export default function BasicTable({ user, id }) {
             </TableCell>
             <TableCell align="center">
               <strong>Author</strong>
-            </TableCell>
-            <TableCell align="right">
-              <strong>Amount</strong>
             </TableCell>
             <TableCell align="right">
               <strong>Pages</strong>
@@ -143,11 +73,10 @@ export default function BasicTable({ user, id }) {
                 {row.id}
               </TableCell>
               <TableCell align="left">{row.title}</TableCell>
-              <TableCell align="right">{row.date}</TableCell>
-              <TableCell align="right">{row.author}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
+              <TableCell align="right">{row.createdAt}</TableCell>
+              <TableCell align="right">{row.coauthors}</TableCell>
               <TableCell align="right">{row.pages}</TableCell>
-              <TableCell align="right">{row.category}</TableCell>
+              <TableCell align="right">{row.category.name}</TableCell>
               <TableCell align="right">{row.status}</TableCell>
             </TableRow>
           ))}

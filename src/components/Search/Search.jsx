@@ -5,8 +5,10 @@ import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { Paper } from "@mui/material";
+import { articlesContext } from "../../contexts/articleContext";
 
 export default function BasicTextFields() {
+  const { fetchByParams } = React.useContext(articlesContext);
   return (
     <Box
       component="form"
@@ -25,6 +27,7 @@ export default function BasicTextFields() {
           borderRadius: "22px",
         }}>
         <InputBase
+          onChange={e => fetchByParams("type", e.target.value)}
           sx={{ ml: 1, flex: 1, fontSize: "14px" }}
           placeholder="Search article title or author"
         />

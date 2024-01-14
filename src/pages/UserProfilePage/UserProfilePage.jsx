@@ -19,9 +19,10 @@ const UserProfilePage = () => {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   getCategories();
-  // }, []);
+  useEffect(() => {
+    getCategories();
+  }, []);
+  console.log(categories);
 
   const API = "http://localhost:3000/api";
 
@@ -37,7 +38,6 @@ const UserProfilePage = () => {
   useEffect(() => {
     getOneUser(id);
     getAllMyArticles();
-    console.log(my_articles);
   }, []);
 
   const [title, setTitle] = useState("");
@@ -184,18 +184,20 @@ const UserProfilePage = () => {
                         Category
                       </p>
                     </MenuItem>
-                    {/* {categories ? (
-                      categories.map(item => <MenuItem>{item}</MenuItem>)
+                    {categories ? (
+                      categories.map(item => (
+                        <MenuItem value={item.name}>{item.name}</MenuItem>
+                      ))
                     ) : (
                       <h3>Loading...</h3>
-                    )} */}
+                    )}
                     {/* {categories.map(item => (
                       <MenuItem value={item}>{item}</MenuItem>
                     ))} */}
-                    <MenuItem value={"Philosophy"}>Philosophy</MenuItem>
+                    {/* <MenuItem value={"Philosophy"}>Philosophy</MenuItem>
                     <MenuItem value={"Mathematics"}>Mathematics</MenuItem>
                     <MenuItem value={"Languages"}>Languages</MenuItem>
-                    <MenuItem value={"History"}>History</MenuItem>
+                    <MenuItem value={"History"}>History</MenuItem> */}
                   </Select>
                 </FormControl>
                 <p className="input_p">
@@ -249,13 +251,13 @@ const UserProfilePage = () => {
       </div>
 
       <div className="filtration">
-        <BasicDatePicker />
-        <BasicTextFields />
-        <MultipleSelectPlaceholder />
-        <Category />
+        {/* <BasicDatePicker /> */}
+        {/* <BasicTextFields /> */}
+        {/* <MultipleSelectPlaceholder /> */}
+        {/* <Category /> */}
       </div>
       <DataTable user={oneUser} id={oneUser?.id} />
-      <PaginationControlled />
+      {/* <PaginationControlled /> */}
     </div>
   );
 };

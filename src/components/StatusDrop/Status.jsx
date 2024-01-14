@@ -22,7 +22,7 @@ export default function SelectLabels() {
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}>
           <MenuItem value="">
-            <p style={{ color: "lightgrey" }}>Status</p>
+            <p style={{ color: "lightgrey", marginBottom: "0px" }}>Status</p>
           </MenuItem>
           <MenuItem value={10}>Declined</MenuItem>
           <MenuItem value={20}>Pending</MenuItem>

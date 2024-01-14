@@ -32,7 +32,7 @@ const ArticleContextsProvider = ({ children }) => {
 
   const API = "http://localhost:3000/api";
 
-  // const location = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
 
   async function getCategories() {
@@ -40,8 +40,9 @@ const ArticleContextsProvider = ({ children }) => {
       const res = await axios(`${API}/category/list`);
       dispatch({
         type: "GET_CATEGORIES",
-        payload: res.data,
+        payload: res.data.data,
       });
+      console.log(res.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -145,6 +146,20 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
+  const fetchByParams = (query, value) => {
+    const search = new URLSearchParams(location.search);
+
+    if (value === "articles") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+
+    const url = `${location.pathname}?${search.toString()}`;
+
+    navigate(url);
+  };
+
   return (
     <articlesContext.Provider
       value={{
@@ -159,7 +174,7 @@ const ArticleContextsProvider = ({ children }) => {
         getOneArticle,
         getCategories,
         getAllMyArticles,
-        // createArticle,
+        fetchByParams,
         getArticles,
       }}>
       {children}
