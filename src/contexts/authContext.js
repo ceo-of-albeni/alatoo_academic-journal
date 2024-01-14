@@ -69,6 +69,7 @@ const AuthContextProvider = ({ children }) => {
     } catch (err) {
       console.log(err);
       setError(err);
+      alert("You entered wrong password or email!");
     } finally {
       setLoading(false);
     }
@@ -97,7 +98,7 @@ const AuthContextProvider = ({ children }) => {
         },
       };
       const res = await axios.post(`${API}/user-profile/`, newProduct, config);
-      navigate("/profile");
+      console.log(res);
     } catch (err) {
       console.log(err);
     }

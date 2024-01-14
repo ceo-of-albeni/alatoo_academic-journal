@@ -42,9 +42,9 @@ const Navabr = ({ closeModal }) => {
           <a href="/archive" className="header_links__item">
             Archive
           </a>
-          <a href="/profile/:id" className="header_links__item">
+          {/* <a href="/profile/:id" className="header_links__item">
             Articles
-          </a>
+          </a> */}
           <a href="/admin" className="header_links__item">
             Admin
           </a>
