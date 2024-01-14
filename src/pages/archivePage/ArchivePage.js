@@ -4,6 +4,7 @@ import search from "./img/search.svg";
 import arrow from "./img/arrow.svg";
 import BasicDatePicker from "../../components/DatePicker/DatePicker";
 import { useNavigate } from "react-router-dom";
+import Slider from "../../components/Slider/Slider";
 
 export default function ArchivePage() {
   const navigate = useNavigate();
@@ -211,7 +212,9 @@ export default function ArchivePage() {
             </div>
           </div>
           <div className={classes.archive__inner__2}>
-            <div className={classes.slider}>{/* SLIDER ALIIA */}</div>
+            <div className={classes.slider}>
+              <Slider/>
+            </div>
             <div className={classes.text}>
               <h3>Ежеквартальный научный журнал</h3>
               <div className={classes.text1}>

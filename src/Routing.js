@@ -9,6 +9,7 @@ import RulesPage4 from "./pages/RulesPage/RulesPage4";
 import ArchiveCategoryPage from "./pages/archiveCategoryPage/ArchiveCategoryPage";
 import ArchivePage from "./pages/archivePage/ArchivePage";
 import CategoryPage from "./pages/categoryPage/CategoryPage";
+import AdminPage from "./pages/adminPage/AdminPage";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -56,6 +57,11 @@ const Routing = () => {
       link: "/category__",
       element: <CategoryPage />,
       id: 9,
+    },
+    {
+      link: "/admin",
+      element: <AdminPage />,
+      id: 10,
     },
   ];
   return (
