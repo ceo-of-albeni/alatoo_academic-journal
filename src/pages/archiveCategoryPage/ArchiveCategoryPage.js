@@ -46,19 +46,20 @@ export default function ArchiveCategoryPage() {
             <img src={arrow} alt="arrow" />
             <a onClick={() => navigate("/archive")}>Back</a>
           </div>
-          <div className={classes.search}>
-            <div className={classes.filtration}>
-              <BasicDatePicker />
-            </div>
-            <form action="" className={classes.search__bar}>
-              <input type="text" placeholder="Search..." name="search" />
-              <button>
-                <img src={search} alt="search" />
-              </button>
-            </form>
-          </div>
+          
           <div className={classes.archive__inner__1}>
             <div className={classes.years}>
+              <div className={classes.search}>
+                <div className={classes.filtration}>
+                  <BasicDatePicker />
+                </div>
+                <form action="" className={classes.search__bar}>
+                  <input type="text" placeholder="Search..." name="search" />
+                  <button>
+                    <img src={search} alt="search" />
+                  </button>
+                </form>
+              </div>
               {dropdowns.map((dropdown, index) => (
                 <div
                   key={index}
