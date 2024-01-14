@@ -46,7 +46,7 @@ export default function ArchiveCategoryPage() {
             <img src={arrow} alt="arrow" />
             <a onClick={() => navigate("/archive")}>Back</a>
           </div>
-          
+
           <div className={classes.archive__inner__1}>
             <div className={classes.years}>
               <div className={classes.search}>
@@ -81,7 +81,7 @@ export default function ArchiveCategoryPage() {
                         : classes.sub__menu__hide
                     }>
                     {dropdown.releases.map((release, releaseIndex) => (
-                      <div className={classes.release}>
+                      <div key={releaseIndex} className={classes.release}>
                         <p>{release}</p>
                         <ul className={classes.sub__menu2}>
                           <li>

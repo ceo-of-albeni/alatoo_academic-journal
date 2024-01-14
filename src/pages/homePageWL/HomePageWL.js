@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import classes from "./HomePageWL.module.css";
 import circle from "./img/circle.png";
 import content from "./img/content.png";
@@ -9,15 +9,20 @@ import horizontal3 from "./img/horizontal3.png";
 import ruslanagay from "./img/ruslanagay.jpg";
 import { useNavigate } from "react-router-dom";
 import { Login } from "../../components/Navbar/modals/login/Login";
+import { authContext } from "../../contexts/authContext";
 
 export default function HomePageWL(closeModal) {
-  
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const navigate = useNavigate();
+  const { users, getUsers } = useContext(authContext);
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
-  }
+  };
 
   return (
     <div className={classes.container}>
@@ -29,7 +34,15 @@ export default function HomePageWL(closeModal) {
             {localStorage.getItem("email") === null ? (
               <button onClick={openLoginModal}>Join us</button> // сделай чтоб открывался Логин
             ) : (
-              <button onClick={() => navigate("/profile")}>Join us</button>
+              users.map(item =>
+                localStorage.getItem("email") === item.email ? (
+                  <button onClick={() => navigate(`/profile/${item.id}`)}>
+                    Join us
+                  </button>
+                ) : (
+                  <span></span>
+                )
+              )
             )}
           </div>
           <div className={classes.title__area__img}>
@@ -124,7 +137,7 @@ export default function HomePageWL(closeModal) {
           </div>
         </div>
       </div>
-      {isLoginModalOpen && <Login closeModal={setIsLoginModalOpen}/>}
+      {isLoginModalOpen && <Login closeModal={setIsLoginModalOpen} />}
 
       {/* <footer>
         <p>© 2023, Name</p>

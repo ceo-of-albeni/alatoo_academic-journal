@@ -28,7 +28,7 @@ export default function BasicTable() {
         item.id,
         item.title,
         item.createdAt.slice(0, 10),
-        item.coauthors,
+        item.coauthors.replace(/,/g, "/n"),
         "???",
         item.category,
         item.isApproved === null ? "Pending" : "Approved"
@@ -41,25 +41,25 @@ export default function BasicTable() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="left">
+            <TableCell width="50px" align="left">
               <strong>Nº</strong>
             </TableCell>
-            <TableCell align="right">
+            <TableCell width="350px" align="right">
               <strong>Title</strong>
             </TableCell>
-            <TableCell align="center">
+            <TableCell width="110px" align="center">
               <strong>Date</strong>
             </TableCell>
-            <TableCell align="center">
+            <TableCell width="150px" align="center">
               <strong>Author</strong>
             </TableCell>
-            <TableCell align="right">
+            <TableCell width="80px" align="right">
               <strong>Pages</strong>
             </TableCell>
-            <TableCell align="right">
+            <TableCell width="180px" align="right">
               <strong>Category</strong>
             </TableCell>
-            <TableCell align="right">
+            <TableCell width="90px" align="right">
               <strong>Status</strong>
             </TableCell>
           </TableRow>

@@ -40,9 +40,8 @@ const ArticleContextsProvider = ({ children }) => {
       const res = await axios(`${API}/category/list`);
       dispatch({
         type: "GET_CATEGORIES",
-        payload: res.data.data,
+        payload: res.data,
       });
-      console.log(res.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -84,7 +83,6 @@ const ArticleContextsProvider = ({ children }) => {
         type: "GET_MY_ARTICLES",
         payload: res.data,
       });
-      console.log(res.data);
     } catch (err) {
       console.log(err);
     }

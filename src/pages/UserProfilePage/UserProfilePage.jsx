@@ -19,11 +19,6 @@ const UserProfilePage = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getCategories();
-  }, []);
-  console.log(categories);
-
   const API = "http://localhost:3000/api";
 
   const [oneUser, setOneUser] = useState(null);
@@ -38,6 +33,7 @@ const UserProfilePage = () => {
   useEffect(() => {
     getOneUser(id);
     getAllMyArticles();
+    getCategories();
   }, []);
 
   const [title, setTitle] = useState("");
@@ -139,6 +135,7 @@ const UserProfilePage = () => {
             <p>
               <strong>First Name: </strong> {oneUser?.firstName}
             </p>
+
             <p>
               <strong>Last Name: </strong> {oneUser?.lastName}
             </p>
@@ -172,8 +169,6 @@ const UserProfilePage = () => {
                     style={{
                       height: "49px",
                       marginBottom: "120px",
-                      // display: "flex",
-                      // alignItems: "center",
                     }}
                     value={category}
                     onChange={handleChange}
@@ -186,18 +181,13 @@ const UserProfilePage = () => {
                     </MenuItem>
                     {categories ? (
                       categories.map(item => (
-                        <MenuItem value={item.name}>{item.name}</MenuItem>
+                        <MenuItem key={item.id} value={item.name}>
+                          {item.name}
+                        </MenuItem>
                       ))
                     ) : (
                       <h3>Loading...</h3>
                     )}
-                    {/* {categories.map(item => (
-                      <MenuItem value={item}>{item}</MenuItem>
-                    ))} */}
-                    {/* <MenuItem value={"Philosophy"}>Philosophy</MenuItem>
-                    <MenuItem value={"Mathematics"}>Mathematics</MenuItem>
-                    <MenuItem value={"Languages"}>Languages</MenuItem>
-                    <MenuItem value={"History"}>History</MenuItem> */}
                   </Select>
                 </FormControl>
                 <p className="input_p">
