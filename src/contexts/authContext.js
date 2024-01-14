@@ -6,15 +6,15 @@ export const authContext = React.createContext();
 
 const INIT_STATE = {
   users: [],
-  oneUser: [],
+  // oneUser: [],
 };
 
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_USERS":
       return { ...state, users: action.payload };
-    case "GET_ONE_USER":
-      return { ...state, oneUser: action.payload };
+    // case "GET_ONE_USER":
+    //   return { ...state, oneUser: action.payload };
     default:
       return state;
   }
@@ -23,9 +23,10 @@ function reducer(state = INIT_STATE, action) {
 const API = "http://localhost:3000/api";
 
 const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  // const [oneUser, setOneUser] = useState(null);
 
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
@@ -38,37 +39,29 @@ const AuthContextProvider = ({ children }) => {
         type: "GET_USERS",
         payload: res.data,
       });
-      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function getOneUser(id) {
-    try {
-      // const tokens = JSON.parse(localStorage.getItem("tokens"));
-      // const Authorization = `Bearer ${tokens.access_token}`;
-      // const config = {
-      //   headers: {
-      //     Authorization,
-      //   },
-      // };
-      const res = await axios(`${API}/user/${id}`); //config
-      dispatch({
-        type: "GET_ONE_USER",
-        payload: res.data,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  // async function getOneUser() {
+  //   try {
+  //     const res = await axios.get(`${API}/user/1`);
+  //     setOneUser(res.data);
+  //     // dispatch({
+  //     //   type: "GET_ONE_USER",
+  //     //   payload: res.data,
+  //     // });
+  //     console.log(res);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 
   async function handleRegister(newObj) {
     setLoading(true);
-    console.log(newObj);
     try {
       const res = await axios.post(`${API}/auth/register`, newObj);
-      console.log(res);
       // navigate("/profile");
     } catch (err) {
       console.log(err);
@@ -82,10 +75,10 @@ const AuthContextProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await axios.post(`${API}/auth/login`, formData);
-      console.log(res);
+      setCurrentUser(res);
       localStorage.setItem("tokens", JSON.stringify(res.data));
       localStorage.setItem("email", email);
-      setCurrentUser(email);
+
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -99,7 +92,6 @@ const AuthContextProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await axios.post(`${API}/auth/confirmEmail`, formData);
-      console.log(res);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -139,13 +131,13 @@ const AuthContextProvider = ({ children }) => {
         error,
         loading,
         users: state.users,
-        oneUser: state.oneUser,
+        // oneUser: state.oneUser,
 
         handleRegister,
         handleConfirm,
         setError,
         handleLogin,
-        getOneUser,
+        // getOneUser,
         getUsers,
         handleLogout,
         handleUser,

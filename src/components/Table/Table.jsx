@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { articlesContext } from "../../contexts/articleContext";
 
 function createData(id, title, date, author, amount, pages, category, status) {
   return { id, title, date, author, amount, pages, category, status };
@@ -94,7 +95,14 @@ const rows = [
   ),
 ];
 
-export default function BasicTable() {
+export default function BasicTable({ user, id }) {
+  const { getAllMyArticles, my_articles } = React.useContext(articlesContext);
+
+  React.useEffect(() => {
+    getAllMyArticles();
+    console.log(my_articles);
+  }, []);
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

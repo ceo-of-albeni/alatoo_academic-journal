@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./UserProfilePage.scss";
-import SuccessModal from "./UserPageModals/SuccessModal";
 import DataTable from "../../components/Table/Table";
 import BasicDatePicker from "../../components/DatePicker/DatePicker";
 import BasicTextFields from "../../components/Search/Search";
@@ -8,124 +7,110 @@ import MultipleSelectPlaceholder from "../../components/StatusDrop/Status";
 import Category from "../../components/Category/Category";
 import PaginationControlled from "../../components/Pagination/PaginationTable";
 import { articlesContext } from "../../contexts/articleContext";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import axios from "axios";
 
 const UserProfilePage = () => {
-  const { createArticle, categories, oneUser } = useContext(articlesContext);
+  const { categories, getCategories, getAllMyArticles, my_articles } =
+    useContext(articlesContext);
 
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   getCategories();
+  // }, []);
+
+  const API = "http://localhost:3000/api";
+
+  const [oneUser, setOneUser] = useState(null);
+
+  const { id } = useParams();
+
+  async function getOneUser(id) {
+    const res = await axios.get(`${API}/user/${id}`);
+    setOneUser(res.data);
+  }
+
+  useEffect(() => {
+    getOneUser(id);
+    getAllMyArticles();
+    console.log(my_articles);
+  }, []);
+
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [coauthors, setCoauthors] = useState("");
+  const [text, setText] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
 
   function clearAll() {
     setTitle("");
     setCategory("");
     setCoauthors("");
-    // setEmail("");
     setText("");
-    setFile(null);
+    setSelectedFile(null);
   }
-
-  function clearAllCard() {
-    setCardNum("");
-  }
-
-  const handleChange = event => {
-    setCategory(event.target.value);
-  };
-
-  const [cardNum, setCardNum] = useState("");
-
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [coauthors, setCoauthors] = useState("");
-  const [file, setFile] = useState(null);
-  const [text, setText] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [fileEncoding, setFileEncoding] = useState(null);
 
   const handleFileChange = event => {
-    let upFile = event.target.files[0];
-
-    const reader = new FileReader();
-
-    reader.onload = function (event) {
-      newFile.buffer = event.target.result;
-      // console.log("File Object:", newFile);
-    };
-    reader.readAsArrayBuffer(upFile);
-
-    // reader.onloadend = () => {
-    //   const fileContent = reader.result;
-
-    //   const detectedEncoding = encoding.detect(fileContent);
-
-    //   if (detectedEncoding) {
-    //     setFileEncoding(detectedEncoding);
-    //   } else {
-    //     console.log(
-    //       "Unable to detect encoding. Consider specifying it manually."
-    //     );
-    //   }
-
-    //   reader.readAsText(event.target.files[0]);
-    // };
-
-    // // buffer
-    // const bufferr = new ArrayBuffer(event.target.files[0]);
-    // // const nodeBuffer = Buffer.from(bufferr);
-    // const view = new Int32Array(bufferr);
-
-    // // field name
-    // const substrings = event.target.files[0].name.split(".");
-    // const substringAfter = substrings[1].trim();
-
-    // let newFile = {
-    //   fieldname: substringAfter,
-    //   originalname: event.target.files[0].name,
-    //   encoding: fileEncoding,
-    //   mimetype: event.target.files[0].type,
-    //   buffer: view,
-    //   size: event.target.files[0].size,
-    // };
-
-    const newFile = {
-      fieldname: "file",
-      originalname: upFile.name,
-      encoding: "7bit", // Указываем 7bit вручную
-      mimetype: upFile.type,
-      buffer: null, // Загрузка буфера произойдет асинхронно
-      size: upFile.size,
-    };
-
-    setFile(newFile);
+    const file = event.target.files[0];
+    setSelectedFile(file);
   };
 
-  function saveArticle() {
-    if (!title || !coauthors || !text || !file || !category) {
+  const handleUpload = async () => {
+    if (!selectedFile || !title || !coauthors || !text || !category) {
       alert("Some inputs are empty!");
       return;
     }
 
-    let newArticle = new FormData();
+    const newArticle = new FormData();
+    newArticle.append("file", selectedFile);
     newArticle.append("title", title);
+    newArticle.append("text", text);
     newArticle.append("category", category);
     newArticle.append("coauthors", coauthors);
-    newArticle.append("text", text);
-    newArticle.append("file", file);
-    createArticle(newArticle);
-    console.log(file);
+
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const response = await fetch("http://localhost:3000/api/article/create", {
+        method: "POST",
+        body: newArticle,
+        headers: {
+          Authorization,
+        },
+      });
+
+      if (!response.ok) {
+        console.error(
+          "Server returned an error:",
+          response.status,
+          response.statusText
+        );
+        const responseText = await response.text();
+        console.error("Server Response:", responseText);
+        alert("Error!");
+        return;
+      }
+
+      console.log("Article created successfully!");
+      alert("Success!");
+    } catch (error) {
+      console.error("Error during article creation:", error);
+    }
 
     setTitle("");
     setCategory("");
     setCoauthors("");
-    // setEmail("");
     setText("");
-    setFile(null);
+    setSelectedFile(null);
+  };
 
-    console.log(category);
-  }
+  const handleChange = event => {
+    setCategory(event.target.value);
+  };
 
   const [openArticle, setOpenArticle] = useState(true);
   const [openPayment, setOpenPayment] = useState(false);
@@ -139,7 +124,7 @@ const UserProfilePage = () => {
   const closeOpenSuccess = () => {
     setOpenPayment(false);
     setOpenSuccess(true);
-    saveArticle();
+    handleUpload();
   };
 
   return (
@@ -152,16 +137,16 @@ const UserProfilePage = () => {
           />
           <div className="profile_main-info">
             <p>
-              <strong>First Name: </strong> Aliia
+              <strong>First Name: </strong> {oneUser?.firstName}
             </p>
             <p>
-              <strong>Last Name: </strong> Malaeva
+              <strong>Last Name: </strong> {oneUser?.lastName}
             </p>
             <p>
-              <strong>Position: </strong> Author
+              <strong>Position: </strong> {oneUser?.role}
             </p>
             <p>
-              <strong>Email: </strong> {localStorage.getItem("email")}
+              <strong>Email: </strong> {oneUser?.email}
             </p>
           </div>
           <p className="edit_prof">Edit Profile</p>
@@ -195,8 +180,15 @@ const UserProfilePage = () => {
                     displayEmpty
                     inputProps={{ "aria-label": "Without label" }}>
                     <MenuItem value="">
-                      <p style={{ color: "lightgrey" }}>Category</p>
+                      <p style={{ color: "lightgrey", marginBottom: "0px" }}>
+                        Category
+                      </p>
                     </MenuItem>
+                    {/* {categories ? (
+                      categories.map(item => <MenuItem>{item}</MenuItem>)
+                    ) : (
+                      <h3>Loading...</h3>
+                    )} */}
                     {/* {categories.map(item => (
                       <MenuItem value={item}>{item}</MenuItem>
                     ))} */}
@@ -216,22 +208,12 @@ const UserProfilePage = () => {
                   value={coauthors}
                   onChange={e => setCoauthors(e.target.value)}
                 />
-                {/* <p className="input_p">Email of each author of the article*</p>
-                <input
-                  className="text_input"
-                  placeholder="Click and start typing"
-                  type="text"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                /> */}
+
                 <p className="input_p">Article file*</p>
                 <label className="custom-file-upload">
-                  {/* <input type="file" onChange={handleFileChange} />
-                  <button onClick={handleUpload}>Upload</button> */}
                   <input
                     type="file"
-                    // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                    // onChange={e => setFile(e.target.files[0])}
+                    accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                     onChange={handleFileChange}
                   />
                   <svg
@@ -253,8 +235,7 @@ const UserProfilePage = () => {
               </div>
 
               <br />
-              <button onClick={closeOpenPayment}>Next</button>
-              {/* onClick={closeOpenPayment}  */}
+              <button onClick={handleUpload}>Next</button>
               <p id="clear_all" onClick={clearAll}>
                 Clear all
               </p>
@@ -265,60 +246,6 @@ const UserProfilePage = () => {
             </div>
           </div>
         )}
-        {openPayment && (
-          <div className="article_form">
-            <h4>Payment</h4>
-            <div className="article_form-inputs">
-              <div className="short_inp">
-                {/* <p className="input_p">First name*</p>
-                  <input
-                    className="text_input"
-                    placeholder="Click and start typing"
-                    type="text"
-                  />
-                  <p className="input_p">Last name*</p>
-                  <input
-                    className="text_input"
-                    placeholder="Click and start typing"
-                    type="text"
-                  /> */}
-                {/* <p className="input_p">Country*</p>
-                  <input
-                    className="text_input"
-                    placeholder="Click and start typing"
-                    type="text"
-                  /> */}
-                {/* <p className="input_p">Zip code*</p>
-                  <input
-                    className="text_input"
-                    placeholder="Click and start typing"
-                    type="text"
-                  /> */}
-              </div>
-              <div className="card_inp">
-                <p className="input_p">Credit card details*</p>
-                <input
-                  // className="text_input"
-                  id="card_input"
-                  placeholder="Card number         MM    YYYY   CVV"
-                  type="text"
-                  value={cardNum}
-                  onChange={e => setCardNum(e.target.value)}
-                />
-              </div>
-              <br />
-              <button onClick={closeOpenSuccess}>Get instant access now</button>
-              <p id="clear_all" onClick={clearAllCard}>
-                Clear all
-              </p>
-              <div>
-                <input type="checkbox" /> By submitting this form, you agree to
-                Privacy Policy
-              </div>
-            </div>
-          </div>
-        )}
-        {openSuccess && <SuccessModal closeModal={setOpenSuccess} />}
       </div>
 
       <div className="filtration">
@@ -327,7 +254,7 @@ const UserProfilePage = () => {
         <MultipleSelectPlaceholder />
         <Category />
       </div>
-      <DataTable />
+      <DataTable user={oneUser} id={oneUser?.id} />
       <PaginationControlled />
     </div>
   );
