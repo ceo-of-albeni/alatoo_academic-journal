@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import classes from "./ArchivePage.module.css";
 import search from "./img/search.svg";
 import arrow from "./img/arrow.svg";
 import BasicDatePicker from "../../components/DatePicker/DatePicker";
 import { useNavigate } from "react-router-dom";
+import { articlesContext } from "../../contexts/articleContext";
+import Slider from "../../components/Slider/Slider";
 
 export default function ArchivePage() {
   const navigate = useNavigate();
+
+  const { categories, getCategories } = useContext(articlesContext);
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   const [openSubs, setOpenSubs] = useState(false);
 
@@ -40,54 +48,19 @@ export default function ArchivePage() {
                   <th>№</th>
                   <th>Category</th>
                 </tr>
-                <tr>
-                  <td>1</td>
-                  <td>
-                    <a onClick={() => navigate("/category")}>
-                      Pedagogical science
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>
-                    <a onClick={() => navigate("/category")}>
-                      Philological science
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>
-                    <a onClick={() => navigate("/category")}>
-                      Social and humanitrian science
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>
-                    <a onClick={() => navigate("/category")}>Informatics</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>
-                    <a onClick={() => navigate("/category")}>Mathematics</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>
-                    <a onClick={() => navigate("/category")}>Biology</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>
-                    <a onClick={() => navigate("/category")}>Medical science</a>
-                  </td>
-                </tr>
+
+                {categories ? (
+                  categories.map(item => (
+                    <tr>
+                      <td>{item.id}</td>
+                      <td>
+                        <a onClick={() => navigate("/category")}>{item.name}</a>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <h3>Loading...</h3>
+                )}
               </table>
             </div>
             <div className={classes.ethics}>
@@ -211,7 +184,9 @@ export default function ArchivePage() {
             </div>
           </div>
           <div className={classes.archive__inner__2}>
-            <div className={classes.slider}>{/* SLIDER ALIIA */}</div>
+            <div className={classes.slider}>
+              <Slider />
+            </div>
             <div className={classes.text}>
               <h3>Ежеквартальный научный журнал</h3>
               <div className={classes.text1}>
