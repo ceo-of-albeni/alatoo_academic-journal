@@ -31,7 +31,7 @@ export default function BasicTable() {
         item.coauthors.replace(/,/g, "/n"),
         "???",
         item.category,
-        item.isApproved === null ? "Pending" : "Approved"
+        item.isPublished ? "Approved" : "Pending"
       )
     )
   );
