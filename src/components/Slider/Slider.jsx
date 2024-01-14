@@ -20,10 +20,10 @@ function Slider() {
             alt="Image One"
           />
           <Carousel.Caption>
-            <h3 style={{color: "black"}}>2006</h3>
+            {/* <h3 style={{color: "black"}}>2006</h3> */}
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={500}>
+        {/* <Carousel.Item interval={500}>
           <img
             style={{ height: "330px" }}
             className="d-block w-100"
@@ -31,10 +31,10 @@ function Slider() {
             alt="Image Two"
           />
           <Carousel.Caption>
-            {/* <h3>Label for second slide</h3>
-            <p>Sample Text for Image Two</p> */}
+            <h3>Label for second slide</h3>
+            <p>Sample Text for Image Two</p>
           </Carousel.Caption>
-        </Carousel.Item>
+        </Carousel.Item> */}
       </Carousel>
     </div>
   );

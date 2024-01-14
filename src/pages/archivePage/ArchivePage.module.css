@@ -118,17 +118,18 @@ table {
 }
 
 th {
-  font-family: Inter;
+  font-family: SF Pro Display;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 28px;
   border: 1px solid #f1f1f1;
+  text-align: center;
 }
 
 td {
-  font-family: Inter;
-  font-size: 18px;
-  font-weight: 400;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 25px;
   text-align: left;
   border: 1px solid #f1f1f1;
@@ -146,7 +147,7 @@ td:nth-child(2) a:hover {
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 4px;
-  color: #2d2652;
+  color: #EBB21F !important;
 }
 
 /******************Ethic********************/
@@ -162,13 +163,13 @@ td:nth-child(2) a:hover {
 .ethic1 a {
   display: block;
   width: 454px;
-  font-family: Metrophobic;
-  padding: 10px 41px 11px 29px;
-  font-size: 18px;
-  font-weight: 400;
+  font-family: SF Pro Display;
+  padding: 10px 41px 10px 29px;
+  font-size: 16px;
+  font-weight: 500;
   text-decoration: none;
   text-underline-offset: 5px;
-  color: white;
+  color: white !important; 
 }
 
 .ethic1:hover {
@@ -186,11 +187,11 @@ td:nth-child(2) a:hover {
 .ethic2 a {
   display: block;
   width: 454px;
-  color: #ffffff;
-  padding: 10px 186px 11px 29px;
-  font-family: Metrophobic;
-  font-size: 20px;
-  font-weight: 400;
+  color: #ffffff !important;
+  padding: 10px 186px 10px 29px;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 25px;
   text-align: left;
 }
@@ -213,7 +214,7 @@ td:nth-child(2) a:hover {
   width: 454px;
   height: 46px;
   padding: 12px 13px 12px 29px;
-  font-family: Metrophobic;
+  font-family: SF Pro Display;
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
@@ -273,6 +274,10 @@ i {
 
 /******************Text********************/
 
+.slider {
+  margin-right: 50px;
+}
+
 .text {
   align-items: center;
   width: 457px;
@@ -284,19 +289,23 @@ i {
 
 .text h3 {
   text-align: center;
+  font-size: 20px;
   margin: 22px 38px;
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .text1 {
   width: 455px;
-  height: 46px;
+  height: 55px;
   padding: 2px 8px;
-  background-color: #121d7c;
+  background-color: #2D2652;
 }
 
 .text1 p {
   font-family: SF Pro Display;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #ffffff;
