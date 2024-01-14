@@ -15,6 +15,14 @@ export function Login({ closeModal }) {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,7 +38,8 @@ export function Login({ closeModal }) {
       email: email,
       password: password,
     };
-    handleLogin(newObj, email, navigate);
+
+    handleLogin(newObj, email, closeModal);
     console.log(newObj);
 
     setEmail("");

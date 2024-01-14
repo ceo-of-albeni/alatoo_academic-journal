@@ -35,7 +35,7 @@ const UserProfilePage = () => {
     getAllMyArticles();
     getCategories();
   }, []);
-  console.log(my_articles);
+  console.log(categories);
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [coauthors, setCoauthors] = useState("");
@@ -205,7 +205,7 @@ const UserProfilePage = () => {
                 <label className="custom-file-upload">
                   <input
                     type="file"
-                    accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                     onChange={handleFileChange}
                   />
                   <svg
