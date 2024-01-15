@@ -34,7 +34,7 @@ const Navabr = ({ closeModal }) => {
           </a>
           <p className="logo_p">Ala-Too Academic Journal</p>
         </div>
-
+    
         <div className="header_inner">
           <div className="header_links">
             <a href="/rules1" className="header_links__item">
@@ -43,12 +43,16 @@ const Navabr = ({ closeModal }) => {
             <a href="/archive" className="header_links__item">
               Archive
             </a>
-            {/* <a href="/profile/:id" className="header_links__item">
-              Articles
-            </a> */}
+
+            {localStorage.getItem("email") === null ? (
+            <span></span>
+          ) : localStorage.getItem("email") == "admin@gmail.com" ? (
             <a href="/admin" className="header_links__item">
               Admin
             </a>
+          ) : (
+            <span></span>
+          )}
 
             {localStorage.getItem("email") === null ? (
               <span></span>

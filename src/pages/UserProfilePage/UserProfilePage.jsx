@@ -41,6 +41,7 @@ const UserProfilePage = () => {
   const [coauthors, setCoauthors] = useState("");
   const [text, setText] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+  const [email, setEmail] = useState("");
 
   function clearAll() {
     setTitle("");
@@ -48,6 +49,7 @@ const UserProfilePage = () => {
     setCoauthors("");
     setText("");
     setSelectedFile(null);
+    setEmail("");
   }
 
   const handleFileChange = event => {
@@ -56,7 +58,7 @@ const UserProfilePage = () => {
   };
 
   const handleUpload = async () => {
-    if (!selectedFile || !title || !coauthors || !text || !category) {
+    if (!selectedFile || !title || !coauthors || !text || !category || !email) {
       alert("Some inputs are empty!");
       return;
     }
@@ -67,6 +69,7 @@ const UserProfilePage = () => {
     newArticle.append("text", text);
     newArticle.append("category", category);
     newArticle.append("coauthors", coauthors);
+    newArticle.append("email", email);
 
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -102,6 +105,7 @@ const UserProfilePage = () => {
     setCoauthors("");
     setText("");
     setSelectedFile(null);
+    setEmail("");
   };
 
   const handleChange = event => {
@@ -199,6 +203,14 @@ const UserProfilePage = () => {
                   type="text"
                   value={coauthors}
                   onChange={e => setCoauthors(e.target.value)}
+                />
+                <p className="input_p">Email of each author of the article*</p>
+                <input
+                  className="text_input"
+                  placeholder="Click and start typing"
+                  type="text"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                 />
 
                 <p className="input_p">Article file*</p>

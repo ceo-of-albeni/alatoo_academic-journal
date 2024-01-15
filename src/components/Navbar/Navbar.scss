@@ -30,7 +30,9 @@
 }
 
 .header_links {
-  // border: 1px solid black;
+  // border: 1px solid black
+  // display: flex;
+  // justify-content: end;
   padding: 15px;
   border-radius: 30px;
   .header_links__item {
