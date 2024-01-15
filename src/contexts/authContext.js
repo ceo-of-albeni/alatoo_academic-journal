@@ -66,7 +66,6 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("email", email);
 
       closeModal();
-      document.body.style.overflow = "unhidden";
       
       navigate("/");
     } catch (err) {
