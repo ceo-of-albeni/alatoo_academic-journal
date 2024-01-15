@@ -34,14 +34,15 @@ function createData(
 }
 
 export default function BasicTableAdmin() {
-  const { articles, getArticles, approveArticle, deleteArticle } =
-    React.useContext(articlesContext);
+  const { articles, getArticles } = React.useContext(articlesContext);
 
   React.useEffect(() => {
     getArticles();
   }, []);
 
   // let statusArt = "Pending";
+  const [statusArt, setStatusArt] = React.useState("Pending");
+
   // if (item.isPublished == true) {
   //   statusArt = "Published";
   // } else if (item) {
@@ -58,11 +59,19 @@ export default function BasicTableAdmin() {
         item.coauthors,
         "???",
         item.category,
-        item.isPublished ? "Approved" : "Pending",
+        statusArt,
         item.fileUrl
       )
     )
   );
+
+  function approveArticle() {
+    setStatusArt("Approved");
+  }
+
+  function deleteArticle() {
+    setStatusArt("Declined");
+  }
 
   return (
     <TableContainer component={Paper}>
@@ -112,12 +121,14 @@ export default function BasicTableAdmin() {
               <TableCell align="right">{row.coauthors}</TableCell>
               <TableCell align="right">{row.pages}</TableCell>
               <TableCell align="right">{row.category.name}</TableCell>
-              <TableCell align="right">{row.status}</TableCell>
+              <TableCell key={row.id} align="right">
+                {row.status}
+              </TableCell>
               <TableCell align="right">
-                <button onClick={() => approveArticle(row.id)} id="approve">
+                <button key={row.id} onClick={approveArticle} id="approve">
                   Approve
                 </button>
-                <button id="decline" onClick={() => deleteArticle(row.id)}>
+                <button key={row.pages} id="decline" onClick={deleteArticle}>
                   Decline
                 </button>
               </TableCell>
