@@ -31,12 +31,18 @@ export default function BasicTable() {
     getArticles();
   }, []);
 
-  // let statusArt = "Pending";
-  // if (item.isPublished == true) {
-  //   statusArt = "Published";
-  // } else if (item) {
-  //   k;
-  // }
+  let statusArt = "Pending";
+  async function statusArticle(item) {
+    if (item.isApproved == true) {
+      statusArt = "Published";
+    } else if (item.isApproved == false) {
+      statusArt = "Declined";
+    } else {
+      statusArt = "Pending";
+    }
+    return statusArt;
+  }
+  // statusArticle(item)
 
   let rows = [];
   my_articles.map(item =>
@@ -48,7 +54,8 @@ export default function BasicTable() {
         item.coauthors,
         "???",
         item.category,
-        item.isPublished ? "Approved" : "Pending",
+        // statusArticle(item),
+        item.isApproved ? "Approved" : "Pending",
         item.fileUrl
       )
     )

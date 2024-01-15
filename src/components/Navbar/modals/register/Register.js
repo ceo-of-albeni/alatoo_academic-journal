@@ -51,8 +51,8 @@ export function Register({ closeModal }) {
       password: password,
     };
 
-    handleRegister(newObj);
     closeOpenConfirm();
+    handleRegister(newObj);
   }
 
   useEffect(() => {

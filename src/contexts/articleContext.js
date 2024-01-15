@@ -119,10 +119,8 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const { data } = await axios.patch(
-        `${API}/article/approve/${id}`,
-        config
-      );
+      const res = await axios.patch(`${API}/article/approve/${id}`, config);
+      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -137,7 +135,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(`${API}/article/delete/${id}`, config);
+      const res = await axios.delete(`${API}/article/delete/${id}`, config);
       // dispatch({
       //   type: "APPROVE_ARTICLE",
       //   payload: res.data,

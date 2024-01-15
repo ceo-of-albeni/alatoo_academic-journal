@@ -66,7 +66,8 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("email", email);
 
       closeModal();
-      
+      console.log(res.data);
+
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -82,6 +83,20 @@ const AuthContextProvider = ({ children }) => {
     try {
       const res = await axios.post(`${API}/auth/confirmEmail`, formData);
       navigate("/");
+    } catch (err) {
+      console.log(err);
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function forgotPassword(email) {
+    setLoading(true);
+    try {
+      const res = await axios.post(`${API}/auth/forgotPassword`, email);
+      console.log(email);
+      console.log("heeh");
     } catch (err) {
       console.log(err);
       setError(err);
@@ -130,6 +145,7 @@ const AuthContextProvider = ({ children }) => {
         getUsers,
         handleLogout,
         handleUser,
+        forgotPassword,
       }}>
       {children}
     </authContext.Provider>
