@@ -15,6 +15,7 @@ export function Register({ closeModal }) {
   const [openConfirm, setOpenConfirm] = useState(false);
   const [modalOpen, setModalOpen] = useState(true);
   const [openLogin, setOpenLogin] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -23,27 +24,26 @@ export function Register({ closeModal }) {
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const closeOpenConfirm = e => {
-    // e.preventDefault();
     setModalOpen(false);
     setOpenConfirm(true);
   };
 
-  function createUser() {
-    if (
-      !firstName.trim() ||
-      !lastName.trim() ||
-      !email.trim() ||
-      !password.trim() ||
-      !passwordConfirm.trim()
-    ) {
+  const createUser = async () => {
+    // Validate the form inputs
+    if (!firstName.trim() || !lastName.trim() || !email.trim() || !password.trim() || !passwordConfirm.trim()) {
       alert("Some inputs are empty!");
       return;
     }
 
     if (password !== passwordConfirm) {
-      alert("Passwords are not same!");
+      alert("Passwords are not the same!");
       return;
     }
+
+    // Set loading state to true
+    setIsLoading(true);
+
+    // Call the handleRegister function
     let newObj = {
       firstName: firstName,
       lastName: lastName,
@@ -51,9 +51,20 @@ export function Register({ closeModal }) {
       password: password,
     };
 
-    handleRegister(newObj);
-    closeOpenConfirm();
-  }
+    try {
+      // Handle registration
+      await handleRegister(newObj);
+
+      // If registration is successful, open the confirmation modal
+      closeOpenConfirm();
+    } catch (error) {
+      // Handle registration error
+      console.log(error);
+    } finally {
+      // Set loading state back to false regardless of success or failure
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     setError(false);
@@ -127,13 +138,13 @@ export function Register({ closeModal }) {
                 placeholder="Enter your password"
                 name="con_password"
               />
-              <button onClick={createUser}>Sign Up</button>
+              <button onClick={createUser}>{isLoading ? <Loader /> : "Sign Up"}</button>
             </form>
           </div>
         </div>
       )}
-      {openLogin && <Login closeModal={setOpenLogin} />}
-      {openConfirm && <ConfirmReg closeModal={setOpenConfirm} />}
+      {openLogin && <Login closeModal={() => setOpenLogin(false)} />}
+      {openConfirm && <ConfirmReg closeModal={() => setOpenConfirm(false)} />}
     </>
   );
 }
