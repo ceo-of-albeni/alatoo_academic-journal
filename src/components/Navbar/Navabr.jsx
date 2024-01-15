@@ -45,9 +45,17 @@ const Navabr = ({ closeModal }) => {
           {/* <a href="/profile/:id" className="header_links__item">
             Articles
           </a> */}
-          <a href="/admin" className="header_links__item">
-            Admin
-          </a>
+          {/* admin@gmail.com */}
+
+          {localStorage.getItem("email") === null ? (
+            <span></span>
+          ) : localStorage.getItem("email") == "admin@gmail.com" ? (
+            <a href="/admin" className="header_links__item">
+              Admin
+            </a>
+          ) : (
+            <span></span>
+          )}
 
           {localStorage.getItem("email") === null ? (
             <span></span>

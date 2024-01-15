@@ -42,7 +42,7 @@ const ArticleContextsProvider = ({ children }) => {
       const res = await axios(`${API}/category/list`);
       dispatch({
         type: "GET_CATEGORIES",
-        payload: res.data.data,
+        payload: res.data,
       });
       console.log(res.data);
     } catch (err) {
@@ -119,11 +119,10 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(`${API}/article/approve/${id}`, config);
-      // dispatch({
-      //   type: "APPROVE_ARTICLE",
-      //   payload: res.data,
-      // });
+      const { data } = await axios.patch(
+        `${API}/article/approve/${id}`,
+        config
+      );
     } catch (err) {
       console.log(err);
     }
@@ -169,21 +168,21 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
-  async function deleteArticle(slug) {
-    try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.delete(`${API}/article/${slug}/`, config);
-      getArticles();
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  // async function deleteArticle(id) {
+  //   try {
+  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
+  //     const Authorization = `Bearer ${tokens.access_token}`;
+  //     const config = {
+  //       headers: {
+  //         Authorization,
+  //       },
+  //     };
+  //     const res = await axios.delete(`${API}/article/.delete${id}/`, config);
+  //     getArticles();
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 
   const fetchByParams = (query, value) => {
     const search = new URLSearchParams(location.search);
@@ -207,7 +206,7 @@ const ArticleContextsProvider = ({ children }) => {
         oneArticle: state.oneArticle,
         categories: state.categories,
         my_articles: state.my_articles,
-        deleteArticle,
+        // deleteArticle,
 
         updateArticle,
         getOneArticle,
