@@ -35,47 +35,49 @@ const Navabr = ({ closeModal }) => {
           <p className="logo_p">Ala-Too Academic Journal</p>
         </div>
 
-        <div className="header_links">
-          <a href="/rules1" className="header_links__item">
-            Rules
-          </a>
-          <a href="/archive" className="header_links__item">
-            Archive
-          </a>
-          {/* <a href="/profile/:id" className="header_links__item">
-            Articles
-          </a> */}
-          <a href="/admin" className="header_links__item">
-            Admin
-          </a>
+        <div className="header_inner">
+          <div className="header_links">
+            <a href="/rules1" className="header_links__item">
+              Rules
+            </a>
+            <a href="/archive" className="header_links__item">
+              Archive
+            </a>
+            {/* <a href="/profile/:id" className="header_links__item">
+              Articles
+            </a> */}
+            <a href="/admin" className="header_links__item">
+              Admin
+            </a>
+
+            {localStorage.getItem("email") === null ? (
+              <span></span>
+            ) : (
+              users.map(item =>
+                localStorage.getItem("email") === item.email ? (
+                  <a
+                    key={item.id}
+                    onClick={() => navigate(`/profile/${item.id}`)}
+                    className="header_links__item">
+                    Profile
+                  </a>
+                ) : (
+                  <span key={item.id}></span>
+                )
+              )
+            )}
+          </div>
 
           {localStorage.getItem("email") === null ? (
-            <span></span>
+            <div className="login_btn" onClick={openLoginModal}>
+              <div>Sign in</div>
+            </div>
           ) : (
-            users.map(item =>
-              localStorage.getItem("email") === item.email ? (
-                <a
-                  key={item.id}
-                  onClick={() => navigate(`/profile/${item.id}`)}
-                  className="header_links__item">
-                  Profile
-                </a>
-              ) : (
-                <span key={item.id}></span>
-              )
-            )
+            <div className="login_btn" onClick={handleLogout}>
+              <div>Sign Out</div>
+            </div>
           )}
         </div>
-
-        {localStorage.getItem("email") === null ? (
-          <div className="login_btn" onClick={openLoginModal}>
-            <div>Sign in</div>
-          </div>
-        ) : (
-          <div className="login_btn" onClick={handleLogout}>
-            <div>Sign Out</div>
-          </div>
-        )}
       </div>
       {isLoginModalOpen && (
         <Login closeModal={() => setLoginModalOpen(false)} />
