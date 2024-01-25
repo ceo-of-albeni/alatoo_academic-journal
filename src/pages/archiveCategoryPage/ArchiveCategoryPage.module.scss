@@ -137,7 +137,7 @@
   height: 50px;
   cursor: pointer;
   background: #2d2652;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 20px 20px 20px 0px;
   color: #ffffff;
   align-items: center;
 }
@@ -153,7 +153,7 @@
 }
 
 .sub__menu {
-  position: relative;
+  // position: relative;
   padding: 0px 20px;
   display: block;
   height: 365px; /*проверь когда будешь работать*/

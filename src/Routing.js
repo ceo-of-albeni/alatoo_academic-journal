@@ -10,6 +10,7 @@ import ArchiveCategoryPage from "./pages/archiveCategoryPage/ArchiveCategoryPage
 import ArchivePage from "./pages/archivePage/ArchivePage";
 import CategoryPage from "./pages/categoryPage/CategoryPage";
 import AdminPage from "./pages/adminPage/AdminPage";
+import EthicsPage from "./pages/ethicsPage/EthicsPage";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -62,6 +63,11 @@ const Routing = () => {
       link: "/admin",
       element: <AdminPage />,
       id: 10,
+    },
+    {
+      link: "/ethics",
+      element: <EthicsPage />,
+      id: 11,
     },
   ];
   return (

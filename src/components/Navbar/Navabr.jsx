@@ -40,6 +40,9 @@ const Navabr = ({ closeModal }) => {
             <a href="/rules1" className="header_links__item">
               Rules
             </a>
+            <a href="/profile/:id" className="header_links__item">
+              Articles
+            </a>
             <a href="/archive" className="header_links__item">
               Archive
             </a>
