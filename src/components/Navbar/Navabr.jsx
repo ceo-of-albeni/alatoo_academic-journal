@@ -9,17 +9,23 @@ import { authContext } from "../../contexts/authContext";
 import { Login } from "./modals/login/Login";
 
 const Navabr = ({ closeModal }) => {
-  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
   const { handleLogout, users, getUsers } = useContext(authContext);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getUsers();
-  }, []);
+  // useEffect(() => {
+  //   getUsers();
+  // }, []);
 
   const openLoginModal = () => {
-    setLoginModalOpen(true);
+    if (activeModal === null) {
+      setActiveModal("login");
+    }
+  };
+
+  const closeModalHandler = () => {
+    setActiveModal(null);
   };
 
   return (
@@ -86,8 +92,8 @@ const Navabr = ({ closeModal }) => {
           )}
         </div>
       </div>
-      {isLoginModalOpen && (
-        <Login closeModal={() => setLoginModalOpen(false)} />
+      {activeModal === "login" && (
+        <Login closeModal={closeModalHandler} />
       )}
     </div>
   );

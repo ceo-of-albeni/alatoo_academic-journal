@@ -3,14 +3,11 @@ import classes from "./ConfirmReg.module.css";
 import { useNavigate } from "react-router-dom";
 import arrow from "../img/arrow.svg";
 import { Success } from "../success/Success";
-import { Register } from "../register/Register";
 // import Loader from "../../../Loader/Loader";
 import { authContext } from "../../../../contexts/authContext";
 
 export function ConfirmReg({ closeModal }) {
-  const [openRegister, setOpenRegister] = useState(false);
-  const [modalOpen, setModalOpen] = useState(true);
-  const [openSuccess, setOpenSuccess] = useState(false);
+  const [openSuccess, setOpenSuccess] = useState(null);
   const [seconds, setSeconds] = useState(59);
   const [timerRunning, setTimerRunning] = useState(true);
 
@@ -21,7 +18,7 @@ export function ConfirmReg({ closeModal }) {
 
   const { handleConfirm, setError, loading } = useContext(authContext);
 
-  const handleSigninClick = () => {
+  const handleSigninClick = async (e) => {
     if (!email.trim() || !password.trim()) {
       alert("Some inputs are empty!");
       return;
@@ -32,12 +29,17 @@ export function ConfirmReg({ closeModal }) {
       password: password,
     };
 
-    handleConfirm(newObj, email);
-    closeOpenSuccess();
+    try {
+      await handleConfirm(newObj, email);
+      closeOpenSuccess();
 
-    setEmail("");
-    setPassword("");
-    setTimerRunning(true);
+      setEmail("");
+      setPassword("");
+      setTimerRunning(true);
+    } catch (error) {
+      // Handle error if needed
+      console.error("Error during confirmation:", error);
+    }
   };
 
   useEffect(() => {
@@ -46,12 +48,6 @@ export function ConfirmReg({ closeModal }) {
 
   // if (loading) {
   //     return <Loader />;
-  // }
-
-  // if (openconfirm || openRegister || openSuccess) {
-  //     document.body.style.overflow = "hidden";
-  // } else {
-  //     document.body.style.overflow = "auto";
   // }
 
   useEffect(() => {
@@ -72,24 +68,15 @@ export function ConfirmReg({ closeModal }) {
     }
   }, [seconds])
 
-  const handleConfirmClick = e => {
-    e.stopPropagation();
-  };
-
-  const handleOutsideClick = () => {
-    closeModal();
-  };
-
-  const closeOpenRegister = () => {
-    setModalOpen(false);
-    setOpenRegister(true);
-  };
-
   const closeOpenSuccess = e => {
     e.preventDefault();
-    setModalOpen(false);
-    setOpenSuccess(true);
+    setOpenSuccess("success");
+    console.log("asduhfajsdhi");
   };
+
+  const closeM = () => {
+    setOpenSuccess(null);
+  }
 
   const handleResendClick = () => {
     setSeconds(59);
@@ -105,38 +92,33 @@ export function ConfirmReg({ closeModal }) {
   }
 
   return (
-    <>
-      {modalOpen && (
-        <div className={classes.confirm} onClick={handleOutsideClick}>
-          <div className={classes.confirm__inner} onClick={handleConfirmClick}>
-            <img src={arrow} alt="back" onClick={closeOpenRegister} />
-            <form action="">
-              <div>CONFIRM</div>
-              <label>Email</label>
-              <input
-                type="text"
-                placeholder="Enter your email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                name="email"
-              />
-              <label>Code <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span></label>
-              <input
-                type="text"
-                placeholder="Enter your code"
-                name="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-              />
-              <button onClick={handleButtonClick} disabled={loading}>
-                {timerRunning ? "Sign in" : "Resend"}
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-      {openRegister && <Register closeModal={setOpenRegister} />}
-      {openSuccess && <Success closeModal={setOpenSuccess} />}
-    </>
+    <div className={classes.confirm}>
+      <div className={classes.confirm__inner}>
+        <img src={arrow} alt="back" onClick={() => navigate("/register")} />
+        <form action="">
+          <div>CONFIRM</div>
+          <label>Email</label>
+          <input
+            type="text"
+            placeholder="Enter your email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            name="email"
+          />
+          <label>Code <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span></label>
+          <input
+            type="text"
+            placeholder="Enter your code"
+            name="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          <button onClick={(e) => handleSigninClick(e)} disabled={loading}>
+            {timerRunning ? "Sign in" : "Resend"}
+          </button>
+        </form>
+      </div>
+      {openSuccess === "success" && <Success closeModal={closeM} />}
+    </div> 
   );
 }
