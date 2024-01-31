@@ -129,6 +129,9 @@ const ArticleContextsProvider = ({ children }) => {
   async function deleteArticle(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
+      if (!tokens || !tokens.access_token) {
+        console.log("Access token not found");
+      }
       const Authorization = `Bearer ${tokens.access_token}`;
       const config = {
         headers: {
@@ -136,12 +139,9 @@ const ArticleContextsProvider = ({ children }) => {
         },
       };
       const res = await axios.delete(`${API}/article/delete/${id}`, config);
-      // dispatch({
-      //   type: "APPROVE_ARTICLE",
-      //   payload: res.data,
-      // });
+      console.log("Article deleted successfully:", res.data);
     } catch (err) {
-      console.log(err);
+      console.error("Error deleting article:", err);
     }
   }
 

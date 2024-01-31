@@ -6,8 +6,11 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { Paper } from "@mui/material";
 import { articlesContext } from "../../contexts/articleContext";
+import { useSearchParams } from "react-router-dom";
+
 
 export default function BasicTextFields() {
+  const [searchParams, setSearchParams] = useSearchParams(); 
   const { fetchByParams } = React.useContext(articlesContext);
   return (
     <Box

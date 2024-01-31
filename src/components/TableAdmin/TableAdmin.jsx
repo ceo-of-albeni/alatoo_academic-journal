@@ -34,7 +34,8 @@ function createData(
 }
 
 export default function BasicTableAdmin() {
-  const { articles, getArticles } = React.useContext(articlesContext);
+  const { articles, getArticles, approveArticle, deleteArticle } =
+    React.useContext(articlesContext);
 
   React.useEffect(() => {
     getArticles();
@@ -65,14 +66,6 @@ export default function BasicTableAdmin() {
     )
   );
 
-  function approveArticle() {
-    setStatusArt("Approved");
-  }
-
-  function deleteArticle() {
-    setStatusArt("Declined");
-  }
-
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -81,25 +74,25 @@ export default function BasicTableAdmin() {
             <TableCell width="50px" align="left">
               <strong>Nº</strong>
             </TableCell>
-            <TableCell width="350px" align="right">
+            <TableCell width="330px" align="right">
               <strong>Title</strong>
             </TableCell>
-            <TableCell width="110px" align="center">
+            <TableCell width="100px" align="center">
               <strong>Date</strong>
             </TableCell>
-            <TableCell width="150px" align="center">
+            <TableCell width="130px" align="center">
               <strong>Author</strong>
             </TableCell>
             <TableCell width="80px" align="right">
               <strong>Pages</strong>
             </TableCell>
-            <TableCell width="180px" align="right">
+            <TableCell width="150px" align="right">
               <strong>Category</strong>
             </TableCell>
-            <TableCell width="90px" align="right">
+            <TableCell width="100px" align="right">
               <strong>Status</strong>
             </TableCell>
-            <TableCell width="90px" align="right">
+            <TableCell width="80px" align="right">
               <strong></strong>
             </TableCell>
           </TableRow>
@@ -108,6 +101,7 @@ export default function BasicTableAdmin() {
           {rows.map(row => (
             <TableRow
               key={row.id}
+              height="60px"
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
               <TableCell component="th" scope="row">
                 {row.id}
@@ -125,10 +119,16 @@ export default function BasicTableAdmin() {
                 {row.status}
               </TableCell>
               <TableCell align="right">
-                <button key={row.id} onClick={approveArticle} id="approve">
+                <button
+                  key={row.id}
+                  onClick={() => approveArticle(row.id)}
+                  id="approve">
                   Approve
                 </button>
-                <button key={row.pages} id="decline" onClick={deleteArticle}>
+                <button
+                  key={row.pages}
+                  id="decline"
+                  onClick={() => deleteArticle(row.id)}>
                   Decline
                 </button>
               </TableCell>
