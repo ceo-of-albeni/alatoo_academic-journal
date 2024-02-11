@@ -3,60 +3,72 @@ import classes from "./ConfirmReg.module.css";
 import { useNavigate } from "react-router-dom";
 import arrow from "../img/arrow.svg";
 import { Success } from "../success/Success";
-import { Register } from "../register/Register";
 // import Loader from "../../../Loader/Loader";
 import { authContext } from "../../../../contexts/authContext";
 
 export function ConfirmReg({ closeModal }) {
-  const [openRegister, setOpenRegister] = useState(false);
-  const [modalOpen, setModalOpen] = useState(true);
-  const [openSuccess, setOpenSuccess] = useState(false);
+  const [openSuccess, setOpenSuccess] = useState(null);
   const [seconds, setSeconds] = useState(59);
   const [timerRunning, setTimerRunning] = useState(true);
 
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [code, setCode] = useState("");
 
-  const { handleConfirm, setError, loading } = useContext(authContext);
+  const { handleConfirm, setError, loading, sendCodeAgain } =
+    useContext(authContext);
 
-  const handleSigninClick = () => {
-    if (!email.trim() || !password.trim()) {
+  function handleSendAgain() {
+    if (!email.trim()) {
       alert("Some inputs are empty!");
       return;
     }
 
     let newObj = {
       email: email,
-      password: password,
     };
 
-    handleConfirm(newObj, email);
-    closeOpenSuccess();
+    try {
+      sendCodeAgain(newObj);
 
-    setEmail("");
-    setPassword("");
-    setTimerRunning(true);
-  };
+      setEmail("");
+      setTimerRunning(true);
+    } catch (error) {
+      console.error("Error during send again:", error);
+    }
+  }
+
+  function handleSigninClick() {
+    if (!email.trim() || !code.trim()) {
+      alert("Some inputs are empty!");
+      return;
+    }
+
+    let newObj = {
+      email: email,
+      code: code,
+    };
+
+    try {
+      handleConfirm(newObj);
+      closeOpenSuccess();
+
+      setEmail("");
+      setCode("");
+      setTimerRunning(true);
+    } catch (error) {
+      console.error("Error during confirmation:", error);
+    }
+  }
 
   useEffect(() => {
     setError(false);
   }, []);
 
-  // if (loading) {
-  //     return <Loader />;
-  // }
-
-  // if (openconfirm || openRegister || openSuccess) {
-  //     document.body.style.overflow = "hidden";
-  // } else {
-  //     document.body.style.overflow = "auto";
-  // }
-
   useEffect(() => {
     const tick = () => {
-      setSeconds((prevSeconds) => (prevSeconds > 0 ? prevSeconds - 1 : 0));
+      setSeconds(prevSeconds => (prevSeconds > 0 ? prevSeconds - 1 : 0));
     };
 
     const timer = setInterval(tick, 1000);
@@ -70,25 +82,16 @@ export function ConfirmReg({ closeModal }) {
     if (seconds === 0) {
       setTimerRunning(false);
     }
-  }, [seconds])
-
-  const handleConfirmClick = e => {
-    e.stopPropagation();
-  };
-
-  const handleOutsideClick = () => {
-    closeModal();
-  };
-
-  const closeOpenRegister = () => {
-    setModalOpen(false);
-    setOpenRegister(true);
-  };
+  }, [seconds]);
 
   const closeOpenSuccess = e => {
-    e.preventDefault();
-    setModalOpen(false);
-    setOpenSuccess(true);
+    // e.preventDefault();
+    setOpenSuccess("success");
+    // console.log("asduhfajsdhi");
+  };
+
+  const closeM = () => {
+    setOpenSuccess(null);
   };
 
   const handleResendClick = () => {
@@ -102,41 +105,53 @@ export function ConfirmReg({ closeModal }) {
     } else {
       handleSigninClick();
     }
-  }
+  };
 
   return (
-    <>
-      {modalOpen && (
-        <div className={classes.confirm} onClick={handleOutsideClick}>
-          <div className={classes.confirm__inner} onClick={handleConfirmClick}>
-            <img src={arrow} alt="back" onClick={closeOpenRegister} />
-            <form action="">
-              <div>CONFIRM</div>
-              <label>Email</label>
-              <input
-                type="text"
-                placeholder="Enter your email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                name="email"
-              />
-              <label>Code <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span></label>
-              <input
-                type="text"
-                placeholder="Enter your code"
-                name="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-              />
-              <button onClick={handleButtonClick} disabled={loading}>
-                {timerRunning ? "Sign in" : "Resend"}
+    <div className={classes.confirm}>
+      <div className={classes.confirm__inner}>
+        <img src={arrow} alt="back" onClick={() => navigate("/register")} />
+        <form action="">
+          <div>CONFIRM</div>
+          <label>Email</label>
+          <input
+            type="text"
+            placeholder="Enter your email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            name="email"
+          />
+          <label>
+            Code{" "}
+            <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter your code"
+            name="code"
+            value={code}
+            onChange={e => setCode(e.target.value)}
+          />
+          {/* <button onClick={handleSigninClick} disabled={loading}>
+            {timerRunning ? "Sign in" : "Resend"}
+          </button> */}
+          {timerRunning ? (
+            <button onClick={handleSigninClick} disabled={loading}>
+              Sign in
+            </button>
+          ) : (
+            <div className={classes.resend_submit}>
+              <button onClick={handleSigninClick} disabled={loading}>
+                Sign in
               </button>
-            </form>
-          </div>
-        </div>
-      )}
-      {openRegister && <Register closeModal={setOpenRegister} />}
-      {openSuccess && <Success closeModal={setOpenSuccess} />}
-    </>
+              <p onClick={handleSendAgain} disabled={loading}>
+                Resend
+              </p>
+            </div>
+          )}
+        </form>
+      </div>
+      {openSuccess === "success" && <Success closeModal={closeM} />}
+    </div>
   );
 }

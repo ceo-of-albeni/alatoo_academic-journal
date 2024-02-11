@@ -10,6 +10,11 @@ import ArchiveCategoryPage from "./pages/archiveCategoryPage/ArchiveCategoryPage
 import ArchivePage from "./pages/archivePage/ArchivePage";
 import CategoryPage from "./pages/categoryPage/CategoryPage";
 import AdminPage from "./pages/adminPage/AdminPage";
+import EthicsPage from "./pages/ethicsPage/EthicsPage";
+import { Register } from "./components/Navbar/modals/register/Register";
+import { ForgotPassword } from "./components/Navbar/modals/forgotPassword/ForgotPassword";
+import { ConfirmReg } from "./components/Navbar/modals/confirmReg/ConfirmReg";
+import { ChangePassword } from "./components/Navbar/modals/changePassword/ChangePassword";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -62,6 +67,31 @@ const Routing = () => {
       link: "/admin",
       element: <AdminPage />,
       id: 10,
+    },
+    {
+      link: "/ethics",
+      element: <EthicsPage />,
+      id: 11,
+    },
+    {
+      link: "/register",
+      element: <Register />,
+      id: 12,
+    },
+    {
+      link: "/forgot_password",
+      element: <ForgotPassword />,
+      id: 13,
+    },
+    {
+      link: "/confirm",
+      element: <ConfirmReg />,
+      id: 14,
+    },
+    {
+      link: "/change_password",
+      element: <ChangePassword />,
+      id: 15,
     },
   ];
   return (

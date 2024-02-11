@@ -42,7 +42,7 @@ export default function BasicTableAdmin() {
   }, []);
 
   // let statusArt = "Pending";
-  const [statusArt, setStatusArt] = React.useState("Pending");
+  // const [statusArt, setStatusArt] = React.useState("Pending");
 
   // if (item.isPublished == true) {
   //   statusArt = "Published";
@@ -58,9 +58,9 @@ export default function BasicTableAdmin() {
         item.title,
         item.createdAt.slice(0, 10),
         item.coauthors,
-        "???",
+        item.pageCount,
         item.category,
-        statusArt,
+        item.isApproved ? "Approved" : "Pending",
         item.fileUrl
       )
     )

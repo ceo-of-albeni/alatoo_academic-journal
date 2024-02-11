@@ -1,25 +1,29 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./Navbar.scss";
-// import classes from "./login.module.scss";
-// import arrow from "../Navbar/modals/img/arrow.svg";
-// import { Register } from "./modals/register/Register";
-// import { Success } from "./modals/success/Success";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../contexts/authContext";
 import { Login } from "./modals/login/Login";
 
 const Navabr = ({ closeModal }) => {
-  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-  const { handleLogout, users, getUsers } = useContext(authContext);
+  const [activeModal, setActiveModal] = useState(null);
+  const { handleLogout, getOneUser, oneUser } = useContext(authContext);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    getUsers();
+    getOneUser();
+    console.log(oneUser);
   }, []);
+  console.log(oneUser);
 
   const openLoginModal = () => {
-    setLoginModalOpen(true);
+    if (activeModal === null) {
+      setActiveModal("login");
+    }
+  };
+
+  const closeModalHandler = () => {
+    setActiveModal(null);
   };
 
   return (
@@ -34,41 +38,40 @@ const Navabr = ({ closeModal }) => {
           </a>
           <p className="logo_p">Ala-Too Academic Journal</p>
         </div>
-    
+
         <div className="header_inner">
           <div className="header_links">
             <a href="/rules1" className="header_links__item">
               Rules
             </a>
+            {/* <a href="/profile/:id" className="header_links__item">
+              Articles
+            </a> */}
             <a href="/archive" className="header_links__item">
               Archive
             </a>
-
-            {localStorage.getItem("email") === null ? (
-            <span></span>
-          ) : localStorage.getItem("email") == "admin@gmail.com" ? (
-            <a href="/admin" className="header_links__item">
+            {/* <a href="/admin" className="header_links__item">
               Admin
-            </a>
-          ) : (
-            <span></span>
-          )}
+            </a> */}
+
+            {localStorage.getItem("email") != null &&
+            oneUser.role === "admin" ? (
+              <a href="/admin" className="header_links__item">
+                Admin
+              </a>
+            ) : (
+              <span></span>
+            )}
 
             {localStorage.getItem("email") === null ? (
               <span></span>
             ) : (
-              users.map(item =>
-                localStorage.getItem("email") === item.email ? (
-                  <a
-                    key={item.id}
-                    onClick={() => navigate(`/profile/${item.id}`)}
-                    className="header_links__item">
-                    Profile
-                  </a>
-                ) : (
-                  <span key={item.id}></span>
-                )
-              )
+              <a
+                key={oneUser.id}
+                onClick={() => navigate(`/profile/${oneUser.id}`)}
+                className="header_links__item">
+                Profile
+              </a>
             )}
           </div>
 
@@ -83,9 +86,7 @@ const Navabr = ({ closeModal }) => {
           )}
         </div>
       </div>
-      {isLoginModalOpen && (
-        <Login closeModal={() => setLoginModalOpen(false)} />
-      )}
+      {activeModal === "login" && <Login closeModal={closeModalHandler} />}
     </div>
   );
 };

@@ -44,7 +44,6 @@ const ArticleContextsProvider = ({ children }) => {
         type: "GET_CATEGORIES",
         payload: res.data,
       });
-      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -114,13 +113,21 @@ const ArticleContextsProvider = ({ children }) => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
+      // const config = {
+      //   headers: {
+      //     Authorization: `Bearer ${tokens.access_token}`,
+      //   },
+      // };
+      // const res = await axios.post(`${API}/article/approve/${id}`, config);
+      const res = await fetch(`${API}/article/approve/${id}`, {
+        method: "POST",
+        // body: newArticle,
         headers: {
           Authorization,
         },
-      };
-      const res = await axios.patch(`${API}/article/approve/${id}`, config);
+      });
       console.log(res.data);
+      console.log(tokens.access_token);
     } catch (err) {
       console.log(err);
     }
@@ -131,14 +138,24 @@ const ArticleContextsProvider = ({ children }) => {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       if (!tokens || !tokens.access_token) {
         console.log("Access token not found");
+      } else {
+        console.log(tokens.access_token);
       }
       const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
+      // const config = {
+      //   headers: {
+      //     Authorization,
+      //   },
+      // };
+      // const res = awai t axios.post(`${API}/article/delete/${id}`, config);
+      const res = await fetch(`${API}/article/approve/${id}`, {
+        method: "POST",
+        // body: newArticle,
         headers: {
           Authorization,
         },
-      };
-      const res = await axios.delete(`${API}/article/delete/${id}`, config);
+      });
+
       console.log("Article deleted successfully:", res.data);
     } catch (err) {
       console.error("Error deleting article:", err);

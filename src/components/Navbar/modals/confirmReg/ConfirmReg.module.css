@@ -1,14 +1,7 @@
 .confirm {
-  position: fixed;
   display: block;
-  z-index: 1050;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
 }
 .confirm button {
   width: 134px;
@@ -69,8 +62,12 @@
   margin: 80px auto;
   width: 470px;
   height: 450px;
+  border: 1px solid black;
   border-radius: 20px;
   background-color: white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
   text-align: center;
   align-items: center;
 }
@@ -130,4 +127,15 @@
 .confirm__fpassword a:hover {
   color: black;
   text-decoration: underline;
+}
+
+.resend_submit p {
+  margin-top: 10px;
+  cursor: pointer;
+  color: #7a7f82;
+  text-decoration: underline;
+}
+
+.resend_submit p:hover {
+  color: #b3b2b2;
 }

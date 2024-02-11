@@ -7,14 +7,10 @@ import Loader from "../../../Loader/Loader";
 import { ConfirmReg } from "../confirmReg/ConfirmReg";
 import { Login } from "../login/Login";
 
-export function Register({ closeModal }) {
+export function Register() {
   const { handleRegister, error, setError, loading } = useContext(authContext);
 
   const navigate = useNavigate();
-
-  const [openConfirm, setOpenConfirm] = useState(false);
-  const [modalOpen, setModalOpen] = useState(true);
-  const [openLogin, setOpenLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const [firstName, setFirstName] = useState("");
@@ -23,13 +19,7 @@ export function Register({ closeModal }) {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
-  const closeOpenConfirm = e => {
-    setModalOpen(false);
-    setOpenConfirm(true);
-  };
-
   const createUser = async () => {
-    // Validate the form inputs
     if (
       !firstName.trim() ||
       !lastName.trim() ||
@@ -46,10 +36,8 @@ export function Register({ closeModal }) {
       return;
     }
 
-    // Set loading state to true
     setIsLoading(true);
 
-    // Call the handleRegister function
     let newObj = {
       firstName: firstName,
       lastName: lastName,
@@ -58,16 +46,10 @@ export function Register({ closeModal }) {
     };
 
     try {
-      // Handle registration
       await handleRegister(newObj);
-
-      // If registration is successful, open the confirmation modal
-      closeOpenConfirm();
     } catch (error) {
-      // Handle registration error
       console.log(error);
     } finally {
-      // Set loading state back to false regardless of success or failure
       setIsLoading(false);
     }
   };
@@ -76,83 +58,79 @@ export function Register({ closeModal }) {
     setError(false);
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+  // if (loading) {
+  //   return <Loader />;
+  // }
 
-  const handleRegisterClick = e => {
-    e.stopPropagation();
-  };
+  const openConfirm = () => {
+    createUser();
 
-  const handleOutsideClick = () => {
-    closeModal();
-  };
-
-  const closeOpenLogin = () => {
-    setModalOpen(false);
-    setOpenLogin(true);
+    if (
+      !firstName.trim() ||
+      !lastName.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !passwordConfirm.trim() ||
+      password !== passwordConfirm
+    ) {
+      // alert("You filled the form incorrectly!!");
+      // return;
+    } else {
+      navigate("/confirm");
+    }
   };
 
   return (
-    // <div className={classes.register} onClick={handleOutsideClick}>
-    <>
-      {modalOpen && (
-        <div className={classes.register} onClick={handleOutsideClick}>
-          <div
-            className={classes.register__inner}
-            onClick={handleRegisterClick}>
-            <img src={arrow} alt="back" onClick={closeOpenLogin} />
-            <form action="">
-              <div>REGISTRATION</div>
-              <label>First name</label>
-              <input
-                type="text"
-                value={firstName}
-                onChange={e => setFirstName(e.target.value)}
-                placeholder="Enter your name"
-                name="name"
-              />
-              <label>Last name</label>
-              <input
-                type="text"
-                value={lastName}
-                onChange={e => setLastName(e.target.value)}
-                placeholder="Enter your surname"
-                name="surname"
-              />
-              <label>Email</label>
-              <input
-                type="text"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                name="email"
-              />
-              <label>Password</label>
-              <input
-                type="text"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                name="password"
-              />
-              <label>Confirm Password</label>
-              <input
-                type="text"
-                value={passwordConfirm}
-                onChange={e => setPasswordConfirm(e.target.value)}
-                placeholder="Enter your password"
-                name="con_password"
-              />
-              <button onClick={createUser}>
-                {isLoading ? <Loader /> : "Sign Up"}
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-      {openLogin && <Login closeModal={() => setOpenLogin(false)} />}
-      {openConfirm && <ConfirmReg closeModal={() => setOpenConfirm(false)} />}
-    </>
+    <div className={classes.register}>
+      <div className={classes.register__inner}>
+        <img src={arrow} alt="back" onClick={() => navigate("/")} />
+        <form action="">
+          <div>REGISTRATION</div>
+          <label>First name</label>
+          <input
+            type="text"
+            value={firstName}
+            onChange={e => setFirstName(e.target.value)}
+            placeholder="Enter your name"
+            name="name"
+          />
+          <label>Last name</label>
+          <input
+            type="text"
+            value={lastName}
+            onChange={e => setLastName(e.target.value)}
+            placeholder="Enter your surname"
+            name="surname"
+          />
+          <label>Email</label>
+          <input
+            type="text"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            name="email"
+          />
+          <label>Password</label>
+          <input
+            type="text"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Enter your password"
+            name="password"
+          />
+          <label>Confirm Password</label>
+          <input
+            type="text"
+            value={passwordConfirm}
+            onChange={e => setPasswordConfirm(e.target.value)}
+            placeholder="Enter your password"
+            name="con_password"
+          />
+          <button onClick={openConfirm}>
+            {isLoading ? <Loader /> : "Sign Up"}
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }

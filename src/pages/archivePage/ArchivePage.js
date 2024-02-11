@@ -66,7 +66,7 @@ export default function ArchivePage() {
             <div className={classes.ethics}>
               <div className={classes.ethics__inner}>
                 <div className={classes.ethic1}>
-                  <a>Publication Ethics and Publication Malpractice</a>
+                  <a onClick={() => navigate("/ethics")}>Publication Ethics and Publication Malpractice</a>
                 </div>
                 <div className={classes.ethic2}>
                   <a onClick={() => navigate("/rules1")}>
