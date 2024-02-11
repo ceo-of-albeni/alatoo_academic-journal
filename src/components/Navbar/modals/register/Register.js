@@ -20,8 +20,13 @@ export function Register() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const createUser = async () => {
-    // Validate the form inputs
-    if (!firstName.trim() || !lastName.trim() || !email.trim() || !password.trim() || !passwordConfirm.trim()) {
+    if (
+      !firstName.trim() ||
+      !lastName.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !passwordConfirm.trim()
+    ) {
       alert("Some inputs are empty!");
       return;
     }
@@ -31,10 +36,8 @@ export function Register() {
       return;
     }
 
-    // Set loading state to true
     setIsLoading(true);
 
-    // Call the handleRegister function
     let newObj = {
       firstName: firstName,
       lastName: lastName,
@@ -43,32 +46,39 @@ export function Register() {
     };
 
     try {
-      // Handle registration
       await handleRegister(newObj);
-
-      // If registration is successful, open the confirmation modal
     } catch (error) {
-      // Handle registration error
       console.log(error);
     } finally {
-      // Set loading state back to false regardless of success or failure
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    console.log("Register component mounted");
     setError(false);
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+  // if (loading) {
+  //   return <Loader />;
+  // }
 
   const openConfirm = () => {
     createUser();
-    navigate("/confirm");
-  }
+
+    if (
+      !firstName.trim() ||
+      !lastName.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !passwordConfirm.trim() ||
+      password !== passwordConfirm
+    ) {
+      // alert("You filled the form incorrectly!!");
+      // return;
+    } else {
+      navigate("/confirm");
+    }
+  };
 
   return (
     <div className={classes.register}>
@@ -116,7 +126,9 @@ export function Register() {
             placeholder="Enter your password"
             name="con_password"
           />
-          <button onClick={openConfirm}>{isLoading ? <Loader /> : "Sign Up"}</button>
+          <button onClick={openConfirm}>
+            {isLoading ? <Loader /> : "Sign Up"}
+          </button>
         </form>
       </div>
     </div>

@@ -7,69 +7,74 @@ import MultipleSelectPlaceholder from "../../components/StatusDrop/Status";
 import Category from "../../components/Category/Category";
 import PaginationControlled from "../../components/Pagination/PaginationTable";
 import { articlesContext } from "../../contexts/articleContext";
-import { useParams, useNavigate } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import axios from "axios";
+import { authContext } from "../../contexts/authContext";
 
 const UserProfilePage = () => {
-  const { categories, getCategories, getAllMyArticles, my_articles } =
+  const { categories, getCategories, getAllMyArticles } =
     useContext(articlesContext);
-
-  const navigate = useNavigate();
-
-  const API = "http://localhost:3000/api";
-
-  const [oneUser, setOneUser] = useState(null);
-
-  const { id } = useParams();
-
-  async function getOneUser(id) {
-    const res = await axios.get(`${API}/user/${id}`);
-    setOneUser(res.data);
-  }
+  const { getOneUser, oneUser } = useContext(authContext);
 
   useEffect(() => {
-    getOneUser(id);
     getAllMyArticles();
     getCategories();
+    getOneUser();
   }, []);
-  console.log(categories);
+
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [coauthors, setCoauthors] = useState("");
   const [text, setText] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [articleFile, setArticleFile] = useState(null);
   const [email, setEmail] = useState("");
+  const [checkFile, setCheckFile] = useState(null);
 
   function clearAll() {
     setTitle("");
     setCategory("");
     setCoauthors("");
     setText("");
-    setSelectedFile(null);
+    setArticleFile(null);
+    setCheckFile(null);
     setEmail("");
   }
 
+  const handleCheckFileChange = event => {
+    const file = event.target.files[0];
+    setCheckFile(file);
+  };
+
   const handleFileChange = event => {
     const file = event.target.files[0];
-    setSelectedFile(file);
+    setArticleFile(file);
   };
 
   const handleUpload = async () => {
-    if (!selectedFile || !title || !coauthors || !text || !category || !email) {
+    if (
+      !articleFile ||
+      !title ||
+      !coauthors ||
+      !text ||
+      !category ||
+      !email ||
+      !checkFile
+    ) {
       alert("Some inputs are empty!");
       return;
     }
 
     const newArticle = new FormData();
-    newArticle.append("file", selectedFile);
+    newArticle.append("checkFile", checkFile);
+    newArticle.append("articleFile", articleFile);
     newArticle.append("title", title);
     newArticle.append("text", text);
     newArticle.append("category", category);
     newArticle.append("coauthors", coauthors);
-    newArticle.append("email", email);
+    newArticle.append("coauthorsEmails", email);
+
+    alert("Wait for a few seconds and refresh the page!");
 
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -104,8 +109,9 @@ const UserProfilePage = () => {
     setCategory("");
     setCoauthors("");
     setText("");
-    setSelectedFile(null);
+    setArticleFile(null);
     setEmail("");
+    setCheckFile(null);
   };
 
   const handleChange = event => {
@@ -204,6 +210,7 @@ const UserProfilePage = () => {
                   value={coauthors}
                   onChange={e => setCoauthors(e.target.value)}
                 />
+
                 <p className="input_p">Email of each author of the article*</p>
                 <input
                   className="text_input"
@@ -217,8 +224,23 @@ const UserProfilePage = () => {
                 <label className="custom-file-upload">
                   <input
                     type="file"
-                    // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    accept="application/pdf"
                     onChange={handleFileChange}
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 640 512">
+                    <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z" />
+                  </svg>
+                </label>
+
+                <p className="input_p">Check*</p>
+                <label className="custom-file-upload">
+                  <input
+                    type="file"
+                    accept="application/pdf"
+                    onChange={handleCheckFileChange}
                   />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

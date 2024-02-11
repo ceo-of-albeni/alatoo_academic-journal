@@ -6,15 +6,15 @@ export const authContext = React.createContext();
 
 const INIT_STATE = {
   users: [],
-  // oneUser: [],
+  oneUser: [],
 };
 
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
     case "GET_USERS":
       return { ...state, users: action.payload };
-    // case "GET_ONE_USER":
-    //   return { ...state, oneUser: action.payload };
+    case "GET_ONE_USER":
+      return { ...state, oneUser: action.payload };
     default:
       return state;
   }
@@ -26,7 +26,6 @@ const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  // const [oneUser, setOneUser] = useState(null);
 
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
@@ -37,6 +36,25 @@ const AuthContextProvider = ({ children }) => {
       const res = await axios(`${API}/user`);
       dispatch({
         type: "GET_USERS",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function getOneUser() {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(`${API}/user/get/profile`, config);
+      dispatch({
+        type: "GET_ONE_USER",
         payload: res.data,
       });
     } catch (err) {
@@ -86,8 +104,17 @@ const AuthContextProvider = ({ children }) => {
     } catch (err) {
       console.log(err);
       setError(err);
-    } finally {
-      setLoading(false);
+    }
+  }
+
+  async function sendCodeAgain(formData) {
+    setLoading(true);
+    try {
+      const res = await axios.patch(`${API}/auth/sendCodeAgain`, formData);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+      setError(err);
     }
   }
 
@@ -135,16 +162,17 @@ const AuthContextProvider = ({ children }) => {
         error,
         loading,
         users: state.users,
-        // oneUser: state.oneUser,
+        oneUser: state.oneUser,
 
         handleRegister,
         handleConfirm,
         setError,
         handleLogin,
-        // getOneUser,
+        getOneUser,
         getUsers,
         handleLogout,
         handleUser,
+        sendCodeAgain,
         forgotPassword,
       }}>
       {children}

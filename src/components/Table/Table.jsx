@@ -52,7 +52,7 @@ export default function BasicTable() {
         item.title,
         item.createdAt.slice(0, 10),
         item.coauthors,
-        "???",
+        item.pageCount,
         item.category,
         // statusArticle(item),
         item.isApproved ? "Approved" : "Pending",

@@ -16,46 +16,62 @@ export function ConfirmReg({ closeModal }) {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [code, setCode] = useState("");
 
-  const { handleConfirm, setError, loading } = useContext(authContext);
+  const { handleConfirm, setError, loading, sendCodeAgain } =
+    useContext(authContext);
 
-  const handleSigninClick = async (e) => {
-    e.preventDefault();
-    if (!email.trim() || !password.trim()) {
+ function handleSendAgain() {
+    if (!email.trim()) {
       alert("Some inputs are empty!");
       return;
     }
 
     let newObj = {
       email: email,
-      password: password,
     };
 
     try {
-      await handleConfirm(newObj, email);
+      sendCodeAgain(newObj);
+
+      setEmail("");
+      setTimerRunning(true);
+    } catch (error) {
+      console.error("Error during send again:", error);
+    }
+  }
+
+  function handleSigninClick() {
+    if (!email.trim() || !code.trim()) {
+      alert("Some inputs are empty!");
+      return;
+    }
+
+    let newObj = {
+      email: email,
+      code: code,
+    };
+
+    try {
+      handleConfirm(newObj);
       closeOpenSuccess();
 
       setEmail("");
-      setPassword("");
+      setCode("");
       setTimerRunning(true);
-      setSeconds(59);
     } catch (error) {
-      // Handle error if needed
       console.error("Error during confirmation:", error);
     }
-  };
+  }
 
   useEffect(() => {
     setError(false);
   }, []);
 
-  // if (loading) {
-  //     return <Loader />;
-  // }
-
   useEffect(() => {
     const tick = () => {
+     // setSeconds(prevSeconds => (prevSeconds > 0 ? prevSeconds - 1 : 0));
+
       if (timerRunning && seconds > 0) {
         setSeconds((prevSeconds) => prevSeconds - 1);
       } else {
@@ -76,6 +92,7 @@ export function ConfirmReg({ closeModal }) {
     }
   }, [seconds]);
 
+
   useEffect(() => {
     localStorage.setItem("timerSeconds", seconds);
   }, [seconds]);
@@ -93,14 +110,14 @@ export function ConfirmReg({ closeModal }) {
   // }, []);
 
   const closeOpenSuccess = e => {
-    e.preventDefault();
+    // e.preventDefault();
     setOpenSuccess("success");
-    console.log("asduhfajsdhi");
+    // console.log("asduhfajsdhi");
   };
 
   const closeM = () => {
     setOpenSuccess(null);
-  }
+  };
 
   const handleResendClick = () => {
     setSeconds(59);
@@ -113,7 +130,7 @@ export function ConfirmReg({ closeModal }) {
     } else {
       handleSigninClick();
     }
-  }
+  };
 
   return (
     <div className={classes.confirm}>
@@ -129,20 +146,37 @@ export function ConfirmReg({ closeModal }) {
             onChange={e => setEmail(e.target.value)}
             name="email"
           />
-          <label>Code <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span></label>
+          <label>
+            Code{" "}
+            <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span>
+          </label>
           <input
             type="text"
             placeholder="Enter your code"
-            name="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+            name="code"
+            value={code}
+            onChange={e => setCode(e.target.value)}
           />
-          <button onClick={(e) => handleSigninClick(e)} disabled={loading}>
+          {/* <button onClick={handleSigninClick} disabled={loading}>
             {timerRunning ? "Sign in" : "Resend"}
-          </button>
+          </button> */}
+          {timerRunning ? (
+            <button onClick={handleSigninClick} disabled={loading}>
+              Sign in
+            </button>
+          ) : (
+            <div className={classes.resend_submit}>
+              <button onClick={handleSigninClick} disabled={loading}>
+                Sign in
+              </button>
+              <p onClick={handleSendAgain} disabled={loading}>
+                Resend
+              </p>
+            </div>
+          )}
         </form>
       </div>
       {openSuccess === "success" && <Success closeModal={closeM} />}
-    </div> 
+    </div>
   );
 }
