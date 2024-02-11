@@ -126,8 +126,6 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      console.log(res.data);
-      console.log(tokens.access_token);
     } catch (err) {
       console.log(err);
     }
@@ -183,22 +181,6 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
-  // async function deleteArticle(id) {
-  //   try {
-  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
-  //     const Authorization = `Bearer ${tokens.access_token}`;
-  //     const config = {
-  //       headers: {
-  //         Authorization,
-  //       },
-  //     };
-  //     const res = await axios.delete(`${API}/article/.delete${id}/`, config);
-  //     getArticles();
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
   const fetchByParams = (query, value) => {
     const search = new URLSearchParams(location.search);
 
@@ -213,6 +195,21 @@ const ArticleContextsProvider = ({ children }) => {
     navigate(url);
   };
 
+  async function createCategory(formData) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API}/category/create`, formData, config);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <articlesContext.Provider
       value={{
@@ -221,7 +218,6 @@ const ArticleContextsProvider = ({ children }) => {
         oneArticle: state.oneArticle,
         categories: state.categories,
         my_articles: state.my_articles,
-        // deleteArticle,
 
         updateArticle,
         getOneArticle,
@@ -231,6 +227,7 @@ const ArticleContextsProvider = ({ children }) => {
         getArticles,
         approveArticle,
         deleteArticle,
+        createCategory,
       }}>
       {children}
     </articlesContext.Provider>
