@@ -12,9 +12,7 @@ const Navabr = ({ closeModal }) => {
 
   useEffect(() => {
     getOneUser();
-    console.log(oneUser);
   }, []);
-  console.log(oneUser);
 
   const openLoginModal = () => {
     if (activeModal === null) {
