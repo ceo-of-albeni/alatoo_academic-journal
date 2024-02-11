@@ -8,9 +8,11 @@ import { authContext } from "../../../../contexts/authContext";
 
 export function ConfirmReg({ closeModal }) {
   const [openSuccess, setOpenSuccess] = useState(null);
-  const [seconds, setSeconds] = useState(59);
+  const [seconds, setSeconds] = useState(
+    parseInt(localStorage.getItem("timerSeconds")) || 59
+  );
   const [timerRunning, setTimerRunning] = useState(true);
-
+  
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -19,6 +21,7 @@ export function ConfirmReg({ closeModal }) {
   const { handleConfirm, setError, loading } = useContext(authContext);
 
   const handleSigninClick = async (e) => {
+    e.preventDefault();
     if (!email.trim() || !password.trim()) {
       alert("Some inputs are empty!");
       return;
@@ -36,6 +39,7 @@ export function ConfirmReg({ closeModal }) {
       setEmail("");
       setPassword("");
       setTimerRunning(true);
+      setSeconds(59);
     } catch (error) {
       // Handle error if needed
       console.error("Error during confirmation:", error);
@@ -52,7 +56,11 @@ export function ConfirmReg({ closeModal }) {
 
   useEffect(() => {
     const tick = () => {
-      setSeconds((prevSeconds) => (prevSeconds > 0 ? prevSeconds - 1 : 0));
+      if (timerRunning && seconds > 0) {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      } else {
+        setTimerRunning(false);
+      }
     };
 
     const timer = setInterval(tick, 1000);
@@ -60,13 +68,29 @@ export function ConfirmReg({ closeModal }) {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [seconds, timerRunning]);
 
   useEffect(() => {
     if (seconds === 0) {
       setTimerRunning(false);
     }
-  }, [seconds])
+  }, [seconds]);
+
+  useEffect(() => {
+    localStorage.setItem("timerSeconds", seconds);
+  }, [seconds]);
+
+  // useEffect(() => {
+  //   localStorage.removeItem("timerExpired");
+  // }, []);
+
+  // useEffect(() => {
+  //   const timerExpired = localStorage.getItem("timerExpired");
+  //   if (timerExpired === "true") {
+  //     setTimerRunning(false);
+  //     setSeconds(0);
+  //   }
+  // }, []);
 
   const closeOpenSuccess = e => {
     e.preventDefault();
