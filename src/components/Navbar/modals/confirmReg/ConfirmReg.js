@@ -12,7 +12,7 @@ export function ConfirmReg({ closeModal }) {
     parseInt(localStorage.getItem("timerSeconds")) || 59
   );
   const [timerRunning, setTimerRunning] = useState(true);
-  
+
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ export function ConfirmReg({ closeModal }) {
   const { handleConfirm, setError, loading, sendCodeAgain } =
     useContext(authContext);
 
- function handleSendAgain() {
+  function handleSendAgain() {
     if (!email.trim()) {
       alert("Some inputs are empty!");
       return;
@@ -70,10 +70,10 @@ export function ConfirmReg({ closeModal }) {
 
   useEffect(() => {
     const tick = () => {
-     // setSeconds(prevSeconds => (prevSeconds > 0 ? prevSeconds - 1 : 0));
+      // setSeconds(prevSeconds => (prevSeconds > 0 ? prevSeconds - 1 : 0));
 
       if (timerRunning && seconds > 0) {
-        setSeconds((prevSeconds) => prevSeconds - 1);
+        setSeconds(prevSeconds => prevSeconds - 1);
       } else {
         setTimerRunning(false);
       }
@@ -91,7 +91,6 @@ export function ConfirmReg({ closeModal }) {
       setTimerRunning(false);
     }
   }, [seconds]);
-
 
   useEffect(() => {
     localStorage.setItem("timerSeconds", seconds);
@@ -146,6 +145,7 @@ export function ConfirmReg({ closeModal }) {
             onChange={e => setEmail(e.target.value)}
             name="email"
           />
+
           <label>
             Code{" "}
             <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span>
@@ -157,9 +157,6 @@ export function ConfirmReg({ closeModal }) {
             value={code}
             onChange={e => setCode(e.target.value)}
           />
-          {/* <button onClick={handleSigninClick} disabled={loading}>
-            {timerRunning ? "Sign in" : "Resend"}
-          </button> */}
           {timerRunning ? (
             <button onClick={handleSigninClick} disabled={loading}>
               Sign in
