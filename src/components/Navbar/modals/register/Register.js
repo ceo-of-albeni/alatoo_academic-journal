@@ -112,7 +112,7 @@ export function Register() {
           />
           <label>Password</label>
           <input
-            type="text"
+            type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             placeholder="Enter your password"
@@ -120,7 +120,7 @@ export function Register() {
           />
           <label>Confirm Password</label>
           <input
-            type="text"
+            type="password"
             value={passwordConfirm}
             onChange={e => setPasswordConfirm(e.target.value)}
             placeholder="Enter your password"
