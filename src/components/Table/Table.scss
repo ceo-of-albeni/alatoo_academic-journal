@@ -35,3 +35,13 @@
 #decline:hover {
   background-color: rgb(151, 3, 3);
 }
+
+.text_input {
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  gap: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
