@@ -8,11 +8,13 @@ import horizontal3 from "./img/horizontal3.png";
 import { useNavigate } from "react-router-dom";
 import { Login } from "../../components/Navbar/modals/login/Login";
 import { authContext } from "../../contexts/authContext";
+import { useTranslation } from 'react-i18next';
 
 export default function HomePageWL(closeModal) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const navigate = useNavigate();
   const { users, getUsers } = useContext(authContext);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     getUsers();
@@ -27,17 +29,17 @@ export default function HomePageWL(closeModal) {
       <div className={classes.title__area}>
         <div className={classes.title__area__inner}>
           <div className={classes.title__area__text}>
-            <h1>Ala-Too Academic Journal</h1>
-            <p>We eagerly await your fascinating research!</p>
+            <h1>{t('home.title')}</h1>
+            <p>{t('home.description')}</p>
             {localStorage.getItem("email") === null ? (
-              <button onClick={openLoginModal}>Join us</button> // сделай чтоб открывался Логин
+              <button onClick={openLoginModal}>{t('button.submit')}</button> // сделай чтоб открывался Логин
             ) : (
               users.map(item =>
                 localStorage.getItem("email") === item.email ? (
                   <button
                     key={item.id}
                     onClick={() => navigate(`/profile/${item.id}`)}>
-                    Join us
+                    {t('button.submit')}
                   </button>
                 ) : (
                   <span key={item.id}></span>
@@ -58,16 +60,12 @@ export default function HomePageWL(closeModal) {
           <div className={classes.content__frame}>
             <div className={classes.content__frame__text}>
               <h2>
-                "Ala-Too Academic Studies" - the way to scientific leadership in
-                the Kyrgyz Republic
+                {t('home.article_title')}
               </h2>
               <p>
-                It is noteworthy that in 2020, the impact factor of the
-                scientific journal was 0.171, and by 2021, it increased to
-                0.210. By the end of 2022, it further rose to 0.421, and the
-                journal continues to maintain its high rating.
+                {t('home.article')}
               </p>
-              <button onClick={() => navigate("/archive")}>Read Now</button>
+              <button onClick={() => navigate("/archive")}>{t('home.read')}</button>
             </div>
             <div className={classes.content__frame__img}>
               <img src={content} alt="content"></img>
@@ -78,14 +76,12 @@ export default function HomePageWL(closeModal) {
 
       <div className={classes.horizontal__cards}>
         <div className={classes.horizontal__cards__inner}>
-          <h2>About us</h2>
+          <h2>{t('about.aboutus')}</h2>
           <div className={classes.horizontal__cards__card}>
             <div className={classes.horizontal__card__text}>
-              <h3>The way to scientific leadership in the Kyrgyz Republic</h3>
+              <h3>{t('about.title1')}</h3>
               <p>
-                Ala-Too International University provides young generations not
-                only with high-quality education in English, but also attaches
-                particular importance to scientific activities{" "}
+                {t('about.content1')}{" "}
               </p>
             </div>
             <div className={classes.horizontal__card__img}>
@@ -98,37 +94,24 @@ export default function HomePageWL(closeModal) {
             </div>
             <div className={classes.horizontal__card__text__2}>
               <h3>
-                Status as a leader among scientific publications in the republic
+                {t('about.title2')}
               </h3>
               <p>
-                At the end of 2022, according to the calculation of the
-                scientific metric base of the RSCI, the impact factor of a
-                scientific journal "Ala-Too Academic Studies" has increased to
-                0.421, making them one of the most significant academic journals
-                in the Kyrgyz Republic.{" "}
+                {t('about.content2.1')}{" "}
               </p>
               <p>
-                This indicator testifies to the high level of quality of
-                scientific research presented in the journal "Alatoo Academic
-                Studies".
+                {t('about.content2.2')}
               </p>
             </div>
           </div>
           <div className={classes.horizontal__cards__card}>
             <div className={classes.horizontal__card__text__3}>
-              <h3>About the processes of receiving scientific articles:</h3>
+              <h3>{t('about.title3')}</h3>
               <p>
-                Horizontal card description - this is where we describe maybe
-                Our process of receiving scientific articles involves strict
-                control and cooperation with the authors. Each scientific
-                article is subject to a mandatory check for uniqueness through
-                an anti-plagiarism system and is published only if it meets our
-                requirements.
+                {t('about.content3.1')}
               </p>
               <p>
-                Therefore, we strongly recommend that authors strictly follow
-                our requirements before submitting an article for publication in
-                a scientific journal
+                {t('about.content3.2')}
               </p>
             </div>
             <div className={classes.horizontal__card__img__3}>

@@ -7,9 +7,11 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
   const [open, setOpen] = React.useState(false);
+  const { t, i18n } = useTranslation();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -26,28 +28,25 @@ const Footer = () => {
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description">
-        <DialogTitle>{"Contacts"}</DialogTitle>
+        <DialogTitle>{t('footer.contacts')}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
             <strong>
-              Ala-Too International University, Ankara Street 1/8, Tunguch,
-              720048, Bishkek, Kyrgyz Republic
+              {t('footer.address')}
             </strong>
             <br />
-            Tel: +996 (312) 631425
+            {t('footer.tel')}
             <br />
-            Fax: +996 (312) 630409
+            {t('footer.fax')}
             <br />
-            E-mail: info@alatoo.edu.kg
+            {t('footer.email')}
             <br />
-            <strong>Registration Office:</strong>
+            <strong>{t('footer.office')}</strong>
             <br />
-            Ala-Too International University (A-Block), 107 room
+            {t('footer.office_room')}            <br />
+            {t('footer.address2')}
             <br />
-            Address: Ankara Street 1/8, Tunguch, 720048, Bishkek, Kyrgyz
-            Republic
-            <br />
-            Tel: +996 (312) 630407
+            {t('footer.tel2')}
             <br />
             +996 555 820 000 (WhatsApp)
           </DialogContentText>

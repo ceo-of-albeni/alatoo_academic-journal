@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
 import { ConfirmReg } from "../confirmReg/ConfirmReg";
 import { Login } from "../login/Login";
+import { useTranslation } from 'react-i18next';
 
 export function Register() {
   const { handleRegister, error, setError, loading } = useContext(authContext);
+  const { t, i18n } = useTranslation();
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -85,49 +87,49 @@ export function Register() {
       <div className={classes.register__inner}>
         <img src={arrow} alt="back" onClick={() => navigate("/")} />
         <form action="">
-          <div>REGISTRATION</div>
-          <label>First name</label>
+          <div>{t('register.registration')}</div>
+          <label>{t('register.first_name')}</label>
           <input
             type="text"
             value={firstName}
             onChange={e => setFirstName(e.target.value)}
-            placeholder="Enter your name"
+            placeholder={t('register.ph_first_name')}
             name="name"
           />
-          <label>Last name</label>
+          <label>{t('register.last_name')}</label>
           <input
             type="text"
             value={lastName}
             onChange={e => setLastName(e.target.value)}
-            placeholder="Enter your surname"
+            placeholder={t('register.ph_last_name')}
             name="surname"
           />
-          <label>Email</label>
+          <label>{t('register.email')}</label>
           <input
             type="text"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            placeholder="Enter your email"
+            placeholder={t('register.ph_email')}
             name="email"
           />
-          <label>Password</label>
+          <label>{t('register.password')}</label>
           <input
             type="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
-            placeholder="Enter your password"
+            placeholder={t('register.ph_password')}
             name="password"
           />
-          <label>Confirm Password</label>
+          <label>{t('register.confirm_pw')}</label>
           <input
             type="password"
             value={passwordConfirm}
             onChange={e => setPasswordConfirm(e.target.value)}
-            placeholder="Enter your password"
+            placeholder={t('register.ph_confirm_pw')}
             name="con_password"
           />
           <button onClick={openConfirm}>
-            {isLoading ? <Loader /> : "Sign Up"}
+            {isLoading ? <Loader /> : t('register.signup')}
           </button>
         </form>
       </div>
