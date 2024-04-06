@@ -3,10 +3,16 @@ import "./Navbar.scss";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../contexts/authContext";
 import { Login } from "./modals/login/Login";
+import { useTranslation } from 'react-i18next';
 
 const Navabr = ({ closeModal }) => {
   const [activeModal, setActiveModal] = useState(null);
   const { handleLogout, getOneUser, oneUser } = useContext(authContext);
+  const { t, i18n } = useTranslation();
+  const handleChangeLanguage = (event) => {
+    const selectedLanguage = event.target.value;
+    i18n.changeLanguage(selectedLanguage);
+  };
 
   const navigate = useNavigate();
 
@@ -38,15 +44,21 @@ const Navabr = ({ closeModal }) => {
         </div>
 
         <div className="header_inner">
+          <div>
+              <select className="change_lang" onChange={handleChangeLanguage}>
+                <option value="en">En</option>
+                <option value="ru">Ru</option>
+              </select>
+            </div>
           <div className="header_links">
             <a href="/rules1" className="header_links__item">
-              Rules
+              {t('navbar.rules')}
             </a>
             {/* <a href="/profile/:id" className="header_links__item">
               Articles
             </a> */}
             <a href="/archive" className="header_links__item">
-              Archive
+              {t('navbar.archive')}
             </a>
             {/* <a href="/admin" className="header_links__item">
               Admin
@@ -75,7 +87,7 @@ const Navabr = ({ closeModal }) => {
 
           {localStorage.getItem("email") === null ? (
             <div className="login_btn" onClick={openLoginModal}>
-              <div>Sign in</div>
+              <div>{t('navbar.signin')}</div>
             </div>
           ) : (
             <div className="login_btn" onClick={handleLogout}>

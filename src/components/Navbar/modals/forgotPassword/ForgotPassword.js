@@ -3,9 +3,11 @@ import classes from "./ForgotPassword.module.css";
 import { useNavigate } from "react-router-dom";
 import arrow from "../img/arrow.svg";
 import { authContext } from "../../../../contexts/authContext";
+import { useTranslation } from 'react-i18next';
 
 export function ForgotPassword({ closeModal }) {
   const [email, setEmail] = useState("");
+  const { t, i18n } = useTranslation();
 
   const { forgotPassword, setError } = useContext(authContext);
 
@@ -40,24 +42,23 @@ export function ForgotPassword({ closeModal }) {
       <div className={classes.forgot__inner}>
         <img src={arrow} alt="back" onClick={() => navigate("/")} />
         <form action="">
-          <div>Password Reset</div>
+          <div>{t('forgot_password.reset_pw')}</div>
           <div className={classes.text}>
             <p>
-              Forgotten your password? Enter your e-mail address below, and
-              we'll send you an e-mail allowing you to reset it.
+              {t('forgot_password.text')}
             </p>
           </div>
-          <label>Email</label>
+          <label>{t('forgot_password.email')}</label>
           <input
             type="text"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            placeholder="Enter your email"
+            placeholder={t('forgot_password.ph_email')}
             // value={email}
             // onChange={e => setEmail(e.target.value)}
             name="email"
           />
-          <button onClick={handleData}>Reset my password</button>
+          <button onClick={handleData}>{t('forgot_password.reset_btn')}</button>
         </form>
       </div>
     </div>

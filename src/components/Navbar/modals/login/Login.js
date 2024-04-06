@@ -7,9 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { authContext } from "../../../../contexts/authContext";
 import Loader from "../../../Loader/Loader";
 import { ForgotPassword } from "../forgotPassword/ForgotPassword";
+import { useTranslation } from 'react-i18next';
 
 export function Login({ closeModal }) {
   const [activeModal, setActiveModal] = useState("login");
+  const { t, i18n } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -77,31 +79,31 @@ export function Login({ closeModal }) {
           <div className={classes.login__inner} onClick={handleLoginClick}>
             <img src={arrow} alt="back" onClick={() => closeModal()} />
             <form>
-              <div>LOGIN</div>
-              <label>Email</label>
+              <div>{t('login.login')}</div>
+              <label>{t('login.email')}</label>
               <input
                 type="text"
-                placeholder="Enter your email"
+                placeholder={t('login.ph_email')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 name="email"
               />
-              <label>Password</label>
+              <label>{t('login.password')}</label>
               <input
                 type="password"
-                placeholder="Enter your password"
+                placeholder={t('login.ph_password')}
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button onClick={loginUser}>Sign in</button>
+              <button onClick={loginUser}>{t('login.signin')}</button>
               <div className={classes.login__signup} onClick={openReg}>
                 <a href="javascript:void(0);" className={classes.sign}>
-                  Sign up
+                  {t('login.signup')}
                 </a>
               </div>
               <div className={classes.login__fpassword} onClick={openForg}>
-                <a href="javascript:void(0);">Forgot password?</a>
+                <a href="javascript:void(0);">{t('login.forgot_pw')}</a>
               </div>
             </form>
           </div>

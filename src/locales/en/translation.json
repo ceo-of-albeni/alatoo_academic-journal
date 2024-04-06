@@ -1,0 +1,70 @@
+{
+    "home": {
+        "title": "Ala-Too Academic Journal",
+        "description": "We eagerly await your fascinating research!",
+        "article_title": "\"Ala-Too Academic Studies\" - the way to scientific leadership in the Kyrgyz Republic",
+        "article": "It is noteworthy that in 2020, the impact factor of the scientific journal was 0.171, and by 2021, it increased to 0.210. By the end of 2022, it further rose to 0.421, and the journal continues to maintain its high rating.",
+        "read": "Read Now"
+    },
+    "button": {
+        "submit": "Join us"
+    },
+    "navbar": {
+        "rules": "Rules",
+        "archive": "Archive",
+        "signin": "Sign in"
+    },
+    "login": {
+        "login": "LOGIN",
+        "email": "Email",
+        "ph_email": "Enter your email",
+        "password": "Password",
+        "ph_password": "Enter your password",
+        "signin": "Sign in",
+        "signup": "Sign up",
+        "forgot_pw": "Forgot password?"
+    },
+    "register": {
+        "registration": "REGISTRATION",
+        "first_name": "First name",
+        "ph_first_name": "Enter your name",
+        "last_name": "Last name",
+        "ph_last_name": "Enter your surname",
+        "email": "Email",
+        "ph_email": "Enter your email",
+        "password": "Password",
+        "ph_password": "Enter your password",
+        "confirm_pw": "Confirm Password",
+        "ph_confirm_pw": "Enter your password",
+        "signup": "Sign up"
+    },
+    "forgot_password": {
+        "reset_pw": "Password Reset",
+        "text": "Forgotten your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it.",
+        "email": "Email",
+        "ph_email": "Enter your email",
+        "reset_btn": "Reset my password"
+    },
+    "about": {
+        "aboutus": "About us",
+        "title1": "The way to scientific leadership in the Kyrgyz Republic",
+        "content1": "Ala-Too International University provides young generations not only with high-quality education in English, but also attaches particular importance to scientific activities",
+        "title2": "Status as a leader among scientific publications in the republic",
+        "content2.1": "At the end of 2022, according to the calculation of the scientific metric base of the RSCI, the impact factor of a scientific journal \"Ala-Too Academic Studies\" has increased to 0.421, making them one of the most significant academic journals in the Kyrgyz Republic.",
+        "content2.2": "This indicator testifies to the high level of quality of scientific research presented in the journal \"Alatoo Academic Studies\".",
+        "title3": "About the processes of receiving scientific articles:",
+        "content3.1": "Our process of receiving scientific articles involves strict control and cooperation with the authors. Each scientific article is subject to a mandatory check for uniqueness through an anti-plagiarism system and is published only if it meets our requirements.",
+        "content3.2": "Therefore, we strongly recommend that authors strictly follow our requirements before submitting an article for publication in a scientific journal"
+    },
+    "footer": {
+        "contacts": "Contacts",
+        "address": "Ala-Too International University, Ankara Street 1/8, Tunguch, 720048, Bishkek, Kyrgyz Republic",
+        "tel": "Tel: +996 (312) 631425",
+        "fax": "Fax: +996 (312) 630409",
+        "email": "E-mail: info@alatoo.edu.kg",
+        "office": "Registration Office:",
+        "office_room": "Ala-Too International University (A-Block), 107 room",
+        "address2": "Address: Ankara Street 1/8, Tunguch, 720048, Bishkek, Kyrgyz Republic",
+        "tel2": "Tel: +996 (312) 630407"
+    }
+  }
