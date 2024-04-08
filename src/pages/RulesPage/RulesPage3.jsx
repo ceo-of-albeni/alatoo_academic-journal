@@ -9,7 +9,7 @@ const RulesPage3 = () => {
       <h3>NATIONALISM AND INTERNATIONALISM IN KYRGYZ FINE ART</h3>
       <h4>Abstract</h4>
       <p>
-        The article deals with topical domestic and international problems of
+        <span>The article deals with topical domestic and international problems of
         Kyrgyz art. The economic and socio-political reforms of the late 20th
         and early 21st centuries had a special impact on the transformation of
         the Kyrgyz fine arts. Like other types of art, the dynamics of the
@@ -22,7 +22,7 @@ const RulesPage3 = () => {
         cultures influenced Kyrgyz art, the criteria of art are considered. As a
         result, national and international problems of art were introduced
         empirically into practical processes, nevertheless, the originality of
-        Kyrgyz artists was preserved and reflected in their work.
+        Kyrgyz artists was preserved and reflected in their work.</span>
         <br />
         <br />
         <strong>Keywords: </strong>
@@ -42,7 +42,7 @@ const RulesPage3 = () => {
       <h4>Единый формат оформления библиографических ссылок:</h4>
       <h4>Книги:</h4>
       <p>
-        Если у издания один автор:
+        <br/>Если у издания один автор:
         <br /> Наумов В.Н. Модели поведения потребителей в маркетинговых
         системах / В.Н. Наумов. – СПб: СПбГУЭФ, 2009. – 240 с. <br /> Если у
         издания два или три автора: <br /> Гура B.B. Система проектирования
@@ -55,7 +55,7 @@ const RulesPage3 = () => {
       </p>
       <h4>Журналы:</h4>
       <p>
-        Один автор: <br /> Околелов О. Электронный учебный курс / О.Околелов //
+        <br/>Один автор: <br /> Околелов О. Электронный учебный курс / О.Околелов //
         Высшее образование в России. – М., 1999. – № 4. – С.126-129. <br /> Два
         и более авторов: <br /> Газизуллин Ф.Г. Структурообразующие элементы
         формирования современного экономического мышления / Ф.Г.Газизуллин,
