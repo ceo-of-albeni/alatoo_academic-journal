@@ -1,81 +1,53 @@
 import React from "react";
 import "./RulesPage.scss";
 import Pagination from "../../components/Pagination/Pagination";
+import { useTranslation } from 'react-i18next';
 
 const RulesPage4 = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className="rules_main-div">
-      <h3>ОБРАЗЕЦ ОФОРМЛЕНИЯ СТАТЬИ</h3>
-      <h4>Интернет-документы</h4>
+      <h3>{t('rules_page4.title')}</h3>
+      <h4>{t('rules_page4.title2')}</h4>
       <p>
-        Белоус Н.А. Прагматическая реализация коммуникативных стратегий в
-        конфликтном дискурсе / Н.А.Белоус // Мир лингвистики и коммуникации:
-        электронный научный журнал. – 2006. – № 4 [Электронный ресурс]. – Режим
-        доступа: http://www.tverlingua.by.ru/archive/005/5_3_1.htm (дата
-        обращения: 15.12.2007). <br /> <br /> Официальные периодические издания
-        электронный путеводитель / Рос.нац. б-ка, Центр правовой информации.
-        [СПб.], 2007. URL: http://www.nlr.ru/lawcenter/izd/index.html (дата
-        обращения: 18.01.2007). <br /> <br /> Логинова Л. Г. Сущность результата
-        дополнительного образования детей // Образование: исследовано в мире:
-        междунар. науч. пед. интернет-журнал 21.10.03. URL:
-        http://www.oim.ru/reader.asp7nomers 366 (дата обращения: 17.04.07).{" "}
+        {t('rules_page4.2.1')} <br /> <br /> {t('rules_page4.2.2')} <br /> <br /> {t('rules_page4.2.3')}{" "}
         <br /> <br />
-        Рынок тренингов Новосибирска: своя игра [Электронный ресурс]. – Режим
-        доступа: http://nsk.adme.ru/news/2006/07/03/2121 .html (дата обращения:
-        17.10.08). <br /> <br /> Литчфорд Е. У. С Белой Армией по Сибири //
-        Восточный фронт Армии Генерала А. В. Колчака: сайт. [Электронный ресурс]
-        – Режим доступа: http://east-front.narod.ru/memo/latchford.htm (дата
-        обращения 23.08.2007).
+        {t('rules_page4.2.4')} <br /> <br /> {t('rules_page4.2.5')}
       </p>
-      <h4>Диссертации и авторефераты</h4>
+      <h4>{t('rules_page4.title3')}</h4>
       <p>
-        Salk, J.E. (1992), Shared Management Joint Ventures: Their Developmental
-        Patterns, Challenges and Possibilities, Unpublished Ph.D Dissertation,
-        Sloan School of Management, Massachusetts Institute of Technology,
-        Cambridge, MA. <br /> Горяинова И.А. Формирование познавательной
-        деятельности студентов с использованием методов активного обучения в
-        высшем учебном заведении: дис… канд. пед. наук / И.А.Горяинова. –
-        Ставрополь, 2005. – 200 с. <br /> Василенко Н.П. Диагностика,
-        информационная и комбинированное обеспечение непрерывного повышения
-        квалификации. Автореф. дис... канд. пед. наук. / Н.П.Василенко. –
-        Ростов-на-Дону, 1997. − 24 с. <br /> <br />{" "}
-        <strong>Контактная информация: </strong>
+        {t('rules_page4.3.1')} <br /> {t('rules_page4.3.2')} <br /> {t('rules_page4.3.3')} <br /> <br />{" "}
+        <strong>{t('rules_page4.title4')}</strong>
         <br />
-        Электронная почта: HYPERLINK "mailto:aas@iaau.edu.kg" aas@iaau.edu.kg,
-        HYPERLINK "mailto:nuriza.asanova@iaau.edu.kg"
-        nuriza.asanova@iaau.edu.kg, HYPERLINK "mailto:nurdamlasi@inbox.r"
-        nurdamlasi@inbox.ru <br /> <br /> Адрес: м/р-н «Тунгуч», ул. Анкара,
-        1/8, 720048, Бишкек, КЫРГЫЗСТАН <br /> Тел.: +996 312 631425, +996 312
-        631426 <br /> Факс: +996 312 631428
+        {t('rules_page4.4.1')} <br /> <br /> {t('rules_page4.4.2')} <br /> {t('rules_page4.4.3')} <br /> {t('rules_page4.4.4')}
         <br />
         <br />
-        <strong>Ответственный редактор: </strong> Нуриза Асанова: 0779908593
+        <strong>{t('rules_page4.title5')}</strong> {t('rules_page4.5.1')}
         <strong>
-          (обращаться только в рабочее время с 9:00 до 17:00)
+          {t('rules_page4.5.2')}
         </strong>{" "}
         <br />
         <br />
         <strong>
-          Оплата издательских расходов составляет:{" "}
-          <span className="blue_text">3000 сом</span>;
+          {t('rules_page4.title6')}{" "}
+          <span className="blue_text">{t('rules_page4.6.1')}</span>;
         </strong>
       </p>
       <br />
       {/* <br /> */}
-      <h4 className="blue_text">БАНКОВСКИЕ РЕКВИЗИТЫ:</h4>
+      <h4 className="blue_text">{t('rules_page4.title7')}</h4>
       <p>
-        <strong>Международный университет «Ала-Тоо»</strong>
-        <br /><strong>ИНН: </strong> 02702199710063 <strong>ОКПО: </strong>
+        <strong>{t('rules_page4.7.1')}</strong>
+        <br /><strong>{t('rules_page4.7.2')}</strong> 02702199710063 <strong>{t('rules_page4.7.3')}</strong>
         21633376
         <br />
         <strong>
-          р\с 1090805135480135 Филиал ОАО «Оптима Банк» в г. Бишкек №1
+          {t('rules_page4.7.4')}
         </strong>{" "}
         <br />
-        <strong>БИК филиала 109008 S.W.I.F.T. ENEJKG 22</strong> <br />
-        Назначение платежа: Издательские услуги. Без НДС. ФИО автора. <br />
-        <br /> В случае иной формулировки назначения платежа будет осуществлен
-        возврат денежных средств.
+        <strong>{t('rules_page4.7.5')}</strong> <br />
+        {t('rules_page4.7.6')} <br />
+        <br /> {t('rules_page4.7.7')}
       </p>
 
       <Pagination />
