@@ -416,8 +416,10 @@ export default function ArchiveCategoryPage() {
       <div className={classes.archive}>
         <div className={classes.archive__inner}>
           <div className={classes.back}>
-            <img src={arrow} alt="arrow" />
-            <a onClick={() => navigate("/archive")}>Back</a>
+              <a onClick={() => navigate("/archive")}>
+                <img src={arrow} alt="arrow" />
+                <p>Back</p>
+              </a>
           </div>
           <div className={classes.archive__inner__1}>
             <div className={classes.years}>

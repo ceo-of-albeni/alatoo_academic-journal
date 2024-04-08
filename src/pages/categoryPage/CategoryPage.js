@@ -11,8 +11,10 @@ export default function CategoryPage() {
       <div className={classes.category}>
         <div className={classes.category__inner}>
           <div className={classes.back}>
-            <img src={arrow} alt="arrow" />
-            <a onClick={() => navigate("/category")}>Back</a>
+              <a onClick={() => navigate("/category")}>
+                <img src={arrow} alt="arrow" />
+                <p>Back</p>
+              </a>
           </div>
           <div className={classes.text}>
             <h4>Category: Informatics Science</h4>

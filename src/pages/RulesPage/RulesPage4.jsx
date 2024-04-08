@@ -65,7 +65,7 @@ const RulesPage4 = () => {
       <h4 className="blue_text">БАНКОВСКИЕ РЕКВИЗИТЫ:</h4>
       <p>
         <strong>Международный университет «Ала-Тоо»</strong>
-        <br /> <strong>ИНН: </strong> 02702199710063 <strong>ОКПО: </strong>
+        <br /><strong>ИНН: </strong> 02702199710063 <strong>ОКПО: </strong>
         21633376
         <br />
         <strong>
