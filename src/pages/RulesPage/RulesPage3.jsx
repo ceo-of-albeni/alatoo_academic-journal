@@ -1,74 +1,45 @@
 import React from "react";
 import "./RulesPage.scss";
 import Pagination from "../../components/Pagination/Pagination";
+import { useTranslation } from 'react-i18next';
 
 const RulesPage3 = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className="rules_main-div">
-      <h3>ОБРАЗЕЦ ОФОРМЛЕНИЯ СТАТЬИ</h3>
-      <h3>NATIONALISM AND INTERNATIONALISM IN KYRGYZ FINE ART</h3>
-      <h4>Abstract</h4>
+      <h3>{t('rules_page3.title')}</h3>
+      <h3>{t('rules_page3.title2')}</h3>
+      <h4>{t('rules_page3.title3')}</h4>
       <p>
-        The article deals with topical domestic and international problems of
-        Kyrgyz art. The economic and socio-political reforms of the late 20th
-        and early 21st centuries had a special impact on the transformation of
-        the Kyrgyz fine arts. Like other types of art, the dynamics of the
-        development of fine arts is connected with the historical and cultural
-        situation. In particular, the article for the first time interprets the
-        new terminological designations of contemporary art and shows their
-        differences (performance, installation, environment, ready-made, science
-        art). The main content of the article about the causes of such
-        situations in the Kyrgyz artistic culture and how Eastern and Western
-        cultures influenced Kyrgyz art, the criteria of art are considered. As a
-        result, national and international problems of art were introduced
-        empirically into practical processes, nevertheless, the originality of
-        Kyrgyz artists was preserved and reflected in their work.
+        {t('rules_page3.abstract')}
         <br />
         <br />
-        <strong>Keywords: </strong>
-        artistic culture, Kyrgyz art, history, art, national identity,
-        spirituality, contemporary art, artistic practice.
+        <strong>{t('rules_page3.keyword')}</strong>
+        {t('rules_page3.keywords')}
         <br />
-        <strong>(Основной текст) </strong>
+        <strong>{t('rules_page3.main')}</strong>
         Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         xxxxxxxxxxxxxxxx
         <br />
-        <strong>Список литературы: </strong>
+        <strong>{t('rules_page3.list')}</strong>
         <br />
         1. Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         <br />
         2. Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       </p>
-      <h4>Единый формат оформления библиографических ссылок:</h4>
-      <h4>Книги:</h4>
+      <h4>{t('rules_page3.title4')}</h4>
+      <h4>{t('rules_page3.title5')}</h4>
       <p>
-        Если у издания один автор:
-        <br /> Наумов В.Н. Модели поведения потребителей в маркетинговых
-        системах / В.Н. Наумов. – СПб: СПбГУЭФ, 2009. – 240 с. <br /> Если у
-        издания два или три автора: <br /> Гура B.B. Система проектирования
-        электронных образовательных ресурсов / В.В. Гура, С.Б. Дикарев. –
-        Ростов-на- Дону: ЦВВР, 2003. – 125 с. <br /> Если у издания пять авторов
-        и более, то описание начинается с заглавия. За косой чертой указываются
-        три автора и др. <br /> Логика: учебное пособие для 10-11 классов / А.Д.
-        Гетманова, А.Л. Никифоров, М.И. Панов и др. – Москва: Дрофа, 1995. – 156
-        с.
+        {t('rules_page3.5.1')}
+        <br /> {t('rules_page3.5.2')} <br /> {t('rules_page3.5.3')} <br /> {t('rules_page3.5.4')} <br /> {t('rules_page3.5.5')} <br /> {t('rules_page3.5.6')}
       </p>
-      <h4>Журналы:</h4>
+      <h4>{t('rules_page3.title6')}</h4>
       <p>
-        Один автор: <br /> Околелов О. Электронный учебный курс / О.Околелов //
-        Высшее образование в России. – М., 1999. – № 4. – С.126-129. <br /> Два
-        и более авторов: <br /> Газизуллин Ф.Г. Структурообразующие элементы
-        формирования современного экономического мышления / Ф.Г.Газизуллин,
-        Н.Ф.Газизуллин // Проблемы современной экономики. – М., 2010. – № 4. –
-        С. 40-42.
+        {t('rules_page3.6.1')} <br /> {t('rules_page3.6.2')} <br /> {t('rules_page3.6.3')} <br /> {t('rules_page3.6.4')}
       </p>
-      <h4>Материалы конференции:</h4>
+      <h4>{t('rules_page3.title7')}</h4>
       <p>
-        Меркулов А.Б. Условия и этапы повышения качества профессионального
-        образования / А.Б. Меркулов, А.Ш. Мамедова // Наука, образование,
-        общество: тенденции и перспективы развития: материалы международной
-        научно-практической конференции, 3 декабря 2017 г. – М., 2017. - С.
-        128-131.
+        {t('rules_page3.7.1')}
       </p>
       <Pagination />
     </div>
