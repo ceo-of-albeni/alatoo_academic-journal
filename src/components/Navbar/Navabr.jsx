@@ -34,7 +34,7 @@ const Navabr = ({ closeModal }) => {
               alt=""
             />
           </a>
-          <p className="logo_p">Ala-Too Academic Journal</p>
+          <p className="logo_p">Ala-Too Academic Studies</p>
         </div>
 
         <div className="header_inner">
@@ -42,9 +42,6 @@ const Navabr = ({ closeModal }) => {
             <a href="/rules1" className="header_links__item">
               Rules
             </a>
-            {/* <a href="/profile/:id" className="header_links__item">
-              Articles
-            </a> */}
             <a href="/archive" className="header_links__item">
               Archive
             </a>
