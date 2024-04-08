@@ -11,7 +11,7 @@ const RulesPage3 = () => {
       <h3>{t('rules_page3.title2')}</h3>
       <h4>{t('rules_page3.title3')}</h4>
       <p>
-        {t('rules_page3.abstract')}
+        <span>{t('rules_page3.abstract')}</span>
         <br />
         <br />
         <strong>{t('rules_page3.keyword')}</strong>
@@ -30,12 +30,12 @@ const RulesPage3 = () => {
       <h4>{t('rules_page3.title4')}</h4>
       <h4>{t('rules_page3.title5')}</h4>
       <p>
-        {t('rules_page3.5.1')}
+        <br/>{t('rules_page3.5.1')}
         <br /> {t('rules_page3.5.2')} <br /> {t('rules_page3.5.3')} <br /> {t('rules_page3.5.4')} <br /> {t('rules_page3.5.5')} <br /> {t('rules_page3.5.6')}
       </p>
       <h4>{t('rules_page3.title6')}</h4>
       <p>
-        {t('rules_page3.6.1')} <br /> {t('rules_page3.6.2')} <br /> {t('rules_page3.6.3')} <br /> {t('rules_page3.6.4')}
+        <br/>{t('rules_page3.6.1')} <br /> {t('rules_page3.6.2')} <br /> {t('rules_page3.6.3')} <br /> {t('rules_page3.6.4')}
       </p>
       <h4>{t('rules_page3.title7')}</h4>
       <p>

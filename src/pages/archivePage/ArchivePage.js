@@ -28,8 +28,10 @@ export default function ArchivePage() {
         <div className={classes.archive__inner}>
           <div className={classes.archive__inner__1}>
             <div className={classes.back}>
-              <img src={arrow} alt="arrow" />
-              <a onClick={() => navigate("/")}>Back</a>
+              <a onClick={() => navigate("/")}>
+                <img src={arrow} alt="arrow" />
+                <p>Back</p>
+              </a>
             </div>
             <div className={classes.search}>
               <div className={classes.filtration}>

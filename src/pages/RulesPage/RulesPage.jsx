@@ -12,12 +12,12 @@ const RulesPage = () => {
       <h3>{t('rules_page1.title')}</h3>
       <p>
         {" "}
-        {t('rules_page1.intro1')}
-        <br />{t('rules_page1.intro2')}
+        <span>{t('rules_page1.intro1')}</span>
+        <span><br />{t('rules_page1.intro2')}</span>
       </p>
       <h4>{t('rules_page1.structure')}</h4>
-      <ol className="rules_list">
-        <p>{t('rules_page1.udc')}</p>
+      <ul className="rules_list">
+        <li>{t('rules_page1.udc')}</li>
         <li>
           {t('rules_page1.str1')}{" "}
         </li>
@@ -65,7 +65,7 @@ const RulesPage = () => {
             {t('rules_page1.str14.3')}
           </li>
         </ul>
-      </ol>
+      </ul>
       <Pagination />
     </div>
   );

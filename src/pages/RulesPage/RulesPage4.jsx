@@ -38,7 +38,7 @@ const RulesPage4 = () => {
       <h4 className="blue_text">{t('rules_page4.title7')}</h4>
       <p>
         <strong>{t('rules_page4.7.1')}</strong>
-        <br /> <strong>{t('rules_page4.7.2')}</strong> 02702199710063 <strong>{t('rules_page4.7.3')}</strong>
+        <br /><strong>{t('rules_page4.7.2')}</strong> 02702199710063 <strong>{t('rules_page4.7.3')}</strong>
         21633376
         <br />
         <strong>
