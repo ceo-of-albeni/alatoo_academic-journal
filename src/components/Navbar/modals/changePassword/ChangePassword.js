@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { ForgotPassword } from "../forgotPassword/ForgotPassword";
 import { colors } from "@mui/material";
 import { blue } from "@mui/material/colors";
+import { useTranslation } from 'react-i18next';
 
 export function ChangePassword({closeModal}) {
 
+    const { t, i18n } = useTranslation();
     const [modalOpen, setModalOpen] = useState(true);
     const [openSuccess, setOpenSuccess] = useState(false);
     const [openForgot, setOpenForgot] = useState(false);
@@ -29,18 +31,18 @@ export function ChangePassword({closeModal}) {
             <div className={classes.change}>
                 <div className={classes.change__inner}>
                     <form action="">
-                        <div>Change Password</div>
-                        <label>New Password</label>
+                        <div>{t('change_pw.change')}</div>
+                        <label>{t('change_pw.new')}</label>
                         <input
                             type="text"
-                            placeholder="Click and start typing"
+                            placeholder={t('change_pw.ph')}
                         />
-                        <label>Confrim New Password</label>
+                        <label>{t('change_pw.confirm_new')}</label>
                         <input
                             type="text"
-                            placeholder="Click and start typing"
+                            placeholder={t('change_pw.ph')}
                         />
-                        <button onClick={closeOpenSuccess}>Change password</button>
+                        <button onClick={closeOpenSuccess}>{t('change_pw.change')}</button>
                     </form>
                 </div>
             </div>
@@ -48,9 +50,9 @@ export function ChangePassword({closeModal}) {
                 <div className={classes.success}>
                     <div className={classes.change__inner} onClick={handlechangeClick}>
                         <form action="">
-                            <div>Change Password</div>
+                            <div>{t('change_pw.change')}</div>
                             <div>
-                                <p>Your password is now changed.</p>
+                                <p>{t('change_pw.message')}</p>
                             </div>
                             <button>OK</button>
                         </form>

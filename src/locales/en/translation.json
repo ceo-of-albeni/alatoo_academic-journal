@@ -1,8 +1,8 @@
 {
     "home": {
-        "title": "Ala-Too Academic Journal",
+        "title": "Alatoo Academic Journal",
         "description": "We eagerly await your fascinating research!",
-        "article_title": "\"Ala-Too Academic Studies\" - the way to scientific leadership in the Kyrgyz Republic",
+        "article_title": "\"Alatoo Academic Studies\" - the way to scientific leadership in the Kyrgyz Republic",
         "article": "It is noteworthy that in 2020, the impact factor of the scientific journal was 0.171, and by 2021, it increased to 0.210. By the end of 2022, it further rose to 0.421, and the journal continues to maintain its high rating.",
         "read": "Read Now"
     },
@@ -38,6 +38,15 @@
         "ph_confirm_pw": "Enter your password",
         "signup": "Sign up"
     },
+    "confirm_reg":{
+        "button": "CONFIRM",
+        "email": "Email",
+        "ph_email": "Enter your email",
+        "code": "Code",
+        "ph_code": "Enter your code",
+        "signin": "Sign in",
+        "resend": "Resend code"
+    },
     "forgot_password": {
         "reset_pw": "Password Reset",
         "text": "Forgotten your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it.",
@@ -45,12 +54,22 @@
         "ph_email": "Enter your email",
         "reset_btn": "Reset my password"
     },
+    "change_pw": {
+        "change": "Change Password",
+        "new": "New Password",
+        "confirm_new": "Confrim New Password",
+        "ph": "Click to start typing",
+        "message": "Your password is now changed."
+    },
+    "success": {
+        "fully": "Successfully!"
+    },
     "about": {
         "aboutus": "About us",
         "title1": "The way to scientific leadership in the Kyrgyz Republic",
         "content1": "Ala-Too International University provides young generations not only with high-quality education in English, but also attaches particular importance to scientific activities",
         "title2": "Status as a leader among scientific publications in the republic",
-        "content2.1": "At the end of 2022, according to the calculation of the scientific metric base of the RSCI, the impact factor of a scientific journal \"Ala-Too Academic Studies\" has increased to 0.421, making them one of the most significant academic journals in the Kyrgyz Republic.",
+        "content2.1": "At the end of 2022, according to the calculation of the scientific metric base of the RSCI, the impact factor of a scientific journal \"Alatoo Academic Studies\" has increased to 0.421, making them one of the most significant academic journals in the Kyrgyz Republic.",
         "content2.2": "This indicator testifies to the high level of quality of scientific research presented in the journal \"Alatoo Academic Studies\".",
         "title3": "About the processes of receiving scientific articles:",
         "content3.1": "Our process of receiving scientific articles involves strict control and cooperation with the authors. Each scientific article is subject to a mandatory check for uniqueness through an anti-plagiarism system and is published only if it meets our requirements.",
@@ -69,7 +88,7 @@
     },
     "rules_page1": {
         "rules": "RULES FOR AUTHORS",
-        "title": "SCIENTIFIC JOURNAL \"ALA-TOO ACADEMIC STUDIES\"",
+        "title": "SCIENTIFIC JOURNAL \"ALATOO ACADEMIC STUDIES\"",
         "intro1": "The scientific journal “Alatoo Academic Studies” publishes research articles in the following areas: philosophy, history, sociology, state and law, economics, public education, pedagogy, linguistics, literary criticism, journalism, computer science, mathematics, biology, medicine.",
         "intro2": "The article must describe the purpose, objectives and research methodology used by the author. The authors are responsible for the accuracy of the information presented in the articles, as well as for the quality of translation of the text into other languages. The editors of the journal are not responsible for inaccurate data in published works.",
         "structure": "The article should be formatted according to the following structure:",
@@ -83,7 +102,7 @@
         "str7": "Links should look like [5, p. 67], i.e. the number of the source in the list of references and the page number in this source are indicated. If pages are not specified, then the link looks like [5];",
         "str8": "The total volume of the manuscript, including literature, tables and illustrations, is from 12 to 16 pages;",
         "str9": "All accepted articles undergo blind review and are checked for plagiarism; the uniqueness of the text must be at least 85%. Articles that do not meet the requirements will not be recommended for publication;",
-        "str10": "The cited literature is given at the end of the article in order of citation. References - no less than 10 and no more than 15 sources. Links to articles in the journal Ala-Too Academic Studies are encouraged;",
+        "str10": "The cited literature is given at the end of the article in order of citation. References - no less than 10 and no more than 15 sources. Links to articles in the journal Alatoo Academic Studies are encouraged;",
         "str11": "The editors reserve the right to shorten and edit articles;",
         "str12": "Articles can be submitted to the editor by email: HYPERLINK \"mailto:aas@iaau.edu.kg\" aas@iaau.edu.kg;",
         "str13": "The cost of publishing one article is 3000 soms. Paid after the article is approved and accepted for publication by the journal's editors;",
@@ -156,5 +175,81 @@
         "7.5": "BIC branch 109008 S.W.I.F.T. ENEJKG 22",
         "7.6": "Purpose of payment: Publishing services. Without VAT. Author's full name.",
         "7.7": "If the purpose of payment is stated differently, a refund will be made."
+    },
+    "search": {
+        "ph": "Search article title or author"
+    },
+    "status": {
+        "10": "Declined",
+        "20": "Pending",
+        "40": "Published",
+        "30": "Payment"
+    },
+    "table": {
+        "title": "Title",
+        "date": "Date",
+        "author": "Author",
+        "pages": "Pages",
+        "category": "Category",
+        "status": "Status"
+    },
+    "tableadmin": {
+        "title": "ARTICLE",
+        "article_title": "Article title*",
+        "ph": "Click to start typing",
+        "category": "Category*",
+        "category2": "Category",
+        "loading": "Loading...",
+        "author": "Full name of each author of the article*",
+        "email": "Email of each author of the article*",
+        "year": "Year*",
+        "volume": "Volume*",
+        "edition": "Edition*",
+        "file": "Article file*",
+        "text": "Text*",
+        "button": "Upload",
+        "add": "Category to add*"
+    },
+    "userprofilepage": {
+        "next": "Next",
+        "clear": "Clear all"
+    },
+    "archivepage": {
+        "back": "Back",
+        "search": "Search...",
+        "category": "Category",
+        "ethics": "Publication Ethics and Publication Malpractice",
+        "rules": "Rules for authors",
+        "council": "Council Members",
+        "title": "Quarterly Scientific Journal",
+        "title2": "Founder:",
+        "title3": "Ala-Too International University",
+        "title4": "The journal",
+        "4.content": "\"Alatoo Academic Studies\" is included in the List of peer-reviewed periodicals recommended by the Higher Attestation Commission of the Kyrgyz Republic (HAC KR) (Order No. 2 of February 12, 2008)",
+        "version1": "(printed version)",
+        "version2": "(electronic version)",
+        "title5": "Editorial address:",
+        "address": "720048, Kyrgyz Republic, Bishkek, microdistrict. Tunguch, st. Ankara, 1/8",
+        "tel": "Tel.: ",
+        "fax": "Fax.: ",
+        "board": "JOURNAL EDITORIAL BOARD"
+    },
+    "ethicspage": {
+        "content": "The editorial board of the scientific journal Alatoo Academic Studies is guided in its work by the international ethical rules of scientific publications, including the rules of decency, confidentiality, supervision of publications, consideration of possible conflicts of interest, etc. Alatoo Academic Studies is committed to objective and fair double-blind peer-review of the submitted works. In its activities, the editors follow the recommendations of the Committee on Publication Ethics and, in particular, the Ethical Resource Kit (Publishing Ethics Resource Kit) of Elsevier.",
+        "content1": "When deciding on publication, the editor of a scientific journal is guided by the reliability of the presented data and the scientific significance of the manuscripts.",
+        "content2": "Editor should evaluate the intellectual content of manuscripts regardless of race, gender, religious beliefs, origin, citizenship, social status or political preferences of authors.",
+        "content3": "Unpublished data obtained from submitted manuscripts should not be used for personal purposes or transferred to third parties without the written consent of the author. Information or ideas obtained during editing and related to possible benefits should be kept confidential.",
+        "content4": "The editor should not allow the publication of information, if there is sufficient reason to believe that it is plagiarism.",
+        "content5": "The editor, together with the publisher, should not leave unanswered claims concerning the manuscripts or published materials, and in the case of a conflict situation, take all necessary measures to restore the violated rights. The reviewer carries out a scientific examination of the author's materials; assessment should not be prejudiced and should apply the following principles:",
+        "content5.1": "The manuscript received for review should be considered as a confidential document that cannot be passed on for review or discussion to third parties without authorization from the editorial office.",
+        "content5.2": "The reviewer is obliged to give an objective and reasoned assessment of the results of the research. Personal criticism of the author is unacceptable.",
+        "content5.3": "The reviewer should not use unpublished data obtained from submitted manuscripts for personal purposes.",
+        "content6": "A reviewer who does not possess, in his opinion, sufficient qualification for the evaluation of the manuscript, or cannot be objective, for example, in case of a conflict of interests with the author or organization, should inform the editor about this request, excluding him from the process of reviewing this manuscript. The author (or a team of authors) realizes that he bears the original responsibility for the scientific novelty and reliability of the results of the research, which implies observance of the following principles:",
+        "content6.1": "The authors of the article should provide reliable results of the conducted studies. Knowingly erroneous or falsified statements are unacceptable.",
+        "content6.2": "The authors must ensure that the results of the study, as described in the manuscript provided, are completely original. Borrowed fragments or statements must be made with a mandatory indication of the author and the source. Excessive borrowing, as well as plagiarism in any form, including unformulated quotes, paraphrasing or assigning rights to the results of other people's research, are unethical and unacceptable",
+        "content6.3": "It is necessary to recognize the contribution of all persons who somehow influenced the course of the study; in particular, the article should contain references to the work that was important in the study.",
+        "content6.4": "Authors should not submit to the journal a manuscript that was sent to another journal and is pending, as well as an article already published in another journal.",
+        "content6.5": "The co-authors of the article should indicate all persons who have made a significant contribution to the study. Among co-authors, it is inadmissible to identify persons who did not participate in the study",
+        "content6.6": "If the author finds significant errors or inaccuracies in the article at the stage of its consideration or after its publication, s/he should notify the editorial office of this as soon as possible."
     }
   }

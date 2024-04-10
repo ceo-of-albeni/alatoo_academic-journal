@@ -2,8 +2,12 @@ import React from "react";
 import classes from "./CategoryPage.module.scss";
 import arrow from "./img/arrow.svg";
 import { useNavigate } from "react-router";
+import { useTranslation } from 'react-i18next';
 
 export default function CategoryPage() {
+  
+  const { t, i18n } = useTranslation();
+
   const navigate = useNavigate();
 
   return (
@@ -13,7 +17,7 @@ export default function CategoryPage() {
           <div className={classes.back}>
               <a onClick={() => navigate("/category")}>
                 <img src={arrow} alt="arrow" />
-                <p>Back</p>
+                <p>{t('archivepage.back')}</p>
               </a>
           </div>
           <div className={classes.text}>
