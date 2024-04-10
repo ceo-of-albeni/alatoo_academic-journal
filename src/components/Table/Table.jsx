@@ -13,6 +13,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { useTranslation } from 'react-i18next';
 
 const style = {
   position: "absolute",
@@ -40,6 +41,7 @@ function createData(
 }
 
 export default function BasicTable() {
+  const { t, i18n } = useTranslation();
   const { getAllMyArticles, my_articles, getArticles } =
     React.useContext(articlesContext);
 
@@ -156,22 +158,22 @@ export default function BasicTable() {
               <strong>Nº</strong>
             </TableCell>
             <TableCell width="350px" align="right">
-              <strong>Title</strong>
+              <strong>{t('table.title')}</strong>
             </TableCell>
             <TableCell width="110px" align="center">
-              <strong>Date</strong>
+              <strong>{t('table.date')}</strong>
             </TableCell>
             <TableCell width="150px" align="center">
-              <strong>Author</strong>
+              <strong>{t('table.author')}</strong>
             </TableCell>
             <TableCell width="80px" align="right">
-              <strong>Pages</strong>
+              <strong>{t('table.pages')}</strong>
             </TableCell>
             <TableCell width="180px" align="right">
-              <strong>Category</strong>
+              <strong>{t('table.category')}</strong>
             </TableCell>
             <TableCell width="90px" align="right">
-              <strong>Status</strong>
+              <strong>{t('table.status')}</strong>
             </TableCell>
           </TableRow>
         </TableHead>
