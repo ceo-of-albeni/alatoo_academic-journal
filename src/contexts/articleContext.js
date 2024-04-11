@@ -131,6 +131,23 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
+  async function declineArticle(id) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const res = await fetch(`${API}/article/decline/${id}`, {
+        method: "POST",
+        // body: newArticle,
+        headers: {
+          Authorization,
+        },
+      });
+      console.log("Decline succesfully!");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   async function deleteArticle(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
