@@ -218,4 +218,7 @@ input[type="file"] {
 
 .admin_article-categoty_main {
   display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  margin-bottom: 50px;
 }
