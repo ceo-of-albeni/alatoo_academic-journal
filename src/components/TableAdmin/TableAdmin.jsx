@@ -343,16 +343,16 @@ export default function BasicTableAdmin() {
               <TableCell width="130px" align="center">
                 <strong>{t('table.author')}</strong>
               </TableCell>
-              <TableCell width="80px" align="right">
+              <TableCell width="80px" align="center">
                 <strong>{t('table.pages')}</strong>
               </TableCell>
-              <TableCell width="150px" align="right">
+              <TableCell width="150px" align="center">
                 <strong>{t('table.category')}</strong>
               </TableCell>
-              <TableCell width="100px" align="right">
+              <TableCell width="100px" align="center">
                 <strong>{t('table.status')}</strong>
               </TableCell>
-              <TableCell width="80px" align="right">
+              <TableCell width="80px" align="center">
                 <strong></strong>
               </TableCell>
             </TableRow>
@@ -371,14 +371,14 @@ export default function BasicTableAdmin() {
                     {row.title}
                   </a>
                 </TableCell>
-                <TableCell align="right">{row.createdAt}</TableCell>
-                <TableCell align="right">{row.coauthors}</TableCell>
-                <TableCell align="right">{row.pages}</TableCell>
-                <TableCell align="right">{row.category.name}</TableCell>
-                <TableCell key={row.id} align="right">
+                <TableCell align="center">{row.createdAt}</TableCell>
+                <TableCell align="center">{row.coauthors}</TableCell>
+                <TableCell align="center">{row.pages}</TableCell>
+                <TableCell align="center">{row.category.name}</TableCell>
+                <TableCell key={row.id} align="center">
                   {row.status}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="center">
                   <button
                     key={row.id}
                     onClick={() => approveArticle(row.id)}

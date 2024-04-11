@@ -157,7 +157,7 @@ export default function BasicTable() {
             <TableCell width="50px" align="left">
               <strong>Nº</strong>
             </TableCell>
-            <TableCell width="350px" align="right">
+            <TableCell width="350px" align="center">
               <strong>{t('table.title')}</strong>
             </TableCell>
             <TableCell width="110px" align="center">
@@ -166,13 +166,13 @@ export default function BasicTable() {
             <TableCell width="150px" align="center">
               <strong>{t('table.author')}</strong>
             </TableCell>
-            <TableCell width="80px" align="right">
+            <TableCell width="80px" align="center">
               <strong>{t('table.pages')}</strong>
             </TableCell>
-            <TableCell width="180px" align="right">
+            <TableCell width="180px" align="center">
               <strong>{t('table.category')}</strong>
             </TableCell>
-            <TableCell width="90px" align="right">
+            <TableCell width="90px" align="center">
               <strong>{t('table.status')}</strong>
             </TableCell>
           </TableRow>
@@ -190,16 +190,16 @@ export default function BasicTable() {
                   {row.title}
                 </a>
               </TableCell>
-              <TableCell align="right">{row.createdAt}</TableCell>
-              <TableCell align="right">{row.coauthors}</TableCell>
-              <TableCell align="right">{row.pages}</TableCell>
-              <TableCell align="right">{row.category.name}</TableCell>
+              <TableCell align="center">{row.createdAt}</TableCell>
+              <TableCell align="center">{row.coauthors}</TableCell>
+              <TableCell align="center">{row.pages}</TableCell>
+              <TableCell align="center">{row.category.name}</TableCell>
               {row.status == "Pending" ? (
-                <TableCell align="right" onClick={handleOpen}>
+                <TableCell align="center" onClick={handleOpen}>
                   {row.status}
                 </TableCell>
               ) : (
-                <TableCell align="right">{row.status}</TableCell>
+                <TableCell align="center">{row.status}</TableCell>
               )}
             </TableRow>
           ))}
