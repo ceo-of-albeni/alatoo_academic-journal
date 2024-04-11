@@ -245,6 +245,7 @@ const ArticleContextsProvider = ({ children }) => {
         approveArticle,
         deleteArticle,
         createCategory,
+        declineArticle
       }}>
       {children}
     </articlesContext.Provider>
