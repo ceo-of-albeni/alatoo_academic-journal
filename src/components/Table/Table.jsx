@@ -8,12 +8,10 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { articlesContext } from "../../contexts/articleContext";
 import "./Table.scss";
-import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useTranslation } from 'react-i18next';
 
 const style = {
   position: "absolute",
@@ -41,7 +39,6 @@ function createData(
 }
 
 export default function BasicTable() {
-  const { t, i18n } = useTranslation();
   const { getAllMyArticles, my_articles, getArticles } =
     React.useContext(articlesContext);
 
@@ -49,8 +46,12 @@ export default function BasicTable() {
   const [checkFile, setCheckFile] = React.useState(null);
   const [articleId, setArticleId] = React.useState("");
 
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  function handleOpen(id) {
+    setArticleId(id);
+    setOpen(true);
+  }
 
   React.useEffect(() => {
     getAllMyArticles();
@@ -66,8 +67,6 @@ export default function BasicTable() {
     const checkData = new FormData();
     checkData.append("checkFile", checkFile);
     checkData.append("articleId", articleId);
-
-    alert("Wait for a few seconds and refresh the page!");
 
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -95,8 +94,7 @@ export default function BasicTable() {
         return;
       }
 
-      console.log("Article created successfully!");
-      alert("Article created successfully!");
+      console.log("CHeck norm!");
     } catch (error) {
       console.error("Error during article creation:", error);
     }
@@ -133,7 +131,7 @@ export default function BasicTable() {
         aria-describedby="modal-modal-description">
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {t('table.check')}
+            Check
           </Typography>
           <label className="custom-file-upload">
             <input
@@ -157,23 +155,23 @@ export default function BasicTable() {
             <TableCell width="50px" align="left">
               <strong>Nº</strong>
             </TableCell>
-            <TableCell width="350px" align="center">
-              <strong>{t('table.title')}</strong>
+            <TableCell width="350px" align="right">
+              <strong>Title</strong>
             </TableCell>
             <TableCell width="110px" align="center">
-              <strong>{t('table.date')}</strong>
+              <strong>Date</strong>
             </TableCell>
             <TableCell width="150px" align="center">
-              <strong>{t('table.author')}</strong>
+              <strong>Author</strong>
             </TableCell>
-            <TableCell width="80px" align="center">
-              <strong>{t('table.pages')}</strong>
+            <TableCell width="80px" align="right">
+              <strong>Pages</strong>
             </TableCell>
-            <TableCell width="180px" align="center">
-              <strong>{t('table.category')}</strong>
+            <TableCell width="180px" align="right">
+              <strong>Category</strong>
             </TableCell>
-            <TableCell width="90px" align="center">
-              <strong>{t('table.status')}</strong>
+            <TableCell width="90px" align="right">
+              <strong>Status</strong>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -190,16 +188,16 @@ export default function BasicTable() {
                   {row.title}
                 </a>
               </TableCell>
-              <TableCell align="center">{row.createdAt}</TableCell>
-              <TableCell align="center">{row.coauthors}</TableCell>
-              <TableCell align="center">{row.pages}</TableCell>
-              <TableCell align="center">{row.category.name}</TableCell>
-              {row.status == "Pending" ? (
-                <TableCell align="center" onClick={handleOpen}>
+              <TableCell align="right">{row.createdAt}</TableCell>
+              <TableCell align="right">{row.coauthors}</TableCell>
+              <TableCell align="right">{row.pages}</TableCell>
+              <TableCell align="right">{row.category.name}</TableCell>
+              {row.status == "Payment" ? (
+                <TableCell align="right" onClick={() => handleOpen(row.id)}>
                   {row.status}
                 </TableCell>
               ) : (
-                <TableCell align="center">{row.status}</TableCell>
+                <TableCell align="right">{row.status}</TableCell>
               )}
             </TableRow>
           ))}

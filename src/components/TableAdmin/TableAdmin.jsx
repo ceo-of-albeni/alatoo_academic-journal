@@ -13,7 +13,7 @@ import { articlesContext } from "../../contexts/articleContext";
 import "../Table/Table.scss";
 import "../../pages/UserProfilePage/UserProfilePage.scss";
 import { authContext } from "../../contexts/authContext";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 function createData(
   id,
@@ -45,7 +45,7 @@ export default function BasicTableAdmin() {
     articles,
     getArticles,
     approveArticle,
-    deleteArticle,
+    declineArticle,
     getCategories,
     categories,
     createCategory,
@@ -183,7 +183,7 @@ export default function BasicTableAdmin() {
         item.coauthors,
         item.pageCount,
         item.category,
-        item.isApproved ? "Approved" : "Pending",
+        item.status,
         item.fileUrl
       )
     )
@@ -193,18 +193,18 @@ export default function BasicTableAdmin() {
     <div>
       <div className="admin_article-categoty_main">
         <div className="article_form" id="article_div">
-          <h4>{t('tableadmin.title')}</h4>
+          <h4>{t("tableadmin.title")}</h4>
           <div className="article_form-inputs">
             <div className="short_inp">
-              <p className="input_p">{t('tableadmin.article_title')}</p>
+              <p className="input_p">{t("tableadmin.article_title")}</p>
               <input
                 className="text_input"
-                placeholder={t('tableadmin.ph')}
+                placeholder={t("tableadmin.ph")}
                 type="text"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
               />
-              <p className="input_p">{t('tableadmin.category')}</p>
+              <p className="input_p">{t("tableadmin.category")}</p>
               <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
                 <Select
                   className="text_input max_mb"
@@ -218,7 +218,7 @@ export default function BasicTableAdmin() {
                   inputProps={{ "aria-label": "Without label" }}>
                   <MenuItem value="">
                     <p style={{ color: "lightgrey", marginBottom: "0px" }}>
-                      {t('tableadmin.category2')}
+                      {t("tableadmin.category2")}
                     </p>
                   </MenuItem>
                   {categories ? (
@@ -228,58 +228,56 @@ export default function BasicTableAdmin() {
                       </MenuItem>
                     ))
                   ) : (
-                    <h3>{t('tableadmin.loading')}</h3>
+                    <h3>{t("tableadmin.loading")}</h3>
                   )}
                 </Select>
               </FormControl>
-              <p className="input_p">
-                {t('tableadmin.author')}
-              </p>
+              <p className="input_p">{t("tableadmin.author")}</p>
               <input
                 className="text_input"
-                placeholder={t('tableadmin.ph')}
+                placeholder={t("tableadmin.ph")}
                 type="text"
                 value={coauthors}
                 onChange={e => setCoauthors(e.target.value)}
               />
 
-              <p className="input_p">{t('tableadmin.email')}</p>
+              <p className="input_p">{t("tableadmin.email")}</p>
               <input
                 className="text_input"
-                placeholder={t('tableadmin.ph')}
+                placeholder={t("tableadmin.ph")}
                 type="text"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
               />
 
-              <p className="input_p">{t('tableadmin.year')}</p>
+              <p className="input_p">{t("tableadmin.year")}</p>
               <input
                 className="text_input"
-                placeholder={t('tableadmin.ph')}
+                placeholder={t("tableadmin.ph")}
                 type="text"
                 value={yearString}
                 onChange={e => setYearString(e.target.value)}
               />
 
-              <p className="input_p">{t('tableadmin.volume')}</p>
+              <p className="input_p">{t("tableadmin.volume")}</p>
               <input
                 className="text_input"
-                placeholder={t('tableadmin.ph')}
+                placeholder={t("tableadmin.ph")}
                 type="text"
                 value={volumeString}
                 onChange={e => setVolumeString(e.target.value)}
               />
 
-              <p className="input_p">{t('tableadmin.edition')}</p>
+              <p className="input_p">{t("tableadmin.edition")}</p>
               <input
                 className="text_input"
-                placeholder={t('tableadmin.ph')}
+                placeholder={t("tableadmin.ph")}
                 type="text"
                 value={editionString}
                 onChange={e => setEditionString(e.target.value)}
               />
 
-              <p className="input_p">{t('tableadmin.file')}</p>
+              <p className="input_p">{t("tableadmin.file")}</p>
               <label className="custom-file-upload">
                 <input
                   type="file"
@@ -294,10 +292,10 @@ export default function BasicTableAdmin() {
                 </svg>
               </label>
 
-              <p className="input_p input_p-text">{t('tableadmin.text')}</p>
+              <p className="input_p input_p-text">{t("tableadmin.text")}</p>
               <input
                 className="text_input"
-                placeholder={t('tableadmin.ph')}
+                placeholder={t("tableadmin.ph")}
                 type="text"
                 value={text}
                 onChange={e => setText(e.target.value)}
@@ -305,17 +303,17 @@ export default function BasicTableAdmin() {
             </div>
 
             <br />
-            <button onClick={handleUpload}>{t('tableadmin.button')}</button>
+            <button onClick={handleUpload}>{t("tableadmin.button")}</button>
           </div>
         </div>
         <div className="article_form" id="article_div">
           <h4>CATEGORY</h4>
           <div className="article_form-inputs">
             <div className="short_inp">
-              <p className="input_p">{t('tableadmin.add')}</p>
+              <p className="input_p">{t("tableadmin.add")}</p>
               <input
                 className="text_input"
-                placeholder={t('tableadmin.ph')}
+                placeholder={t("tableadmin.ph")}
                 type="text"
                 value={categoryCreate}
                 onChange={e => setCategoryCreate(e.target.value)}
@@ -323,7 +321,9 @@ export default function BasicTableAdmin() {
             </div>
 
             <br />
-            <button onClick={handleCategoryCreate}>{t('tableadmin.button')}</button>
+            <button onClick={handleCategoryCreate}>
+              {t("tableadmin.button")}
+            </button>
           </div>
         </div>
       </div>
@@ -335,22 +335,22 @@ export default function BasicTableAdmin() {
                 <strong>Nº</strong>
               </TableCell>
               <TableCell width="330px" align="right">
-                <strong>{t('table.title')}</strong>
+                <strong>{t("table.title")}</strong>
               </TableCell>
               <TableCell width="100px" align="center">
-                <strong>{t('table.date')}</strong>
+                <strong>{t("table.date")}</strong>
               </TableCell>
               <TableCell width="130px" align="center">
-                <strong>{t('table.author')}</strong>
+                <strong>{t("table.author")}</strong>
               </TableCell>
               <TableCell width="80px" align="center">
-                <strong>{t('table.pages')}</strong>
+                <strong>{t("table.pages")}</strong>
               </TableCell>
               <TableCell width="150px" align="center">
-                <strong>{t('table.category')}</strong>
+                <strong>{t("table.category")}</strong>
               </TableCell>
               <TableCell width="100px" align="center">
-                <strong>{t('table.status')}</strong>
+                <strong>{t("table.status")}</strong>
               </TableCell>
               <TableCell width="80px" align="center">
                 <strong></strong>
@@ -388,7 +388,7 @@ export default function BasicTableAdmin() {
                   <button
                     key={row.pages}
                     id="decline"
-                    onClick={() => deleteArticle(row.id)}>
+                    onClick={() => declineArticle(row.id)}>
                     Decline
                   </button>
                 </TableCell>
