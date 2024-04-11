@@ -13,6 +13,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { useTranslation } from 'react-i18next';
 
 const style = {
   position: "absolute",
@@ -40,6 +41,7 @@ function createData(
 }
 
 export default function BasicTable() {
+  const { t, i18n } = useTranslation();
   const { getAllMyArticles, my_articles, getArticles } =
     React.useContext(articlesContext);
 
@@ -131,7 +133,7 @@ export default function BasicTable() {
         aria-describedby="modal-modal-description">
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Check
+            {t('table.check')}
           </Typography>
           <label className="custom-file-upload">
             <input
@@ -155,23 +157,23 @@ export default function BasicTable() {
             <TableCell width="50px" align="left">
               <strong>Nº</strong>
             </TableCell>
-            <TableCell width="350px" align="right">
-              <strong>Title</strong>
+            <TableCell width="350px" align="center">
+              <strong>{t('table.title')}</strong>
             </TableCell>
             <TableCell width="110px" align="center">
-              <strong>Date</strong>
+              <strong>{t('table.date')}</strong>
             </TableCell>
             <TableCell width="150px" align="center">
-              <strong>Author</strong>
+              <strong>{t('table.author')}</strong>
             </TableCell>
-            <TableCell width="80px" align="right">
-              <strong>Pages</strong>
+            <TableCell width="80px" align="center">
+              <strong>{t('table.pages')}</strong>
             </TableCell>
-            <TableCell width="180px" align="right">
-              <strong>Category</strong>
+            <TableCell width="180px" align="center">
+              <strong>{t('table.category')}</strong>
             </TableCell>
-            <TableCell width="90px" align="right">
-              <strong>Status</strong>
+            <TableCell width="90px" align="center">
+              <strong>{t('table.status')}</strong>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -188,16 +190,16 @@ export default function BasicTable() {
                   {row.title}
                 </a>
               </TableCell>
-              <TableCell align="right">{row.createdAt}</TableCell>
-              <TableCell align="right">{row.coauthors}</TableCell>
-              <TableCell align="right">{row.pages}</TableCell>
-              <TableCell align="right">{row.category.name}</TableCell>
+              <TableCell align="center">{row.createdAt}</TableCell>
+              <TableCell align="center">{row.coauthors}</TableCell>
+              <TableCell align="center">{row.pages}</TableCell>
+              <TableCell align="center">{row.category.name}</TableCell>
               {row.status == "Pending" ? (
-                <TableCell align="right" onClick={handleOpen}>
+                <TableCell align="center" onClick={handleOpen}>
                   {row.status}
                 </TableCell>
               ) : (
-                <TableCell align="right">{row.status}</TableCell>
+                <TableCell align="center">{row.status}</TableCell>
               )}
             </TableRow>
           ))}

@@ -40,7 +40,7 @@ const Navabr = ({ closeModal }) => {
               alt=""
             />
           </a>
-          <p className="logo_p">Ala-Too Academic Studies</p>
+          <p className="logo_p">Alatoo Academic Studies</p>
         </div>
 
         <div className="header_inner">
@@ -64,7 +64,7 @@ const Navabr = ({ closeModal }) => {
             {localStorage.getItem("email") != null &&
             oneUser.role === "admin" ? (
               <a href="/admin" className="header_links__item">
-                Admin
+                {t('navbar.admin')}
               </a>
             ) : (
               <span></span>
@@ -77,7 +77,7 @@ const Navabr = ({ closeModal }) => {
                 key={oneUser.id}
                 onClick={() => navigate(`/profile/${oneUser.id}`)}
                 className="header_links__item">
-                Profile
+                {t('navbar.profile')}
               </a>
             )}
           </div>
@@ -88,7 +88,7 @@ const Navabr = ({ closeModal }) => {
             </div>
           ) : (
             <div className="login_btn" onClick={handleLogout}>
-              <div>Sign Out</div>
+              <div>{t('navbar.signout')}</div>
             </div>
           )}
         </div>

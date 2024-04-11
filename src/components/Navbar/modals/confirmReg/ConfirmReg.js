@@ -3,10 +3,12 @@ import classes from "./ConfirmReg.module.css";
 import { useNavigate } from "react-router-dom";
 import arrow from "../img/arrow.svg";
 import { Success } from "../success/Success";
+import { useTranslation } from 'react-i18next';
 // import Loader from "../../../Loader/Loader";
 import { authContext } from "../../../../contexts/authContext";
 
 export function ConfirmReg({ closeModal }) {
+  const { t, i18n } = useTranslation();
   const [openSuccess, setOpenSuccess] = useState(null);
   const [seconds, setSeconds] = useState(
     parseInt(localStorage.getItem("timerSeconds")) || 59
@@ -136,38 +138,38 @@ export function ConfirmReg({ closeModal }) {
       <div className={classes.confirm__inner}>
         <img src={arrow} alt="back" onClick={() => navigate("/register")} />
         <form action="">
-          <div>CONFIRM</div>
-          <label>Email</label>
+          <div>{t('confirm_reg.button')}</div>
+          <label>{t('confirm_reg.email')}</label>
           <input
             type="text"
-            placeholder="Enter your email"
+            placeholder={t('confirm_reg.ph_email')}
             value={email}
             onChange={e => setEmail(e.target.value)}
             name="email"
           />
 
           <label>
-            Code{" "}
+            {t('confirm_reg.code')}{" "}
             <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span>
           </label>
           <input
             type="text"
-            placeholder="Enter your code"
+            placeholder={t('confirm_reg.ph_code')}
             name="code"
             value={code}
             onChange={e => setCode(e.target.value)}
           />
           {timerRunning ? (
             <button onClick={handleSigninClick} disabled={loading}>
-              Sign in
+              {t('confirm_reg.signin')}
             </button>
           ) : (
             <div className={classes.resend_submit}>
               <button onClick={handleSigninClick} disabled={loading}>
-                Sign in
+                {t('confirm_reg.signin')}
               </button>
               <p onClick={handleSendAgain} disabled={loading}>
-                Resend
+                {t('confirm_reg.resend')}
               </p>
             </div>
           )}
