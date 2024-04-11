@@ -12,7 +12,10 @@
     "navbar": {
         "rules": "Rules",
         "archive": "Archive",
-        "signin": "Sign in"
+        "admin": "Admin",
+        "profile":"Profile",
+        "signin": "Sign in",
+        "signout": "Sign Out"
     },
     "login": {
         "login": "LOGIN",
@@ -191,7 +194,8 @@
         "author": "Author",
         "pages": "Pages",
         "category": "Category",
-        "status": "Status"
+        "status": "Status",
+        "check": "Check"
     },
     "tableadmin": {
         "title": "ARTICLE",

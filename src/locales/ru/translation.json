@@ -12,7 +12,10 @@
     "navbar": {
         "rules": "Правила",
         "archive": "Архив",
-        "signin": "Войти"
+        "admin": "Админ",
+        "profile": "Профиль",
+        "signin": "Войти",
+        "signout": "Выход"
     },
     "login": {
         "login": "ВХОД",
@@ -191,7 +194,8 @@
         "author": "Автор",
         "pages": "Страницы",
         "category": "Категория",
-        "status": "Статус"
+        "status": "Статус",
+        "check": "Чек"
     },
     "tableadmin": {
         "title": "СТАТЬЯ",
