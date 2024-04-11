@@ -6,8 +6,11 @@ import BasicDatePicker from "../../components/DatePicker/DatePicker";
 import { useNavigate } from "react-router-dom";
 import { articlesContext } from "../../contexts/articleContext";
 import Slider from "../../components/Slider/Slider";
+import { useTranslation } from 'react-i18next';
 
 export default function ArchivePage() {
+  const { t, i18n } = useTranslation();
+
   const navigate = useNavigate();
 
   const { categories, getCategories } = useContext(articlesContext);
@@ -30,7 +33,7 @@ export default function ArchivePage() {
             <div className={classes.back}>
               <a onClick={() => navigate("/")}>
                 <img src={arrow} alt="arrow" />
-                <p>Back</p>
+                <p>{t('archivepage.back')}</p>
               </a>
             </div>
             <div className={classes.search}>
@@ -38,7 +41,7 @@ export default function ArchivePage() {
                 <BasicDatePicker />
               </div>
               <form action="" className={classes.search__bar}>
-                <input type="text" placeholder="Search..." name="search" />
+                <input type="text" placeholder={t('archivepage.search')} name="search" />
                 <button>
                   <img src={search} alt="search" />
                 </button>
@@ -48,7 +51,7 @@ export default function ArchivePage() {
               <table>
                 <tr>
                   <th>№</th>
-                  <th>Category</th>
+                  <th>{t('archivepage.category')}</th>
                 </tr>
 
                 {categories ? (
@@ -61,18 +64,18 @@ export default function ArchivePage() {
                     </tr>
                   ))
                 ) : (
-                  <h3>Loading...</h3>
+                  <h3>{t('tableadmin.loading')}</h3>
                 )}
               </table>
             </div>
             <div className={classes.ethics}>
               <div className={classes.ethics__inner}>
                 <div className={classes.ethic1}>
-                  <a onClick={() => navigate("/ethics")}>Publication Ethics and Publication Malpractice</a>
+                  <a onClick={() => navigate("/ethics")}>{t('archivepage.ethics')}</a>
                 </div>
                 <div className={classes.ethic2}>
                   <a onClick={() => navigate("/rules1")}>
-                    Этика публикации журнала
+                    {t('archivepage.rules')}
                   </a>
                 </div>
               </div>
@@ -83,7 +86,7 @@ export default function ArchivePage() {
                   openSubs ? classes.rotate : classes.rotate__end
                 }`}
                 onClick={toggleOpenSub}>
-                <p>Члены Совета</p>
+                <p>{t('archivepage.council')}</p>
                 <i className="bx bx-chevron-right"></i>
               </div>
               <div
@@ -192,40 +195,36 @@ export default function ArchivePage() {
               <Slider />
             </div>
             <div className={classes.text}>
-              <h3>Ежеквартальный научный журнал</h3>
+              <h3>{t('archivepage.title')}</h3>
               <div className={classes.text1}>
-                <p>Учредитель:</p>
-                <p>Международный университет Ала-Тоо</p>
+                <p>{t('archivepage.title2')}</p>
+                <p>{t('archivepage.title3')}</p>
               </div>
               <div className={classes.text2}>
                 <p>
-                  <b>Журнал</b> «Alatoo Academic Studies» включен в Перечень
-                  рекомендованных Высшей аттестационной комиссией Кыргызской
-                  Республики (ВАК КР) рецензируемых периодических изданий
-                  (Приказ № 2 от 12 февраля 2008 г.)
+                  <b>{t('archivepage.title4')}</b> {t('archivepage.4.content')}
                 </p>
               </div>
               <div className={classes.text3}>
                 <p>
-                  ISSN: 1694-5263 <span>(печатная версия)</span>
+                  ISSN: 1694-5263 <span>{t('archivepage.version1')}</span>
                 </p>
                 <p>
-                  ISSN: 1694-7916 <span>(электронная версия)</span>
+                  ISSN: 1694-7916 <span>{t('archivepage.version2')}</span>
                 </p>
               </div>
               <div className={classes.text4}>
                 <p>
-                  <b>Адрес редакции:</b>
+                  <b>{t('archivepage.title5')}</b>
                 </p>
                 <p>
-                  720048, Кыргызская Республика, г. Бишкек, мкр. Тунгуч, ул.
-                  Анкара, 1/8
+                  {t('archivepage.address')}
                 </p>
                 <p>
-                  <b>тел.: </b>+996 (312) 63 14 25
+                  <b>{t('archivepage.tel')}</b>+996 (312) 63 14 25
                 </p>
                 <p>
-                  <b>факс: </b>+996(312) 630409
+                  <b>{t('archivepage.fax')}</b>+996(312) 630409
                 </p>
                 <p>
                   <b>Е-mail: </b>aas@iaau.edu.kg
@@ -233,7 +232,7 @@ export default function ArchivePage() {
               </div>
               <div className={classes.text5}>
                 <p>
-                  <b>РЕДАКЦИОННЫЙ СОВЕТ ЖУРНАЛА</b>
+                  <b>{t('archivepage.board')}</b>
                 </p>
                 <p>
                   <b>Санжарбек Эрдолатов – </b>главный редактор, ректор

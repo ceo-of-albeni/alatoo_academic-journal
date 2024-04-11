@@ -63,11 +63,13 @@
     line-height: 19px;
     letter-spacing: -0.02em;
     text-indent: 80px;
+    text-align: justify;
 }
 
 
 ol, ul {
     padding: 5px 0px 5px 18px;
+    text-align: justify;
 }
 
 li {
@@ -77,4 +79,5 @@ li {
     line-height: 19px;
     letter-spacing: -0.02em;
     text-indent: 5px;
+    text-align: justify;
 }
