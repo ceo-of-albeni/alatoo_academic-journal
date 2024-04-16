@@ -10,6 +10,7 @@ const INIT_STATE = {
   oneArticle: [],
   categories: [],
   my_articles: [],
+  notPublished: [],
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -22,8 +23,8 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, oneArticle: action.payload };
     case "GET_CATEGORIES":
       return { ...state, categories: action.payload };
-    // case "APPROVE_ARTICLE":
-    //   return {...state, approved}
+    case "NOT_PUBLISHED_ARTICLE":
+      return { ...state, notPublished: action.payload };
     default:
       return state;
   }
@@ -32,7 +33,7 @@ function reducer(state = INIT_STATE, action) {
 const ArticleContextsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  const API = "http://localhost:3000/api";
+  const API = "http://localhost:3001/api";
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -42,28 +43,6 @@ const ArticleContextsProvider = ({ children }) => {
       const res = await axios(`${API}/category/list`);
       dispatch({
         type: "GET_CATEGORIES",
-        payload: res.data,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  async function getArticles() {
-    try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios(
-        `${API}/article/all/${window.location.search}`,
-        config
-      );
-      dispatch({
-        type: "GET_ARTICLES",
         payload: res.data,
       });
     } catch (err) {
@@ -83,6 +62,25 @@ const ArticleContextsProvider = ({ children }) => {
       const res = await axios(`${API}/article/allMy`, config);
       dispatch({
         type: "GET_MY_ARTICLES",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function getAllNotPublished() {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(`${API}/article/all/notPublished`, config);
+      dispatch({
+        type: "NOT_PUBLISHED_ARTICLE",
         payload: res.data,
       });
     } catch (err) {
@@ -113,19 +111,13 @@ const ArticleContextsProvider = ({ children }) => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      // const config = {
-      //   headers: {
-      //     Authorization: `Bearer ${tokens.access_token}`,
-      //   },
-      // };
-      // const res = await axios.post(`${API}/article/approve/${id}`, config);
-      const res = await fetch(`${API}/article/approve/${id}`, {
+      const res = await fetch(`${API}/article/payment/${id}`, {
         method: "POST",
-        // body: newArticle,
         headers: {
           Authorization,
         },
       });
+      console.log("Approve succesfully!");
     } catch (err) {
       console.log(err);
     }
@@ -157,12 +149,6 @@ const ArticleContextsProvider = ({ children }) => {
         console.log(tokens.access_token);
       }
       const Authorization = `Bearer ${tokens.access_token}`;
-      // const config = {
-      //   headers: {
-      //     Authorization,
-      //   },
-      // };
-      // const res = awai t axios.post(`${API}/article/delete/${id}`, config);
       const res = await fetch(`${API}/article/approve/${id}`, {
         method: "POST",
         // body: newArticle,
@@ -192,7 +178,7 @@ const ArticleContextsProvider = ({ children }) => {
         config
       );
       navigate("/articles");
-      getArticles();
+      // getArticles();
     } catch (err) {
       console.log(err);
     }
@@ -235,17 +221,18 @@ const ArticleContextsProvider = ({ children }) => {
         oneArticle: state.oneArticle,
         categories: state.categories,
         my_articles: state.my_articles,
+        notPublished: state.notPublished,
 
         updateArticle,
         getOneArticle,
         getCategories,
         getAllMyArticles,
         fetchByParams,
-        getArticles,
         approveArticle,
         deleteArticle,
         createCategory,
-        declineArticle
+        declineArticle,
+        getAllNotPublished
       }}>
       {children}
     </articlesContext.Provider>
