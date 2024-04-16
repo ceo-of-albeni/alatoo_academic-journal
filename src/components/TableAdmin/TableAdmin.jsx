@@ -115,10 +115,10 @@ export default function BasicTableAdmin() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell width="50px" align="left">
+              <TableCell width="50px" align="center">
                 <strong>Nº</strong>
               </TableCell>
-              <TableCell width="330px" align="right">
+              <TableCell width="330px" align="center">
                 <strong>{t("table.title")}</strong>
               </TableCell>
               <TableCell width="100px" align="center">

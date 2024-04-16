@@ -228,12 +228,11 @@ const ArticleContextsProvider = ({ children }) => {
         getCategories,
         getAllMyArticles,
         fetchByParams,
-        // getArticles,
         approveArticle,
         deleteArticle,
         createCategory,
         declineArticle,
-        getAllNotPublished,
+        getAllNotPublished
       }}>
       {children}
     </articlesContext.Provider>

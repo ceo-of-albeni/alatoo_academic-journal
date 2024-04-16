@@ -155,7 +155,7 @@ export default function BasicTable() {
             <TableCell width="50px" align="left">
               <strong>Nº</strong>
             </TableCell>
-            <TableCell width="350px" align="right">
+            <TableCell width="350px" align="center">
               <strong>Title</strong>
             </TableCell>
             <TableCell width="110px" align="center">
@@ -164,13 +164,13 @@ export default function BasicTable() {
             <TableCell width="150px" align="center">
               <strong>Author</strong>
             </TableCell>
-            <TableCell width="80px" align="right">
+            <TableCell width="80px" align="center">
               <strong>Pages</strong>
             </TableCell>
-            <TableCell width="180px" align="right">
+            <TableCell width="180px" align="center">
               <strong>Category</strong>
             </TableCell>
-            <TableCell width="90px" align="right">
+            <TableCell width="90px" align="center">
               <strong>Status</strong>
             </TableCell>
           </TableRow>
@@ -188,16 +188,16 @@ export default function BasicTable() {
                   {row.title}
                 </a>
               </TableCell>
-              <TableCell align="right">{row.createdAt}</TableCell>
-              <TableCell align="right">{row.coauthors}</TableCell>
-              <TableCell align="right">{row.pages}</TableCell>
-              <TableCell align="right">{row.category.name}</TableCell>
+              <TableCell align="center">{row.createdAt}</TableCell>
+              <TableCell align="center">{row.coauthors}</TableCell>
+              <TableCell align="center">{row.pages}</TableCell>
+              <TableCell align="center">{row.category.name}</TableCell>
               {row.status == "Payment" ? (
-                <TableCell align="right" onClick={() => handleOpen(row.id)}>
+                <TableCell align="center" onClick={() => handleOpen(row.id)}>
                   {row.status}
                 </TableCell>
               ) : (
-                <TableCell align="right">{row.status}</TableCell>
+                <TableCell align="center">{row.status}</TableCell>
               )}
             </TableRow>
           ))}
