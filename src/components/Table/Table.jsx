@@ -39,7 +39,7 @@ function createData(
 }
 
 export default function BasicTable() {
-  const { getAllMyArticles, my_articles, getArticles } =
+  const { getAllMyArticles, my_articles } =
     React.useContext(articlesContext);
 
   const [open, setOpen] = React.useState(false);
@@ -55,7 +55,7 @@ export default function BasicTable() {
 
   React.useEffect(() => {
     getAllMyArticles();
-    getArticles();
+    // getArticles();
   }, []);
 
   const handleUpload = async () => {
@@ -72,7 +72,7 @@ export default function BasicTable() {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
       const response = await fetch(
-        "http://localhost:3000/api/article/send/checkFile",
+        "http://localhost:3001/api/article/send/checkFile",
         {
           method: "POST",
           body: checkData,

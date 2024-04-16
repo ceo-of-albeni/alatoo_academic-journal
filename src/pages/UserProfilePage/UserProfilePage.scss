@@ -97,7 +97,7 @@
   background: #fffefe;
   padding: 60px 12px;
   align-items: center;
-  border: 1px solid #EDEDED;
+  border: 1px solid #ededed;
   h4 {
     font-size: 22px;
     font-weight: 700;
@@ -184,10 +184,6 @@ label input {
   text-align: center;
 }
 
-// .input_p-text {
-//   height: fit-content;
-// }
-
 #field-wrapper {
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.5);
@@ -218,4 +214,8 @@ input[type="file"] {
 
 .admin_article-categoty_main {
   display: flex;
+  justify-content: center;
+  div {
+    padding-bottom: 50px;
+  }
 }

@@ -3,13 +3,13 @@ import "./Navbar.scss";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../contexts/authContext";
 import { Login } from "./modals/login/Login";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const Navabr = ({ closeModal }) => {
   const [activeModal, setActiveModal] = useState(null);
   const { handleLogout, getOneUser, oneUser } = useContext(authContext);
   const { t, i18n } = useTranslation();
-  const handleChangeLanguage = (event) => {
+  const handleChangeLanguage = event => {
     const selectedLanguage = event.target.value;
     i18n.changeLanguage(selectedLanguage);
   };
@@ -45,17 +45,17 @@ const Navabr = ({ closeModal }) => {
 
         <div className="header_inner">
           <div>
-              <select className="change_lang" onChange={handleChangeLanguage}>
-                <option value="en">En</option>
-                <option value="ru">Ru</option>
-              </select>
-            </div>
+            <select className="change_lang" onChange={handleChangeLanguage}>
+              <option value="en">En</option>
+              <option value="ru">Ru</option>
+            </select>
+          </div>
           <div className="header_links">
             <a href="/rules1" className="header_links__item">
-              {t('navbar.rules')}
+              {t("navbar.rules")}
             </a>
             <a href="/archive" className="header_links__item">
-              {t('navbar.archive')}
+              {t("navbar.archive")}
             </a>
             {/* <a href="/admin" className="header_links__item">
               Admin
@@ -64,7 +64,7 @@ const Navabr = ({ closeModal }) => {
             {localStorage.getItem("email") != null &&
             oneUser.role === "admin" ? (
               <a href="/admin" className="header_links__item">
-                {t('navbar.admin')}
+                {t("navbar.admin")}
               </a>
             ) : (
               <span></span>
@@ -77,18 +77,18 @@ const Navabr = ({ closeModal }) => {
                 key={oneUser.id}
                 onClick={() => navigate(`/profile/${oneUser.id}`)}
                 className="header_links__item">
-                {t('navbar.profile')}
+                {t("navbar.profile")}
               </a>
             )}
           </div>
 
           {localStorage.getItem("email") === null ? (
             <div className="login_btn" onClick={openLoginModal}>
-              <div>{t('navbar.signin')}</div>
+              <div>{t("navbar.signin")}</div>
             </div>
           ) : (
             <div className="login_btn" onClick={handleLogout}>
-              <div>{t('navbar.signout')}</div>
+              <div>{t("navbar.signout")}</div>
             </div>
           )}
         </div>
