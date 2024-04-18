@@ -29,13 +29,15 @@
 }
 
 .back img {
-  filter: invert(69%) sepia(10%) saturate(5%) hue-rotate(354deg) brightness(88%) contrast(84%);
+  filter: invert(69%) sepia(10%) saturate(5%) hue-rotate(354deg) brightness(88%)
+    contrast(84%);
   width: 14px;
   height: 14px;
 }
 
 .back:hover img {
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%)
+    contrast(100%);
 }
 
 .back a:hover p {
@@ -165,7 +167,7 @@
   // position: relative;
   padding: 0px 20px;
   display: block;
-  height: 365px; /*проверь когда будешь работать*/
+  height: auto; /*проверь когда будешь работать*/
   animation: growDown 400ms ease-in-out forwards;
   transform-origin: top center;
 }
@@ -185,7 +187,12 @@
   padding: 5px 24px 5px 24px;
   border-radius: 7px;
   background-color: #2d2652;
-  margin-bottom: 145px;
+  margin-bottom: 175px;
+}
+
+.release_link_a {
+  color: white;
+  text-decoration: none;
 }
 
 .release p {
@@ -203,7 +210,7 @@
   margin-left: -25px;
   padding: 8px 0px;
   width: 470px;
-  height: 155px;
+  height: auto;
 }
 
 .sub__menu2 li {
@@ -257,7 +264,7 @@
   width: 455px;
   height: 55px;
   padding: 2px 8px;
-  background-color: #2D2652;
+  background-color: #2d2652;
 }
 
 .text1 p {
@@ -333,7 +340,6 @@ b {
   color: #797979;
 }
 
-
 // b {
 //   font-weight: 700;
 // }
@@ -350,7 +356,6 @@ b {
   letter-spacing: -0.02em;
   color: #797979;
 }
-
 
 @keyframes growDown {
   0% {

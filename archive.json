@@ -1,445 +1,448 @@
 {
-    "2023":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1_OQnqlqOyzYnQZjSmMmODFziOWZqfQ0U/view",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/9IkGHXbXHN0gNJdvGMzM",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/5isUUUysZfNxUkm2MSZS",
-                "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/12S2bCsx1et1ehfB0m0S",
-                "ИНФОРМАТИКА": "https://aas.alatoo.edu.kg/article/16HWXXJK80IHj9FxTckR",
-                "МАТЕМАТИКА": "https://aas.alatoo.edu.kg/article/16HWXXJK80IHj9FxTckR"
-            }
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1QCCIeztso5-ByKWMHBR6TQQaBWGxrFJt/view",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/zJtq08HF4mlSAAS2UwMP",
-                "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/O2OcpzaOfz3KRBRXg4HI",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/QEgW5Ya3sNdLbMWzSCN2",
-                "ИНФОРМАТИКА": "https://aas.alatoo.edu.kg/article/G8kDXxCEGINYdPrKU99n"
-            }
-        },
-        "выпуск_3":{
-            "издание": "https://drive.google.com/file/d/1VrtPfwvKtpVoCTSlqb8b2HJ5bTVUace1/view?usp=sharing",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NXsGcIfq6flwBS5kxCVw",
-                "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/re7qu73Oc9s2aC7XSDO0",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/1NrdECqiKnvUYhv4knyy",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/QOPFF8p8dXz46RgIkPrw",
-                "МАТЕМАТИКА": "https://aas.alatoo.edu.kg/article/zuGae4stptRILOCu6giq"
-            }
-        },
-        "выпуск_4":{
-            "издание": "https://drive.google.com/file/d/1VrtPfwvKtpVoCTSlqb8b2HJ5bTVUace1/view?usp=sharing",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/zPKCk23JF5wgRcupLBaN",
-                "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/EFJkMEbDuIq8kxbjtQ9E",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/tp2Q52y2KZFeJs9ty7Px",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/5oVj9O5opclG46zKjgek"
-            }
+  "archive_articles": {
+    "2023": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1_OQnqlqOyzYnQZjSmMmODFziOWZqfQ0U/view",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/9IkGHXbXHN0gNJdvGMzM",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/5isUUUysZfNxUkm2MSZS",
+          "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/12S2bCsx1et1ehfB0m0S",
+          "ИНФОРМАТИКА": "https://aas.alatoo.edu.kg/article/16HWXXJK80IHj9FxTckR",
+          "МАТЕМАТИКА": "https://aas.alatoo.edu.kg/article/16HWXXJK80IHj9FxTckR"
         }
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1QCCIeztso5-ByKWMHBR6TQQaBWGxrFJt/view",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/zJtq08HF4mlSAAS2UwMP",
+          "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/O2OcpzaOfz3KRBRXg4HI",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/QEgW5Ya3sNdLbMWzSCN2",
+          "ИНФОРМАТИКА": "https://aas.alatoo.edu.kg/article/G8kDXxCEGINYdPrKU99n"
+        }
+      },
+      "3": {
+        "издание": "https://drive.google.com/file/d/1VrtPfwvKtpVoCTSlqb8b2HJ5bTVUace1/view?usp=sharing",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NXsGcIfq6flwBS5kxCVw",
+          "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/re7qu73Oc9s2aC7XSDO0",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/1NrdECqiKnvUYhv4knyy",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/QOPFF8p8dXz46RgIkPrw",
+          "МАТЕМАТИКА": "https://aas.alatoo.edu.kg/article/zuGae4stptRILOCu6giq"
+        }
+      },
+      "4": {
+        "издание": "https://drive.google.com/file/d/1VrtPfwvKtpVoCTSlqb8b2HJ5bTVUace1/view?usp=sharing",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/zPKCk23JF5wgRcupLBaN",
+          "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/EFJkMEbDuIq8kxbjtQ9E",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/tp2Q52y2KZFeJs9ty7Px",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/5oVj9O5opclG46zKjgek"
+        }
+      }
     },
-    "2022":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1e3v41APUi51H5PxJj4dIaN9_nieuKQt-/view",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "lhttps://aas.alatoo.edu.kg/article/ZIlyessSfUlKhZoQjJTMink",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/5VxWUud6txoEBOcKNxVG",
-                "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/kaX0oLnKZ0HXuYXRHgrX",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/ZeW0Gg19vOJiGQs2AOOf"
-            }
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1AV8v0oVyGmz_QW-AAwLlk9Hu9u3HBQaY/view?usp=sharing",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/QvdlURZB0IGxsI3hi9aY",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/Fd6JqiIsQo5cBGDijsJO",
-                "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/jDamJcVutBpolpFPnozL",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/I7v0Dg5NUrDhpf0FmccI",
-                "МАТЕМАТИКА": "https://aas.alatoo.edu.kg/article/cBJGeLvsU8w1aspMqSLI"
-            }
-        },
-        "выпуск_3":{
-            "издание": "https://drive.google.com/file/d/18nUO8tywvaEwl0X_VzL65hL8RSFd77if/view?usp=sharing",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/ibkVu5ZyvyLmJUyCHrDB",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/KIKMyiAZcQVz0AVmZ08P",
-                "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/9QA5XkHGAA8Jj8TGdNbt",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/FW3HG3SBxmNgxYSwcyBH",
-                "МАТЕМАТИКА": "https://aas.alatoo.edu.kg/article/dFWyI6A5xZdAb19moTU7"
-            }
-        },
-        "выпуск_4":{
-            "издание": "https://drive.google.com/file/d/1RNgwKaVmzaJnKlC0GiWWX_7SsnQNaIkZ/view?usp=sharing",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/fQFPOwuc9plGnN7RuUr3",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/GmPKdbr9mVsvYIPgmLEc",
-                "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/XmnTrCfiMizHH16f97as",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/dL572tOn2ZNPSFPGMrGM"
-            }
+    "2022": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1e3v41APUi51H5PxJj4dIaN9_nieuKQt-/view",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "lhttps://aas.alatoo.edu.kg/article/ZIlyessSfUlKhZoQjJTMink",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/5VxWUud6txoEBOcKNxVG",
+          "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/kaX0oLnKZ0HXuYXRHgrX",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/ZeW0Gg19vOJiGQs2AOOf"
         }
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1AV8v0oVyGmz_QW-AAwLlk9Hu9u3HBQaY/view?usp=sharing",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/QvdlURZB0IGxsI3hi9aY",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/Fd6JqiIsQo5cBGDijsJO",
+          "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/jDamJcVutBpolpFPnozL",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/I7v0Dg5NUrDhpf0FmccI",
+          "МАТЕМАТИКА": "https://aas.alatoo.edu.kg/article/cBJGeLvsU8w1aspMqSLI"
+        }
+      },
+      "3": {
+        "издание": "https://drive.google.com/file/d/18nUO8tywvaEwl0X_VzL65hL8RSFd77if/view?usp=sharing",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/ibkVu5ZyvyLmJUyCHrDB",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/KIKMyiAZcQVz0AVmZ08P",
+          "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/9QA5XkHGAA8Jj8TGdNbt",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/FW3HG3SBxmNgxYSwcyBH",
+          "МАТЕМАТИКА": "https://aas.alatoo.edu.kg/article/dFWyI6A5xZdAb19moTU7"
+        }
+      },
+      "4": {
+        "издание": "https://drive.google.com/file/d/1RNgwKaVmzaJnKlC0GiWWX_7SsnQNaIkZ/view?usp=sharing",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/fQFPOwuc9plGnN7RuUr3",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/GmPKdbr9mVsvYIPgmLEc",
+          "ОБЩЕСТВЕННО_ГУМАНИТАРНЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/XmnTrCfiMizHH16f97as",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/dL572tOn2ZNPSFPGMrGM"
+        }
+      }
     },
-    "2021":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1nJsi7felKi2duHBDecK5hqOqALBsASlp/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/l4Qz21l9Wn6GcswRuIAi",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/G4KDNy04IGOiYoFdOfhx",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/ihNwvla8JFNRbuOSr5Xi",
-                "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/BoA6jtOrf6knrwVBjr2i",
-                "КУЛЬТУРОЛОГИЯ_СОЦИОЛОГИЯ_ПОЛИТОЛОГИЯ_ИСТОРИЯ": "https://aas.alatoo.edu.kg/article/3lT9DEe4cGkjGWuox8Lz"
-            }
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1rkGc0Tasxkiszjd7grVixbz0giV_ewPX/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/FfvByoIBZwQ83Vu47zuc",
-                "ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/VtCaqVDB2vN3oh8wY7MC",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/4FOs9PqFjYJ7j93EkX2F",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/0O9y9Jha1FvtQ3tU7MX8",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/o5GsuvTKHzQdB1JwoUyX",
-                "ЖУРНАЛИСТИКА ": "https://aas.alatoo.edu.kg/article/tUbbxD9QpZQGWmj177AP",
-                "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/GWH0QBNQFXf7UYWUCth0"
-            }
-        },
-        "выпуск_3":{
-            "издание": "https://drive.google.com/file/d/1B7TOvHGIa0ch8C92d_-FWc4hx7EKjju5/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/yiLRpvLycl42MGQxh0fN",
-                "ФИЛОСОФИЯ_ИСТОРИЯ_ЖУРНАЛИСТИКА_ЭКОЛОГИЯ": "https://aas.alatoo.edu.kg/article/Mfs3NC9q4FatA6bEqdUG",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/StXtgUIm38C0SZ9H76Lm",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/F23AmaI1y5LhsTGY2vYq",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/qOdUAlAtqq3BHmgpR3Wz",
-                "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/D3ACuyAlVhablCIPK4xE"
-            }
-        },
-        "выпуск_4":{
-            "издание": "https://drive.google.com/file/d/1e0aLA4h_av9qq2Um1XvM6KLT9VB9YB51/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/urPwGKtGtmBJUYOKvAkT",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/xmSxvQZcjM93lFJJPyfi",
-                "ФИЗИКА_ИНФОРМАТИКА": "https://aas.alatoo.edu.kg/article/yBCxvyBALg269mCMhwIW",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/pAvgTTZfoIvf6sNORvGv",
-                "ЖУРНАЛИСТИКА_ИСТОРИЯ_ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/fNjPKqxalltzWpyLtxDv",
-                "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/CkAg0yZlJVWgjnql2wRc"
-            }
-        },
-        "special_release":{
-            "издание": "https://drive.google.com/file/d/1LAmx8X0rE-_dENHsH9Osea9G0I5F7W3w/view",
-            "рубрика":{
-                "Атайын_чыгарылыш": "link"
-            }
+    "2021": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1nJsi7felKi2duHBDecK5hqOqALBsASlp/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/l4Qz21l9Wn6GcswRuIAi",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/G4KDNy04IGOiYoFdOfhx",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/ihNwvla8JFNRbuOSr5Xi",
+          "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/BoA6jtOrf6knrwVBjr2i",
+          "КУЛЬТУРОЛОГИЯ_СОЦИОЛОГИЯ_ПОЛИТОЛОГИЯ_ИСТОРИЯ": "https://aas.alatoo.edu.kg/article/3lT9DEe4cGkjGWuox8Lz"
         }
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1rkGc0Tasxkiszjd7grVixbz0giV_ewPX/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/FfvByoIBZwQ83Vu47zuc",
+          "ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/VtCaqVDB2vN3oh8wY7MC",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/4FOs9PqFjYJ7j93EkX2F",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/0O9y9Jha1FvtQ3tU7MX8",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/o5GsuvTKHzQdB1JwoUyX",
+          "ЖУРНАЛИСТИКА ": "https://aas.alatoo.edu.kg/article/tUbbxD9QpZQGWmj177AP",
+          "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/GWH0QBNQFXf7UYWUCth0"
+        }
+      },
+      "3": {
+        "издание": "https://drive.google.com/file/d/1B7TOvHGIa0ch8C92d_-FWc4hx7EKjju5/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/yiLRpvLycl42MGQxh0fN",
+          "ФИЛОСОФИЯ_ИСТОРИЯ_ЖУРНАЛИСТИКА_ЭКОЛОГИЯ": "https://aas.alatoo.edu.kg/article/Mfs3NC9q4FatA6bEqdUG",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/StXtgUIm38C0SZ9H76Lm",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/F23AmaI1y5LhsTGY2vYq",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/qOdUAlAtqq3BHmgpR3Wz",
+          "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/D3ACuyAlVhablCIPK4xE"
+        }
+      },
+      "4": {
+        "издание": "https://drive.google.com/file/d/1e0aLA4h_av9qq2Um1XvM6KLT9VB9YB51/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/urPwGKtGtmBJUYOKvAkT",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/xmSxvQZcjM93lFJJPyfi",
+          "ФИЗИКА_ИНФОРМАТИКА": "https://aas.alatoo.edu.kg/article/yBCxvyBALg269mCMhwIW",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/pAvgTTZfoIvf6sNORvGv",
+          "ЖУРНАЛИСТИКА_ИСТОРИЯ_ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/fNjPKqxalltzWpyLtxDv",
+          "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/CkAg0yZlJVWgjnql2wRc"
+        }
+      },
+      "special_release": {
+        "издание": "https://drive.google.com/file/d/1LAmx8X0rE-_dENHsH9Osea9G0I5F7W3w/view",
+        "рубрика": {
+          "Атайын_чыгарылыш": "link"
+        }
+      }
     },
-    "2020":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1KyDkzIv5Y2g4_5WsA7Md8UAPiO-OB56H/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/gMcjMK6RvyHJTuyOXlFz",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/w1NGIyzC6cflvGRWC8AE",
-                "СЕЛЬСКОХОЗЯЙСТВЕННЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/LRjt5n6lpB0bR7rVl9Y2",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/viVF28wfvfsHndMf2pI9",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/9KfYh35nyGUREyiCg94O"
-            }
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1aHa-yjdeP88UvXVWdMGNTuuKx8fvZQm-/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/quTkdxfbYNfSbVhySaSn",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/7sLQe8UHFRhndLEprXcr",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/1MzXk4stwyIcj6DsFDAz",
-                "ИСТОРИЯ_ФИЛОСОФИЯ_КУЛЬТУРОЛОГИЯ_СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/pvvoXff4BB8dC3xFvffv",
-                "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/z4wBtBykq0LQVZMCN4YI",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/hUAhiXjV3eDgREdJqNCZ"
-            }
-        },
-        "выпуск_3":{
-            "издание": "https://drive.google.com/file/d/16QeZNQwu1a_G35IQbWL_JB7o2FR6VxWr/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/jSESRbFqsZU78uXqK3gc",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/zuo8JgalwmHmHxuiLPHy",
-                "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/TBpz0KnzlGRWZOY1Kf03",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/UoIYaHPKxve5laE0STpS",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/chWdQ6aOzKpvd3VtbHFM",
-                "ПОЛИТОЛОГИЯ": "ПОЛИТОЛОГИЯ"
-        },
-        "выпуск_4":{
-            "издание": "https://drive.google.com/file/d/1oLbvKl2lur1O6Qj7_pV0gvrCiITu5ic0/view",
-            "рубрика":{
-                "ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/N8gWQwB8y7JY6Sl5kXNV",
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/sNG9mdBSIhtK0mEzOo2e",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/Rv1ODZQwIpOTGHTqHEfx",
-                "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/yVt0LCWnEWArwmW8NrOC",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/6c9QpdNTEu8GhZAFlFxI",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/peMI6HgHNgTmKoimGGKm",
-                "БИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/CiiyZX64pzeLiEj3JIZ3"
-            }
+    "2020": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1KyDkzIv5Y2g4_5WsA7Md8UAPiO-OB56H/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/gMcjMK6RvyHJTuyOXlFz",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/w1NGIyzC6cflvGRWC8AE",
+          "СЕЛЬСКОХОЗЯЙСТВЕННЫЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/LRjt5n6lpB0bR7rVl9Y2",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/viVF28wfvfsHndMf2pI9",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/9KfYh35nyGUREyiCg94O"
         }
-    }},
-    "2019":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/11SJ4708CZESdPj-1osGaMAlLxSn7LkpU/view",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/3l818sQWh3z6VWd2i4lv",
-                "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/DsBY8uEmErIxT4oIxBFk",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/zKElOl61E1up8XWweTNp",
-                "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ НАУКИ": "ГОСУДАРСТВО И ПРАВО. ЮРИДИЧЕСКИЕ НАУКИ"
-            }
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/u/1/d/17cRp8DuhB-keSKa-VofNjNynLv__MImM/view?usp=drive_open",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/EGSAj28Dl60cjqN3dWRG",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/xIe3dqzXSifIF9aran6S",
-                "ИСТОРИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/bgiUfomsREWVcctCoJPU",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/5LfhKiaqL67zJWkRMJu2",
-                "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/052AuIMFSclQ3xjI91V2"
-            }
-        },
-        "выпуск_3":{
-            "издание": "https://drive.google.com/file/d/16bFPRZHPr0ePq7Ht_6rd6prn14ko2kbx/view",
-            "рубрика":{
-                "ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NrUGpSrD2KAtcKHSVCgv",
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NRsTrGWm01WPSfBqEhI5",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NSKNtRnUKUT4qcFByU6l",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/L0UscpnViCfv99y93VX1",
-                "ИСТОРИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/L3IgjrJ9Uzx1xkplLH6H"
-            }
-        },
-        "выпуск_4":{
-            "издание": "https://drive.google.com/file/d/1M1su_cLiur8sASUUMGninOrxjGu-0w_W/view",
-            "рубрика":{
-                "ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/nT12ZymgNGoDXYd65Zv0",
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/hlf5BJxwlCemyduskoHM",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/8mmQJNE7NQPYnNwiJeZS",
-                "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/pAzlZjQ4fOFS5Pl88akk",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/j2vIISDCYGrj5cnacLBh",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/CQOE7I0cBNVX8xtr9HWN",
-                "ИСТОРИЯ": "https://aas.alatoo.edu.kg/article/whcPYYBuCY1SidpviF2X",
-                "ИНФОРМАТИКА_МАТЕМАТИКА_ФИЗИКА": "https://aas.alatoo.edu.kg/article/JEUkM7WotknyNwP7dsPJ"
-            }
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1aHa-yjdeP88UvXVWdMGNTuuKx8fvZQm-/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/quTkdxfbYNfSbVhySaSn",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/7sLQe8UHFRhndLEprXcr",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/1MzXk4stwyIcj6DsFDAz",
+          "ИСТОРИЯ_ФИЛОСОФИЯ_КУЛЬТУРОЛОГИЯ_СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/pvvoXff4BB8dC3xFvffv",
+          "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/z4wBtBykq0LQVZMCN4YI",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/hUAhiXjV3eDgREdJqNCZ"
         }
+      },
+      "3": {
+        "издание": "https://drive.google.com/file/d/16QeZNQwu1a_G35IQbWL_JB7o2FR6VxWr/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/jSESRbFqsZU78uXqK3gc",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/zuo8JgalwmHmHxuiLPHy",
+          "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/TBpz0KnzlGRWZOY1Kf03",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/UoIYaHPKxve5laE0STpS",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/chWdQ6aOzKpvd3VtbHFM",
+          "ПОЛИТОЛОГИЯ": "ПОЛИТОЛОГИЯ"
+        },
+        "4": {
+          "издание": "https://drive.google.com/file/d/1oLbvKl2lur1O6Qj7_pV0gvrCiITu5ic0/view",
+          "рубрика": {
+            "ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/N8gWQwB8y7JY6Sl5kXNV",
+            "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/sNG9mdBSIhtK0mEzOo2e",
+            "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/Rv1ODZQwIpOTGHTqHEfx",
+            "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/yVt0LCWnEWArwmW8NrOC",
+            "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/6c9QpdNTEu8GhZAFlFxI",
+            "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/peMI6HgHNgTmKoimGGKm",
+            "БИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/CiiyZX64pzeLiEj3JIZ3"
+          }
+        }
+      }
     },
-    "2018":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/16UHJl7AYq141J_yThcY9zQ0BxCUT18Rt/view",
-            "рубрика":{
-                "ЯЗЫКОЗНАНИЕ": "https://aas.alatoo.edu.kg/article/4wj5QIJP7oSwTnRZWLEA",
-                "ЭКОЛОГИЯ": "https://aas.alatoo.edu.kg/article/y2VaguBItVhH3L6Bz1Y0",
-                "ПОЛИТИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NpvLy6r2nUkIUfHRwbKX",
-                "ОБЩАЯ_ПЕДАГОГИКА_НАРОДНОЕ_ОБРАЗОВАНИЕ_ПЕДАГОГИКА": "https://aas.alatoo.edu.kg/article/t22ZIONmUARlxLumtk7e",
-                "ИНФОРМАТИКА_МАТЕМАТИКА_ФИЗИКА": "https://aas.alatoo.edu.kg/article/JsOxbeOudDUxb9EmijtP",
-                "ЖУРНАЛИСТИКА": "https://aas.alatoo.edu.kg/article/Hx1GoX2xv212ibxH10YU"
-            }
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1nHfOggYwRoVc-4AGhyY3H_11GMGz_UF-/view",
-            "рубрика":{
-                "ЮРИДИЧЕСКИЕ_HАУКИ": "https://aas.alatoo.edu.kg/article/YHDtOtmSAqZ4CJfI8wDx",
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/08Q6taSxdinYfb7La5aD",
-                "ФИЛОСОФИЯ_ИСТОРИЯ_ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/qU0UlNhBuwBtBr2eZyy0",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/A92sBRHS8ndOrYtqKhs0",
-                "ТЕХНИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/iZ2PdX7LBCYTkaRiQYeb",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/K2NJ6BggzCUC7ONay67P"
-            }
-        },
-        "выпуск_3":{
-            "издание": "https://drive.google.com/file/d/1z8noZDFxqTjam4N2Qedy4s096vikTOdd/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/XqiqDp5CQ8YSgeGheU9z",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/ZvuvbiJVwAEQ2aaiaCMe",
-                "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/wyo7LinohzJwyT8Fcz8L",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/QIcytUCuz2NEuKt0lUEs",
-                "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/TbDgfoWjaMFzZKBlmBAR"
-            }
-        },
-        "выпуск_4":{
-            "издание": "https://drive.google.com/file/d/17DLvbnGR43BKyh3oe42w6EtsC8ZOD1ux/view",
-            "рубрика":{                
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/AqNEnu7oGfHc3qDcKty7",
-                "ТЕХНИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/cp6NxAVzZRKxyewYsTDx",
-                "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/rBwttSb3t63rhIfnoLpY",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/G2AZU0FQvhHFfhh6NCEX",
-                "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/0lRgV09b4zK5hJMEOdyB",
-                "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/okYEH1LLyFfayl0brrcT"
-            }
+    "2019": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/11SJ4708CZESdPj-1osGaMAlLxSn7LkpU/view",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/3l818sQWh3z6VWd2i4lv",
+          "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/DsBY8uEmErIxT4oIxBFk",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/zKElOl61E1up8XWweTNp",
+          "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ НАУКИ": "ГОСУДАРСТВО И ПРАВО. ЮРИДИЧЕСКИЕ НАУКИ"
         }
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/u/1/d/17cRp8DuhB-keSKa-VofNjNynLv__MImM/view?usp=drive_open",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/EGSAj28Dl60cjqN3dWRG",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/xIe3dqzXSifIF9aran6S",
+          "ИСТОРИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/bgiUfomsREWVcctCoJPU",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/5LfhKiaqL67zJWkRMJu2",
+          "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/052AuIMFSclQ3xjI91V2"
+        }
+      },
+      "3": {
+        "издание": "https://drive.google.com/file/d/16bFPRZHPr0ePq7Ht_6rd6prn14ko2kbx/view",
+        "рубрика": {
+          "ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NrUGpSrD2KAtcKHSVCgv",
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NRsTrGWm01WPSfBqEhI5",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NSKNtRnUKUT4qcFByU6l",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/L0UscpnViCfv99y93VX1",
+          "ИСТОРИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/L3IgjrJ9Uzx1xkplLH6H"
+        }
+      },
+      "4": {
+        "издание": "https://drive.google.com/file/d/1M1su_cLiur8sASUUMGninOrxjGu-0w_W/view",
+        "рубрика": {
+          "ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/nT12ZymgNGoDXYd65Zv0",
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/hlf5BJxwlCemyduskoHM",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/8mmQJNE7NQPYnNwiJeZS",
+          "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/pAzlZjQ4fOFS5Pl88akk",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/j2vIISDCYGrj5cnacLBh",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/CQOE7I0cBNVX8xtr9HWN",
+          "ИСТОРИЯ": "https://aas.alatoo.edu.kg/article/whcPYYBuCY1SidpviF2X",
+          "ИНФОРМАТИКА_МАТЕМАТИКА_ФИЗИКА": "https://aas.alatoo.edu.kg/article/JEUkM7WotknyNwP7dsPJ"
+        }
+      }
     },
-    "2017":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1cFTeCQytKMkpxFoCnNFUiDqLWSYf5YvE/view",
-            "рубрика":{                
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/H31RzprNindWyn1HVh5N",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/iol6OpdeUsMoCLYkQSuf",
-                "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/U1vqCn8YZI5AscEiAJmE",
-                "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/8xLdtuldy6bMFVi08GqJ",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/EnT7YdaLaGR3z8UugqSo"
-            }
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1ws2nffATv1oST8uyBDWmrYv5Gw7qSJ2h/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/Fb9Rpq9wnufxcaPMyQ3A",
-                "ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/0NMxTVrvtJvBqn0b1ODc",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/3kdEl19nRFE28NQBd1XC",
-                "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/FKGjhEAJjNNaHSgpgklX",
-                "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/guHkV8d1hefy7bWecm3Q",
-                "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/KDiB9X2MNR6eh3LL3AS3",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/6WbeaPHo8vUADobc3XDY",
-                "ИСТОРИЯ": "https://aas.alatoo.edu.kg/article/zozD699kw1GDOeMQoaJq",
-                "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО": "https://aas.alatoo.edu.kg/article/7r35XGWwHx5WpDpVIHEg"
-            }
-        },
-        "выпуск_3":{
-            "издание": "https://drive.google.com/file/d/1Z1SMkNwYl9HQmzPOTukZ9TjXTeFQfMjP/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/HZcBxf17K3PrNWKp0OEx",
-                "ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/37OS3BLqgSAwZPnSlyZS",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/SOVmf9TwvNAuxJ16gU6N",
-                "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/6yo9DjMapzrAPi6zeXcw",
-                "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/0CgjGypvson2zNCzmqp8",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/uEPfG4rxyYRnr008uZX6",
-                "ИСТОРИЯ": "https://aas.alatoo.edu.kg/article/mZNxTJBBDp0qllJutnRT",
-                "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО": "https://aas.alatoo.edu.kg/article/JCd3gA9IyhPq2vJqklfq"
-            }
-        },
-        "выпуск_4":{
-            "издание": "https://drive.google.com/file/d/1UN-MNkuWzPigF6CLq0R4vZw_yY9I138l/view",
-            "рубрика":{
-                "ЯЗЫКОЗНАНИЕ": "https://aas.alatoo.edu.kg/article/ocDYJzlQtN5JNPejpNWz",
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/bMJRlaZvg010huyt3E1H",
-                "ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/FQNngTKpJpPgzFn84Xwa",
-                "ПОЛИТИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/JYsLvw6TqombSFD92Tyi",
-                "ОБЩАЯ_ПЕДАГОГИКА_НАРОДНОЕ_ОБРАЗОВАНИЕ_ПЕДАГОГИКА": "https://aas.alatoo.edu.kg/article/UihOezJPVQ0mWpdivvyD",
-                "ЛИТЕРАТУРА_ЛИТЕРАТУРОВЕДЕНИЕ_УСТНОЕ_НАРОДНОЕ_ТВОРЧЕСТВО": "https://aas.alatoo.edu.kg/article/jt0HriOLhUb15By2baK4",
-                "ИСКУССТВО_ИСКУССТВОВЕДЕНИЕ": "https://aas.alatoo.edu.kg/article/QdVc2yAxinyo63wntSt1"
-            }
+    "2018": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/16UHJl7AYq141J_yThcY9zQ0BxCUT18Rt/view",
+        "рубрика": {
+          "ЯЗЫКОЗНАНИЕ": "https://aas.alatoo.edu.kg/article/4wj5QIJP7oSwTnRZWLEA",
+          "ЭКОЛОГИЯ": "https://aas.alatoo.edu.kg/article/y2VaguBItVhH3L6Bz1Y0",
+          "ПОЛИТИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/NpvLy6r2nUkIUfHRwbKX",
+          "ОБЩАЯ_ПЕДАГОГИКА_НАРОДНОЕ_ОБРАЗОВАНИЕ_ПЕДАГОГИКА": "https://aas.alatoo.edu.kg/article/t22ZIONmUARlxLumtk7e",
+          "ИНФОРМАТИКА_МАТЕМАТИКА_ФИЗИКА": "https://aas.alatoo.edu.kg/article/JsOxbeOudDUxb9EmijtP",
+          "ЖУРНАЛИСТИКА": "https://aas.alatoo.edu.kg/article/Hx1GoX2xv212ibxH10YU"
         }
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1nHfOggYwRoVc-4AGhyY3H_11GMGz_UF-/view",
+        "рубрика": {
+          "ЮРИДИЧЕСКИЕ_HАУКИ": "https://aas.alatoo.edu.kg/article/YHDtOtmSAqZ4CJfI8wDx",
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/08Q6taSxdinYfb7La5aD",
+          "ФИЛОСОФИЯ_ИСТОРИЯ_ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/qU0UlNhBuwBtBr2eZyy0",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/A92sBRHS8ndOrYtqKhs0",
+          "ТЕХНИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/iZ2PdX7LBCYTkaRiQYeb",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/K2NJ6BggzCUC7ONay67P"
+        }
+      },
+      "3": {
+        "издание": "https://drive.google.com/file/d/1z8noZDFxqTjam4N2Qedy4s096vikTOdd/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/XqiqDp5CQ8YSgeGheU9z",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/ZvuvbiJVwAEQ2aaiaCMe",
+          "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/wyo7LinohzJwyT8Fcz8L",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/QIcytUCuz2NEuKt0lUEs",
+          "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/TbDgfoWjaMFzZKBlmBAR"
+        }
+      },
+      "4": {
+        "издание": "https://drive.google.com/file/d/17DLvbnGR43BKyh3oe42w6EtsC8ZOD1ux/view",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/AqNEnu7oGfHc3qDcKty7",
+          "ТЕХНИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/cp6NxAVzZRKxyewYsTDx",
+          "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/rBwttSb3t63rhIfnoLpY",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/G2AZU0FQvhHFfhh6NCEX",
+          "МЕДИЦИНСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/0lRgV09b4zK5hJMEOdyB",
+          "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/okYEH1LLyFfayl0brrcT"
+        }
+      }
     },
-    "2016":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1MiJoSAcIGwe_jctlfrSCdh8-eu3_gZxW/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/WYKFwSr5K9N47WfFf0yf",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/qmXTnGXKTh7OoxiHP5tg",
-                "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/jFUvQ58pG6h5mmL1LFPO",
-                "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/gZnDCP4lawcmZNdFMAb9",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/Maqr3YzqFKlRGDseAXid",
-                "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО": "https://aas.alatoo.edu.kg/article/IGNksOAnAiakED6Cov0Z"
-            }
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1Bnr13WCx4y_OpNKffXtGP_YSdSKFvqmw/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/LiEviWWz3XQvb8c6HOgp",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/I8b0MhrpMmRogooWg7lb",
-                "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/NsgWlPqTKOi1JsIQ6ATo",
-                "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/ry8aatXruSLRclaCyw5o",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/HHQWKG8RqAHyzeeA1nWt",
-                "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО": "https://aas.alatoo.edu.kg/article/SxPlV8E6xkBp51NXz6vN"
-            }
-        },
-        "выпуск_3":{
-            "издание": "https://drive.google.com/file/d/1RxcGbMWNbUIT62hwkcv4dpRS61adBv7b/view",
-            "рубрика":{
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/8sKVEmURYObIcUdpTtrb",
-                "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/BXey0AsRH3XdSP6q4wx0",
-                "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/dGweU4BlDq7MrWd47Lyu",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/EHPf8oSmexgR1VSFB1Su"
-            }
-        },
-        "выпуск_4":{
-            "издание": "https://drive.google.com/file/d/1rFG9PHLlp3k0osjPxjGArZQXgaD0RboL/view",
-            "рубрика":{
-                "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/TU6BQQ4xl80OedkyPUiy",
-                "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/djDFnvZ4m5CZQSvvrM2T",
-                "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/CjedYBbzXq6D3o3PW71b",
-                "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/kWeoRRO0QCQo1GlIZMfk",
-                "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/99s3VgmAlIOVc0v4wg78"
-            }
+    "2017": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1cFTeCQytKMkpxFoCnNFUiDqLWSYf5YvE/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/H31RzprNindWyn1HVh5N",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/iol6OpdeUsMoCLYkQSuf",
+          "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/U1vqCn8YZI5AscEiAJmE",
+          "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/8xLdtuldy6bMFVi08GqJ",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/EnT7YdaLaGR3z8UugqSo"
         }
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1ws2nffATv1oST8uyBDWmrYv5Gw7qSJ2h/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/Fb9Rpq9wnufxcaPMyQ3A",
+          "ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/0NMxTVrvtJvBqn0b1ODc",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/3kdEl19nRFE28NQBd1XC",
+          "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/FKGjhEAJjNNaHSgpgklX",
+          "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/guHkV8d1hefy7bWecm3Q",
+          "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/KDiB9X2MNR6eh3LL3AS3",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/6WbeaPHo8vUADobc3XDY",
+          "ИСТОРИЯ": "https://aas.alatoo.edu.kg/article/zozD699kw1GDOeMQoaJq",
+          "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО": "https://aas.alatoo.edu.kg/article/7r35XGWwHx5WpDpVIHEg"
+        }
+      },
+      "3": {
+        "издание": "https://drive.google.com/file/d/1Z1SMkNwYl9HQmzPOTukZ9TjXTeFQfMjP/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/HZcBxf17K3PrNWKp0OEx",
+          "ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/37OS3BLqgSAwZPnSlyZS",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/SOVmf9TwvNAuxJ16gU6N",
+          "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/6yo9DjMapzrAPi6zeXcw",
+          "СОЦИОЛОГИЯ": "https://aas.alatoo.edu.kg/article/0CgjGypvson2zNCzmqp8",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/uEPfG4rxyYRnr008uZX6",
+          "ИСТОРИЯ": "https://aas.alatoo.edu.kg/article/mZNxTJBBDp0qllJutnRT",
+          "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО": "https://aas.alatoo.edu.kg/article/JCd3gA9IyhPq2vJqklfq"
+        }
+      },
+      "4": {
+        "издание": "https://drive.google.com/file/d/1UN-MNkuWzPigF6CLq0R4vZw_yY9I138l/view",
+        "рубрика": {
+          "ЯЗЫКОЗНАНИЕ": "https://aas.alatoo.edu.kg/article/ocDYJzlQtN5JNPejpNWz",
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/bMJRlaZvg010huyt3E1H",
+          "ФИЛОСОФИЯ": "https://aas.alatoo.edu.kg/article/FQNngTKpJpPgzFn84Xwa",
+          "ПОЛИТИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/JYsLvw6TqombSFD92Tyi",
+          "ОБЩАЯ_ПЕДАГОГИКА_НАРОДНОЕ_ОБРАЗОВАНИЕ_ПЕДАГОГИКА": "https://aas.alatoo.edu.kg/article/UihOezJPVQ0mWpdivvyD",
+          "ЛИТЕРАТУРА_ЛИТЕРАТУРОВЕДЕНИЕ_УСТНОЕ_НАРОДНОЕ_ТВОРЧЕСТВО": "https://aas.alatoo.edu.kg/article/jt0HriOLhUb15By2baK4",
+          "ИСКУССТВО_ИСКУССТВОВЕДЕНИЕ": "https://aas.alatoo.edu.kg/article/QdVc2yAxinyo63wntSt1"
+        }
+      }
     },
-    "2015":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1cohxA2gXov1jAZWLStC2e4YY2t0I3oBT/view"
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1-87hwc0HGgtm-ycL60CihoJFON6zNukM/view"
-        },
-        "выпуск_3":{
-            "издание": "https://drive.google.com/file/d/1UlS7lO36DHnuV39Su3S1oo6T0sTb4ANt/view"
-        },
-        "выпуск_4":{
-            "издание": "https://drive.google.com/file/d/1mqMgK8LQRa0ztzrSRMSYBdH2jvJRloUY/view"
+    "2016": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1MiJoSAcIGwe_jctlfrSCdh8-eu3_gZxW/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/WYKFwSr5K9N47WfFf0yf",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/qmXTnGXKTh7OoxiHP5tg",
+          "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/jFUvQ58pG6h5mmL1LFPO",
+          "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/gZnDCP4lawcmZNdFMAb9",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/Maqr3YzqFKlRGDseAXid",
+          "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО": "https://aas.alatoo.edu.kg/article/IGNksOAnAiakED6Cov0Z"
         }
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1Bnr13WCx4y_OpNKffXtGP_YSdSKFvqmw/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/LiEviWWz3XQvb8c6HOgp",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/I8b0MhrpMmRogooWg7lb",
+          "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/NsgWlPqTKOi1JsIQ6ATo",
+          "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/ry8aatXruSLRclaCyw5o",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/HHQWKG8RqAHyzeeA1nWt",
+          "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО": "https://aas.alatoo.edu.kg/article/SxPlV8E6xkBp51NXz6vN"
+        }
+      },
+      "3": {
+        "издание": "https://drive.google.com/file/d/1RxcGbMWNbUIT62hwkcv4dpRS61adBv7b/view",
+        "рубрика": {
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/8sKVEmURYObIcUdpTtrb",
+          "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/BXey0AsRH3XdSP6q4wx0",
+          "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/dGweU4BlDq7MrWd47Lyu",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/EHPf8oSmexgR1VSFB1Su"
+        }
+      },
+      "4": {
+        "издание": "https://drive.google.com/file/d/1rFG9PHLlp3k0osjPxjGArZQXgaD0RboL/view",
+        "рубрика": {
+          "ЭКОНОМИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/TU6BQQ4xl80OedkyPUiy",
+          "ФИЛОЛОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/djDFnvZ4m5CZQSvvrM2T",
+          "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА": "https://aas.alatoo.edu.kg/article/CjedYBbzXq6D3o3PW71b",
+          "ПОЛИТОЛОГИЯ": "https://aas.alatoo.edu.kg/article/kWeoRRO0QCQo1GlIZMfk",
+          "ПЕДАГОГИЧЕСКИЕ_НАУКИ": "https://aas.alatoo.edu.kg/article/99s3VgmAlIOVc0v4wg78"
+        }
+      }
     },
-    "2014":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/11d5fPw_ncROYRlmqQ61tz1nfMgF6wQBi/view"
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/18mj7mI89VjKAGq5pQX67SZiKY6su1GTU/view"
-        }
+    "2015": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1cohxA2gXov1jAZWLStC2e4YY2t0I3oBT/view"
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1-87hwc0HGgtm-ycL60CihoJFON6zNukM/view"
+      },
+      "3": {
+        "издание": "https://drive.google.com/file/d/1UlS7lO36DHnuV39Su3S1oo6T0sTb4ANt/view"
+      },
+      "4": {
+        "издание": "https://drive.google.com/file/d/1mqMgK8LQRa0ztzrSRMSYBdH2jvJRloUY/view"
+      }
     },
-    "2013":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/15xpNW8yfupg2ZAQaIB1LdqBMMq78oBUC/view"
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1LbrwXA6Y54tvWAQmOlyyTPZnu0U30Yzc/view"
-        }
+    "2014": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/11d5fPw_ncROYRlmqQ61tz1nfMgF6wQBi/view"
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/18mj7mI89VjKAGq5pQX67SZiKY6su1GTU/view"
+      }
     },
-    "2012":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1DQv0IMUe_Rifwq301mWQ8sYpakwTO2nr/view"
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/19W6fvUcECW9VsUBJ-C8K7X7hrde119fg/view"
-        }
+    "2013": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/15xpNW8yfupg2ZAQaIB1LdqBMMq78oBUC/view"
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1LbrwXA6Y54tvWAQmOlyyTPZnu0U30Yzc/view"
+      }
     },
-    "2011":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1i1vB-xRm8DA7ukQiVmD1m1MijluBzhvk/view"
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1ij2rAc-XIVbSyPalKb9pqOoYm8wyfHrA/view"
-        }
+    "2012": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1DQv0IMUe_Rifwq301mWQ8sYpakwTO2nr/view"
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/19W6fvUcECW9VsUBJ-C8K7X7hrde119fg/view"
+      }
     },
-    "2010":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1RGA1N6URZOsRPVO0VgIG8rBYtz8M73eU/view"
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1alMBNS_zSSu0haVbl3V92VTj2fryWMwC/view"
-        }
+    "2011": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1i1vB-xRm8DA7ukQiVmD1m1MijluBzhvk/view"
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1ij2rAc-XIVbSyPalKb9pqOoYm8wyfHrA/view"
+      }
     },
-    "2009":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1BrTwxqO-VrBVN6J27I6xePgSz4PCgqQ8/view"
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1XCtx2VOQKwO8YzxjOyAtKC8cc6lvbvXv/view"
-        }
+    "2010": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1RGA1N6URZOsRPVO0VgIG8rBYtz8M73eU/view"
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1alMBNS_zSSu0haVbl3V92VTj2fryWMwC/view"
+      }
     },
-    "2008":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1Yati5rb-gUUwp_akp_J2QK2XsyEmssBu/view"
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1FYurHzh94ErWrCjQxDQ3829ZJTURte2n/view"
-        }
+    "2009": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1BrTwxqO-VrBVN6J27I6xePgSz4PCgqQ8/view"
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1XCtx2VOQKwO8YzxjOyAtKC8cc6lvbvXv/view"
+      }
     },
-    "2007":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1htkh9E0lwLv5CwWxEHriy3Do0-aqvgEZ/view"
-        },
-        "выпуск_2":{
-            "издание": "https://drive.google.com/file/d/1je0OTwSu3jMgft0CdXNM_L2K32w3z4E9/view"
-        }
+    "2008": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1Yati5rb-gUUwp_akp_J2QK2XsyEmssBu/view"
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1FYurHzh94ErWrCjQxDQ3829ZJTURte2n/view"
+      }
     },
-    "2006":{
-        "выпуск_1":{
-            "издание": "https://drive.google.com/file/d/1X7Khq0_0WWoO4S551fVU_NdIa2KOjKPp/view"
-        }
+    "2007": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1htkh9E0lwLv5CwWxEHriy3Do0-aqvgEZ/view"
+      },
+      "2": {
+        "издание": "https://drive.google.com/file/d/1je0OTwSu3jMgft0CdXNM_L2K32w3z4E9/view"
+      }
+    },
+    "2006": {
+      "1": {
+        "издание": "https://drive.google.com/file/d/1X7Khq0_0WWoO4S551fVU_NdIa2KOjKPp/view"
+      }
     }
+  }
 }

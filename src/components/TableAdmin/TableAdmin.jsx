@@ -167,7 +167,7 @@ export default function BasicTableAdmin() {
                     key={row.id}
                     onClick={() => approveArticle(row.id)}
                     id="approve">
-                    Approve
+                    Payment
                   </button>
                   <button
                     key={row.pages}

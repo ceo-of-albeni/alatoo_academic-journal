@@ -11,393 +11,1358 @@ export default function ArchiveCategoryPage() {
 
   const dropdowns = [
     {
-      year: "2023, Том 23",
+      year: "2023",
+      tom: "Том 23",
       releases: [
         {
-          name: "Выпуск № 1",
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1_OQnqlqOyzYnQZjSmMmODFziOWZqfQ0U/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/9IkGHXbXHN0gNJdvGMzM",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/5isUUUysZfNxUkm2MSZS",
+            },
+            {
+              name: "SOCIAL AND HUMANITARIAN SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/12S2bCsx1et1ehfB0m0S",
+            },
+            {
+              name: "INFORMATICS",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/16HWXXJK80IHj9FxTckR",
+            },
+            {
+              name: "MATHEMATICS",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/16HWXXJK80IHj9FxTckR",
+            },
           ],
         },
         {
-          name: "Выпуск № 2",
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1QCCIeztso5-ByKWMHBR6TQQaBWGxrFJt/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/zJtq08HF4mlSAAS2UwMP",
+            },
+            {
+              name: "SOCIAL AND HUMANITARIAN SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/O2OcpzaOfz3KRBRXg4HI",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/QEgW5Ya3sNdLbMWzSCN2",
+            },
+            {
+              name: "INFORMATICS",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/G8kDXxCEGINYdPrKU99n",
+            },
+          ],
+        },
+        {
+          name: "3",
+          tomLink:
+            "https://drive.google.com/file/d/1VrtPfwvKtpVoCTSlqb8b2HJ5bTVUace1/view?usp=sharing",
+          categories: [
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/NXsGcIfq6flwBS5kxCVw",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/1NrdECqiKnvUYhv4knyy",
+            },
+            {
+              name: "SOCIAL AND HUMANITARIAN SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/re7qu73Oc9s2aC7XSDO0",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/QOPFF8p8dXz46RgIkPrw",
+            },
+            {
+              name: "MATHEMATICS",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/zuGae4stptRILOCu6giq",
+            },
+          ],
+        },
+        {
+          name: "4",
+          tomLink:
+            "https://drive.google.com/file/d/1VrtPfwvKtpVoCTSlqb8b2HJ5bTVUace1/view?usp=sharing",
+          categories: [
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/zPKCk23JF5wgRcupLBaN",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/tp2Q52y2KZFeJs9ty7Px",
+            },
+            {
+              name: "SOCIAL AND HUMANITARIAN SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/EFJkMEbDuIq8kxbjtQ9E",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/5oVj9O5opclG46zKjgek",
+            },
           ],
         },
       ],
     },
     {
-      year: "2022, Том 22",
+      year: "2022",
+      tom: "Том 22",
       releases: [
         {
-          name: "Выпуск № 1",
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1e3v41APUi51H5PxJj4dIaN9_nieuKQt-/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/ZIlyessSfUlKhZoQjJTMink",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/5VxWUud6txoEBOcKNxVG",
+            },
+            {
+              name: "SOCIAL AND HUMANITARIAN SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/kaX0oLnKZ0HXuYXRHgrX",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/ZeW0Gg19vOJiGQs2AOOf",
+            },
           ],
         },
         {
-          name: "Выпуск № 2",
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1AV8v0oVyGmz_QW-AAwLlk9Hu9u3HBQaY/view?usp=sharing",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/QvdlURZB0IGxsI3hi9aY",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/Fd6JqiIsQo5cBGDijsJO",
+            },
+            {
+              name: "SOCIAL AND HUMANITARIAN SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/jDamJcVutBpolpFPnozL",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/I7v0Dg5NUrDhpf0FmccI",
+            },
+            {
+              name: "MATHEMATICS",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/cBJGeLvsU8w1aspMqSLI",
+            },
+          ],
+        },
+        {
+          name: "3",
+          tomLink:
+            "https://drive.google.com/file/d/18nUO8tywvaEwl0X_VzL65hL8RSFd77if/view?usp=sharing",
+          categories: [
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/ibkVu5ZyvyLmJUyCHrDB",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/KIKMyiAZcQVz0AVmZ08P",
+            },
+            {
+              name: "SOCIAL AND HUMANITARIAN SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/9QA5XkHGAA8Jj8TGdNbt",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/FW3HG3SBxmNgxYSwcyBH",
+            },
+            {
+              name: "MATHEMATICS",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/dFWyI6A5xZdAb19moTU7",
+            },
+          ],
+        },
+        {
+          name: "4",
+          tomLink:
+            "https://drive.google.com/file/d/1RNgwKaVmzaJnKlC0GiWWX_7SsnQNaIkZ/view?usp=sharing",
+          categories: [
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/fQFPOwuc9plGnN7RuUr3",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/GmPKdbr9mVsvYIPgmLEc",
+            },
+            {
+              name: "SOCIAL AND HUMANITARIAN SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/XmnTrCfiMizHH16f97as",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/dL572tOn2ZNPSFPGMrGM",
+            },
           ],
         },
       ],
     },
     {
-      year: "2021, Том 21",
+      year: "2021",
+      tom: "Том 21",
       releases: [
         {
-          name: "Выпуск № 1",
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1nJsi7felKi2duHBDecK5hqOqALBsASlp/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/l4Qz21l9Wn6GcswRuIAi",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/G4KDNy04IGOiYoFdOfhx",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/ihNwvla8JFNRbuOSr5Xi",
+            },
+            {
+              name: "ГОСУДАРСТВО И ПРАВО ЮРИДИЧЕСКИЕ НАУКИ",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/BoA6jtOrf6knrwVBjr2i",
+            },
+            {
+              name: "КУЛЬТУРОЛОГИЯ СОЦИОЛОГИЯ ПОЛИТОЛОГИЯ ИСТОРИЯ",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/3lT9DEe4cGkjGWuox8Lz",
+            },
           ],
         },
         {
-          name: "Выпуск № 2",
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1rkGc0Tasxkiszjd7grVixbz0giV_ewPX/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/FfvByoIBZwQ83Vu47zuc",
+            },
+            {
+              name: "PHILOSOPHY",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/VtCaqVDB2vN3oh8wY7MC",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/4FOs9PqFjYJ7j93EkX2F",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/0O9y9Jha1FvtQ3tU7MX8",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/o5GsuvTKHzQdB1JwoUyX",
+            },
+            {
+              name: "ЖУРНАЛИСТИКА",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/tUbbxD9QpZQGWmj177AP",
+            },
+            {
+              name: "ГОСУДАРСТВО И ПРАВО ЮРИДИЧЕСКИЕ НАУКИ",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/GWH0QBNQFXf7UYWUCth0",
+            },
+          ],
+        },
+        {
+          name: "3",
+          tomLink:
+            "https://drive.google.com/file/d/1B7TOvHGIa0ch8C92d_-FWc4hx7EKjju5/view",
+          categories: [
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/yiLRpvLycl42MGQxh0fN",
+            },
+            {
+              name: "ФИЛОСОФИЯ_ИСТОРИЯ_ЖУРНАЛИСТИКА_ЭКОЛОГИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/Mfs3NC9q4FatA6bEqdUG",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/StXtgUIm38C0SZ9H76Lm",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/F23AmaI1y5LhsTGY2vYq",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/qOdUAlAtqq3BHmgpR3Wz",
+            },
+            {
+              name: "ГОСУДАРСТВО И ПРАВО ЮРИДИЧЕСКИЕ НАУКИ",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/D3ACuyAlVhablCIPK4xE",
+            },
+          ],
+        },
+        {
+          name: "4",
+          tomLink:
+            "https://drive.google.com/file/d/1e0aLA4h_av9qq2Um1XvM6KLT9VB9YB51/view",
+          categories: [
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/urPwGKtGtmBJUYOKvAkT",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/xmSxvQZcjM93lFJJPyfi",
+            },
+            {
+              name: "ФИЗИКА_ИНФОРМАТИКА",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/yBCxvyBALg269mCMhwIW",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/pAvgTTZfoIvf6sNORvGv",
+            },
+            {
+              name: "ЖУРНАЛИСТИКА_ИСТОРИЯ_ФИЛОСОФИЯ",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/fNjPKqxalltzWpyLtxDv",
+            },
+            {
+              name: "ГОСУДАРСТВО И ПРАВО ЮРИДИЧЕСКИЕ НАУКИ",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/CkAg0yZlJVWgjnql2wRc",
+            },
+          ],
+        },
+        // {
+        //   name: "Special Release",
+        //   tomLink: "https://drive.google.com/file/d/1LAmx8X0rE-_dENHsH9Osea9G0I5F7W3w/view",
+        //   categories: [
+        //     { name: "Атайын_чыгарылыш", count: 10, link: "" },
+        //   ],
+        // },
+      ],
+    },
+    {
+      year: "2020",
+      tom: "Том 20",
+      releases: [
+        {
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1KyDkzIv5Y2g4_5WsA7Md8UAPiO-OB56H/view",
+          categories: [
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/gMcjMK6RvyHJTuyOXlFz",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/w1NGIyzC6cflvGRWC8AE",
+            },
+            {
+              name: "СЕЛЬСКОХОЗЯЙСТВЕННЫЕ_НАУКИ",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/LRjt5n6lpB0bR7rVl9Y2",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/viVF28wfvfsHndMf2pI9",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/9KfYh35nyGUREyiCg94O",
+            },
+          ],
+        },
+        {
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1aHa-yjdeP88UvXVWdMGNTuuKx8fvZQm-/view",
+          categories: [
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/quTkdxfbYNfSbVhySaSn",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/7sLQe8UHFRhndLEprXcr",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/1MzXk4stwyIcj6DsFDAz",
+            },
+            {
+              name: "ИСТОРИЯ_ФИЛОСОФИЯ_КУЛЬТУРОЛОГИЯ_СОЦИОЛОГИЯ",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/LpvvoXff4BB8dC3xFvffvRjt5n6lpB0bR7rVl9Y2",
+            },
+            {
+              name: "ГОСУДАРСТВО И ПРАВО ЮРИДИЧЕСКИЕ НАУКИ",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/z4wBtBykq0LQVZMCN4YI",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/hUAhiXjV3eDgREdJqNCZ",
+            },
+          ],
+        },
+        {
+          name: "3",
+          tomLink:
+            "https://drive.google.com/file/d/16QeZNQwu1a_G35IQbWL_JB7o2FR6VxWr/view",
+          categories: [
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/jSESRbFqsZU78uXqK3gc",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/zuo8JgalwmHmHxuiLPHy",
+            },
+            {
+              name: "SOCIOLOGY",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/TBpz0KnzlGRWZOY1Kf03",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/UoIYaHPKxve5laE0STpS",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/chWdQ6aOzKpvd3VtbHFM",
+            },
+            { name: "ПОЛИТОЛОГИЯ", count: 16, link: "" },
+          ],
+        },
+        {
+          name: "4",
+          tomLink:
+            "https://drive.google.com/file/d/1oLbvKl2lur1O6Qj7_pV0gvrCiITu5ic0/view",
+          categories: [
+            {
+              name: "ЮРИДИЧЕСКИЕ_НАУКИ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/N8gWQwB8y7JY6Sl5kXNV",
+            },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/sNG9mdBSIhtK0mEzOo2e",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/Rv1ODZQwIpOTGHTqHEfx",
+            },
+            {
+              name: "SOCIOLOGY",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/yVt0LCWnEWArwmW8NrOC",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/6c9QpdNTEu8GhZAFlFxI",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 4,
+              link: "https://aas.alatoo.edu.kg/article/peMI6HgHNgTmKoimGGKm",
+            },
+            {
+              name: "BIOLOGY",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/CiiyZX64pzeLiEj3JIZ3",
+            },
           ],
         },
       ],
     },
     {
-      year: "2020, Том 20",
+      year: "2019",
+      tom: "Том 19",
       releases: [
         {
-          name: "Выпуск № 1",
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/11SJ4708CZESdPj-1osGaMAlLxSn7LkpU/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/3l818sQWh3z6VWd2i4lv",
+            },
+            {
+              name: "SOCIOLOGY",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/DsBY8uEmErIxT4oIxBFk",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/zKElOl61E1up8XWweTNp",
+            },
+            {
+              name: "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ",
+              count: 10,
+              link: "ГОСУДАРСТВО И ПРАВО. ЮРИДИЧЕСКИЕ НАУКИ",
+            },
           ],
         },
         {
-          name: "Выпуск № 2",
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/u/1/d/17cRp8DuhB-keSKa-VofNjNynLv__MImM/view?usp=drive_open",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/EGSAj28Dl60cjqN3dWRG",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/xIe3dqzXSifIF9aran6S",
+            },
+            {
+              name: "ИСТОРИЧЕСКИЕ_НАУКИ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/bgiUfomsREWVcctCoJPU",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/5LfhKiaqL67zJWkRMJu2",
+            },
+            {
+              name: "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/052AuIMFSclQ3xjI91V2",
+            },
+          ],
+        },
+        {
+          name: "3",
+          tomLink:
+            "https://drive.google.com/file/d/16bFPRZHPr0ePq7Ht_6rd6prn14ko2kbx/view",
+          categories: [
+            {
+              name: "ЮРИДИЧЕСКИЕ_НАУКИ",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/NrUGpSrD2KAtcKHSVCgv",
+            },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/NRsTrGWm01WPSfBqEhI5",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/NSKNtRnUKUT4qcFByU6l",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/L0UscpnViCfv99y93VX1",
+            },
+            {
+              name: "ИСТОРИЧЕСКИЕ_НАУКИ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/L3IgjrJ9Uzx1xkplLH6H",
+            },
+          ],
+        },
+        {
+          name: "4",
+          tomLink:
+            "https://drive.google.com/file/d/1M1su_cLiur8sASUUMGninOrxjGu-0w_W/view",
+          categories: [
+            {
+              name: "ЮРИДИЧЕСКИЕ_НАУКИ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/nT12ZymgNGoDXYd65Zv0",
+            },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/hlf5BJxwlCemyduskoHM",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/8mmQJNE7NQPYnNwiJeZS",
+            },
+            {
+              name: "ПОЛИТОЛОГИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/pAzlZjQ4fOFS5Pl88akk",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/j2vIISDCYGrj5cnacLBh",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/CQOE7I0cBNVX8xtr9HWN",
+            },
+            {
+              name: "ИСТОРИЯ",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/whcPYYBuCY1SidpviF2X",
+            },
+            {
+              name: "ИНФОРМАТИКА МАТЕМАТИКА ФИЗИКА",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/JEUkM7WotknyNwP7dsPJ",
+            },
           ],
         },
       ],
     },
     {
-      year: "2019, Том 19",
+      year: "2018",
+      tom: "Том 18",
       releases: [
         {
-          name: "Выпуск № 1",
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/16UHJl7AYq141J_yThcY9zQ0BxCUT18Rt/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "ЯЗЫКОЗНАНИЕ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/4wj5QIJP7oSwTnRZWLEA",
+            },
+            {
+              name: "ECOLOGY ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/y2VaguBItVhH3L6Bz1Y0",
+            },
+            {
+              name: "ПОЛИТИЧЕСКИЕ_НАУКИ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/NpvLy6r2nUkIUfHRwbKX",
+            },
+            {
+              name: "ОБЩАЯ_ПЕДАГОГИКА_НАРОДНОЕ_ОБРАЗОВАНИЕ_ПЕДАГОГИКА",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/t22ZIONmUARlxLumtk7e",
+            },
+            {
+              name: "ИНФОРМАТИКА_МАТЕМАТИКА_ФИЗИКА SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/JsOxbeOudDUxb9EmijtP",
+            },
+            {
+              name: "ЖУРНАЛИСТИКА",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/Hx1GoX2xv212ibxH10YU",
+            },
           ],
         },
         {
-          name: "Выпуск № 2",
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1nHfOggYwRoVc-4AGhyY3H_11GMGz_UF-/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "ЮРИДИЧЕСКИЕ_НАУКИ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/YHDtOtmSAqZ4CJfI8wDx",
+            },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/08Q6taSxdinYfb7La5aD",
+            },
+            {
+              name: "ФИЛОСОФИЯ_ИСТОРИЯ_ПОЛИТОЛОГИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/qU0UlNhBuwBtBr2eZyy0",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/A92sBRHS8ndOrYtqKhs0",
+            },
+            {
+              name: "ТЕХНИЧЕСКИЕ_НАУКИ",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/iZ2PdX7LBCYTkaRiQYeb",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/K2NJ6BggzCUC7ONay67P",
+            },
+          ],
+        },
+        {
+          name: "3",
+          tomLink:
+            "https://drive.google.com/file/d/1z8noZDFxqTjam4N2Qedy4s096vikTOdd/view",
+          categories: [
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/XqiqDp5CQ8YSgeGheU9z",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/ZvuvbiJVwAEQ2aaiaCMe",
+            },
+            {
+              name: "СОЦИОЛОГИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/wyo7LinohzJwyT8Fcz8L",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/QIcytUCuz2NEuKt0lUEs",
+            },
+            {
+              name: "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/TbDgfoWjaMFzZKBlmBAR",
+            },
+          ],
+        },
+        {
+          name: "4",
+          tomLink:
+            "https://drive.google.com/file/d/17DLvbnGR43BKyh3oe42w6EtsC8ZOD1ux/view",
+          categories: [
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/AqNEnu7oGfHc3qDcKty7",
+            },
+            {
+              name: "ТЕХНИЧЕСКИЕ_НАУКИ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/cp6NxAVzZRKxyewYsTDx",
+            },
+            {
+              name: "SOCIOLOGY",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/rBwttSb3t63rhIfnoLpY",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/G2AZU0FQvhHFfhh6NCEX",
+            },
+            {
+              name: "MEDICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/0lRgV09b4zK5hJMEOdyB",
+            },
+            {
+              name: "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/okYEH1LLyFfayl0brrcT",
+            },
           ],
         },
       ],
     },
     {
-      year: "2018, Том 18",
+      year: "2017",
+      tom: "Том 17",
       releases: [
         {
-          name: "Выпуск № 1",
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1cFTeCQytKMkpxFoCnNFUiDqLWSYf5YvE/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/H31RzprNindWyn1HVh5N",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/iol6OpdeUsMoCLYkQSuf",
+            },
+            {
+              name: "SOCIOLOGY",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/U1vqCn8YZI5AscEiAJmE",
+            },
+            {
+              name: "ПОЛИТОЛОГИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/8xLdtuldy6bMFVi08GqJ",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/EnT7YdaLaGR3z8UugqSo",
+            },
           ],
         },
         {
-          name: "Выпуск № 2",
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1ws2nffATv1oST8uyBDWmrYv5Gw7qSJ2h/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/Fb9Rpq9wnufxcaPMyQ3A",
+            },
+            {
+              name: "ФИЛОСОФИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/0NMxTVrvtJvBqn0b1ODc",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/3kdEl19nRFE28NQBd1XC",
+            },
+            {
+              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/FKGjhEAJjNNaHSgpgklX",
+            },
+            {
+              name: "SOCIOLOGY",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/guHkV8d1hefy7bWecm3Q",
+            },
+            {
+              name: "ПОЛИТОЛОГИЯ",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/KDiB9X2MNR6eh3LL3AS3",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/6WbeaPHo8vUADobc3XDY",
+            },
+            {
+              name: "ИСТОРИЯ",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/zozD699kw1GDOeMQoaJq",
+            },
+            {
+              name: "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/7r35XGWwHx5WpDpVIHEg",
+            },
+          ],
+        },
+        {
+          name: "3",
+          tomLink:
+            "https://drive.google.com/file/d/1Z1SMkNwYl9HQmzPOTukZ9TjXTeFQfMjP/view",
+          categories: [
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/HZcBxf17K3PrNWKp0OEx",
+            },
+            {
+              name: "PHILOSOPHY",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/37OS3BLqgSAwZPnSlyZS",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/SOVmf9TwvNAuxJ16gU6N",
+            },
+            {
+              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/6yo9DjMapzrAPi6zeXcw",
+            },
+            {
+              name: "SOCIOLOGY",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/0CgjGypvson2zNCzmqp8",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/uEPfG4rxyYRnr008uZX6",
+            },
+            {
+              name: "HISTORY",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/mZNxTJBBDp0qllJutnRT",
+            },
+            {
+              name: "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/JCd3gA9IyhPq2vJqklfq",
+            },
+          ],
+        },
+        {
+          name: "4",
+          tomLink:
+            "https://drive.google.com/file/d/1UN-MNkuWzPigF6CLq0R4vZw_yY9I138l/view",
+          categories: [
+            {
+              name: "ЯЗЫКОЗНАНИЕ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/ocDYJzlQtN5JNPejpNWz",
+            },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/bMJRlaZvg010huyt3E1H",
+            },
+            {
+              name: "PHILOSOPHY",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/FQNngTKpJpPgzFn84Xwa",
+            },
+            {
+              name: "ПОЛИТИЧЕСКИЕ_НАУКИ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/JYsLvw6TqombSFD92Tyi",
+            },
+            {
+              name: "ОБЩАЯ_ПЕДАГОГИКА_НАРОДНОЕ_ОБРАЗОВАНИЕ_ПЕДАГОГИКА",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/UihOezJPVQ0mWpdivvyD",
+            },
+            {
+              name: "ЛИТЕРАТУРА_ЛИТЕРАТУРОВЕДЕНИЕ_УСТНОЕ_НАРОДНОЕ_ТВОРЧЕСТВО",
+              count: 16,
+              link: "https://aas.alatoo.edu.kg/article/jt0HriOLhUb15By2baK4",
+            },
+            {
+              name: "ИСКУССТВО_ИСКУССТВОВЕДЕНИЕ",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/QdVc2yAxinyo63wntSt1",
+            },
           ],
         },
       ],
     },
     {
-      year: "2017, Том 17",
+      year: "2016",
+      tom: "Том 16",
       releases: [
         {
-          name: "Выпуск № 1",
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1MiJoSAcIGwe_jctlfrSCdh8-eu3_gZxW/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/WYKFwSr5K9N47WfFf0yf",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/qmXTnGXKTh7OoxiHP5tg",
+            },
+            {
+              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/jFUvQ58pG6h5mmL1LFPO",
+            },
+            {
+              name: "ПОЛИТОЛОГИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/gZnDCP4lawcmZNdFMAb9",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/Maqr3YzqFKlRGDseAXid",
+            },
+            {
+              name: "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/IGNksOAnAiakED6Cov0Z",
+            },
           ],
         },
         {
-          name: "Выпуск № 2",
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1Bnr13WCx4y_OpNKffXtGP_YSdSKFvqmw/view",
           categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/LiEviWWz3XQvb8c6HOgp",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/I8b0MhrpMmRogooWg7lb",
+            },
+            {
+              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/NsgWlPqTKOi1JsIQ6ATo",
+            },
+            {
+              name: "ПОЛИТОЛОГИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/ry8aatXruSLRclaCyw5o",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/HHQWKG8RqAHyzeeA1nWt",
+            },
+            {
+              name: "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/SxPlV8E6xkBp51NXz6vN",
+            },
+          ],
+        },
+        {
+          name: "3",
+          tomLink:
+            "https://drive.google.com/file/d/1RxcGbMWNbUIT62hwkcv4dpRS61adBv7b/view",
+          categories: [
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/8sKVEmURYObIcUdpTtrb",
+            },
+            {
+              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/BXey0AsRH3XdSP6q4wx0",
+            },
+            {
+              name: "ПОЛИТОЛОГИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/dGweU4BlDq7MrWd47Lyu",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/EHPf8oSmexgR1VSFB1Su",
+            },
+          ],
+        },
+        {
+          name: "4",
+          tomLink:
+            "https://drive.google.com/file/d/1rFG9PHLlp3k0osjPxjGArZQXgaD0RboL/view",
+          categories: [
+            {
+              name: "ECONOMICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/TU6BQQ4xl80OedkyPUiy",
+            },
+            {
+              name: "PHILOLOGICAL SCIENCE",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/djDFnvZ4m5CZQSvvrM2T",
+            },
+            {
+              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/CjedYBbzXq6D3o3PW71b",
+            },
+            {
+              name: "ПОЛИТОЛОГИЯ",
+              count: 10,
+              link: "https://aas.alatoo.edu.kg/article/kWeoRRO0QCQo1GlIZMfk",
+            },
+            {
+              name: "PEDAGOGICAL SCIENCE",
+              count: 20,
+              link: "https://aas.alatoo.edu.kg/article/99s3VgmAlIOVc0v4wg78",
+            },
           ],
         },
       ],
     },
     {
-      year: "2016, Том 16",
+      year: "2015",
+      tom: "Том 15",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1cohxA2gXov1jAZWLStC2e4YY2t0I3oBT/view",
+          categories: [],
         },
         {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1-87hwc0HGgtm-ycL60CihoJFON6zNukM/view",
+          categories: [],
+        },
+        {
+          name: "3",
+          tomLink:
+            "https://drive.google.com/file/d/1UlS7lO36DHnuV39Su3S1oo6T0sTb4ANt/view",
+          categories: [],
+        },
+        {
+          name: "4",
+          tomLink:
+            "https://drive.google.com/file/d/1mqMgK8LQRa0ztzrSRMSYBdH2jvJRloUY/view",
+          categories: [],
         },
       ],
     },
     {
-      year: "2015, Том 14",
+      year: "2014",
+      tom: "Том 14",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/11d5fPw_ncROYRlmqQ61tz1nfMgF6wQBi/view",
+          categories: [],
         },
         {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/18mj7mI89VjKAGq5pQX67SZiKY6su1GTU/view",
+          categories: [],
         },
       ],
     },
     {
-      year: "2013, Том 13",
+      year: "2013",
+      tom: "Том 13",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/15xpNW8yfupg2ZAQaIB1LdqBMMq78oBUC/view",
+          categories: [],
         },
         {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1LbrwXA6Y54tvWAQmOlyyTPZnu0U30Yzc/view",
+          categories: [],
         },
       ],
     },
     {
-      year: "2012, Том 12",
+      year: "2012",
+      tom: "Том 12",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1DQv0IMUe_Rifwq301mWQ8sYpakwTO2nr/view",
+          categories: [],
         },
         {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/19W6fvUcECW9VsUBJ-C8K7X7hrde119fg/view",
+          categories: [],
         },
       ],
     },
     {
-      year: "2011, Том 11",
+      year: "2011",
+      tom: "Том 11",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1i1vB-xRm8DA7ukQiVmD1m1MijluBzhvk/view",
+          categories: [],
         },
         {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1ij2rAc-XIVbSyPalKb9pqOoYm8wyfHrA/view",
+          categories: [],
         },
       ],
     },
     {
-      year: "2010, Том 10",
+      year: "2010",
+      tom: "Том 10",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1RGA1N6URZOsRPVO0VgIG8rBYtz8M73eU/view",
+          categories: [],
         },
         {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1alMBNS_zSSu0haVbl3V92VTj2fryWMwC/view",
+          categories: [],
         },
       ],
     },
     {
-      year: "2009, Том 9",
+      year: "2009",
+      tom: "Том 09",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1BrTwxqO-VrBVN6J27I6xePgSz4PCgqQ8/view",
+          categories: [],
         },
         {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1XCtx2VOQKwO8YzxjOyAtKC8cc6lvbvXv/view",
+          categories: [],
         },
       ],
     },
     {
-      year: "2008, Том 8",
+      year: "2008",
+      tom: "Том 08",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1Yati5rb-gUUwp_akp_J2QK2XsyEmssBu/view",
+          categories: [],
         },
         {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1FYurHzh94ErWrCjQxDQ3829ZJTURte2n/view",
+          categories: [],
         },
       ],
     },
     {
-      year: "2007, Том 7",
+      year: "2007",
+      tom: "Том 07",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1htkh9E0lwLv5CwWxEHriy3Do0-aqvgEZ/view",
+          categories: [],
         },
         {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "2",
+          tomLink:
+            "https://drive.google.com/file/d/1je0OTwSu3jMgft0CdXNM_L2K32w3z4E9/view",
+          categories: [],
         },
       ],
     },
     {
-      year: "2006, Том 6",
+      year: "2006",
+      tom: "Том 06",
       releases: [
         {
-          name: "Выпуск № 1",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
-        },
-        {
-          name: "Выпуск № 2",
-          categories: [
-            { name: "ФИЛОЛОГИЧЕСКИЕ НАУКИ", count: 10 },
-            { name: "ПЕДАГОГИЧЕСКИЕ НАУКИ", count: 20 },
-            { name: "ОБЩЕСТВЕННО – ГУМАНИТАРНЫЕ НАУКИ", count: 16 },
-            { name: "МАТЕМАТИКА, ИНФОРМАТИКА", count: 4 },
-          ],
+          name: "1",
+          tomLink:
+            "https://drive.google.com/file/d/1X7Khq0_0WWoO4S551fVU_NdIa2KOjKPp/view",
+          categories: [],
         },
       ],
     },
@@ -416,10 +1381,10 @@ export default function ArchiveCategoryPage() {
       <div className={classes.archive}>
         <div className={classes.archive__inner}>
           <div className={classes.back}>
-              <a onClick={() => navigate("/archive")}>
-                <img src={arrow} alt="arrow" />
-                <p>Back</p>
-              </a>
+            <a onClick={() => navigate("/archive")}>
+              <img src={arrow} alt="arrow" />
+              <p>Back</p>
+            </a>
           </div>
           <div className={classes.archive__inner__1}>
             <div className={classes.years}>
@@ -445,7 +1410,9 @@ export default function ArchiveCategoryPage() {
                       openSubs[index] ? classes.rotate : classes.rotate__end
                     }`}
                     onClick={() => toggleOpenSub(index)}>
-                    <p>{dropdown.year}</p>
+                    <p>
+                      {dropdown.year}, {dropdown.tom}
+                    </p>
                     <i className="bx bx-chevron-right"></i>
                   </div>
                   <div
@@ -456,11 +1423,15 @@ export default function ArchiveCategoryPage() {
                     }>
                     {dropdown.releases.map((release, releaseIndex) => (
                       <div key={releaseIndex} className={classes.release}>
-                        <p>{release.name}</p>
+                        <a
+                          href={release.tomLink}
+                          className={classes.release_link_a}>
+                          Выпуск № {release.name}
+                        </a>
                         <ul className={classes.sub__menu2}>
                           {release.categories.map((category, categoryIndex) => (
                             <li key={categoryIndex}>
-                              <a href="/category__">
+                              <a href={category.link}>
                                 {category.name} <span>({category.count})</span>
                               </a>
                             </li>

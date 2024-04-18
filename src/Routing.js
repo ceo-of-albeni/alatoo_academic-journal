@@ -54,11 +54,6 @@ const Routing = () => {
       id: 7,
     },
     {
-      link: "/category",
-      element: <ArchivePage />,
-      id: 8,
-    },
-    {
       link: "/category__",
       element: <CategoryPage />,
       id: 9,

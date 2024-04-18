@@ -39,8 +39,7 @@ function createData(
 }
 
 export default function BasicTable() {
-  const { getAllMyArticles, my_articles } =
-    React.useContext(articlesContext);
+  const { getAllMyArticles, my_articles } = React.useContext(articlesContext);
 
   const [open, setOpen] = React.useState(false);
   const [checkFile, setCheckFile] = React.useState(null);
@@ -95,6 +94,8 @@ export default function BasicTable() {
       }
 
       console.log("CHeck norm!");
+      alert("Done!");
+      setOpen(false);
     } catch (error) {
       console.error("Error during article creation:", error);
     }
