@@ -4,10 +4,11 @@ import Navbar from "./components/Navbar/Navabr";
 import Footer from "./components/Footer/Footer";
 import AuthContextProvider, { authContext } from "./contexts/authContext";
 import ArticleContextsProvider from "./contexts/articleContext";
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import translationEN from './locales/en/translation.json';
-import translationRU from './locales/ru/translation.json';
+import ArchiveContextsProvider from "./contexts/archiveContext";
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import translationEN from "./locales/en/translation.json";
+import translationRU from "./locales/ru/translation.json";
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -20,8 +21,8 @@ i18n
         translation: translationRU,
       },
     },
-    lng: 'en', // default language
-    fallbackLng: 'en', // fallback language
+    lng: "en", // default language
+    fallbackLng: "en", // fallback language
     interpolation: {
       escapeValue: false, // not needed for React
     },
@@ -52,19 +53,21 @@ const App = () => {
 
   return (
     <>
-      <ArticleContextsProvider>
-        <AuthContextProvider>
-          {/* {serverStatus ? (
+      <ArchiveContextsProvider>
+        <ArticleContextsProvider>
+          <AuthContextProvider>
+            {/* {serverStatus ? (
             <> */}
-          <Navbar />
-          <Routing />
-          <Footer />
-          {/* </>
+            <Navbar />
+            <Routing />
+            <Footer />
+            {/* </>
           ) : (
             <p>no respond</p>
            )} */}
-        </AuthContextProvider>
-      </ArticleContextsProvider>
+          </AuthContextProvider>
+        </ArticleContextsProvider>
+      </ArchiveContextsProvider>
     </>
   );
 };
