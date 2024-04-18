@@ -11,7 +11,7 @@ import Select from "@mui/material/Select";
 import { Paper } from "@mui/material";
 import { articlesContext } from "../../contexts/articleContext";
 import "../Table/Table.scss";
-import "../../pages/UserProfilePage/UserProfilePage.scss";
+import "../TableAdmin/TableAdmin.scss";
 import { useTranslation } from "react-i18next";
 
 function createData(

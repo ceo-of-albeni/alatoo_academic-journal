@@ -22,6 +22,7 @@
 #approve {
   background-color: rgb(27, 198, 27);
   margin-bottom: 5px;
+  border-radius: 40px;
 }
 
 #approve:hover {
@@ -30,6 +31,7 @@
 
 #decline {
   background-color: red;
+  border-radius: 40px;
 }
 
 #decline:hover {
@@ -44,4 +46,10 @@
   border-radius: 8px;
   margin-bottom: 15px;
   border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.sub_check {
+  margin-top: 15px !important;
+  border-color: black !important;
+  color: black !important;
 }
