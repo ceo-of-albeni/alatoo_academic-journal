@@ -22,6 +22,7 @@
 #approve {
   background-color: rgb(27, 198, 27);
   margin-bottom: 5px;
+  border-radius: 40px;
 }
 
 #approve:hover {
@@ -30,6 +31,7 @@
 
 #decline {
   background-color: red;
+  border-radius: 40px;
 }
 
 #decline:hover {
