@@ -50,12 +50,12 @@ const Routing = () => {
     },
     {
       link: "/archive",
-      element: <ArchivePage />,
+      element: <ArchiveCategoryPage />,
       id: 7,
     },
     {
       link: "/category",
-      element: <ArchiveCategoryPage />,
+      element: <ArchivePage />,
       id: 8,
     },
     {
