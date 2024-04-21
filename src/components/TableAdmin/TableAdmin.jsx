@@ -163,18 +163,37 @@ export default function BasicTableAdmin() {
                   {row.status}
                 </TableCell>
                 <TableCell align="center">
-                  <button
-                    key={row.id}
-                    onClick={() => approveArticle(row.id)}
-                    id="approve">
-                    Payment
-                  </button>
-                  <button
-                    key={row.pages}
-                    id="decline"
-                    onClick={() => declineArticle(row.id)}>
-                    Decline
-                  </button>
+                  {row.status === "Payment" ? (
+                    <>
+                      <button
+                        key={`${row.id}-approve`}
+                        onClick={() => approveArticle(row.id)}
+                        id="approve">
+                        Approve article
+                      </button>
+                      <button
+                        key={`${row.id}-decline`}
+                        id="decline"
+                        onClick={() => declineArticle(row.id)}>
+                        Decline payment
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        key={`${row.id}-approve`}
+                        onClick={() => approveArticle(row.id)}
+                        id="approve">
+                        Approve payment
+                      </button>
+                      <button
+                        key={`${row.id}-decline`}
+                        id="decline"
+                        onClick={() => declineArticle(row.id)}>
+                        Decline article
+                      </button>
+                    </>
+                  )}
                 </TableCell>
               </TableRow>
             ))}
