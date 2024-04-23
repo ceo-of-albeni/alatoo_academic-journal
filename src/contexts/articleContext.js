@@ -33,7 +33,7 @@ function reducer(state = INIT_STATE, action) {
 const ArticleContextsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  const API = "http://localhost:3000/api";
+  const API = "http://localhost:3001/api";
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -107,7 +107,7 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
-  async function approveArticle(id) {
+  async function paymentArticle(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
@@ -117,7 +117,23 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      console.log("Approve succesfully!");
+      console.log("Payment status succesfully!");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function approveArticle(id) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const res = await fetch(`${API}/article/approve/${id}`, {
+        method: "POST",
+        headers: {
+          Authorization,
+        },
+      });
+      console.log("Approve status succesfully!");
     } catch (err) {
       console.log(err);
     }
@@ -228,11 +244,12 @@ const ArticleContextsProvider = ({ children }) => {
         getCategories,
         getAllMyArticles,
         fetchByParams,
-        approveArticle,
+        paymentArticle,
         deleteArticle,
         createCategory,
         declineArticle,
-        getAllNotPublished
+        getAllNotPublished,
+        approveArticle,
       }}>
       {children}
     </articlesContext.Provider>

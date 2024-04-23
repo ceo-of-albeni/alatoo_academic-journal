@@ -11,17 +11,32 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { authContext } from "../../contexts/authContext";
+// import { useSearchParams } from "react-router-dom";
 
 const UserProfilePage = () => {
   const { categories, getCategories, getAllMyArticles } =
     useContext(articlesContext);
   const { getOneUser, oneUser } = useContext(authContext);
 
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const [search, setSearch] = useState(searchParams.get("q") || "");
+
   useEffect(() => {
     getAllMyArticles();
     getCategories();
     getOneUser();
   }, []);
+
+  // useEffect(() => {
+  //   getAllMyArticles();
+  //   // getArticles();
+  // }, [searchParams]);
+
+  // useEffect(() => {
+  //   setSearchParams({
+  //     q: search,
+  //   });
+  // }, [search]);
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -71,7 +86,7 @@ const UserProfilePage = () => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const response = await fetch("http://localhost:3000/api/article/create", {
+      const response = await fetch("http://localhost:3001/api/article/create", {
         method: "POST",
         body: newArticle,
         headers: {
@@ -269,6 +284,13 @@ const UserProfilePage = () => {
       <div className="filtration">
         {/* <BasicDatePicker /> */}
         {/* <BasicTextFields /> */}
+        {/* <input
+          type="search"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="Search..."
+          // className={classes.sr_inp}
+        /> */}
         {/* <MultipleSelectPlaceholder /> */}
         {/* <Category /> */}
       </div>
