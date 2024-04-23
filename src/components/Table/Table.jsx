@@ -250,7 +250,12 @@ export default function BasicTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Pagination count={count} page={page} onChange={handlePage} />
+      <Pagination
+        style={{ marginTop: "40px" }}
+        count={count}
+        page={page}
+        onChange={handlePage}
+      />
     </div>
   );
 }
