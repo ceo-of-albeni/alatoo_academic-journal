@@ -42,12 +42,13 @@ export default function BasicTableAdmin() {
   const { t, i18n } = useTranslation();
   const {
     getAllNotPublished,
-    approveArticle,
+    paymentArticle,
     declineArticle,
     getCategories,
     categories,
     createCategory,
     notPublished,
+    approveArticle,
   } = useContext(articlesContext);
 
   useEffect(() => {
@@ -182,7 +183,7 @@ export default function BasicTableAdmin() {
                     <>
                       <button
                         key={`${row.id}-approve`}
-                        onClick={() => approveArticle(row.id)}
+                        onClick={() => paymentArticle(row.id)}
                         id="approve">
                         Approve payment
                       </button>
