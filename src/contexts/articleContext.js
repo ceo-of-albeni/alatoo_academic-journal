@@ -117,7 +117,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      console.log("Payment status succesfully!");
+      alert("Approved for payment! Refresh the page!");
     } catch (err) {
       console.log(err);
     }
@@ -133,7 +133,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      console.log("Approve status succesfully!");
+      alert("Article was approved! Refresh the page!");
     } catch (err) {
       console.log(err);
     }
@@ -150,7 +150,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      console.log("Decline succesfully!");
+      alert("Article was declined! Refresh the page!");
     } catch (err) {
       console.log(err);
     }
@@ -174,6 +174,7 @@ const ArticleContextsProvider = ({ children }) => {
       });
 
       console.log("Article deleted successfully:", res.data);
+      alert("Article was deleted! Refresh the page!");
     } catch (err) {
       console.error("Error deleting article:", err);
     }
