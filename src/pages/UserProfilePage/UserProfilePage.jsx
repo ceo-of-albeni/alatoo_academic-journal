@@ -81,7 +81,7 @@ const UserProfilePage = () => {
     newArticle.append("coauthors", coauthors);
     newArticle.append("coauthorsEmails", coauthorsEmails);
 
-    alert("Wait for a few seconds and refresh the page!");
+    // alert("Wait for a few seconds and refresh the page!");
 
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -106,8 +106,8 @@ const UserProfilePage = () => {
         return;
       }
 
-      console.log("Article created successfully!");
       alert("Article created successfully!");
+      window.location.reload();
     } catch (error) {
       console.error("Error during article creation:", error);
     }
