@@ -6,7 +6,6 @@ import BasicDatePicker from "../../components/DatePicker/DatePicker";
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider/Slider";
 
-
 export default function ArchiveCategoryPage() {
   const navigate = useNavigate();
 
@@ -1389,7 +1388,8 @@ export default function ArchiveCategoryPage() {
           </div>
           <div className={classes.archive__inner__1}>
             <div className={classes.years}>
-              <div className={classes.search}>
+              <br />
+              {/* <div className={classes.search}>
                 <div className={classes.filtration}>
                   <BasicDatePicker />
                 </div>
@@ -1399,7 +1399,7 @@ export default function ArchiveCategoryPage() {
                     <img src={search} alt="search" />
                   </button>
                 </form>
-              </div>
+              </div> */}
               {dropdowns.map((dropdown, index) => (
                 <div
                   key={index}
