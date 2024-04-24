@@ -13,6 +13,7 @@ import { articlesContext } from "../../contexts/articleContext";
 import "../Table/Table.scss";
 import "../TableAdmin/TableAdmin.scss";
 import { useTranslation } from "react-i18next";
+import Pagination from "@mui/material/Pagination";
 
 function createData(
   id,
@@ -56,7 +57,22 @@ export default function BasicTableAdmin() {
     getAllNotPublished();
   }, []);
 
+  const handlePage = (e, p) => {
+    setPage(p);
+  };
+
+  const itemsOnPage = 5;
+
+  const count = Math.ceil(notPublished.length / itemsOnPage);
+
+  function currentData() {
+    const begin = (page - 1) * itemsOnPage;
+    const end = begin + itemsOnPage;
+    return notPublished.slice(begin, end);
+  }
+
   const [categoryCreate, setCategoryCreate] = useState("");
+  const [page, setPage] = React.useState(1);
 
   function handleCategoryCreate() {
     if (!categoryCreate) {
@@ -89,7 +105,12 @@ export default function BasicTableAdmin() {
   );
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}>
       <div className="admin_article-categoty_main">
         <div className="article_form" id="article_div">
           <h4>{t("tableadmin.category3")}</h4>
@@ -143,7 +164,7 @@ export default function BasicTableAdmin() {
             </TableRow>
           </TableHead>
           <TableBody className="tableBody">
-            {rows.map(row => (
+            {currentData().map(row => (
               <TableRow
                 key={row.id}
                 height="60px"
@@ -201,6 +222,12 @@ export default function BasicTableAdmin() {
           </TableBody>
         </Table>
       </TableContainer>
+      <Pagination
+        style={{ marginTop: "40px" }}
+        count={count}
+        page={page}
+        onChange={handlePage}
+      />
     </div>
   );
 }
