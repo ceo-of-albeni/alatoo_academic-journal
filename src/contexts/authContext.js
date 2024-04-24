@@ -86,6 +86,7 @@ const AuthContextProvider = ({ children }) => {
       closeModal();
 
       navigate("/");
+      window.location.reload();
     } catch (err) {
       console.log(err);
       setError(err);
