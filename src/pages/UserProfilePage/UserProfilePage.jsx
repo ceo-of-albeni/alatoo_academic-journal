@@ -2,10 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 import "./UserProfilePage.scss";
 import DataTable from "../../components/Table/Table";
 import BasicDatePicker from "../../components/DatePicker/DatePicker";
-import BasicTextFields from "../../components/Search/Search";
 import MultipleSelectPlaceholder from "../../components/StatusDrop/Status";
 import Category from "../../components/Category/Category";
-import PaginationControlled from "../../components/Pagination/PaginationTable";
 import { articlesContext } from "../../contexts/articleContext";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -283,7 +281,6 @@ const UserProfilePage = () => {
 
       <div className="filtration">
         {/* <BasicDatePicker /> */}
-        {/* <BasicTextFields /> */}
         {/* <input
           type="search"
           value={search}
@@ -295,7 +292,6 @@ const UserProfilePage = () => {
         {/* <Category /> */}
       </div>
       <DataTable user={oneUser} id={oneUser?.id} />
-      {/* <PaginationControlled /> */}
     </div>
   );
 };

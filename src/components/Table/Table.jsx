@@ -60,7 +60,6 @@ export default function BasicTable() {
 
   React.useEffect(() => {
     getAllMyArticles();
-    // getArticles();
   }, [searchParams]);
 
   React.useEffect(() => {
@@ -133,7 +132,7 @@ export default function BasicTable() {
       createData(
         item.id,
         item.title,
-        item.createdAt.slice(0, 10),
+        item.createdAt,
         item.coauthors,
         item.pageCount,
         item.category,
@@ -234,7 +233,9 @@ export default function BasicTable() {
                     {row.title}
                   </a>
                 </TableCell>
-                <TableCell align="center">{row.createdAt}</TableCell>
+                <TableCell align="center">
+                  {row.createdAt.slice(0, 10)}
+                </TableCell>
                 <TableCell align="center">{row.coauthors}</TableCell>
                 <TableCell align="center">{row.pages}</TableCell>
                 <TableCell align="center">{row.category.name}</TableCell>
