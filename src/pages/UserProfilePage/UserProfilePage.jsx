@@ -9,9 +9,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { authContext } from "../../contexts/authContext";
+import { useTranslation } from 'react-i18next';
 // import { useSearchParams } from "react-router-dom";
 
 const UserProfilePage = () => {
+  const { t, i18n } = useTranslation();
   const { categories, getCategories, getAllMyArticles } =
     useContext(articlesContext);
   const { getOneUser, oneUser } = useContext(authContext);
@@ -148,17 +150,17 @@ const UserProfilePage = () => {
           />
           <div className="profile_main-info">
             <p>
-              <strong>First Name: </strong> {oneUser?.firstName}
+              <strong>{t('userprofilepage.firstname')}</strong> {oneUser?.firstName}
             </p>
 
             <p>
-              <strong>Last Name: </strong> {oneUser?.lastName}
+              <strong>{t('userprofilepage.lastname')}</strong> {oneUser?.lastName}
             </p>
             <p>
-              <strong>Position: </strong> {oneUser?.role}
+              <strong>{t('userprofilepage.position')}</strong> {oneUser?.role}
             </p>
             <p>
-              <strong>Email: </strong> {oneUser?.email}
+              <strong>{t('userprofilepage.email')}</strong> {oneUser?.email}
             </p>
           </div>
           {/* <p className="edit_prof">Edit Profile</p> */}
@@ -166,18 +168,18 @@ const UserProfilePage = () => {
 
         {openArticle && (
           <div className="article_form" id="article_div">
-            <h4>ARTICLE</h4>
+            <h4>{t('tableadmin.title')}</h4>
             <div className="article_form-inputs">
               <div className="short_inp">
-                <p className="input_p">Article title*</p>
+                <p className="input_p">{t('tableadmin.article_title')}</p>
                 <input
                   className="text_input"
-                  placeholder="Click and start typing"
+                  placeholder={t('tableadmin.ph')}
                   type="text"
                   value={title}
                   onChange={e => setTitle(e.target.value)}
                 />
-                <p className="input_p">Category*</p>
+                <p className="input_p">{t('tableadmin.category')}</p>
                 <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
                   <Select
                     className="text_input max_mb"
@@ -191,7 +193,7 @@ const UserProfilePage = () => {
                     inputProps={{ "aria-label": "Without label" }}>
                     <MenuItem value="">
                       <p style={{ color: "lightgrey", marginBottom: "0px" }}>
-                        Category
+                        {t('tableadmin.category2')}
                       </p>
                     </MenuItem>
                     {categories ? (
@@ -201,12 +203,12 @@ const UserProfilePage = () => {
                         </MenuItem>
                       ))
                     ) : (
-                      <h3>Loading...</h3>
+                      <h3>{t('tableadmin.loading')}</h3>
                     )}
                   </Select>
                 </FormControl>
                 <p className="input_p">
-                  Full name of each author of the article*
+                  {t('tableadmin.author')}
                 </p>
                 <input
                   className="text_input"
@@ -216,16 +218,16 @@ const UserProfilePage = () => {
                   onChange={e => setCoauthors(e.target.value)}
                 />
 
-                <p className="input_p">Email of each author of the article*</p>
+                <p className="input_p">{t('tableadmin.email')}</p>
                 <input
                   className="text_input"
-                  placeholder="Click and start typing"
+                  placeholder={t('tableadmin.ph')}
                   type="text"
                   value={coauthorsEmails}
                   onChange={e => setCoauthorsEmails(e.target.value)}
                 />
 
-                <p className="input_p">Article file*</p>
+                <p className="input_p">{t('tableadmin.file')}</p>
                 <label className="custom-file-upload">
                   <input
                     type="file"
@@ -255,10 +257,10 @@ const UserProfilePage = () => {
                   </svg>
                 </label> */}
 
-                <p className="input_p input_p-text">Text*</p>
+                <p className="input_p input_p-text">{t('tableadmin.text')}</p>
                 <input
                   className="text_input"
-                  placeholder="Click and start typing"
+                  placeholder={t('tableadmin.ph')}
                   type="text"
                   value={text}
                   onChange={e => setText(e.target.value)}
@@ -266,9 +268,9 @@ const UserProfilePage = () => {
               </div>
 
               <br />
-              <button onClick={handleUpload}>Next</button>
+              <button onClick={handleUpload}>{t('userprofilepage.next')}</button>
               <p id="clear_all" onClick={clearAll}>
-                Clear all
+                {t('userprofilepage.clear')}
               </p>
               {/* <div>
                 <input type="checkbox" /> By submitting this form, you agree to
