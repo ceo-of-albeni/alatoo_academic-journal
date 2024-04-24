@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
+import { useTranslation } from "react-i18next";
 
 const style = {
   position: "absolute",
@@ -41,6 +42,7 @@ function createData(
 }
 
 export default function BasicTable() {
+  const { t, i18n } = useTranslation();
   const { getAllMyArticles, my_articles } = React.useContext(articlesContext);
 
   const [open, setOpen] = React.useState(false);
@@ -163,7 +165,7 @@ export default function BasicTable() {
           aria-describedby="modal-modal-description">
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Check
+              {t("table.check")}
             </Typography>
             <label className="custom-file-upload">
               <input
@@ -201,22 +203,22 @@ export default function BasicTable() {
                 <strong>Nº</strong>
               </TableCell>
               <TableCell width="350px" align="center">
-                <strong>Title</strong>
+                <strong>{t("table.title")}</strong>
               </TableCell>
               <TableCell width="110px" align="center">
-                <strong>Date</strong>
+                <strong>{t("table.date")}</strong>
               </TableCell>
               <TableCell width="150px" align="center">
-                <strong>Author</strong>
+                <strong>{t("table.author")}</strong>
               </TableCell>
               <TableCell width="80px" align="center">
-                <strong>Pages</strong>
+                <strong>{t("table.pages")}</strong>
               </TableCell>
               <TableCell width="180px" align="center">
-                <strong>Category</strong>
+                <strong>{t("table.category")}</strong>
               </TableCell>
               <TableCell width="90px" align="center">
-                <strong>Status</strong>
+                <strong>{t("table.status")}</strong>
               </TableCell>
             </TableRow>
           </TableHead>
