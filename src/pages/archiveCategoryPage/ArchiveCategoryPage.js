@@ -6,6 +6,7 @@ import BasicDatePicker from "../../components/DatePicker/DatePicker";
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider/Slider";
 
+
 export default function ArchiveCategoryPage() {
   const navigate = useNavigate();
 
