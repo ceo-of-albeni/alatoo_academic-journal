@@ -31,40 +31,40 @@ i18n
 export { i18n };
 
 const App = () => {
-  // const [serverStatus, setServerStatus] = useState(false);
+  const [serverStatus, setServerStatus] = useState(true);
 
-  // useEffect(() => {
-  //   const checkServerStatus = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:3000/api/user");
-  //       if (response.ok) {
-  //         setServerStatus(true);
-  //       } else {
-  //         throw new Error("Server is not responding");
-  //       }
-  //     } catch (error) {
-  //       setServerStatus(false);
-  //       console.error("Error checking server status:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const checkServerStatus = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/api/user");
+        if (response.ok) {
+          setServerStatus(true);
+        } else {
+          throw new Error("Server is not responding");
+        }
+      } catch (error) {
+        setServerStatus(false);
+        console.error("Error checking server status:", error);
+      }
+    };
 
-  //   checkServerStatus();
-  // }, []);
+    setTimeout(checkServerStatus, 10);
+  }, []);
 
   return (
     <>
       <ArchiveContextsProvider>
         <ArticleContextsProvider>
           <AuthContextProvider>
-            {/* {serverStatus ? (
-            <> */}
-            <Navbar />
-            <Routing />
-            <Footer />
-            {/* </>
-          ) : (
-            <p>no respond</p>
-           )} */}
+            {serverStatus ? (
+              <>
+                <Navbar />
+                <Routing />
+                <Footer />
+              </>
+            ) : (
+              <p>500 ERROR, SERVER IS NOT RESPONDING</p>
+            )}
           </AuthContextProvider>
         </ArticleContextsProvider>
       </ArchiveContextsProvider>
