@@ -183,6 +183,7 @@
         "ph": "Search article title or author"
     },
     "status": {
+        "status": "Status",
         "10": "Declined",
         "20": "Pending",
         "40": "Published",
@@ -203,6 +204,7 @@
         "ph": "Click to start typing",
         "category": "Category*",
         "category2": "Category",
+        "category3": "CATEGORY",
         "loading": "Loading...",
         "author": "Full name of each author of the article*",
         "email": "Email of each author of the article*",
@@ -212,11 +214,19 @@
         "file": "Article file*",
         "text": "Text*",
         "button": "Upload",
-        "add": "Category to add*"
+        "add": "Category to add*",
+        "apr_arc": "Approve article",
+        "dec_pay": "Decline payment",
+        "apr_pay": "Approve payment",
+        "dec_arc": "Decline article"
     },
     "userprofilepage": {
         "next": "Next",
-        "clear": "Clear all"
+        "clear": "Clear all",
+        "firstname": "First Name: ",
+        "lastname": "Last Name: ",
+        "position": "Position: ",
+        "email": "Email: "
     },
     "archivepage": {
         "back": "Back",

@@ -113,7 +113,7 @@ export default function BasicTableAdmin() {
       }}>
       <div className="admin_article-categoty_main">
         <div className="article_form" id="article_div">
-          <h4>CATEGORY</h4>
+          <h4>{t("tableadmin.category3")}</h4>
           <div className="article_form-inputs">
             <div className="short_inp">
               <p className="input_p">{t("tableadmin.add")}</p>
@@ -191,13 +191,13 @@ export default function BasicTableAdmin() {
                         key={`${row.id}-approve`}
                         onClick={() => approveArticle(row.id)}
                         id="approve">
-                        Approve article
+                        {t('tableadmin.apr_arc')}
                       </button>
                       <button
                         key={`${row.id}-decline`}
                         id="decline"
                         onClick={() => declineArticle(row.id)}>
-                        Decline payment
+                        {t('tableadmin.dec_pay')}
                       </button>
                     </>
                   ) : (
@@ -206,13 +206,13 @@ export default function BasicTableAdmin() {
                         key={`${row.id}-approve`}
                         onClick={() => paymentArticle(row.id)}
                         id="approve">
-                        Approve payment
+                        {t('tableadmin.apr_pay')}
                       </button>
                       <button
                         key={`${row.id}-decline`}
                         id="decline"
                         onClick={() => declineArticle(row.id)}>
-                        Decline article
+                        {t('tableadmin.dec_arc')}
                       </button>
                     </>
                   )}

@@ -24,7 +24,7 @@ export default function SelectLabels() {
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}>
           <MenuItem value="">
-            <p style={{ color: "lightgrey", marginBottom: "0px" }}>Status</p>
+            <p style={{ color: "lightgrey", marginBottom: "0px" }}>{t('status.status')}</p>
           </MenuItem>
           <MenuItem value={10}>{t('status.10')}</MenuItem>
           <MenuItem value={20}>{t('status.20')}</MenuItem>

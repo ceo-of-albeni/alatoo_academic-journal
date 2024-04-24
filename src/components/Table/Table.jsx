@@ -165,7 +165,7 @@ export default function BasicTable() {
           aria-describedby="modal-modal-description">
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              {t("table.check")}
+              {t('table.check')}
             </Typography>
             <label className="custom-file-upload">
               <input
