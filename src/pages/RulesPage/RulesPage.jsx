@@ -13,7 +13,7 @@ const RulesPage = () => {
       <p>
         {" "}
         <span>{t('rules_page1.intro1')}</span>
-        <span><br />{t('rules_page1.intro2')}</span>
+        <span>{t('rules_page1.intro2')}</span>
       </p>
       <h4>{t('rules_page1.structure')}</h4>
       <ul className="rules_list">
