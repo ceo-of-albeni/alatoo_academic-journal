@@ -8,11 +8,13 @@ const RulesPage2 = () => {
   return (
     <div className="rules_main-div">
       <h3>{t('rules_page2.title')}</h3>
-      <p>{t('rules_page2.1.1')}</p>
+      <div style={{alignSelf: 'start', fontWeight: 'bold'}}>
+        <p>{t('rules_page2.1.1')}</p>
+      </div>
       <h3>
         КЫРГЫЗ СҮРӨТ ИСКУССТВОСУНУН УЛУТТУК ЖАНА БӨТӨН УЛУТТУК ПРОБЛЕМАЛАРЫ
         <br />
-        Асылбекова Венера Мамановна
+        <i style={{fontFamily: 'italic', fontSize: "23px"}}>Асылбекова Венера Мамановна</i>
       </h3>
       {/* <h4>Асылбекова Венера Мамановна</h4> */}
       <p className="center_text">
@@ -42,8 +44,8 @@ const RulesPage2 = () => {
         искусствосунун улуттук жана бөтөн улуттук проблемалары практикалык
         процесстерде эксперименталдык метод катары аткарылып, ошентсе да, кыргыз
         сүрөтчүлөрүнүн оригиналдуулугу сакталып, алардын чыгармачылыгында
-        тематикаларында улуттук өзгөчөлүк көрүнүп турду. Ачкыч сөздөр: көркөм
-        маданият, кыргыз сүрөт искусствосу, тарых, искусство, улуттук өзгочолүк,
+        тематикаларында улуттук өзгөчөлүк көрүнүп турду.</span>
+        <span><b>Ачкыч сөздөр:</b> көркөм маданият, кыргыз сүрөт искусствосу, тарых, искусство, улуттук өзгочолүк,
         руханият, заманбап искусство, арт практика.</span>
       </p>
       <h3>
@@ -51,10 +53,8 @@ const RulesPage2 = () => {
       </h3>
       <h4>{t('rules_page2.title3')}</h4>
       <p>
-        {" "}
-        <span>{t('rules_page2.abstract')}
-        <br />
-        <br /> <strong>{t('rules_page2.keyword')}</strong>{t('rules_page2.keywords')}</span>
+        <span>{t('rules_page2.abstract')}</span>
+        <span><strong>{t('rules_page2.keyword')}</strong>{t('rules_page2.keywords')}</span>
       </p>
 
       <Pagination />

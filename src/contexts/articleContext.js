@@ -33,7 +33,7 @@ function reducer(state = INIT_STATE, action) {
 const ArticleContextsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  const API = "http://localhost:3001/api";
+  const API = "http://localhost:3000/api";
 
   const location = useLocation();
   const navigate = useNavigate();

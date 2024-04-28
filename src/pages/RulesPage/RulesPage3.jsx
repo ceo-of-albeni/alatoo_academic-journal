@@ -12,30 +12,24 @@ const RulesPage3 = () => {
       <h4>{t('rules_page3.title3')}</h4>
       <p>
         <span>{t('rules_page3.abstract')}</span>
+        <span><strong>{t('rules_page3.keyword')}</strong>{t('rules_page3.keywords')}</span>
         <br />
-        <br />
-        <strong>{t('rules_page3.keyword')}</strong>
-        {t('rules_page3.keywords')}
-        <br />
-        <strong>{t('rules_page3.main')}</strong>
-        Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        xxxxxxxxxxxxxxxx
-        <br />
-        <strong>{t('rules_page3.list')}</strong>
-        <br />
-        1. Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        <br />
-        2. Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        <span><strong>{t('rules_page3.main')}</strong></span>
+        <span>Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        xxxxxxxxxxxxxxxx</span>
+        <span><strong>{t('rules_page3.list')}</strong></span>
+        <span>1. Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+        <span>2. Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
       </p>
       <h4>{t('rules_page3.title4')}</h4>
       <h4>{t('rules_page3.title5')}</h4>
       <p>
-        <br/>{t('rules_page3.5.1')}
-        <br /> {t('rules_page3.5.2')} <br /> {t('rules_page3.5.3')} <br /> {t('rules_page3.5.4')} <br /> {t('rules_page3.5.5')} <br /> {t('rules_page3.5.6')}
+        {t('rules_page3.5.1')}
+        <br />{t('rules_page3.5.2')} <br /> {t('rules_page3.5.3')} <br /> {t('rules_page3.5.4')} <br /> {t('rules_page3.5.5')} <br /> {t('rules_page3.5.6')}
       </p>
       <h4>{t('rules_page3.title6')}</h4>
       <p>
-        <br/>{t('rules_page3.6.1')} <br /> {t('rules_page3.6.2')} <br /> {t('rules_page3.6.3')} <br /> {t('rules_page3.6.4')}
+        {t('rules_page3.6.1')} <br /> {t('rules_page3.6.2')} <br /> {t('rules_page3.6.3')} <br /> {t('rules_page3.6.4')}
       </p>
       <h4>{t('rules_page3.title7')}</h4>
       <p>

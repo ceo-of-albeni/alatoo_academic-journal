@@ -15,26 +15,17 @@ const RulesPage4 = () => {
         {t('rules_page4.2.4')} <br /> <br /> {t('rules_page4.2.5')}
       </p>
       <h4>{t('rules_page4.title3')}</h4>
+      <p>{t('rules_page4.3.1')} <br /> {t('rules_page4.3.2')} <br /> {t('rules_page4.3.3')} <br />{" "}</p>
       <p>
-        {t('rules_page4.3.1')} <br /> {t('rules_page4.3.2')} <br /> {t('rules_page4.3.3')} <br /> <br />{" "}
-        <strong>{t('rules_page4.title4')}</strong>
+        <span><strong>{t('rules_page4.title4')}</strong></span>
+        <span>{t('rules_page4.4.1')}</span>
+        <span>{t('rules_page4.4.2')}</span>
+        <span>{t('rules_page4.4.3')}</span>
+        <span>{t('rules_page4.4.4')}</span>
+        <span><strong>{t('rules_page4.title5')}</strong> {t('rules_page4.5.1')}<strong>{t('rules_page4.5.2')}</strong>{" "}</span>
         <br />
-        {t('rules_page4.4.1')} <br /> <br /> {t('rules_page4.4.2')} <br /> {t('rules_page4.4.3')} <br /> {t('rules_page4.4.4')}
-        <br />
-        <br />
-        <strong>{t('rules_page4.title5')}</strong> {t('rules_page4.5.1')}
-        <strong>
-          {t('rules_page4.5.2')}
-        </strong>{" "}
-        <br />
-        <br />
-        <strong>
-          {t('rules_page4.title6')}{" "}
-          <span className="blue_text">{t('rules_page4.6.1')}</span>;
-        </strong>
+        <span><strong>{t('rules_page4.title6')} <span className="blue_text">{t('rules_page4.6.1')}</span></strong></span>
       </p>
-      <br />
-      {/* <br /> */}
       <h4 className="blue_text">{t('rules_page4.title7')}</h4>
       <p>
         <strong>{t('rules_page4.7.1')}</strong>
