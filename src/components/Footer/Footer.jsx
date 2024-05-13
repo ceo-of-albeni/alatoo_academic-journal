@@ -52,7 +52,7 @@ const Footer = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
+          <Button onClick={handleClose}>{t('footer.close')}</Button>
         </DialogActions>
       </Dialog>
 

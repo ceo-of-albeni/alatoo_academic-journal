@@ -1,4 +1,5 @@
 {
+    "En": "En",
     "home": {
         "title": "Alatoo Academic Journal",
         "description": "We eagerly await your fascinating research!",
@@ -87,7 +88,8 @@
         "office": "Registration Office:",
         "office_room": "Ala-Too International University (A-Block), 107 room",
         "address2": "Address: Ankara Street 1/8, Tunguch, 720048, Bishkek, Kyrgyz Republic",
-        "tel2": "Tel: +996 (312) 630407"
+        "tel2": "Tel: +996 (312) 630407",
+        "close": "Close"
     },
     "rules_page1": {
         "rules": "RULES FOR AUTHORS",
