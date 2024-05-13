@@ -7,11 +7,13 @@ import ArticleContextsProvider from "./contexts/articleContext";
 import ArchiveContextsProvider from "./contexts/archiveContext";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import LanguageDetector from 'i18next-browser-languagedetector';
 import translationEN from "./locales/en/translation.json";
 import translationRU from "./locales/ru/translation.json";
 
 i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
+  .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
     resources: {
       en: {
@@ -21,10 +23,13 @@ i18n
         translation: translationRU,
       },
     },
-    lng: "en", // default language
-    fallbackLng: "en", // fallback language
+    fallbackLng: 'en', // Fallback language
+    detection: {
+      order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+      caches: ['localStorage', 'cookie'],
+    },
     interpolation: {
-      escapeValue: false, // not needed for React
+      escapeValue: false, // Not needed for React
     },
   });
 

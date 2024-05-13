@@ -46,8 +46,8 @@ const Navabr = ({ closeModal }) => {
         <div className="header_inner">
           <div>
             <select className="change_lang" onChange={handleChangeLanguage}>
-              <option value="en">En</option>
-              <option value="ru">Ru</option>
+              <option value="en">{t('En')}</option>
+              <option value="ru">{t('Ru')}</option>
             </select>
           </div>
           <div className="header_links">
