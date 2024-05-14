@@ -241,14 +241,19 @@
         "title2": "Founder:",
         "title3": "Ala-Too International University",
         "title4": "The journal",
-        "4.content": "\"Alatoo Academic Studies\" is included in the List of peer-reviewed periodicals recommended by the Higher Attestation Commission of the Kyrgyz Republic (HAC KR) (Order No. 2 of February 12, 2008)",
+        "4.content": "\"Alatoo Academic Studies\" is included in the List of peer-reviewed periodicals recommended by the Higher Attestation Commission of the Kyrgyz Republic (HAC KG) (Order No. 2 of February 12, 2008)",
         "version1": "(printed version)",
         "version2": "(electronic version)",
         "title5": "Editorial address:",
         "address": "720048, Kyrgyz Republic, Bishkek, microdistrict. Tunguch, st. Ankara, 1/8",
         "tel": "Tel.: ",
         "fax": "Fax.: ",
-        "board": "JOURNAL EDITORIAL BOARD"
+        "board": "JOURNAL EDITORIAL BOARD",
+        "name": "Sanzharbek Erdolatov – ",
+        "description": "editor-in-chief, rector of the International University “Ala-Too”, candidate of pedagogical sciences;",
+        "name2": "Salidin Kaldybaev – ",
+        "description2": "deputy Ch. editor, Doctor of Pedagogical Sciences, Professor of AIU (pedagogy);",
+        "name3": "Zeki Pektash – "
     },
     "ethicspage": {
         "content": "The editorial board of the scientific journal Alatoo Academic Studies is guided in its work by the international ethical rules of scientific publications, including the rules of decency, confidentiality, supervision of publications, consideration of possible conflicts of interest, etc. Alatoo Academic Studies is committed to objective and fair double-blind peer-review of the submitted works. In its activities, the editors follow the recommendations of the Committee on Publication Ethics and, in particular, the Ethical Resource Kit (Publishing Ethics Resource Kit) of Elsevier.",
