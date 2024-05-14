@@ -5,9 +5,11 @@ import search from "./img/search.svg";
 import BasicDatePicker from "../../components/DatePicker/DatePicker";
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider/Slider";
+import { useTranslation } from "react-i18next";
 
 export default function ArchiveCategoryPage() {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   const dropdowns = [
     {
@@ -1383,7 +1385,7 @@ export default function ArchiveCategoryPage() {
           <div className={classes.back}>
             <a onClick={() => navigate("/archive")}>
               <img src={arrow} alt="arrow" />
-              <p>Back</p>
+              <p>{t('archivepage.back')}</p>
             </a>
           </div>
           <div className={classes.archive__inner__1}>
@@ -1446,40 +1448,36 @@ export default function ArchiveCategoryPage() {
                 <Slider />
               </div>
               <div className={classes.text}>
-                <h3>Ежеквартальный научный журнал</h3>
+                <h3>{t('archivepage.title')}</h3>
                 <div className={classes.text1}>
-                  <p>Учредитель:</p>
-                  <p>Международный университет Ала-Тоо</p>
+                  <p>{t('archivepage.title2')}</p>
+                  <p>{t('archivepage.title3')}</p>
                 </div>
                 <div className={classes.text2}>
                   <p>
-                    <b>Журнал</b> «Alatoo Academic Studies» включен в Перечень
-                    рекомендованных Высшей аттестационной комиссией Кыргызской
-                    Республики (ВАК КР) рецензируемых периодических изданий
-                    (Приказ № 2 от 12 февраля 2008 г.)
+                    <b>{t('archivepage.title4')}</b> {t('archivepage.4.content')}
                   </p>
                 </div>
                 <div className={classes.text3}>
                   <p>
-                    ISSN: 1694-5263 <span>(печатная версия)</span>
+                    ISSN: 1694-5263 <span>{t('archivepage.version1')}</span>
                   </p>
                   <p>
-                    ISSN: 1694-7916 <span>(электронная версия)</span>
+                    ISSN: 1694-7916 <span>{t('archivepage.version2')}</span>
                   </p>
                 </div>
                 <div className={classes.text4}>
                   <p>
-                    <b>Адрес редакции:</b>
+                    <b>{t('archivepage.title5')}</b>
                   </p>
                   <p>
-                    720048, Кыргызская Республика, г. Бишкек, мкр. Тунгуч, ул.
-                    Анкара, 1/8
+                  {t('archivepage.address')}
                   </p>
                   <p>
-                    <b>тел.: </b>+996 (312) 63 14 25
+                    <b>{t('archivepage.tel')}</b>+996 (312) 63 14 25
                   </p>
                   <p>
-                    <b>факс: </b>+996(312) 630409
+                    <b>{t('archivepage.fax')}</b>+996(312) 630409
                   </p>
                   <p>
                     <b>Е-mail: </b>aas@iaau.edu.kg
@@ -1487,18 +1485,16 @@ export default function ArchiveCategoryPage() {
                 </div>
                 <div className={classes.text5}>
                   <p>
-                    <b>РЕДАКЦИОННЫЙ СОВЕТ ЖУРНАЛА</b>
+                    <b>{t('archivepage.board')}</b>
                   </p>
                   <p>
-                    <b>Санжарбек Эрдолатов – </b>главный редактор, ректор
-                    Международного университета «Ала-Тоо», канд.пед.наук;
+                    <b>{t('archivepage.name')}</b>{t('archivepage.description')}
                   </p>
                   <p>
-                    <b>Салидин Калдыбаев – </b>зам. гл. редактора, д-р пед.наук,
-                    профессор МУА (педагогика);
+                    <b>{t('archivepage.name2')}</b>{t('archivepage.description2')}
                   </p>
                   <p>
-                    <b>Зеки Пекташ – </b>aas@iaau.edu.kg
+                    <b>{t('archivepage.name3')}</b>aas@iaau.edu.kg
                   </p>
                 </div>
               </div>
