@@ -21,7 +21,7 @@
   background-color: white;
   color: rgb(48, 33, 126);
   border: 1px solid black;
-  box-shadow: 0px 0px 17px 0px;
+  box-shadow: 0px 0px 5px 0px;
 }
 
 .confirm input {
@@ -30,14 +30,13 @@
   width: 279px;
   height: 51px;
   padding: 16px 20px;
-  color: #7a7f82;
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
   border-radius: 8px;
   border: 1px solid black;
   margin-bottom: 22px;
-  color: #b3b2b2;
+  color: black;
 }
 .confirm form {
   display: flex;

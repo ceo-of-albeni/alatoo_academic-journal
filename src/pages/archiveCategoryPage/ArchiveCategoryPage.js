@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./ArchiveCategoryPage.module.scss";
 import arrow from "./img/arrow.svg";
 import search from "./img/search.svg";
@@ -347,7 +347,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/yiLRpvLycl42MGQxh0fN",
             },
             {
-              name: "ФИЛОСОФИЯ_ИСТОРИЯ_ЖУРНАЛИСТИКА_ЭКОЛОГИЯ",
+              name: "ФИЛОСОФИЯ ИСТОРИЯ ЖУРНАЛИСТИКА ЭКОЛОГИЯ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/Mfs3NC9q4FatA6bEqdUG",
             },
@@ -399,7 +399,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/pAvgTTZfoIvf6sNORvGv",
             },
             {
-              name: "ЖУРНАЛИСТИКА_ИСТОРИЯ_ФИЛОСОФИЯ",
+              name: "ЖУРНАЛИСТИКА ИСТОРИЯ ФИЛОСОФИЯ",
               count: 4,
               link: "https://aas.alatoo.edu.kg/article/fNjPKqxalltzWpyLtxDv",
             },
@@ -439,7 +439,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/w1NGIyzC6cflvGRWC8AE",
             },
             {
-              name: "СЕЛЬСКОХОЗЯЙСТВЕННЫЕ_НАУКИ",
+              name: "СЕЛЬСКОХОЗЯЙСТВЕННЫЕ НАУКИ",
               count: 16,
               link: "https://aas.alatoo.edu.kg/article/LRjt5n6lpB0bR7rVl9Y2",
             },
@@ -476,7 +476,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/1MzXk4stwyIcj6DsFDAz",
             },
             {
-              name: "ИСТОРИЯ_ФИЛОСОФИЯ_КУЛЬТУРОЛОГИЯ_СОЦИОЛОГИЯ",
+              name: "ИСТОРИЯ ФИЛОСОФИЯ КУЛЬТУРОЛОГИЯ СОЦИОЛОГИЯ",
               count: 16,
               link: "https://aas.alatoo.edu.kg/article/LpvvoXff4BB8dC3xFvffvRjt5n6lpB0bR7rVl9Y2",
             },
@@ -594,7 +594,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/zKElOl61E1up8XWweTNp",
             },
             {
-              name: "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ",
+              name: "ГОСУДАРСТВО И ПРАВО ЮРИДИЧЕСКИЕ",
               count: 10,
               link: "ГОСУДАРСТВО И ПРАВО. ЮРИДИЧЕСКИЕ НАУКИ",
             },
@@ -616,7 +616,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/xIe3dqzXSifIF9aran6S",
             },
             {
-              name: "ИСТОРИЧЕСКИЕ_НАУКИ",
+              name: "ИСТОРИЧЕСКИЕ НАУКИ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/bgiUfomsREWVcctCoJPU",
             },
@@ -626,7 +626,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/5LfhKiaqL67zJWkRMJu2",
             },
             {
-              name: "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ",
+              name: "ГОСУДАРСТВО И ПРАВО ЮРИДИЧЕСКИЕ НАУКИ",
               count: 16,
               link: "https://aas.alatoo.edu.kg/article/052AuIMFSclQ3xjI91V2",
             },
@@ -638,7 +638,7 @@ export default function ArchiveCategoryPage() {
             "https://drive.google.com/file/d/16bFPRZHPr0ePq7Ht_6rd6prn14ko2kbx/view",
           categories: [
             {
-              name: "ЮРИДИЧЕСКИЕ_НАУКИ",
+              name: "ЮРИДИЧЕСКИЕ НАУКИ",
               count: 16,
               link: "https://aas.alatoo.edu.kg/article/NrUGpSrD2KAtcKHSVCgv",
             },
@@ -658,7 +658,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/L0UscpnViCfv99y93VX1",
             },
             {
-              name: "ИСТОРИЧЕСКИЕ_НАУКИ",
+              name: "ИСТОРИЧЕСКИЕ НАУКИ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/L3IgjrJ9Uzx1xkplLH6H",
             },
@@ -670,7 +670,7 @@ export default function ArchiveCategoryPage() {
             "https://drive.google.com/file/d/1M1su_cLiur8sASUUMGninOrxjGu-0w_W/view",
           categories: [
             {
-              name: "ЮРИДИЧЕСКИЕ_НАУКИ",
+              name: "ЮРИДИЧЕСКИЕ НАУКИ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/nT12ZymgNGoDXYd65Zv0",
             },
@@ -770,7 +770,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/08Q6taSxdinYfb7La5aD",
             },
             {
-              name: "ФИЛОСОФИЯ_ИСТОРИЯ_ПОЛИТОЛОГИЯ",
+              name: "ФИЛОСОФИЯ ИСТОРИЯ ПОЛИТОЛОГИЯ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/qU0UlNhBuwBtBr2eZyy0",
             },
@@ -817,7 +817,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/QIcytUCuz2NEuKt0lUEs",
             },
             {
-              name: "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ",
+              name: "ГОСУДАРСТВО И ПРАВО ЮРИДИЧЕСКИЕ НАУКИ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/TbDgfoWjaMFzZKBlmBAR",
             },
@@ -854,7 +854,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/0lRgV09b4zK5hJMEOdyB",
             },
             {
-              name: "ГОСУДАРСТВО_И_ПРАВО_ЮРИДИЧЕСКИЕ_НАУКИ",
+              name: "ГОСУДАРСТВО И ПРАВО ЮРИДИЧЕСКИЕ НАУКИ",
               count: 16,
               link: "https://aas.alatoo.edu.kg/article/okYEH1LLyFfayl0brrcT",
             },
@@ -944,7 +944,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/zozD699kw1GDOeMQoaJq",
             },
             {
-              name: "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО",
+              name: "ГЕОЛОГИЯ ЭКОЛОГИЯ И СЕЛЬСКОЕ ХОЗЯЙСТВО",
               count: 20,
               link: "https://aas.alatoo.edu.kg/article/7r35XGWwHx5WpDpVIHEg",
             },
@@ -991,7 +991,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/mZNxTJBBDp0qllJutnRT",
             },
             {
-              name: "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО",
+              name: "ГЕОЛОГИЯ ЭКОЛОГИЯ И СЕЛЬСКОЕ ХОЗЯЙСТВО",
               count: 16,
               link: "https://aas.alatoo.edu.kg/article/JCd3gA9IyhPq2vJqklfq",
             },
@@ -1076,7 +1076,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/Maqr3YzqFKlRGDseAXid",
             },
             {
-              name: "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО",
+              name: "ГЕОЛОГИЯ ЭКОЛОГИЯ И СЕЛЬСКОЕ ХОЗЯЙСТВО",
               count: 20,
               link: "https://aas.alatoo.edu.kg/article/IGNksOAnAiakED6Cov0Z",
             },
@@ -1113,7 +1113,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/HHQWKG8RqAHyzeeA1nWt",
             },
             {
-              name: "ГЕОЛОГИЯ_ЭКОЛОГИЯ_И_СЕЛЬСКОЕ_ХОЗЯЙСТВО",
+              name: "ГЕОЛОГИЯ ЭКОЛОГИЯ И СЕЛЬСКОЕ ХОЗЯЙСТВО",
               count: 20,
               link: "https://aas.alatoo.edu.kg/article/SxPlV8E6xkBp51NXz6vN",
             },
@@ -1403,9 +1403,7 @@ export default function ArchiveCategoryPage() {
               {dropdowns.map((dropdown, index) => (
                 <div
                   key={index}
-                  className={`${
-                    openSubs[index] ? "" : classes.sub__menu__end
-                  }`}>
+                  className={`${openSubs[index] ? "" : classes.sub__menu__end}`}>
                   <div
                     className={`${classes.year} ${
                       openSubs[index] ? classes.rotate : classes.rotate__end
@@ -1424,16 +1422,15 @@ export default function ArchiveCategoryPage() {
                     }>
                     {dropdown.releases.map((release, releaseIndex) => (
                       <div key={releaseIndex} className={classes.release}>
-                        <a
-                          href={release.tomLink}
+                        <p
                           className={classes.release_link_a}>
                           Выпуск № {release.name}
-                        </a>
+                        </p>
                         <ul className={classes.sub__menu2}>
                           {release.categories.map((category, categoryIndex) => (
                             <li key={categoryIndex}>
                               <a href={category.link}>
-                                {category.name} <span>({category.count})</span>
+                                {category.name} {/*<span>({category.count})</span>*/}
                               </a>
                             </li>
                           ))}
