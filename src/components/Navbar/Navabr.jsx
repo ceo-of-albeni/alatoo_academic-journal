@@ -29,6 +29,7 @@ const Navabr = ({ closeModal }) => {
   const closeModalHandler = () => {
     setActiveModal(null);
   };
+  
 
   return (
     <div className="header_navbar">
@@ -57,10 +58,9 @@ const Navabr = ({ closeModal }) => {
             <a href="/archive" className="header_links__item">
               {t("navbar.archive")}
             </a>
-            {/* <a href="/admin" className="header_links__item">
-              Admin
-            </a> */}
-
+            <a href="/articles" className="header_links__item">
+              Articles
+            </a>
             {localStorage.getItem("email") != null &&
             oneUser.role === "admin" ? (
               <a href="/admin" className="header_links__item">

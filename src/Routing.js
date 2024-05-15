@@ -15,6 +15,7 @@ import { Register } from "./components/Navbar/modals/register/Register";
 import { ForgotPassword } from "./components/Navbar/modals/forgotPassword/ForgotPassword";
 import { ConfirmReg } from "./components/Navbar/modals/confirmReg/ConfirmReg";
 import { ChangePassword } from "./components/Navbar/modals/changePassword/ChangePassword";
+import ArticlesPage from "./pages/articlesPage/ArticlesPage";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -86,6 +87,11 @@ const Routing = () => {
     {
       link: "/change_password",
       element: <ChangePassword />,
+      id: 15,
+    },
+    {
+      link: "/articles",
+      element: <ArticlesPage />,
       id: 15,
     },
   ];

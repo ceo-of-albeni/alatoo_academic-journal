@@ -389,7 +389,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/xmSxvQZcjM93lFJJPyfi",
             },
             {
-              name: "ФИЗИКА_ИНФОРМАТИКА",
+              name: "ФИЗИКА ИНФОРМАТИКА",
               count: 16,
               link: "https://aas.alatoo.edu.kg/article/yBCxvyBALg269mCMhwIW",
             },
@@ -531,7 +531,7 @@ export default function ArchiveCategoryPage() {
             "https://drive.google.com/file/d/1oLbvKl2lur1O6Qj7_pV0gvrCiITu5ic0/view",
           categories: [
             {
-              name: "ЮРИДИЧЕСКИЕ_НАУКИ",
+              name: "ЮРИДИЧЕСКИЕ НАУКИ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/N8gWQwB8y7JY6Sl5kXNV",
             },
@@ -733,17 +733,17 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/y2VaguBItVhH3L6Bz1Y0",
             },
             {
-              name: "ПОЛИТИЧЕСКИЕ_НАУКИ",
+              name: "ПОЛИТИЧЕСКИЕ НАУКИ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/NpvLy6r2nUkIUfHRwbKX",
             },
             {
-              name: "ОБЩАЯ_ПЕДАГОГИКА_НАРОДНОЕ_ОБРАЗОВАНИЕ_ПЕДАГОГИКА",
+              name: "ОБЩАЯ ПЕДАГОГИКА НАРОДНОЕ ОБРАЗОВАНИЕ ПЕДАГОГИКА",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/t22ZIONmUARlxLumtk7e",
             },
             {
-              name: "ИНФОРМАТИКА_МАТЕМАТИКА_ФИЗИКА SCIENCE",
+              name: "ИНФОРМАТИКА МАТЕМАТИКА ФИЗИКА SCIENCE",
               count: 20,
               link: "https://aas.alatoo.edu.kg/article/JsOxbeOudDUxb9EmijtP",
             },
@@ -760,7 +760,7 @@ export default function ArchiveCategoryPage() {
             "https://drive.google.com/file/d/1nHfOggYwRoVc-4AGhyY3H_11GMGz_UF-/view",
           categories: [
             {
-              name: "ЮРИДИЧЕСКИЕ_НАУКИ",
+              name: "ЮРИДИЧЕСКИЕ НАУКИ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/YHDtOtmSAqZ4CJfI8wDx",
             },
@@ -780,7 +780,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/A92sBRHS8ndOrYtqKhs0",
             },
             {
-              name: "ТЕХНИЧЕСКИЕ_НАУКИ",
+              name: "ТЕХНИЧЕСКИЕ НАУКИ",
               count: 16,
               link: "https://aas.alatoo.edu.kg/article/iZ2PdX7LBCYTkaRiQYeb",
             },
@@ -834,7 +834,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/AqNEnu7oGfHc3qDcKty7",
             },
             {
-              name: "ТЕХНИЧЕСКИЕ_НАУКИ",
+              name: "ТЕХНИЧЕСКИЕ НАУКИ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/cp6NxAVzZRKxyewYsTDx",
             },
@@ -919,7 +919,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/3kdEl19nRFE28NQBd1XC",
             },
             {
-              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              name: "ФИЗИКА МАТЕМАТИКА И ТЕХНИКА",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/FKGjhEAJjNNaHSgpgklX",
             },
@@ -971,7 +971,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/SOVmf9TwvNAuxJ16gU6N",
             },
             {
-              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              name: "ФИЗИКА МАТЕМАТИКА И ТЕХНИКА",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/6yo9DjMapzrAPi6zeXcw",
             },
@@ -1018,22 +1018,22 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/FQNngTKpJpPgzFn84Xwa",
             },
             {
-              name: "ПОЛИТИЧЕСКИЕ_НАУКИ",
+              name: "ПОЛИТИЧЕСКИЕ НАУКИ",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/JYsLvw6TqombSFD92Tyi",
             },
             {
-              name: "ОБЩАЯ_ПЕДАГОГИКА_НАРОДНОЕ_ОБРАЗОВАНИЕ_ПЕДАГОГИКА",
+              name: "ОБЩАЯ ПЕДАГОГИКА НАРОДНОЕ ОБРАЗОВАНИЕ ПЕДАГОГИКА",
               count: 20,
               link: "https://aas.alatoo.edu.kg/article/UihOezJPVQ0mWpdivvyD",
             },
             {
-              name: "ЛИТЕРАТУРА_ЛИТЕРАТУРОВЕДЕНИЕ_УСТНОЕ_НАРОДНОЕ_ТВОРЧЕСТВО",
+              name: "ЛИТЕРАТУРА ЛИТЕРАТУРОВЕДЕНИЕ УСТНОЕ НАРОДНОЕ ТВОРЧЕСТВО",
               count: 16,
               link: "https://aas.alatoo.edu.kg/article/jt0HriOLhUb15By2baK4",
             },
             {
-              name: "ИСКУССТВО_ИСКУССТВОВЕДЕНИЕ",
+              name: "ИСКУССТВО ИСКУССТВОВЕДЕНИЕ",
               count: 20,
               link: "https://aas.alatoo.edu.kg/article/QdVc2yAxinyo63wntSt1",
             },
@@ -1061,7 +1061,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/qmXTnGXKTh7OoxiHP5tg",
             },
             {
-              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              name: "ФИЗИКА МАТЕМАТИКА И ТЕХНИКА",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/jFUvQ58pG6h5mmL1LFPO",
             },
@@ -1098,7 +1098,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/I8b0MhrpMmRogooWg7lb",
             },
             {
-              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              name: "ФИЗИКА МАТЕМАТИКА И ТЕХНИКА",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/NsgWlPqTKOi1JsIQ6ATo",
             },
@@ -1130,7 +1130,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/8sKVEmURYObIcUdpTtrb",
             },
             {
-              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              name: "ФИЗИКА МАТЕМАТИКА И ТЕХНИКА",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/BXey0AsRH3XdSP6q4wx0",
             },
@@ -1162,7 +1162,7 @@ export default function ArchiveCategoryPage() {
               link: "https://aas.alatoo.edu.kg/article/djDFnvZ4m5CZQSvvrM2T",
             },
             {
-              name: "ФИЗИКА_МАТЕМАТИКА_И_ТЕХНИКА",
+              name: "ФИЗИКА МАТЕМАТИКА И ТЕХНИКА",
               count: 10,
               link: "https://aas.alatoo.edu.kg/article/CjedYBbzXq6D3o3PW71b",
             },
