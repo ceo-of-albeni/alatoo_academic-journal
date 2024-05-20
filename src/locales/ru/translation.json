@@ -13,6 +13,7 @@
     "navbar": {
         "rules": "Правила",
         "archive": "Архив",
+        "articles": "Статьи",
         "admin": "Админ",
         "profile": "Профиль",
         "signin": "Войти",
