@@ -59,7 +59,7 @@ const Navabr = ({ closeModal }) => {
               {t("navbar.archive")}
             </a>
             <a href="/articles" className="header_links__item">
-              Articles
+              {t("navbar.articles")}
             </a>
             {localStorage.getItem("email") != null &&
             oneUser.role === "admin" ? (

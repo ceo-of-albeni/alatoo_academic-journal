@@ -13,6 +13,7 @@
     "navbar": {
         "rules": "Rules",
         "archive": "Archive",
+        "articles": "Articles",
         "admin": "Admin",
         "profile":"Profile",
         "signin": "Sign in",
