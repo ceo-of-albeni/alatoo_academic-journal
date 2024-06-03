@@ -25,7 +25,6 @@ const API = "http://localhost:3001/api";
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
@@ -63,7 +62,6 @@ const AuthContextProvider = ({ children }) => {
   }
 
   async function handleRegister(newObj) {
-    setLoading(true);
     try {
       const res = await axios.post(`${API}/auth/register`, newObj);
       // navigate("/profile");
@@ -71,12 +69,10 @@ const AuthContextProvider = ({ children }) => {
       console.log(err);
       setError(err);
     } finally {
-      setLoading(false);
     }
   }
 
   async function handleLogin(formData, email, closeModal) {
-    setLoading(true);
     try {
       const res = await axios.post(`${API}/auth/login`, formData);
       setCurrentUser(res);
@@ -92,12 +88,10 @@ const AuthContextProvider = ({ children }) => {
       setError(err);
       alert("You entered wrong password or email!");
     } finally {
-      setLoading(false);
     }
   }
 
   async function handleConfirm(formData) {
-    setLoading(true);
     try {
       const res = await axios.post(`${API}/auth/confirmEmail`, formData);
       navigate("/");
@@ -108,7 +102,6 @@ const AuthContextProvider = ({ children }) => {
   }
 
   async function sendCodeAgain(formData) {
-    setLoading(true);
     try {
       const res = await axios.patch(`${API}/auth/sendCodeAgain`, formData);
       navigate("/");
@@ -119,14 +112,12 @@ const AuthContextProvider = ({ children }) => {
   }
 
   async function forgotPassword(email) {
-    setLoading(true);
     try {
       const res = await axios.post(`${API}/auth/forgotPassword`, email);
     } catch (err) {
       console.log(err);
       setError(err);
     } finally {
-      setLoading(false);
     }
   }
 
@@ -157,7 +148,6 @@ const AuthContextProvider = ({ children }) => {
       value={{
         currentUser,
         error,
-        loading,
         users: state.users,
         oneUser: state.oneUser,
 

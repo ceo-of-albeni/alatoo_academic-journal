@@ -25,7 +25,7 @@ export function Login({ closeModal }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { handleLogin, setError, loading } = useContext(authContext);
+  const { handleLogin, setError } = useContext(authContext);
 
   function loginUser() {
     if (!email.trim() || !password.trim()) {
@@ -49,9 +49,7 @@ export function Login({ closeModal }) {
     setError(false);
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+
 
   const handleLoginClick = e => {
     e.stopPropagation();
