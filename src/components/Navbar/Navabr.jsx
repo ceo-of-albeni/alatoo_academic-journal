@@ -9,7 +9,7 @@ const Navabr = ({ closeModal }) => {
   const [activeModal, setActiveModal] = useState(null);
   const { handleLogout, getOneUser, oneUser } = useContext(authContext);
   const { t, i18n } = useTranslation();
-  const handleChangeLanguage = event => {
+  const handleChangeLanguage = (event) => {
     const selectedLanguage = event.target.value;
     i18n.changeLanguage(selectedLanguage);
   };

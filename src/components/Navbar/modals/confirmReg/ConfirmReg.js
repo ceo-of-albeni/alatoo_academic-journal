@@ -20,7 +20,7 @@ export function ConfirmReg({ closeModal }) {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
 
-  const { handleConfirm, setError, loading, sendCodeAgain } =
+  const { handleConfirm, setError, sendCodeAgain } =
     useContext(authContext);
 
   function handleSendAgain() {
@@ -160,15 +160,15 @@ export function ConfirmReg({ closeModal }) {
             onChange={e => setCode(e.target.value)}
           />
           {timerRunning ? (
-            <button onClick={handleSigninClick} disabled={loading}>
+            <button onClick={handleSigninClick}>
               {t('confirm_reg.signin')}
             </button>
           ) : (
             <div className={classes.resend_submit}>
-              <button onClick={handleSigninClick} disabled={loading}>
+              <button onClick={handleSigninClick} >
                 {t('confirm_reg.signin')}
               </button>
-              <p onClick={handleSendAgain} disabled={loading}>
+              <p onClick={handleSendAgain}>
                 {t('confirm_reg.resend')}
               </p>
             </div>

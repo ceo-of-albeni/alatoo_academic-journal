@@ -9,7 +9,7 @@ import { Login } from "../login/Login";
 import { useTranslation } from 'react-i18next';
 
 export function Register() {
-  const { handleRegister, error, setError, loading } = useContext(authContext);
+  const { handleRegister, error, setError } = useContext(authContext);
   const { t, i18n } = useTranslation();
 
   const navigate = useNavigate();
@@ -60,9 +60,6 @@ export function Register() {
     setError(false);
   }, []);
 
-  // if (loading) {
-  //   return <Loader />;
-  // }
 
   const openConfirm = () => {
     createUser();
