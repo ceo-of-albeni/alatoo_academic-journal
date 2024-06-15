@@ -237,6 +237,77 @@
   }
 }
 
+/******************Council********************/
+
+.council {
+  position: relative;
+  transition: 0.2s;
+}
+
+.council {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 46px;
+  padding: 12px 13px 12px 29px;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 510;
+  cursor: pointer;
+  background: #DA0404;
+  border-radius: 15px 15px 15px 0px;
+  color: #ffffff;
+  align-items: center;
+}
+
+i {
+  font-size: 40px;
+}
+
+.council.rotate i {
+  transform: rotate(90deg);
+  transition: all 0.3s ease;
+}
+
+.council.rotate__end i {
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+.sub__couns {
+  position: relative;
+  margin-top: 14px;
+  display: block;
+  animation: growDown 400ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
+.council.sub__couns__end {
+  animation: growUp 400ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
+.sub__couns__hide {
+  display: none;
+}
+
+.members {
+  // width: 457px;
+  padding: 14px 10px;
+  border-radius: 8px;
+  border: 2px solid #f1f1f1;
+  background-color: white;
+}
+
+.members p {
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: -0.02em;
+  color: #666666;
+}
+
 /*****************Text*********************/
 
 .slider {
