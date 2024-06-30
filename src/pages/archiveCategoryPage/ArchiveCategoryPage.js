@@ -6,12 +6,14 @@ import BasicDatePicker from "../../components/DatePicker/DatePicker";
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider/Slider";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export default function ArchiveCategoryPage() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
-  const dropdowns = [
+  const [dropdowns, setDropdowns] = useState([
     {
       year: "2023",
       tom: "Том 23",
@@ -1368,7 +1370,7 @@ export default function ArchiveCategoryPage() {
         },
       ],
     },
-  ];
+  ]);
 
   const [openSubs, setOpenSubs] = useState(Array(dropdowns.length).fill(false));
 
@@ -1384,6 +1386,29 @@ export default function ArchiveCategoryPage() {
     setOpenCouns(!openCouns);
   };
 
+  const addVolume = () => {
+    setDropdowns([
+      ...dropdowns,
+      { year: '', tom: '', releases: [{ name: '', tomLink: '', categories: [] }] },
+    ]);
+    setOpenSubs([...openSubs, false]);
+  };
+
+  const addRelease = (index) => {
+    const newDropdowns = [...dropdowns];
+    newDropdowns[index].releases.push({ name: '', tomLink: '', categories: [] });
+    setDropdowns(newDropdowns);
+  };
+
+  const addArticle = (dropdownIndex, releaseIndex) => {
+    const newDropdowns = [...dropdowns];
+    newDropdowns[dropdownIndex].releases[releaseIndex].categories.push({
+      name: '',
+      link: '#',
+    });
+    setDropdowns(newDropdowns);
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.archive}>
@@ -1397,7 +1422,7 @@ export default function ArchiveCategoryPage() {
           <div className={classes.archive__inner__1}>
             <div className={classes.years}>
               <br />
-              {/* <div className={classes.search}>
+              <div className={classes.search}>
                 <div className={classes.filtration}>
                   <BasicDatePicker />
                 </div>
@@ -1407,20 +1432,27 @@ export default function ArchiveCategoryPage() {
                     <img src={search} alt="search" />
                   </button>
                 </form>
-              </div> */}
+              </div>
+              <div className={classes.add__vol}>
+                <p>+</p>
+                <button onClick={addVolume}>Add Volume</button>
+              </div>
               {dropdowns.map((dropdown, index) => (
                 <div
                   key={index}
                   className={`${openSubs[index] ? "" : classes.sub__menu__end}`}>
-                  <div
-                    className={`${classes.year} ${
-                      openSubs[index] ? classes.rotate : classes.rotate__end
-                    }`}
-                    onClick={() => toggleOpenSub(index)}>
-                    <p>
-                      {dropdown.year}, {dropdown.tom}
-                    </p>
-                    <i className="bx bx-chevron-right"></i>
+                  <div className={classes.trash}>
+                    <div
+                      className={`${classes.year} ${
+                        openSubs[index] ? classes.rotate : classes.rotate__end
+                      }`}
+                      onClick={() => toggleOpenSub(index)}>
+                      <p>
+                        {dropdown.year}, {dropdown.tom}
+                      </p>
+                      <i className="bx bx-chevron-right"></i>
+                    </div>
+                    <FontAwesomeIcon icon={faTrash} className={classes.trash__icon}/>
                   </div>
                   <div
                     className={
@@ -1428,12 +1460,24 @@ export default function ArchiveCategoryPage() {
                         ? classes.sub__menu
                         : classes.sub__menu__hide
                     }>
+                    <div className={classes.add__edit}>
+                      <p>+</p>
+                      <button onClick={() => addRelease(index)}>Edition</button>
+                    </div>
                     {dropdown.releases.map((release, releaseIndex) => (
                       <div key={releaseIndex} className={classes.release}>
-                        <p
-                          className={classes.release_link_a}>
-                          Выпуск № {release.name}
-                        </p>
+                        <div className={classes.trash2}>
+                          <p className={classes.release_link_a}>
+                            Выпуск № {release.name}
+                          </p>
+                          <FontAwesomeIcon icon={faTrash} className={classes.trash__icon2}/>
+                        </div>
+                        <div className={classes.add__art}>
+                          <p>+</p>
+                          <button onClick={() => addArticle(index, releaseIndex)}>
+                            Add article
+                          </button>
+                        </div>
                         <ul className={classes.sub__menu2}>
                           {release.categories.map((category, categoryIndex) => (
                             <li key={categoryIndex}>
@@ -1612,6 +1656,7 @@ export default function ArchiveCategoryPage() {
                     <b>{t('archivepage.name3')}</b>aas@iaau.edu.kg
                   </p>
                 </div>
+                <button className={classes.edit}>Edit</button>
               </div>
             </div>
           </div>

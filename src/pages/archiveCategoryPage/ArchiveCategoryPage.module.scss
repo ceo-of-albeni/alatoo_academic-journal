@@ -57,7 +57,6 @@
   justify-content: space-between;
   align-items: center;
   width: 10px;
-  margin: 33px 0px;
 }
 
 .filtration {
@@ -120,7 +119,7 @@
 .years {
   // position: relative;
   // z-index: 1;
-  width: 530px;
+  width: 550px;
   margin-right: 30px;
   i {
     font-size: 40px;
@@ -133,9 +132,22 @@
   width: 457px;
 }
 
+.trash {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trash__icon {
+  color: red;
+  font-size: 20px;
+  margin: 0px 0px 10px 10px;
+}
+
 .year {
   position: relative;
-  margin: 0px 0px 20px;
+  margin: 0px 0px 15px;
   transition: 0.2s;
 }
 
@@ -153,6 +165,7 @@
   border-radius: 20px 20px 20px 0px;
   color: #ffffff;
   align-items: center;
+  width: 530px;
 }
 
 .year.rotate i {
@@ -207,6 +220,19 @@
   text-decoration: none;
 }
 
+.trash2 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trash__icon2 {
+  color: red;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
 .sub__menu2 {
   margin-left: -25px;
   padding: 8px 0px;
@@ -235,6 +261,91 @@
   b {
     font-weight: 700;
   }
+}
+
+.add__vol {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  margin: 10px 0px;
+}
+
+.add__vol button {
+  padding: 8px 20px;
+  border-radius: 30px;
+  text-align: center;
+  font-family: SF Pro Display;
+  font-size: 15px;
+  font-weight: 510;
+  text-align: left;
+  border: none;
+  color: white;
+  background-color: #F4B75B;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 8px;
+}
+
+.add__vol p {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.add__edit {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 115px;
+  margin: -5px 0px 10px;
+}
+
+.add__edit button {
+  padding: 3px 20px;
+  border-radius: 30px;
+  text-align: center;
+  font-family: SF Pro Display;
+  font-size: 15px;
+  font-weight: 510;
+  text-align: left;
+  border: none;
+  color: white;
+  background-color: #F4B75B;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 8px;
+}
+
+.add__edit p {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.add__art {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 140px;
+  margin: 10px 0px 0px 25px;
+}
+
+.add__art button {
+  padding: 3px 20px;
+  border-radius: 30px;
+  text-align: center;
+  font-family: SF Pro Display;
+  font-size: 15px;
+  font-weight: 510;
+  text-align: left;
+  border: none;
+  color: white;
+  background-color: #F4B75B;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 8px;
+}
+
+.add__art p {
+  font-size: 25px;
+  font-weight: 500;
+  color: black;
 }
 
 /******************Council********************/
@@ -317,10 +428,10 @@ i {
 .text {
   align-items: center;
   width: 457px;
-  height: 574px;
   border-radius: 8px;
   border: 1px solid #f1f1f1;
   background-color: white;
+  padding-bottom: 10px;
 }
 
 .text h3 {
@@ -427,6 +538,21 @@ b {
   line-height: 16px;
   letter-spacing: -0.02em;
   color: #797979;
+}
+
+.edit {
+  margin: 10px 10px 0px;
+  padding: 2px 18px;
+  border-radius: 30px;
+  text-align: center;
+  font-family: SF Pro Display;
+  font-size: 15px;
+  font-weight: 510;
+  text-align: left;
+  border: none;
+  color: white;
+  background-color: black;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 8px;
 }
 
 @keyframes growDown {
