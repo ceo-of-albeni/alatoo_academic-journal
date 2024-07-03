@@ -1,0 +1,149 @@
+.article {
+  position: fixed;
+  display: block;
+  z-index: 1050;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+
+  button {
+    width: 109px;
+    height: 38px;
+    padding: 10px, 39px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(45, 38, 82, 1);
+    font-family: SF Pro Display;
+    font-size: 16px;
+    font-weight: 510;
+    line-height: 19px;
+    color: white;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background-color: white;
+    color: rgb(48, 33, 126);
+    border: 1px solid black;
+    box-shadow: 0px 0px 5px 0px;
+  }
+
+  input {
+    flex: 1;
+    outline: none;
+    width: 450px;
+    height: 51px;
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-bottom: 22px;
+    color: black
+  }
+
+  form {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  label {
+    width: 450px;
+    height: 16px;
+    font-family: SF Pro Display;
+    font-size: 13px;
+    font-weight: 510;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    margin-bottom: 10px;
+    color: #666666;
+  }
+}
+
+.article__inner {
+  margin: 80px auto;
+  width: 566px;
+  height: 1070px;
+  border-radius: 20px;
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  padding: 72px 57px;
+  max-height: 80%;
+  overflow-y: auto;
+  border: 6px solid #EDEDED;
+}
+
+.article__inner div:nth-child(1) {
+  font-family: SF Pro Display;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+
+.article__inner select {
+  width: 450px;
+  height: 54px;
+  margin-bottom: 20px;
+  padding: 16px 28px;
+  font-size: 16px;
+  font-weight: 510;
+  line-height: 21px;
+  border-radius: 8px;
+  border: 1px solid black; /* Ensure consistent border color */
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  outline: none; /* Remove focus outline for better aesthetics */
+  transition: border-color 0.2s ease-in-out; /* Smooth transition for border color */
+
+  option {
+    font-family: SF Pro Display;
+    font-size: 16px;
+    padding: 18px 12px; 
+    color: #333;
+    background-color: #fff;
+  }
+
+  option:hover {
+    background-color: #f0f0f0;
+  }
+
+  option:checked {
+    background-color: #ddd;
+  }
+
+}
+
+select:focus {
+    border-color: #555; /* Change border color on focus */
+}
+
+.clear {
+  margin-top: 20px;
+}
+
+.clear a {
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 510;
+  line-height: 19px;
+  letter-spacing: -0.02em;
+  color: #666666;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.clear a:hover {
+  color: black;
+  text-decoration: underline;
+}

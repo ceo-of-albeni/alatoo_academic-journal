@@ -6,6 +6,12 @@
 
 /**************************************/
 
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+}
+
 .archive__inner {
   margin: 20px 160px 50px;
 }
@@ -143,6 +149,7 @@
   color: red;
   font-size: 20px;
   margin: 0px 0px 10px 10px;
+  cursor: pointer;
 }
 
 .year {
@@ -231,6 +238,7 @@
   color: red;
   font-size: 20px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .sub__menu2 {
@@ -369,6 +377,7 @@
   border-radius: 15px 15px 15px 0px;
   color: #ffffff;
   align-items: center;
+  width: 520px;
 }
 
 i {

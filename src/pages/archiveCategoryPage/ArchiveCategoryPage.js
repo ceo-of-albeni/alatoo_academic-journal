@@ -8,6 +8,11 @@ import Slider from "../../components/Slider/Slider";
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { AddVolume } from "../../components/Navbar/modals/addVolume/AddVolume";
+import { AddEdition } from "../../components/Navbar/modals/addEdition/AddEdition";
+import { AddArticle } from "../../components/Navbar/modals/addArticle/AddArticle";
+import { Delete } from "../../components/Navbar/modals/delete/Delete";
+import { Edit } from "../../components/Navbar/modals/edit/Edit";
 
 export default function ArchiveCategoryPage() {
   const navigate = useNavigate();
@@ -1386,27 +1391,70 @@ export default function ArchiveCategoryPage() {
     setOpenCouns(!openCouns);
   };
 
-  const addVolume = () => {
-    setDropdowns([
-      ...dropdowns,
-      { year: '', tom: '', releases: [{ name: '', tomLink: '', categories: [] }] },
-    ]);
-    setOpenSubs([...openSubs, false]);
+  // const addVolume = () => {
+  //   setDropdowns([
+  //     ...dropdowns,
+  //     { year: '', tom: '', releases: [{ name: '', tomLink: '', categories: [] }] },
+  //   ]);
+  //   setOpenSubs([...openSubs, false]);
+  // };
+
+  // const addRelease = (index) => {
+  //   const newDropdowns = [...dropdowns];
+  //   newDropdowns[index].releases.push({ name: '', tomLink: '', categories: [] });
+  //   setDropdowns(newDropdowns);
+  // };
+
+  // const addArticle = (dropdownIndex, releaseIndex) => {
+  //   const newDropdowns = [...dropdowns];
+  //   newDropdowns[dropdownIndex].releases[releaseIndex].categories.push({
+  //     name: '',
+  //     link: '#',
+  //   });
+  //   setDropdowns(newDropdowns);
+  // };
+
+  const [activeVolume, setActiveVolume] = useState(null);
+  const [activeEdition, setActiveEdition] = useState(null);
+  const [activeArticle, setActiveArticle] = useState(null);
+  const [activeDelete, setActiveDelete] = useState(null);
+  const [activeEdit, setActiveEdit] = useState(null);
+
+  const openVolumeModal = () => {
+    if (activeVolume === null) {
+      setActiveVolume("addVolume");
+    }
   };
 
-  const addRelease = (index) => {
-    const newDropdowns = [...dropdowns];
-    newDropdowns[index].releases.push({ name: '', tomLink: '', categories: [] });
-    setDropdowns(newDropdowns);
+  const openEditionModal = () => {
+    if (activeEdition === null) {
+      setActiveEdition("addEdition");
+    }
   };
 
-  const addArticle = (dropdownIndex, releaseIndex) => {
-    const newDropdowns = [...dropdowns];
-    newDropdowns[dropdownIndex].releases[releaseIndex].categories.push({
-      name: '',
-      link: '#',
-    });
-    setDropdowns(newDropdowns);
+  const openArticleModal = () => {
+    if (activeArticle === null) {
+      setActiveArticle("addArticle");
+    }
+  };
+  
+  const openDeleteModal = () => {
+    if (activeDelete === null) {
+      setActiveDelete("delete");
+    }
+  };
+  const openEditModal = () => {
+    if (activeEdit === null) {
+      setActiveEdit("edit");
+    }
+  };
+
+  const closeModalHandler = () => {
+    setActiveVolume(null);
+    setActiveEdition(null);
+    setActiveArticle(null);
+    setActiveDelete(null);
+    setActiveEdit(null);
   };
 
   return (
@@ -1435,7 +1483,7 @@ export default function ArchiveCategoryPage() {
               </div>
               <div className={classes.add__vol}>
                 <p>+</p>
-                <button onClick={addVolume}>Add Volume</button>
+                <button onClick={openVolumeModal}>Add Volume</button>
               </div>
               {dropdowns.map((dropdown, index) => (
                 <div
@@ -1452,7 +1500,7 @@ export default function ArchiveCategoryPage() {
                       </p>
                       <i className="bx bx-chevron-right"></i>
                     </div>
-                    <FontAwesomeIcon icon={faTrash} className={classes.trash__icon}/>
+                    <FontAwesomeIcon icon={faTrash} className={classes.trash__icon} onClick={openDeleteModal}/>
                   </div>
                   <div
                     className={
@@ -1462,7 +1510,7 @@ export default function ArchiveCategoryPage() {
                     }>
                     <div className={classes.add__edit}>
                       <p>+</p>
-                      <button onClick={() => addRelease(index)}>Edition</button>
+                      <button onClick={openEditionModal}>Edition</button>
                     </div>
                     {dropdown.releases.map((release, releaseIndex) => (
                       <div key={releaseIndex} className={classes.release}>
@@ -1470,13 +1518,11 @@ export default function ArchiveCategoryPage() {
                           <p className={classes.release_link_a}>
                             Выпуск № {release.name}
                           </p>
-                          <FontAwesomeIcon icon={faTrash} className={classes.trash__icon2}/>
+                          <FontAwesomeIcon icon={faTrash} className={classes.trash__icon2} onClick={openDeleteModal}/>
                         </div>
                         <div className={classes.add__art}>
                           <p>+</p>
-                          <button onClick={() => addArticle(index, releaseIndex)}>
-                            Add article
-                          </button>
+                          <button onClick={openArticleModal}>Add article</button>
                         </div>
                         <ul className={classes.sub__menu2}>
                           {release.categories.map((category, categoryIndex) => (
@@ -1656,12 +1702,17 @@ export default function ArchiveCategoryPage() {
                     <b>{t('archivepage.name3')}</b>aas@iaau.edu.kg
                   </p>
                 </div>
-                <button className={classes.edit}>Edit</button>
+                <button className={classes.edit} onClick={openEditModal}>Edit</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      {activeVolume === "addVolume" && <AddVolume closeModal={closeModalHandler} />}
+      {activeEdition === "addEdition" && <AddEdition closeModal={closeModalHandler} />}
+      {activeArticle === "addArticle" && <AddArticle closeModal={closeModalHandler} />}
+      {activeDelete === "delete" && <Delete closeModal={closeModalHandler} />}
+      {activeEdit === "edit" && <Edit closeModal={closeModalHandler} />}
     </div>
   );
 }
