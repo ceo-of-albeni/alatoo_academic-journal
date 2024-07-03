@@ -1,0 +1,107 @@
+.delete {
+    position: fixed;
+    display: block;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+  
+    button {
+      width: 140px;
+      height: 38px;
+      padding: 10px 39px;
+      border-radius: 5px;
+      border: none;
+      background: rgba(45, 38, 82, 1);
+      font-family: SF Pro Display;
+      font-size: 16px;
+      font-weight: 510;
+      color: white;
+      transition: 0.2s;
+      line-height: 19.09px;
+    }
+  
+    button:hover {
+      background-color: white;
+      color: rgb(48, 33, 126);
+      border: 1px solid black;
+      box-shadow: 0px 0px 5px 0px;
+    }
+  
+    input {
+      flex: 1;
+      outline: none;
+      width: 336px;
+      height: 35px;
+      padding: 9px 31px;
+      font-size: 14px;
+      font-weight: 510;
+      border-radius: 10px;
+      border: 1px solid black;
+      margin-bottom: 31px;
+      color: black
+    }
+  
+    form {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    label {
+      width: 336px;
+      height: 16px;
+      font-family: SF Pro Display;
+      font-size: 13px;
+      font-weight: 510;
+      line-height: 16px;
+      letter-spacing: -0.02em;
+      text-align: left;
+      margin-bottom: 10px;
+      color: #666666;
+    }
+  }
+  
+  .delete__inner {
+    margin: 80px auto;
+    width: 396px;
+    height: 290px;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+    margin-top: 150px;
+    padding: 43px 30px;
+    border: 6px solid #EDEDED;
+  }
+  
+  .delete__inner div:nth-child(1) {
+    font-family: SF Pro Display;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .clear {
+    margin-top: 15px;
+  }
+  
+  .clear a {
+    font-family: SF Pro Display;
+    font-size: 16px;
+    font-weight: 510;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    color: #666666;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  
+  .clear a:hover {
+    color: black;
+    text-decoration: underline;
+  }
