@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  font-family: SF Pro Display;
+}
+
+/**************************************/
+
+.container {
+  display: flex;
+  margin: 0px auto;
+}
+
+.comments__inner {
+  margin: 20px 160px 50px;
+}
+
+.back {
+  width: 70px;
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #999999;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.back a {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back img {
+  filter: invert(69%) sepia(10%) saturate(5%) hue-rotate(354deg) brightness(88%)
+    contrast(84%);
+  width: 14px;
+  height: 14px;
+}
+
+.back:hover img {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%)
+    contrast(100%);
+}
+
+.back a:hover p {
+  color: black;
+  text-decoration: underline;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+
+/******************Category*******************/
+
+.category {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.category p {
+    width: 266px;
+    padding: 8px 20px;
+    border-radius: 15px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-family: SF Pro Display;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.71px;
+}
+
+.category h4 {
+    margin: 0px 0px 0px 24px;
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23.87px;
+    text-align: left;
+    color: #737373;
+}
+
+.publish h2 {
+    font-family: SF Pro Display;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 40.57px;
+    text-align: left;
+}
+
+.author {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 24px 0px 20px 0px;
+}
+
+.author img {
+  width: 63px;
+  height: 63px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.author__name p {
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 710;
+  line-height: 19.09px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #666666;
+}
+
+.author__name p:first-child {
+  color: black;
+}
+
+.publish a {
+  font-family: SF Pro Display;
+  font-size: 13px;
+  font-weight: 510;
+  line-height: 13.13px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #666;
+  text-underline-offset: 4px;
+}
+
+.publish__text {
+  margin: 20px auto;
+}
+
+.publish__text p{
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-weight: 510;
+  line-height: 19.09px;
+  letter-spacing: -0.02em;
+  text-align: justify;
+  color: #666;
+  margin: 23px 0px;
+}
+
+.publish__text p:first-child{
+  color: black;
+}
+
+/******************Comments bar*******************/
+
+.comments__text {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: #F5F5F5;
+  height: 55px;
+  padding: 15px 9px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.comments__text h4 {
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-weight: 710;
+  line-height: 23.87px;
+  text-align: left;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.comments__input input {
+  width: 100%;
+  height: 362px;
+}

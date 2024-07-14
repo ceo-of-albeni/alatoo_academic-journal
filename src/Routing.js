@@ -16,6 +16,7 @@ import { ForgotPassword } from "./components/Navbar/modals/forgotPassword/Forgot
 import { ConfirmReg } from "./components/Navbar/modals/confirmReg/ConfirmReg";
 import { ChangePassword } from "./components/Navbar/modals/changePassword/ChangePassword";
 import ArticlesPage from "./pages/articlesPage/ArticlesPage";
+import { CommentsPage } from "./pages/commentsPage/CommentsPage";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -92,7 +93,12 @@ const Routing = () => {
     {
       link: "/articles",
       element: <ArticlesPage />,
-      id: 15,
+      id: 16,
+    },
+    {
+      link: "/comments",
+      element: <CommentsPage/>,
+      id: 17,
     },
   ];
   return (

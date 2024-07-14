@@ -61,6 +61,9 @@ const Navabr = ({ closeModal }) => {
             <a href="/articles" className="header_links__item">
               {t("navbar.articles")}
             </a>
+            <a href="/comments" className="header_links__item">
+              Comments
+            </a>
             {localStorage.getItem("email") != null &&
             oneUser.role === "admin" ? (
               <a href="/admin" className="header_links__item">
