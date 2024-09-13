@@ -26,6 +26,7 @@ export function AddVolume({closeModal}) {
 
     setName("");
   }
+  
     useEffect(() => {
         document.body.style.overflow = "hidden";  
         return () => {
