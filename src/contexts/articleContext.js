@@ -33,7 +33,7 @@ function reducer(state = INIT_STATE, action) {
 const ArticleContextsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  const API = "http://localhost:3000/api";
+  const API = "http://localhost:3001/api";
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -230,6 +230,51 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
+  async function addVolumes(formData) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}/archive/add/volume`, formData, config);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function addEditions(formData, volumeId) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}/archive/add/edition/to/${volumeId}`, formData, config);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function addArchiveArticles(formData, editionId) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}/archive/add/article/${editionId}`, formData, config);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <articlesContext.Provider
       value={{
@@ -243,6 +288,7 @@ const ArticleContextsProvider = ({ children }) => {
         updateArticle,
         getOneArticle,
         getCategories,
+        addArchiveArticles,
         getAllMyArticles,
         fetchByParams,
         paymentArticle,
@@ -251,6 +297,8 @@ const ArticleContextsProvider = ({ children }) => {
         declineArticle,
         getAllNotPublished,
         approveArticle,
+        addVolumes,
+        addEditions
       }}>
       {children}
     </articlesContext.Provider>

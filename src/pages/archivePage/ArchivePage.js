@@ -59,7 +59,7 @@ export default function ArchivePage() {
                     <tr key={item.id}>
                       <td>{item.id}</td>
                       <td>
-                        <a onClick={() => navigate("/category")}>{item.name}</a>
+                        <a onClick={() => navigate("/category")}>{item.nameRu}</a>
                       </td>
                     </tr>
                   ))

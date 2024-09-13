@@ -33,12 +33,12 @@ function createData(
   title,
   createdAt,
   coauthors,
-  pages,
+  pageCount,
   category,
   status,
   fileUrl
 ) {
-  return { id, title, createdAt, coauthors, pages, category, status, fileUrl };
+  return { id, title, createdAt, coauthors, pageCount, category, status, fileUrl };
 }
 
 export default function BasicTable() {
@@ -98,7 +98,7 @@ export default function BasicTable() {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
       const response = await fetch(
-        "http://localhost:3000/api/article/send/checkFile",
+        "http://localhost:3001/api/article/send/checkFile",
         {
           method: "POST",
           body: checkData,
@@ -231,7 +231,7 @@ export default function BasicTable() {
                   {row.id}
                 </TableCell>
                 <TableCell align="left">
-                  <a className="table_a" href={row.fileUrl}>
+                  <a className="table_a" href={row.fileUrl} target="_blank" rel="noopener noreferrer">
                     {row.title}
                   </a>
                 </TableCell>
@@ -239,8 +239,8 @@ export default function BasicTable() {
                   {row.createdAt.slice(0, 10)}
                 </TableCell>
                 <TableCell align="center">{row.coauthors}</TableCell>
-                <TableCell align="center">{row.pages}</TableCell>
-                <TableCell align="center">{row.category.name}</TableCell>
+                <TableCell align="center">{row.pageCount}</TableCell>
+                <TableCell align="center">{row.category.nameRu}</TableCell>
                 {row.status == "Payment" ? (
                   <TableCell align="center" onClick={() => handleOpen(row.id)}>
                     {row.status}
