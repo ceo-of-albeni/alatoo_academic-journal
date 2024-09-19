@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect } from 'react';
 import classes from './AddVolume.module.scss';
+import { articlesContext } from '../../../../contexts/articleContext';
 
 export function AddVolume({closeModal}) {
     
     const [activeVolume, setActiveVolume] = useState("addVolume");
 
+    const { addVolumes } = useContext(articlesContext)
+
+    const [name, setName] = useState("");
+
+  function addNewVolume() {
+    if (!name.trim()) {
+      alert("Some inputs are empty!");
+      return;
+    }
+
+    let newObj = {
+      name: name,
+    };
+
+    addVolumes(newObj);
+    console.log(newObj);
+
+    setName("");
+  }
+  
     useEffect(() => {
         document.body.style.overflow = "hidden";  
         return () => {
@@ -31,11 +52,13 @@ export function AddVolume({closeModal}) {
                             <div>Add Volume</div>
                             <label>Name</label>
                             <input
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                                 type="text"
                                 placeholder="Click and type"
                                 name="email"
                             />
-                            <button>Add</button>
+                            <button onClick={addNewVolume}>Add</button>
                         </form>
                     </div>
                 </div>

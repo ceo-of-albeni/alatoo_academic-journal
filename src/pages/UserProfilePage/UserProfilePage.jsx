@@ -86,7 +86,7 @@ const UserProfilePage = () => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const response = await fetch("http://localhost:3000/api/article/create", {
+      const response = await fetch("http://localhost:3001/api/article/create", {
         method: "POST",
         body: newArticle,
         headers: {
@@ -125,6 +125,19 @@ const UserProfilePage = () => {
     setCategory(event.target.value);
   };
 
+
+// Определяем, какое поле использовать в зависимости от языка
+  const getCategoryLang = (item) => {
+    switch (oneUser?.language) {
+      case 'KG':
+        return item.nameKg || item.nameRu; // fallback на RU если KG не определен
+      case 'ENG':
+        return item.nameEn || item.nameRu; // fallback на RU если ENG не определен
+      case 'RU':
+      default:
+        return item.nameRu;
+    }
+  };
   const [openArticle, setOpenArticle] = useState(true);
   const [openPayment, setOpenPayment] = useState(false);
   const [openSuccess, setOpenSuccess] = useState(false);
@@ -198,8 +211,8 @@ const UserProfilePage = () => {
                     </MenuItem>
                     {categories ? (
                       categories.map(item => (
-                        <MenuItem key={item.id} value={item.name}>
-                          {item.name}
+                        <MenuItem key={item.id} value={getCategoryLang(item)}>
+                          {getCategoryLang(item)}
                         </MenuItem>
                       ))
                     ) : (

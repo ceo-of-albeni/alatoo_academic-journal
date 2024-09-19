@@ -41,7 +41,7 @@ const App = () => {
   useEffect(() => {
     const checkServerStatus = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/user");
+        const response = await fetch("http://localhost:3001/api/user");
         if (response.ok) {
           setServerStatus(true);
         } else {

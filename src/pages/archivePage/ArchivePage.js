@@ -13,10 +13,11 @@ export default function ArchivePage() {
 
   const navigate = useNavigate();
 
-  const { categories, getCategories } = useContext(articlesContext);
+  const { categories, getCategories, archive, getArchive } = useContext(articlesContext);
 
   useEffect(() => {
     getCategories();
+    getArchive()
   }, []);
 
   const [openSubs, setOpenSubs] = useState(false);
@@ -59,7 +60,7 @@ export default function ArchivePage() {
                     <tr key={item.id}>
                       <td>{item.id}</td>
                       <td>
-                        <a onClick={() => navigate("/category")}>{item.name}</a>
+                        <a onClick={() => navigate("/category")}>{item.nameRu}</a>
                       </td>
                     </tr>
                   ))
@@ -93,7 +94,7 @@ export default function ArchivePage() {
                 className={
                   openSubs ? classes.sub__menu : classes.sub__menu__hide
                 }>
-                <div className={classes.members}>
+                {/* <div className={classes.members}>
                   <p>
                     1. Эдилова Мариям Миталиповна, д. филос. наук, профессор МУА
                     (философия);
@@ -186,6 +187,9 @@ export default function ArchivePage() {
                     25. Тегизбекова Жылдыз Чынарбековна, канд. юрид. наук,
                     доцент МУА (юриспруденция).
                   </p>
+                </div> */}
+                <div className={classes.members}>
+                  {archive.councilMembers}
                 </div>
               </div>
             </div>

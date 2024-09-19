@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect } from 'react';
 import classes from './AddEdition.module.scss';
+import { articlesContext } from '../../../../contexts/articleContext';
 
 export function AddEdition({closeModal}) {
     
     const [activeEdition, setActiveEdition] = useState("addEdition");
-    const [inputValue1, setInputValue1] = useState('');
-    const [inputValue2, setInputValue2] = useState('');
+    const {addEditions} = useContext(articlesContext)
+
+    const [name, setName] = useState("");
+    const [fileUrl, setFileUrl] = useState("")
+
+  function addNewEdition() {
+    if (!name.trim() || !fileUrl.trim()) {
+      alert("Some inputs are empty!");
+      return;
+    }
+
+    let newObj = {
+      name: name,
+      fileUrl: fileUrl
+    };
+
+    addEditions(newObj, 1);
+    console.log(newObj);
+
+    setName("");
+    setFileUrl("")
+  }
+
 
     useEffect(() => {
         document.body.style.overflow = "hidden";  
@@ -24,18 +46,6 @@ export function AddEdition({closeModal}) {
         console.log("Closing modal");
     };
 
-    const clearAllInputs = () => {
-        setInputValue1('');
-        setInputValue2('');
-    };
-
-    const handleInputChange1 = (e) => {
-        setInputValue1(e.target.value);
-    };
-
-    const handleInputChange2 = (e) => {
-        setInputValue2(e.target.value);
-    };
 
     return (
         <>
@@ -48,24 +58,25 @@ export function AddEdition({closeModal}) {
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue1}
-                                onChange={handleInputChange1}
+                                // value={inputValue1}
+                                // onChange={handleInputChange1}
+                                value={name}
+                            onChange={(e) => setName(e.target.value)}
                                 name="email"
                             />
                             <label>Link to PDF</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue2}
-                                onChange={handleInputChange2}
+                                // value={inputValue2}
+                                // onChange={handleInputChange2}
+                                value={fileUrl}
+                            onChange={(e) => setFileUrl(e.target.value)}
                                 name="email"
                             />
-                            <button>Add</button>
-                            <div className={classes.clear} onClick={clearAllInputs}>
-                                <a href="javascript:void(0);" className={classes.sign}>
-                                    Clear all
-                                </a>
-                            </div>
+                  
+                            <button onClick={addNewEdition}>Add</button>
+                            
                         </form>
                     </div>
                 </div>
