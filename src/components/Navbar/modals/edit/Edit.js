@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect } from 'react';
 import classes from './Edit.module.scss';
+import { articlesContext } from '../../../../contexts/articleContext';
 
 export function Edit({closeModal}) {
     
-    const [activeEdit, setActiveEdit] = useState("edit");
-    const [inputValue1, setInputValue1] = useState('');
-    const [inputValue2, setInputValue2] = useState('');
-    const [inputValue3, setInputValue3] = useState('');
-    const [inputValue4, setInputValue4] = useState('');
-    const [inputValue5, setInputValue5] = useState('');
-    const [inputValue6, setInputValue6] = useState('');
-    const [inputValue7, setInputValue7] = useState('');
-    const [inputValue8, setInputValue8] = useState('');
-    const [inputValue9, setInputValue9] = useState('');
-    const [inputValue10, setInputValue10] = useState('');
-    const [inputValue11, setInputValue11] = useState('');
+    const { getArchive, archive, loading, setLoading, editArchive } = useContext(articlesContext)
+
+  const [description, setDescription] = useState(archive.description)
+  const [rulesUrl, setRulesUrl] = useState(archive.rulesUrl)
+  const [reviewerRulesUrl, setReviewerRulesUrl] = useState(archive.reviewerRulesUrl)
+  const [publicationEthicsRu, setPublicationEthicsRu] = useState(archive.publicationEthicsRu)
+  const [publicationEthicEn, setPublicationEthicEn] = useState(archive.publicationEthicEn)
+  const [editorialCouncil, setEditorialCouncil] = useState(archive.editorialCouncil)
+  const [adress, setAdress] = useState(archive.adress)
+  const [phoneNumber, setPhoneNumber] = useState(archive.phoneNumber)
+  const [faxNumber, setFaxNumber] = useState(archive.faxNumber)
+  const [email, setEmail] = useState(archive.email)
+  const [activeEdit, setActiveEdit] = useState("edit");
+
+  useEffect(() => {
+    getArchive();
+  }, []);
+
+  console.log(archive);
 
     useEffect(() => {
         document.body.style.overflow = "hidden";  
@@ -34,62 +42,41 @@ export function Edit({closeModal}) {
     };
 
     const clearAllInputs = () => {
-        setInputValue1('');
-        setInputValue2('');
-        setInputValue3('');
-        setInputValue4('');
-        setInputValue5('');
-        setInputValue6('');
-        setInputValue7('');
-        setInputValue8('');
-        setInputValue9('');
-        setInputValue10('');
-        setInputValue11('');
+        setDescription('');
+        setRulesUrl('');
+        setReviewerRulesUrl('');
+        setPublicationEthicsRu('');
+        setPublicationEthicEn('');
+        setEditorialCouncil('');
+        setAdress('');
+        setPhoneNumber('');
+        setFaxNumber('');
+        setEmail('');
     };
 
-    const handleInputChange1 = (e) => {
-        setInputValue1(e.target.value);
-    };
-
-    const handleInputChange2 = (e) => {
-        setInputValue2(e.target.value);
-    };
-
-    const handleInputChange3 = (e) => {
-        setInputValue3(e.target.value);
-    };
-
-    const handleInputChange4 = (e) => {
-        setInputValue4(e.target.value);
-    };
-
-    const handleInputChange5 = (e) => {
-        setInputValue5(e.target.value);
-    };
-
-    const handleInputChange6 = (e) => {
-        setInputValue6(e.target.value);
-    };
-
-    const handleInputChange7 = (e) => {
-        setInputValue7(e.target.value);
-    };
-
-    const handleInputChange8 = (e) => {
-        setInputValue8(e.target.value);
-    };
-
-    const handleInputChange9 = (e) => {
-        setInputValue9(e.target.value);
-    };
-    const handleInputChange10 = (e) => {
-        setInputValue10(e.target.value);
-    };
-
-    const handleInputChange11 = (e) => {
-        setInputValue11(e.target.value);
-    };
-
+    function saveChanges() {
+        if (!email.trim() || !description.trim() || !rulesUrl.trim() || !reviewerRulesUrl.trim() || !publicationEthicEn.trim() || !publicationEthicsRu.trim() || !editorialCouncil.trim() || !adress.trim() || !phoneNumber.trim() || !faxNumber.trim()) {
+            alert("Some inputs are empty!");
+            return;
+          }
+        const editedInfo = {
+          rulesUrl,
+          adress,
+          description,
+          reviewerRulesUrl,
+          publicationEthicEn,
+          publicationEthicsRu,
+          editorialCouncil,
+          phoneNumber,
+          faxNumber,
+          email
+        };
+        console.log("Edited Info:", editedInfo);
+        alert("Обновлено!")
+        editArchive(editedInfo);
+        window.location.reload();
+      }
+    
 
     return (
         <>
@@ -102,91 +89,84 @@ export function Edit({closeModal}) {
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue1}
-                                onChange={handleInputChange1}
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
                                 name="email"
                             />
                             <label>Editorial Council</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue2}
-                                onChange={handleInputChange2}
+                                value={editorialCouncil}
+                                onChange={(e) => setEditorialCouncil(e.target.value)}
                                 name="email"
                             />
                             <label>Address</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue3}
-                                onChange={handleInputChange3}
+                                value={adress}
+                                onChange={(e) => setAdress(e.target.value)}
                                 name="email"
                             />
                             <label>Phone number</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue4}
-                                onChange={handleInputChange4}
+                                value={phoneNumber}
+                                onChange={(e) => setPhoneNumber(e.target.value)}
                                 name="email"
                             />
                             <label>Fax number</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue5}
-                                onChange={handleInputChange5}
+                                value={faxNumber}
+                                onChange={(e) => setFaxNumber(e.target.value)}
                                 name="email"
                             />
                             <label>E-mail</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue6}
-                                onChange={handleInputChange6}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 name="email"
                             />
-                            <label>Council members</label>
-                            <input
-                                type="text"
-                                placeholder="Click and type"
-                                value={inputValue7}
-                                onChange={handleInputChange7}
-                                name="email"
-                            />
+                           
                             <label>Link to ethics in Russian</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue8}
-                                onChange={handleInputChange8}
+                                value={publicationEthicsRu}
+                                onChange={(e) => setPublicationEthicsRu(e.target.value)}
                                 name="email"
                             />
                             <label>Link to ethics in English</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue9}
-                                onChange={handleInputChange9}
+                                value={publicationEthicEn}
+                                onChange={(e) => setPublicationEthicEn(e.target.value)}
                                 name="email"
                             />
                             <label>Rules for authors</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue10}
-                                onChange={handleInputChange10}
+                                value={rulesUrl}
+                                onChange={(e) => setRulesUrl(e.target.value)}
                                 name="email"
                             />
                             <label>Rules for reviewers</label>
                             <input
                                 type="text"
                                 placeholder="Click and type"
-                                value={inputValue11}
-                                onChange={handleInputChange11}
+                                value={reviewerRulesUrl}
+                                onChange={(e) => setReviewerRulesUrl(e.target.value)}
                                 name="email"
                             />
-                            <button>Add</button>
+                            <button onClick={saveChanges}>Add</button>
                             <div className={classes.clear} onClick={clearAllInputs}>
                                 <a href="javascript:void(0);" className={classes.sign}>
                                     Clear All

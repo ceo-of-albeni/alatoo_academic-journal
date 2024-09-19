@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 export const articlesContext = React.createContext();
 
 const INIT_STATE = {
-  articles: [],
+  archive: [],
   oneArticle: [],
   categories: [],
   my_articles: [],
@@ -15,8 +15,8 @@ const INIT_STATE = {
 
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
-    case "GET_ARTICLES":
-      return { ...state, articles: action.payload };
+    case "GET_ARCHIVE":
+      return { ...state, archive: action.payload };
     case "GET_MY_ARTICLES":
       return { ...state, my_articles: action.payload };
     case "GET_ONE_ARTICLE":
@@ -32,6 +32,7 @@ function reducer(state = INIT_STATE, action) {
 
 const ArticleContextsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const [loading, setLoading] = useState(true);
 
   const API = "http://localhost:3001/api";
 
@@ -85,6 +86,27 @@ const ArticleContextsProvider = ({ children }) => {
       });
     } catch (err) {
       console.log(err);
+    }
+  }
+
+  async function getArchive() {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(`${API}/archive`, config);
+      dispatch({
+        type: "GET_ARCHIVE",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -275,11 +297,41 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
+  async function editArchive(formData) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}/archive/edit`, formData, config);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function editCouncilMembers(formData) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}/archive/edit/members`, formData, config);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <articlesContext.Provider
       value={{
-        articles: state.articles,
-        // pages: state.pages,
+        archive: state.archive,
+        loading,
         oneArticle: state.oneArticle,
         categories: state.categories,
         my_articles: state.my_articles,
@@ -298,7 +350,11 @@ const ArticleContextsProvider = ({ children }) => {
         getAllNotPublished,
         approveArticle,
         addVolumes,
-        addEditions
+        addEditions,
+        getArchive,
+        setLoading,
+        editArchive,
+        editCouncilMembers,
       }}>
       {children}
     </articlesContext.Provider>
