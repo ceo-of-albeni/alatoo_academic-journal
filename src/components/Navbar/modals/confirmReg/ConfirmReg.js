@@ -4,11 +4,10 @@ import { useNavigate } from "react-router-dom";
 import arrow from "../img/arrow.svg";
 import { Success } from "../success/Success";
 import { useTranslation } from 'react-i18next';
-// import Loader from "../../../Loader/Loader";
 import { authContext } from "../../../../contexts/authContext";
 
 export function ConfirmReg({ closeModal }) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [openSuccess, setOpenSuccess] = useState(null);
   const [seconds, setSeconds] = useState(
     parseInt(localStorage.getItem("timerSeconds")) || 59
@@ -54,16 +53,16 @@ export function ConfirmReg({ closeModal }) {
       code: code,
     };
 
-    try {
+    // try {
       handleConfirm(newObj);
       closeOpenSuccess();
 
       setEmail("");
       setCode("");
       setTimerRunning(true);
-    } catch (error) {
-      console.error("Error during confirmation:", error);
-    }
+    // } catch (error) {
+    //   console.error("Error during confirmation:", error);
+    // }
   }
 
   useEffect(() => {
@@ -120,18 +119,18 @@ export function ConfirmReg({ closeModal }) {
     setOpenSuccess(null);
   };
 
-  const handleResendClick = () => {
-    setSeconds(59);
-    setTimerRunning(true);
-  };
+  // const handleResendClick = () => {
+  //   setSeconds(59);
+  //   setTimerRunning(true);
+  // };
 
-  const handleButtonClick = () => {
-    if (timerRunning) {
-      handleResendClick();
-    } else {
-      handleSigninClick();
-    }
-  };
+  // const handleButtonClick = () => {
+  //   if (timerRunning) {
+  //     handleResendClick();
+  //   } else {
+  //     handleSigninClick();
+  //   }
+  // };
 
   return (
     <div className={classes.confirm}>

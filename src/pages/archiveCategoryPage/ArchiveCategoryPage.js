@@ -23,6 +23,8 @@ export default function ArchiveCategoryPage() {
 
   const { getArchive, archive, loading } = useContext(articlesContext)
 
+  let archive_var = (archive.volumes) ? archive.volumes : []
+
   const [description, setDescription] = useState(archive.description)
   const [rulesUrl, setRulesUrl] = useState(archive.rulesUrl)
   const [reviewerRulesUrl, setReviewerRulesUrl] = useState(archive.reviewerRulesUrl)
@@ -85,12 +87,22 @@ export default function ArchiveCategoryPage() {
   }]);
 
   const [openSubs, setOpenSubs] = useState(Array(dropdowns.length).fill(false));
+  console.log(archive_var)
+  const [openSubs2, setOpenSubs2] = useState(archive_var.length).fill(false);
 
   const toggleOpenSub = index => {
     const updatedOpenSubs = [...openSubs];
     updatedOpenSubs[index] = !updatedOpenSubs[index];
     setOpenSubs(updatedOpenSubs);
   };
+
+  const toggleOpenSub2 = index => {
+    const updatedOpenSubs2 = [...openSubs2];
+    updatedOpenSubs2[index] = !updatedOpenSubs2[index];
+    setOpenSubs2(updatedOpenSubs2);
+  };
+
+
 
   const [openCouns, setOpenCouns] = useState(false);
 
@@ -159,7 +171,7 @@ export default function ArchiveCategoryPage() {
           <div className={classes.archive__inner__1}>
             <div className={classes.years}>
               <br />
-              <div className={classes.search}>
+              {/* <div className={classes.search}>
                 <div className={classes.filtration}>
                   <BasicDatePicker />
                 </div>
@@ -169,7 +181,7 @@ export default function ArchiveCategoryPage() {
                     <img src={search} alt="search" />
                   </button>
                 </form>
-              </div>
+              </div> */}
               <div className={classes.add__vol}>
                 <p>+</p>
                 <button onClick={openVolumeModal}>Add Volume</button>
@@ -177,13 +189,13 @@ export default function ArchiveCategoryPage() {
               {archive.volumes.map((dropdown, index) => (
                 <div
                   key={index}
-                  className={`${openSubs[index] ? "" : classes.sub__menu__end}`}>
+                  className={`${openSubs2[index] ? "" : classes.sub__menu__end}`}>
                   <div className={classes.trash}>
                     <div
                       className={`${classes.year} ${
-                        openSubs[index] ? classes.rotate : classes.rotate__end
+                        openSubs2[index] ? classes.rotate : classes.rotate__end
                       }`}
-                      onClick={() => toggleOpenSub(index)}>
+                      onClick={() => toggleOpenSub2(index)}>
                       <p>
                         {dropdown.name}
                       </p>
@@ -193,7 +205,7 @@ export default function ArchiveCategoryPage() {
                   </div>
                   <div
                     className={
-                      openSubs[index]
+                      openSubs2[index]
                         ? classes.sub__menu
                         : classes.sub__menu__hide
                     }>

@@ -97,6 +97,7 @@ const AuthContextProvider = ({ children }) => {
       navigate("/");
     } catch (err) {
       console.log(err);
+      alert("Error!")
       setError(err);
     }
   }

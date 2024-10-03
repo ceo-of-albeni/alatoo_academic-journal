@@ -327,6 +327,54 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
+  async function deleteArchiveVolume(id) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.delete(`${API}/archive/delete/volume/${id}`, config);
+      alert("The volume was deleted!");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function deleteArchiveEdition(id) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.delete(`${API}/archive/delete/edition/${id}`, config);
+      alert("The edition was deleted!");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function deleteArchiveArticle(id) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.delete(`${API}/archive/delete/article/${id}`, config);
+      alert("The article was deleted!");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <articlesContext.Provider
       value={{
@@ -355,6 +403,9 @@ const ArticleContextsProvider = ({ children }) => {
         setLoading,
         editArchive,
         editCouncilMembers,
+        deleteArchiveArticle,
+        deleteArchiveEdition,
+        deleteArchiveVolume
       }}>
       {children}
     </articlesContext.Provider>
