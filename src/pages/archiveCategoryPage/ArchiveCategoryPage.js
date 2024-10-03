@@ -15,6 +15,8 @@ import { Delete } from "../../components/Navbar/modals/delete/Delete";
 import { Edit } from "../../components/Navbar/modals/edit/Edit";
 import DOMPurify from 'dompurify';
 import { articlesContext } from "../../contexts/articleContext";
+import { Delete2 } from "../../components/Navbar/modals/delete/Delete2";
+import { Delete3 } from "../../components/Navbar/modals/delete/Delete3";
 
 export default function ArchiveCategoryPage() {
   const navigate = useNavigate();
@@ -114,6 +116,8 @@ export default function ArchiveCategoryPage() {
   const [activeEdition, setActiveEdition] = useState(null);
   const [activeArticle, setActiveArticle] = useState(null);
   const [activeDelete, setActiveDelete] = useState(null);
+  const [activeDelete2, setActiveDelete2] = useState(null);
+  const [activeDelete3, setActiveDelete3] = useState(null);
   const [activeEdit, setActiveEdit] = useState(null);
 
   const openVolumeModal = () => {
@@ -139,6 +143,19 @@ export default function ArchiveCategoryPage() {
       setActiveDelete("delete");
     }
   };
+
+  const openDeleteModal2 = () => {
+    if (activeDelete2 === null) {
+      setActiveDelete2("delete2");
+    }
+  };
+
+  const openDeleteModal3 = () => {
+    if (activeDelete3 === null) {
+      setActiveDelete3("delete3");
+    }
+  };
+  
   const openEditModal = () => {
     if (activeEdit === null) {
       setActiveEdit("edit");
@@ -219,7 +236,7 @@ export default function ArchiveCategoryPage() {
                           <p className={classes.edition_link_a} href={dropdown.editions.fileUrl}>
                             Выпуск № {edition.name}
                           </p>
-                          <FontAwesomeIcon icon={faTrash} className={classes.trash__icon2} onClick={openDeleteModal}/>
+                          <FontAwesomeIcon icon={faTrash} className={classes.trash__icon2} onClick={openDeleteModal2}/>
                         </div>
                         <div className={classes.add__art}>
                           <p>+</p>
@@ -315,6 +332,8 @@ export default function ArchiveCategoryPage() {
       {activeEdition === "addEdition" && <AddEdition closeModal={closeModalHandler} />}
       {activeArticle === "addArticle" && <AddArticle closeModal={closeModalHandler} />}
       {activeDelete === "delete" && <Delete closeModal={closeModalHandler} />}
+      {activeDelete2 === "delete2" && <Delete2 closeModal={closeModalHandler}/>}
+      {activeDelete3 === "delete3" && <Delete3 closeModal={closeModalHandler}/>}
       {activeEdit === "edit" && <Edit closeModal={closeModalHandler} />}
     </div>
       )
