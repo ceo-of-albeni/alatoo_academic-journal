@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import classes from './Delete.module.scss';
 
-export function Delete2({closeModal}) {
+export function Delete2({closeModal, editionId}) {
     
     const [activeDelete2, setActiveDelete2] = useState("delete2");
     const [inputValue1, setInputValue1] = useState('');

@@ -97,13 +97,13 @@ const Routing = () => {
     },
     {
       link: "/comments",
-      element: <CommentsPage/>,
+      element: <CommentsPage />,
       id: 17,
     },
   ];
   return (
     <Routes>
-      {PUBLIC_ROUTES.map(item => (
+      {PUBLIC_ROUTES.map((item) => (
         <Route path={item.link} element={item.element} key={item.id} />
       ))}
     </Routes>

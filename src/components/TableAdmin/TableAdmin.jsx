@@ -76,7 +76,7 @@ export default function BasicTableAdmin() {
 
   function handleCategoryCreate() {
     if (!categoryCreate) {
-      alert("Input is empty!");
+      alert("Поле не заполнено!");
     }
 
     let newCategory = {
@@ -89,7 +89,7 @@ export default function BasicTableAdmin() {
   }
 
   let rows = [];
-  notPublished.map(item =>
+  notPublished.map((item) =>
     rows.push(
       createData(
         item.id,
@@ -122,7 +122,7 @@ export default function BasicTableAdmin() {
                 placeholder={t("tableadmin.ph")}
                 type="text"
                 value={categoryCreate}
-                onChange={e => setCategoryCreate(e.target.value)}
+                onChange={(e) => setCategoryCreate(e.target.value)}
               />
             </div>
 
@@ -164,7 +164,7 @@ export default function BasicTableAdmin() {
             </TableRow>
           </TableHead>
           <TableBody className="tableBody">
-            {currentData().map(row => (
+            {currentData().map((row) => (
               <TableRow
                 key={row.id}
                 height="60px"
@@ -191,13 +191,13 @@ export default function BasicTableAdmin() {
                         key={`${row.id}-approve`}
                         onClick={() => approveArticle(row.id)}
                         id="approve">
-                        {t('tableadmin.apr_arc')}
+                        {t("tableadmin.apr_arc")}
                       </button>
                       <button
                         key={`${row.id}-decline`}
                         id="decline"
                         onClick={() => declineArticle(row.id)}>
-                        {t('tableadmin.dec_pay')}
+                        {t("tableadmin.dec_pay")}
                       </button>
                     </>
                   ) : (
@@ -206,13 +206,13 @@ export default function BasicTableAdmin() {
                         key={`${row.id}-approve`}
                         onClick={() => paymentArticle(row.id)}
                         id="approve">
-                        {t('tableadmin.apr_pay')}
+                        {t("tableadmin.apr_pay")}
                       </button>
                       <button
                         key={`${row.id}-decline`}
                         id="decline"
                         onClick={() => declineArticle(row.id)}>
-                        {t('tableadmin.dec_arc')}
+                        {t("tableadmin.dec_arc")}
                       </button>
                     </>
                   )}

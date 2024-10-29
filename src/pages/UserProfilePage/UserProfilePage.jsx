@@ -9,7 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { authContext } from "../../contexts/authContext";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 // import { useSearchParams } from "react-router-dom";
 
 const UserProfilePage = () => {
@@ -54,11 +54,12 @@ const UserProfilePage = () => {
     setCoauthorsEmails("");
   }
 
-  const handleFileChange = event => {
-    console.log("nyw");
+  const handleFileChange = (event) => {
     const file = event.target.files[0];
     setArticleFile(file);
   };
+
+  console.log(title, category, coauthors, text, articleFile, coauthorsEmails);
 
   const handleUpload = async () => {
     if (
@@ -69,7 +70,7 @@ const UserProfilePage = () => {
       !category ||
       !coauthorsEmails
     ) {
-      alert("Some inputs are empty!");
+      alert("Некоторые поля не заполнены!");
       return;
     }
 
@@ -102,11 +103,11 @@ const UserProfilePage = () => {
         );
         const responseText = await response.text();
         console.error("Server Response:", responseText);
-        alert("Error!");
+        alert("Ошибка!");
         return;
       }
 
-      alert("Article created successfully!");
+      alert("Статья успешно создана!");
       window.location.reload();
     } catch (error) {
       console.error("Error during article creation:", error);
@@ -121,19 +122,18 @@ const UserProfilePage = () => {
     // setCheckFile(null);
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setCategory(event.target.value);
   };
 
-
-// Определяем, какое поле использовать в зависимости от языка
+  // Определяем, какое поле использовать в зависимости от языка
   const getCategoryLang = (item) => {
     switch (oneUser?.language) {
-      case 'KG':
+      case "KG":
         return item.nameKg || item.nameRu; // fallback на RU если KG не определен
-      case 'ENG':
+      case "ENG":
         return item.nameEn || item.nameRu; // fallback на RU если ENG не определен
-      case 'RU':
+      case "RU":
       default:
         return item.nameRu;
     }
@@ -163,17 +163,19 @@ const UserProfilePage = () => {
           />
           <div className="profile_main-info">
             <p>
-              <strong>{t('userprofilepage.firstname')}</strong> {oneUser?.firstName}
+              <strong>{t("userprofilepage.firstname")}</strong>{" "}
+              {oneUser?.firstName}
             </p>
 
             <p>
-              <strong>{t('userprofilepage.lastname')}</strong> {oneUser?.lastName}
+              <strong>{t("userprofilepage.lastname")}</strong>{" "}
+              {oneUser?.lastName}
             </p>
             <p>
-              <strong>{t('userprofilepage.position')}</strong> {oneUser?.role}
+              <strong>{t("userprofilepage.position")}</strong> {oneUser?.role}
             </p>
             <p>
-              <strong>{t('userprofilepage.email')}</strong> {oneUser?.email}
+              <strong>{t("userprofilepage.email")}</strong> {oneUser?.email}
             </p>
           </div>
           {/* <p className="edit_prof">Edit Profile</p> */}
@@ -181,19 +183,19 @@ const UserProfilePage = () => {
 
         {openArticle && (
           <div className="article_form" id="article_div">
-            <h4>{t('tableadmin.title')}</h4>
+            <h4>{t("tableadmin.title")}</h4>
             <div className="article_form-inputs">
               <div className="short_inp">
-                <p className="input_p">{t('tableadmin.article_title')}</p>
+                <p className="input_p">{t("tableadmin.article_title")}</p>
                 <input
                   className="text_input"
-                  placeholder={t('tableadmin.ph')}
+                  placeholder={t("tableadmin.ph")}
                   type="text"
                   value={title}
-                  onChange={e => setTitle(e.target.value)}
+                  onChange={(e) => setTitle(e.target.value)}
                 />
-                <p className="input_p">{t('tableadmin.category')}</p>
-                <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
+                <p className="input_p">{t("tableadmin.category")}</p>
+                {/* <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
                   <Select
                     className="text_input max_mb"
                     style={{
@@ -206,41 +208,67 @@ const UserProfilePage = () => {
                     inputProps={{ "aria-label": "Without label" }}>
                     <MenuItem value="">
                       <p style={{ color: "lightgrey", marginBottom: "0px" }}>
-                        {t('tableadmin.category2')}
+                        {t("tableadmin.category2")}
                       </p>
                     </MenuItem>
                     {categories ? (
-                      categories.map(item => (
+                      categories.map((item) => (
                         <MenuItem key={item.id} value={getCategoryLang(item)}>
-                          {getCategoryLang(item)}
+                          {item.name}
                         </MenuItem>
                       ))
                     ) : (
-                      <h3>{t('tableadmin.loading')}</h3>
+                      <h3>{t("tableadmin.loading")}</h3>
+                    )}
+                  </Select>
+                </FormControl> */}
+                <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
+                  <Select
+                    className="text_input max_mb"
+                    style={{
+                      height: "49px",
+                      marginBottom: "120px",
+                    }}
+                    value={category || ""} // Fallback to empty string if category is undefined
+                    onChange={handleChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}>
+                    <MenuItem value="">
+                      <p style={{ color: "lightgrey", marginBottom: "0px" }}>
+                        {t("tableadmin.category2")}
+                      </p>
+                    </MenuItem>
+                    {categories ? (
+                      categories.map((item) => (
+                        <MenuItem key={item.id} value={getCategoryLang(item)}>
+                          {item.name}
+                        </MenuItem>
+                      ))
+                    ) : (
+                      <h3>{t("tableadmin.loading")}</h3>
                     )}
                   </Select>
                 </FormControl>
-                <p className="input_p">
-                  {t('tableadmin.author')}
-                </p>
+
+                <p className="input_p">{t("tableadmin.author")}</p>
                 <input
                   className="text_input"
                   placeholder={t("tableadmin.ph")}
                   type="text"
                   value={coauthors}
-                  onChange={e => setCoauthors(e.target.value)}
+                  onChange={(e) => setCoauthors(e.target.value)}
                 />
 
-                <p className="input_p">{t('tableadmin.email')}</p>
+                <p className="input_p">{t("tableadmin.email")}</p>
                 <input
                   className="text_input"
-                  placeholder={t('tableadmin.ph')}
+                  placeholder={t("tableadmin.ph")}
                   type="text"
                   value={coauthorsEmails}
-                  onChange={e => setCoauthorsEmails(e.target.value)}
+                  onChange={(e) => setCoauthorsEmails(e.target.value)}
                 />
 
-                <p className="input_p">{t('tableadmin.file')}</p>
+                <p className="input_p">{t("tableadmin.file")}</p>
                 <label className="custom-file-upload">
                   <input
                     type="file"
@@ -261,14 +289,16 @@ const UserProfilePage = () => {
                   placeholder={t("tableadmin.ph")}
                   type="text"
                   value={text}
-                  onChange={e => setText(e.target.value)}
+                  onChange={(e) => setText(e.target.value)}
                 />
               </div>
 
               <br />
-              <button onClick={handleUpload}>{t('userprofilepage.next')}</button>
+              <button onClick={handleUpload}>
+                {t("userprofilepage.next")}
+              </button>
               <p id="clear_all" onClick={clearAll}>
-                {t('userprofilepage.clear')}
+                {t("userprofilepage.clear")}
               </p>
             </div>
           </div>

@@ -3,7 +3,7 @@ import classes from "./ConfirmReg.module.css";
 import { useNavigate } from "react-router-dom";
 import arrow from "../img/arrow.svg";
 import { Success } from "../success/Success";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { authContext } from "../../../../contexts/authContext";
 
 export function ConfirmReg({ closeModal }) {
@@ -19,12 +19,11 @@ export function ConfirmReg({ closeModal }) {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
 
-  const { handleConfirm, setError, sendCodeAgain } =
-    useContext(authContext);
+  const { handleConfirm, setError, sendCodeAgain } = useContext(authContext);
 
   function handleSendAgain() {
     if (!email.trim()) {
-      alert("Some inputs are empty!");
+      alert("Некоторые поля пустые!");
       return;
     }
 
@@ -44,7 +43,7 @@ export function ConfirmReg({ closeModal }) {
 
   function handleSigninClick() {
     if (!email.trim() || !code.trim()) {
-      alert("Some inputs are empty!");
+      alert("Некоторые поля пустые!");
       return;
     }
 
@@ -54,12 +53,12 @@ export function ConfirmReg({ closeModal }) {
     };
 
     // try {
-      handleConfirm(newObj);
-      closeOpenSuccess();
+    handleConfirm(newObj);
+    closeOpenSuccess();
 
-      setEmail("");
-      setCode("");
-      setTimerRunning(true);
+    setEmail("");
+    setCode("");
+    setTimerRunning(true);
     // } catch (error) {
     //   console.error("Error during confirmation:", error);
     // }
@@ -74,7 +73,7 @@ export function ConfirmReg({ closeModal }) {
       // setSeconds(prevSeconds => (prevSeconds > 0 ? prevSeconds - 1 : 0));
 
       if (timerRunning && seconds > 0) {
-        setSeconds(prevSeconds => prevSeconds - 1);
+        setSeconds((prevSeconds) => prevSeconds - 1);
       } else {
         setTimerRunning(false);
       }
@@ -109,7 +108,7 @@ export function ConfirmReg({ closeModal }) {
   //   }
   // }, []);
 
-  const closeOpenSuccess = e => {
+  const closeOpenSuccess = (e) => {
     // e.preventDefault();
     setOpenSuccess("success");
     // console.log("asduhfajsdhi");
@@ -137,39 +136,37 @@ export function ConfirmReg({ closeModal }) {
       <div className={classes.confirm__inner}>
         <img src={arrow} alt="back" onClick={() => navigate("/register")} />
         <form action="">
-          <div>{t('confirm_reg.button')}</div>
-          <label>{t('confirm_reg.email')}</label>
+          <div>{t("confirm_reg.button")}</div>
+          <label>{t("confirm_reg.email")}</label>
           <input
             type="text"
-            placeholder={t('confirm_reg.ph_email')}
+            placeholder={t("confirm_reg.ph_email")}
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             name="email"
           />
 
           <label>
-            {t('confirm_reg.code')}{" "}
+            {t("confirm_reg.code")}{" "}
             <span id="counter">0:{seconds < 10 ? `0${seconds}` : seconds}</span>
           </label>
           <input
             type="text"
-            placeholder={t('confirm_reg.ph_code')}
+            placeholder={t("confirm_reg.ph_code")}
             name="code"
             value={code}
-            onChange={e => setCode(e.target.value)}
+            onChange={(e) => setCode(e.target.value)}
           />
           {timerRunning ? (
             <button onClick={handleSigninClick}>
-              {t('confirm_reg.signin')}
+              {t("confirm_reg.signin")}
             </button>
           ) : (
             <div className={classes.resend_submit}>
-              <button onClick={handleSigninClick} >
-                {t('confirm_reg.signin')}
+              <button onClick={handleSigninClick}>
+                {t("confirm_reg.signin")}
               </button>
-              <p onClick={handleSendAgain}>
-                {t('confirm_reg.resend')}
-              </p>
+              <p onClick={handleSendAgain}>{t("confirm_reg.resend")}</p>
             </div>
           )}
         </form>
