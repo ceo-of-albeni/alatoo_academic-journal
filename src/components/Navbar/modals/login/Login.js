@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { authContext } from "../../../../contexts/authContext";
 import Loader from "../../../Loader/Loader";
 import { ForgotPassword } from "../forgotPassword/ForgotPassword";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 export function Login({ closeModal }) {
   const [activeModal, setActiveModal] = useState("login");
@@ -16,7 +16,7 @@ export function Login({ closeModal }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";  
+    document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -28,7 +28,7 @@ export function Login({ closeModal }) {
 
   function loginUser() {
     if (!email.trim() || !password.trim()) {
-      alert("Some inputs are empty!");
+      alert("Некоторые поля пустые!");
       return;
     }
 
@@ -48,9 +48,7 @@ export function Login({ closeModal }) {
     setError(false);
   }, []);
 
-
-
-  const handleLoginClick = e => {
+  const handleLoginClick = (e) => {
     e.stopPropagation();
   };
 
@@ -62,12 +60,12 @@ export function Login({ closeModal }) {
   const openReg = () => {
     navigate("/register");
     closeModal();
-  }
+  };
 
   const openForg = () => {
     navigate("/forgot_password");
     closeModal();
-  }
+  };
 
   return (
     <>
@@ -76,31 +74,31 @@ export function Login({ closeModal }) {
           <div className={classes.login__inner} onClick={handleLoginClick}>
             <img src={arrow} alt="back" onClick={() => closeModal()} />
             <form>
-              <div>{t('login.login')}</div>
-              <label>{t('login.email')}</label>
+              <div>{t("login.login")}</div>
+              <label>{t("login.email")}</label>
               <input
                 type="text"
-                placeholder={t('login.ph_email')}
+                placeholder={t("login.ph_email")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 name="email"
               />
-              <label>{t('login.password')}</label>
+              <label>{t("login.password")}</label>
               <input
                 type="password"
-                placeholder={t('login.ph_password')}
+                placeholder={t("login.ph_password")}
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button onClick={loginUser}>{t('login.signin')}</button>
+              <button onClick={loginUser}>{t("login.signin")}</button>
               <div className={classes.login__signup} onClick={openReg}>
                 <a href="javascript:void(0);" className={classes.sign}>
-                  {t('login.signup')}
+                  {t("login.signup")}
                 </a>
               </div>
               <div className={classes.login__fpassword} onClick={openForg}>
-                <a href="javascript:void(0);">{t('login.forgot_pw')}</a>
+                <a href="javascript:void(0);">{t("login.forgot_pw")}</a>
               </div>
             </form>
           </div>

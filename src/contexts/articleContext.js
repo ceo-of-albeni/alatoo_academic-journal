@@ -11,6 +11,7 @@ const INIT_STATE = {
   categories: [],
   my_articles: [],
   notPublished: [],
+  approved_articles: [],
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -25,6 +26,8 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, categories: action.payload };
     case "NOT_PUBLISHED_ARTICLE":
       return { ...state, notPublished: action.payload };
+    case "APPROVED_ARTICLES":
+      return { ...state, approved_articles: action.payload };
     default:
       return state;
   }
@@ -89,6 +92,25 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
+  async function getAllApproved() {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(`${API}/article/get/approved`, config);
+      dispatch({
+        type: "APPROVED_ARTICLES",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   async function getArchive() {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -139,7 +161,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      alert("Approved for payment! Refresh the page!");
+      alert("Одобрено для оплаты! Обновите страницу!");
     } catch (err) {
       console.log(err);
     }
@@ -155,7 +177,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      alert("Article was approved! Refresh the page!");
+      alert("Статья одобрена! Обновите страницу!");
     } catch (err) {
       console.log(err);
     }
@@ -172,7 +194,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      alert("Article was declined! Refresh the page!");
+      alert("Статья отказана! Обновите страницу!");
     } catch (err) {
       console.log(err);
     }
@@ -187,7 +209,7 @@ const ArticleContextsProvider = ({ children }) => {
         console.log(tokens.access_token);
       }
       const Authorization = `Bearer ${tokens.access_token}`;
-      const res = await fetch(`${API}/article/approve/${id}`, {
+      const res = await fetch(`${API}/article/delete/${id}`, {
         method: "POST",
         // body: newArticle,
         headers: {
@@ -196,7 +218,7 @@ const ArticleContextsProvider = ({ children }) => {
       });
 
       console.log("Article deleted successfully:", res.data);
-      alert("Article was deleted! Refresh the page!");
+      alert("Статья удалена! Обновите страницу!");
     } catch (err) {
       console.error("Error deleting article:", err);
     }
@@ -261,7 +283,11 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(`${API}/archive/add/volume`, formData, config);
+      const res = await axios.patch(
+        `${API}/archive/add/volume`,
+        formData,
+        config
+      );
     } catch (err) {
       console.log(err);
     }
@@ -276,7 +302,11 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(`${API}/archive/add/edition/to/${volumeId}`, formData, config);
+      const res = await axios.patch(
+        `${API}/archive/add/edition/to/${volumeId}`,
+        formData,
+        config
+      );
     } catch (err) {
       console.log(err);
     }
@@ -291,7 +321,11 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(`${API}/archive/add/article/${editionId}`, formData, config);
+      const res = await axios.patch(
+        `${API}/archive/add/article/${editionId}`,
+        formData,
+        config
+      );
     } catch (err) {
       console.log(err);
     }
@@ -321,13 +355,17 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(`${API}/archive/edit/members`, formData, config);
+      const res = await axios.patch(
+        `${API}/archive/edit/members`,
+        formData,
+        config
+      );
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function deleteArchiveVolume(id) {
+  async function deleteArchiveVolume(id, obj) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
@@ -336,14 +374,18 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.delete(`${API}/archive/delete/volume/${id}`, config);
-      alert("The volume was deleted!");
+      const res = await axios.delete(
+        `${API}/archive/delete/volume/${id}`,
+        config,
+        obj
+      );
+      alert("Том удален!");
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function deleteArchiveEdition(id) {
+  async function deleteArchiveEdition(id, obj) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
@@ -352,8 +394,12 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.delete(`${API}/archive/delete/edition/${id}`, config);
-      alert("The edition was deleted!");
+      const res = await axios.delete(
+        `${API}/archive/delete/edition/${id}`,
+        config,
+        obj
+      );
+      alert("Выпуск удален!");
     } catch (err) {
       console.log(err);
     }
@@ -368,8 +414,11 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.delete(`${API}/archive/delete/article/${id}`, config);
-      alert("The article was deleted!");
+      const res = await axios.delete(
+        `${API}/archive/delete/article/${id}`,
+        config
+      );
+      alert("Статья удалена!");
     } catch (err) {
       console.log(err);
     }
@@ -384,6 +433,7 @@ const ArticleContextsProvider = ({ children }) => {
         categories: state.categories,
         my_articles: state.my_articles,
         notPublished: state.notPublished,
+        approved_articles: state.approved_articles,
 
         updateArticle,
         getOneArticle,
@@ -405,7 +455,8 @@ const ArticleContextsProvider = ({ children }) => {
         editCouncilMembers,
         deleteArchiveArticle,
         deleteArchiveEdition,
-        deleteArchiveVolume
+        deleteArchiveVolume,
+        getAllApproved,
       }}>
       {children}
     </articlesContext.Provider>

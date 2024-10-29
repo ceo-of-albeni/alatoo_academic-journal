@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
 import { ConfirmReg } from "../confirmReg/ConfirmReg";
 import { Login } from "../login/Login";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 export function Register() {
   const { handleRegister, error, setError } = useContext(authContext);
@@ -29,12 +29,12 @@ export function Register() {
       !password.trim() ||
       !passwordConfirm.trim()
     ) {
-      alert("Some inputs are empty!");
+      alert("Некоторые поля пустые!");
       return;
     }
 
     if (password !== passwordConfirm) {
-      alert("Passwords are not the same!");
+      alert("Пароли не совпадают!");
       return;
     }
 
@@ -60,7 +60,6 @@ export function Register() {
     setError(false);
   }, []);
 
-
   const openConfirm = () => {
     createUser();
 
@@ -84,49 +83,49 @@ export function Register() {
       <div className={classes.register__inner}>
         <img src={arrow} alt="back" onClick={() => navigate("/")} />
         <form action="">
-          <div>{t('register.registration')}</div>
-          <label>{t('register.first_name')}</label>
+          <div>{t("register.registration")}</div>
+          <label>{t("register.first_name")}</label>
           <input
             type="text"
             value={firstName}
-            onChange={e => setFirstName(e.target.value)}
-            placeholder={t('register.ph_first_name')}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder={t("register.ph_first_name")}
             name="name"
           />
-          <label>{t('register.last_name')}</label>
+          <label>{t("register.last_name")}</label>
           <input
             type="text"
             value={lastName}
-            onChange={e => setLastName(e.target.value)}
-            placeholder={t('register.ph_last_name')}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder={t("register.ph_last_name")}
             name="surname"
           />
-          <label>{t('register.email')}</label>
+          <label>{t("register.email")}</label>
           <input
             type="text"
             value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder={t('register.ph_email')}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={t("register.ph_email")}
             name="email"
           />
-          <label>{t('register.password')}</label>
+          <label>{t("register.password")}</label>
           <input
             type="password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
-            placeholder={t('register.ph_password')}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder={t("register.ph_password")}
             name="password"
           />
-          <label>{t('register.confirm_pw')}</label>
+          <label>{t("register.confirm_pw")}</label>
           <input
             type="password"
             value={passwordConfirm}
-            onChange={e => setPasswordConfirm(e.target.value)}
-            placeholder={t('register.ph_confirm_pw')}
+            onChange={(e) => setPasswordConfirm(e.target.value)}
+            placeholder={t("register.ph_confirm_pw")}
             name="con_password"
           />
           <button onClick={openConfirm}>
-            {isLoading ? <Loader /> : t('register.signup')}
+            {isLoading ? <Loader /> : t("register.signup")}
           </button>
         </form>
       </div>

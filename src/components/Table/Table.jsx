@@ -38,7 +38,16 @@ function createData(
   status,
   fileUrl
 ) {
-  return { id, title, createdAt, coauthors, pageCount, category, status, fileUrl };
+  return {
+    id,
+    title,
+    createdAt,
+    coauthors,
+    pageCount,
+    category,
+    status,
+    fileUrl,
+  };
 }
 
 export default function BasicTable() {
@@ -86,7 +95,7 @@ export default function BasicTable() {
 
   const handleUpload = async () => {
     if (!checkFile) {
-      alert("Input is empty!");
+      alert("Поле не заполнено!");
       return;
     }
 
@@ -116,12 +125,11 @@ export default function BasicTable() {
         );
         const responseText = await response.text();
         console.error("Server Response:", responseText);
-        alert("Error!");
+        alert("Ошибка!");
         return;
       }
 
-      console.log("CHeck norm!");
-      alert("Done!");
+      alert("Готово!");
       setOpen(false);
     } catch (error) {
       console.error("Error during article creation:", error);
@@ -129,7 +137,7 @@ export default function BasicTable() {
   };
 
   let rows = [];
-  my_articles.map(item =>
+  my_articles.map((item) =>
     rows.push(
       createData(
         item.id,
@@ -144,7 +152,7 @@ export default function BasicTable() {
     )
   );
 
-  const handleCheckFileChange = event => {
+  const handleCheckFileChange = (event) => {
     const file = event.target.files[0];
     setCheckFile(file);
   };
@@ -165,7 +173,7 @@ export default function BasicTable() {
           aria-describedby="modal-modal-description">
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              {t('table.check')}
+              {t("table.check")}
             </Typography>
             <label className="custom-file-upload">
               <input
@@ -223,7 +231,7 @@ export default function BasicTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {currentData().map(row => (
+            {currentData().map((row) => (
               <TableRow
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
@@ -231,7 +239,11 @@ export default function BasicTable() {
                   {row.id}
                 </TableCell>
                 <TableCell align="left">
-                  <a className="table_a" href={row.fileUrl} target="_blank" rel="noopener noreferrer">
+                  <a
+                    className="table_a"
+                    href={row.fileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer">
                     {row.title}
                   </a>
                 </TableCell>

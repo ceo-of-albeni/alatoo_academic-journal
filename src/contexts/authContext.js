@@ -86,7 +86,7 @@ const AuthContextProvider = ({ children }) => {
     } catch (err) {
       console.log(err);
       setError(err);
-      alert("You entered wrong password or email!");
+      alert("Вы ввели неправильную почту или пароль!");
     } finally {
     }
   }
@@ -97,7 +97,7 @@ const AuthContextProvider = ({ children }) => {
       navigate("/");
     } catch (err) {
       console.log(err);
-      alert("Error!")
+      alert("Ошибка!");
       setError(err);
     }
   }
@@ -141,6 +141,7 @@ const AuthContextProvider = ({ children }) => {
     localStorage.removeItem("tokens");
     localStorage.removeItem("email");
     setCurrentUser(false);
+    window.location.reload();
     navigate("/");
   }
 
