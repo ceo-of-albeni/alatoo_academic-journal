@@ -12,6 +12,7 @@ const INIT_STATE = {
   my_articles: [],
   notPublished: [],
   approved_articles: [],
+  volumeInfo: [],
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -28,6 +29,8 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, notPublished: action.payload };
     case "APPROVED_ARTICLES":
       return { ...state, approved_articles: action.payload };
+    case "GET_VOLUME_INFO":
+      return { ...state, volumeInfo: action.payload };
     default:
       return state;
   }
@@ -94,14 +97,7 @@ const ArticleContextsProvider = ({ children }) => {
 
   async function getAllApproved() {
     try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios(`${API}/article/get/approved`, config);
+      const res = await axios(`${API}/article/get/approved`);
       dispatch({
         type: "APPROVED_ARTICLES",
         payload: res.data,
@@ -113,16 +109,23 @@ const ArticleContextsProvider = ({ children }) => {
 
   async function getArchive() {
     try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios(`${API}/archive`, config);
+      const res = await axios(`${API}/archive`);
       dispatch({
         type: "GET_ARCHIVE",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function getVolumeInfo(id) {
+    try {
+      const res = await axios(`${API}/archive/${id}`);
+      dispatch({
+        type: "GET_VOLUME_INFO",
         payload: res.data,
       });
     } catch (err) {
@@ -307,6 +310,7 @@ const ArticleContextsProvider = ({ children }) => {
         formData,
         config
       );
+      console.log(res);
     } catch (err) {
       console.log(err);
     }
@@ -434,6 +438,7 @@ const ArticleContextsProvider = ({ children }) => {
         my_articles: state.my_articles,
         notPublished: state.notPublished,
         approved_articles: state.approved_articles,
+        volumeInfo: state.volumeInfo,
 
         updateArticle,
         getOneArticle,
@@ -457,6 +462,7 @@ const ArticleContextsProvider = ({ children }) => {
         deleteArchiveEdition,
         deleteArchiveVolume,
         getAllApproved,
+        getVolumeInfo,
       }}>
       {children}
     </articlesContext.Provider>

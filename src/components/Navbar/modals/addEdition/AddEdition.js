@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import classes from "./AddEdition.module.scss";
 import { articlesContext } from "../../../../contexts/articleContext";
 
-export function AddEdition({ closeModal }) {
+export function AddEdition({ closeModal, id }) {
   const [activeEdition, setActiveEdition] = useState("addEdition");
   const { addEditions } = useContext(articlesContext);
 
   const [name, setName] = useState("");
+  console.log(id);
+
   const [fileUrl, setFileUrl] = useState("");
 
   function addNewEdition() {
@@ -21,7 +23,7 @@ export function AddEdition({ closeModal }) {
       fileUrl: fileUrl,
     };
 
-    addEditions(newObj, 1);
+    addEditions(newObj, id);
     console.log(newObj);
 
     setName("");

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import "./ArticlesPage.module.css";
+import classes from "./ArticlesPage.module.css";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import ArticleCard from "../../components/ArticleCard/ArticleCard";
@@ -31,10 +31,10 @@ const ArticlesPage = () => {
   };
 
   return (
-    <div>
-      <div className="list_main-div">
+    <div className={classes.list_main}>
+      <div className={classes.list_main_div}>
         <h1>{t("approved_articles.title")}</h1>
-        <div className="list_courses-div">
+        <div className={classes.list_courses_div}>
           {approved_articles ? (
             currentData().map((item) => (
               <ArticleCard key={item.id} item={item} />
@@ -44,7 +44,9 @@ const ArticlesPage = () => {
           )}
         </div>
 
-        <Pagination count={count} page={page} onChange={handlePage} />
+        <div className={classes.pagin}>
+          <Pagination count={count} page={page} onChange={handlePage} />
+        </div>
       </div>
     </div>
   );
