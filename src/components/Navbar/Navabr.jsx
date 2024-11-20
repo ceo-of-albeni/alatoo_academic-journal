@@ -29,7 +29,6 @@ const Navabr = ({ closeModal }) => {
   const closeModalHandler = () => {
     setActiveModal(null);
   };
-  
 
   return (
     <div className="header_navbar">
@@ -47,8 +46,8 @@ const Navabr = ({ closeModal }) => {
         <div className="header_inner">
           <div>
             <select className="change_lang" onChange={handleChangeLanguage}>
-              <option value="en">{t('En')}</option>
-              <option value="ru">{t('Ru')}</option>
+              <option value="en">{t("En")}</option>
+              <option value="ru">{t("Ru")}</option>
             </select>
           </div>
           <div className="header_links">
@@ -58,7 +57,7 @@ const Navabr = ({ closeModal }) => {
             <a href="/archive" className="header_links__item">
               {t("navbar.archive")}
             </a>
-            <a href="/articles" className="header_links__item">
+            <a href="/all_articles" className="header_links__item">
               {t("navbar.articles")}
             </a>
             <a href="/comments" className="header_links__item">

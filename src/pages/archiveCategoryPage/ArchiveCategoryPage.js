@@ -28,26 +28,12 @@ export default function ArchiveCategoryPage() {
     getOneUser();
     getArchive();
   }, []);
-  console.log(volumeInfo);
 
   const [archive_var, setArchiveVar] = useState([]);
 
   useEffect(() => {
     setArchiveVar(archive.volumes ? archive.volumes : []);
   }, [archive]);
-
-  // const formatText = (text) => {
-  //   return text.split('\n').map((line, index) => (
-  //     <React.Fragment key={index}>
-  //       {line.includes('<b>') ? (
-  //         <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(line) }} />
-  //       ) : (
-  //         line
-  //       )}
-  //       <br />
-  //     </React.Fragment>
-  //   ));
-  // };
 
   const [openSubs2, setOpenSubs2] = useState(
     Array(archive_var.length).fill(false)
@@ -86,28 +72,27 @@ export default function ArchiveCategoryPage() {
     if (activeEdition === null) {
       setActiveEdition("addEdition");
       setVolumeId(id);
-      console.log(id);
     }
   };
 
-  const openArticleModal = () => {
+  const openArticleModal = (id) => {
     if (activeArticle === null) {
+      setEditionId(id);
       setActiveArticle("addArticle");
     }
   };
 
   const openDeleteModal = (id) => {
     if (activeDelete === null) {
-      console.log(id);
       setActiveDelete("delete");
       setVolumeId(id);
-      console.log(volumeId);
     }
   };
 
   const openDeleteModal2 = (id) => {
     if (activeDelete2 === null) {
       setActiveDelete2("delete2");
+      setEditionId(id);
       setEditionId(id);
     }
   };
@@ -240,12 +225,19 @@ export default function ArchiveCategoryPage() {
                           ) : (
                             <span></span>
                           )}
-
                           <ul className={classes.sub__menu2}>
                             {edition.categories.map(
                               (category, categoryIndex) => (
                                 <li key={categoryIndex}>
-                                  <a href={category.link}>{category.name}</a>
+                                  <p
+                                    style={{ color: "black" }}
+                                    onClick={() =>
+                                      navigate(
+                                        `/articles/${edition.id}/${category.name}`
+                                      )
+                                    }>
+                                    {category.name}
+                                  </p>
                                 </li>
                               )
                             )}
@@ -337,13 +329,13 @@ export default function ArchiveCategoryPage() {
           <AddEdition id={volumeId} closeModal={closeModalHandler} />
         )}
         {activeArticle === "addArticle" && (
-          <AddArticle closeModal={closeModalHandler} />
+          <AddArticle id={editionId} closeModal={closeModalHandler} />
         )}
         {activeDelete === "delete" && (
-          <Delete editionId={editionId} closeModal={closeModalHandler} />
+          <Delete volumeId={volumeId} closeModal={closeModalHandler} />
         )}
         {activeDelete2 === "delete2" && (
-          <Delete2 volumeId={volumeId} closeModal={closeModalHandler} />
+          <Delete2 editionId={editionId} closeModal={closeModalHandler} />
         )}
         {activeDelete3 === "delete3" && (
           <Delete3 closeModal={closeModalHandler} />

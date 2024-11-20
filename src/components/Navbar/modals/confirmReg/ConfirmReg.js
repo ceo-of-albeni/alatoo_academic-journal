@@ -111,7 +111,6 @@ export function ConfirmReg({ closeModal }) {
   const closeOpenSuccess = (e) => {
     // e.preventDefault();
     setOpenSuccess("success");
-    // console.log("asduhfajsdhi");
   };
 
   const closeM = () => {

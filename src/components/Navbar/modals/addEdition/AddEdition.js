@@ -8,7 +8,6 @@ export function AddEdition({ closeModal, id }) {
   const { addEditions } = useContext(articlesContext);
 
   const [name, setName] = useState("");
-  console.log(id);
 
   const [fileUrl, setFileUrl] = useState("");
 
@@ -24,7 +23,6 @@ export function AddEdition({ closeModal, id }) {
     };
 
     addEditions(newObj, id);
-    console.log(newObj);
 
     setName("");
     setFileUrl("");

@@ -71,21 +71,28 @@ export default function BasicTableAdmin() {
     return notPublished.slice(begin, end);
   }
 
-  const [categoryCreate, setCategoryCreate] = useState("");
+  const [categoryCreateEn, setCategoryCreateEn] = useState("");
+  const [categoryCreateRu, setCategoryCreateRu] = useState("");
+  const [categoryCreateKg, setCategoryCreateKg] = useState("");
   const [page, setPage] = React.useState(1);
 
   function handleCategoryCreate() {
-    if (!categoryCreate) {
+    if (!categoryCreateEn && !categoryCreateRu && !categoryCreateKg) {
       alert("Поле не заполнено!");
     }
 
     let newCategory = {
-      name: categoryCreate,
+      nameEn: categoryCreateEn,
+      nameRu: categoryCreateRu,
+      nameKg: categoryCreateKg,
     };
 
     createCategory(newCategory);
+    console.log(newCategory);
 
-    setCategoryCreate("");
+    setCategoryCreateEn("");
+    setCategoryCreateRu("");
+    setCategoryCreateKg("");
   }
 
   let rows = [];
@@ -97,7 +104,7 @@ export default function BasicTableAdmin() {
         item.createdAt.slice(0, 10),
         item.coauthors,
         item.pageCount,
-        item.category,
+        item.category.name,
         item.status,
         item.fileUrl
       )
@@ -116,13 +123,35 @@ export default function BasicTableAdmin() {
           <h4>{t("tableadmin.category3")}</h4>
           <div className="article_form-inputs">
             <div className="short_inp">
-              <p className="input_p">{t("tableadmin.add")}</p>
+              <p className="input_p">{t("tableadmin.add")} En</p>
               <input
                 className="text_input"
                 placeholder={t("tableadmin.ph")}
                 type="text"
-                value={categoryCreate}
-                onChange={(e) => setCategoryCreate(e.target.value)}
+                value={categoryCreateEn}
+                onChange={(e) => setCategoryCreateEn(e.target.value)}
+              />
+            </div>
+
+            <div className="short_inp">
+              <p className="input_p">{t("tableadmin.add")} Ru</p>
+              <input
+                className="text_input"
+                placeholder={t("tableadmin.ph")}
+                type="text"
+                value={categoryCreateRu}
+                onChange={(e) => setCategoryCreateRu(e.target.value)}
+              />
+            </div>
+
+            <div className="short_inp">
+              <p className="input_p">{t("tableadmin.add")} Kg</p>
+              <input
+                className="text_input"
+                placeholder={t("tableadmin.ph")}
+                type="text"
+                value={categoryCreateKg}
+                onChange={(e) => setCategoryCreateKg(e.target.value)}
               />
             </div>
 
