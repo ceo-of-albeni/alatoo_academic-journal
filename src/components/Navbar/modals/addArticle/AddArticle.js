@@ -3,10 +3,15 @@ import { useState, useEffect } from "react";
 import classes from "./AddArticle.module.scss";
 import { articlesContext } from "../../../../contexts/articleContext";
 
-export function AddArticle({ closeModal }) {
+export function AddArticle({ closeModal, id }) {
   const [activeArticle, setActiveArticle] = useState("addArticle");
 
-  const { addArchiveArticles } = useContext(articlesContext);
+  const { addArchiveArticles, categories, getCategories } =
+    useContext(articlesContext);
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   const [authorName, setAuthorName] = useState("");
   const [titleRu, setTitleRu] = useState("");
@@ -34,6 +39,8 @@ export function AddArticle({ closeModal }) {
       //   return;
     }
 
+    console.log(id);
+
     let newObj = {
       authorName: authorName,
       fileUrl: fileUrl,
@@ -46,7 +53,7 @@ export function AddArticle({ closeModal }) {
       category: category,
     };
 
-    addArchiveArticles(newObj, 1);
+    addArchiveArticles(newObj, id);
     console.log(newObj);
 
     setAuthorName("");
@@ -105,8 +112,11 @@ export function AddArticle({ closeModal }) {
                 value={category}
                 onChange={handleSelectChange}>
                 <option value="">Select a category</option>
-                <option value="category1">PHILOLOGICAL SCIENCE</option>
-                <option value="category2">PEDAGOGICAL SCIENCE</option>
+                {categories.map((categoryName) => (
+                  <option value={categoryName.name}>
+                    {categoryName.nameEn}
+                  </option>
+                ))}
                 <option value="category3">
                   SOCIAL AND HUMANITARIAN SCIENCE
                 </option>

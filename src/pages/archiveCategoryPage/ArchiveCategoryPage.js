@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import classes from "./ArchiveCategoryPage.module.scss";
 import arrow from "./img/arrow.svg";
-import search from "./img/search.svg";
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider/Slider";
 import { useTranslation } from "react-i18next";
@@ -12,7 +11,6 @@ import { AddEdition } from "../../components/Navbar/modals/addEdition/AddEdition
 import { AddArticle } from "../../components/Navbar/modals/addArticle/AddArticle";
 import { Delete } from "../../components/Navbar/modals/delete/Delete";
 import { Edit } from "../../components/Navbar/modals/edit/Edit";
-import DOMPurify from "dompurify";
 import { articlesContext } from "../../contexts/articleContext";
 import { Delete2 } from "../../components/Navbar/modals/delete/Delete2";
 import { Delete3 } from "../../components/Navbar/modals/delete/Delete3";
@@ -23,101 +21,23 @@ export default function ArchiveCategoryPage() {
   const { t } = useTranslation();
 
   const { getOneUser, oneUser } = useContext(authContext);
+  const { getArchive, archive, volumeInfo, getVolumeInfo } =
+    useContext(articlesContext);
 
   useEffect(() => {
     getOneUser();
-  }, []);
-
-  const { getArchive, archive, loading } = useContext(articlesContext);
-  const [archive_var, setArchiveVar] = useState([]);
-
-  // let archive_var = archive.volumes ? archive.volumes : [];
-
-  const [description, setDescription] = useState(archive.description);
-  const [rulesUrl, setRulesUrl] = useState(archive.rulesUrl);
-  const [reviewerRulesUrl, setReviewerRulesUrl] = useState(
-    archive.reviewerRulesUrl
-  );
-  const [publicationEthicsRu, setPublicationEthicsRu] = useState(
-    archive.publicationEthicsRu
-  );
-  const [publicationEthicEn, setPublicationEthicEn] = useState(
-    archive.publicationEthicEn
-  );
-  const [editorialCouncil, setEditorialCouncil] = useState(
-    archive.editorialCouncil
-  );
-  const [adress, setAdress] = useState(archive.adress);
-  const [phoneNumber, setPhoneNumber] = useState(archive.phoneNumber);
-  const [faxNumber, setFaxNumber] = useState(archive.faxNumber);
-  const [email, setEmail] = useState(archive.email);
-
-  useEffect(() => {
     getArchive();
   }, []);
+
+  const [archive_var, setArchiveVar] = useState([]);
 
   useEffect(() => {
     setArchiveVar(archive.volumes ? archive.volumes : []);
   }, [archive]);
 
-  console.log(archive_var);
-
-  // const formatText = (text) => {
-  //   return text.split('\n').map((line, index) => (
-  //     <React.Fragment key={index}>
-  //       {line.includes('<b>') ? (
-  //         <span dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(line) }} />
-  //       ) : (
-  //         line
-  //       )}
-  //       <br />
-  //     </React.Fragment>
-  //   ));
-  // };
-
-  console.log(archive_var);
-
-  const [dropdowns, setDropdowns] = useState([
-    {
-      name: "2023, Том 23",
-      editions: [
-        {
-          name: "1",
-          fileUrl:
-            "https://drive.google.com/file/d/1_OQnqlqOyzYnQZjSmMmODFziOWZqfQ0U/view",
-          categories: [
-            {
-              name: "PEDAGOGICAL SCIENCE",
-              link: "https://aas.alatoo.edu.kg/article/5isUUUysZfNxUkm2MSZS",
-            },
-            {
-              name: "SOCIAL AND HUMANITARIAN SCIENCE",
-              articles: [],
-            },
-            -{
-              name: "INFORMATICS",
-              link: "https://aas.alatoo.edu.kg/article/16HWXXJK80IHj9FxTckR",
-            },
-            {
-              name: "MATHEMATICS",
-              link: "https://aas.alatoo.edu.kg/article/16HWXXJK80IHj9FxTckR",
-            },
-          ],
-        },
-      ],
-    },
-  ]);
-
-  const [openSubs, setOpenSubs] = useState(Array(dropdowns.length).fill(false));
   const [openSubs2, setOpenSubs2] = useState(
     Array(archive_var.length).fill(false)
   );
-
-  const toggleOpenSub = (index) => {
-    const updatedOpenSubs = [...openSubs];
-    updatedOpenSubs[index] = !updatedOpenSubs[index];
-    setOpenSubs(updatedOpenSubs);
-  };
 
   const toggleOpenSub2 = (index) => {
     const updatedOpenSubs2 = [...openSubs2];
@@ -148,30 +68,31 @@ export default function ArchiveCategoryPage() {
     }
   };
 
-  const openEditionModal = () => {
+  const openEditionModal = (id) => {
     if (activeEdition === null) {
       setActiveEdition("addEdition");
+      setVolumeId(id);
     }
   };
 
-  const openArticleModal = () => {
+  const openArticleModal = (id) => {
     if (activeArticle === null) {
+      setEditionId(id);
       setActiveArticle("addArticle");
     }
   };
 
   const openDeleteModal = (id) => {
     if (activeDelete === null) {
-      console.log(id);
       setActiveDelete("delete");
       setVolumeId(id);
-      console.log(volumeId);
     }
   };
 
   const openDeleteModal2 = (id) => {
     if (activeDelete2 === null) {
       setActiveDelete2("delete2");
+      setEditionId(id);
       setEditionId(id);
     }
   };
@@ -191,113 +112,109 @@ export default function ArchiveCategoryPage() {
   const closeModalHandler = () => {
     setActiveVolume(null);
     setActiveEdition(null);
+    setEditionId(null);
     setActiveArticle(null);
     setActiveDelete(null);
     setActiveEdit(null);
   };
 
-  console.log(dropdowns);
-
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <p>Loading...</p>
-      ) : (
-        <div className={classes.container}>
-          <div className={classes.archive}>
-            <div className={classes.archive__inner}>
-              <div className={classes.back}>
-                <a onClick={() => navigate("/")}>
-                  <img src={arrow} alt="arrow" />
-                  <p>{t("archivepage.back")}</p>
-                </a>
-              </div>
-              <div className={classes.archive__inner__1}>
-                <div className={classes.years}>
-                  <br />
-                  {/* <div className={classes.search}>
-                <div className={classes.filtration}>
-                  <BasicDatePicker />
-                </div>
-                <form action="" className={classes.search__bar}>
-                  <input type="text" placeholder="Search..." name="search" />
-                  <button>
-                    <img src={search} alt="search" />
-                  </button>
-                </form>
-              </div> */}
-                  {localStorage.getItem("email") != null &&
-                  oneUser.role === "admin" ? (
-                    <div className={classes.add__vol}>
-                      <p>+</p>
-                      <button onClick={openVolumeModal}>Add Volume</button>
-                    </div>
-                  ) : (
-                    <span></span>
-                  )}
+      ) : ( */}
+      <div className={classes.container}>
+        <div className={classes.archive}>
+          <div className={classes.archive__inner}>
+            <div className={classes.back}>
+              <a onClick={() => navigate("/")}>
+                <img src={arrow} alt="arrow" />
+                <p>{t("archivepage.back")}</p>
+              </a>
+            </div>
+            <div className={classes.archive__inner__1}>
+              <div className={classes.years}>
+                <br />
+                {localStorage.getItem("email") != null &&
+                oneUser.role === "admin" ? (
+                  <div className={classes.add__vol}>
+                    <p>+</p>
+                    <button onClick={openVolumeModal}>Add Volume</button>
+                  </div>
+                ) : (
+                  <span></span>
+                )}
 
-                  {archive_var?.map((dropdown, index) => (
-                    <div
-                      key={index}
-                      className={`${
-                        openSubs2[index] ? "" : classes.sub__menu__end
-                      }`}>
-                      <div className={classes.trash}>
-                        <div
-                          className={`${classes.year} ${
-                            openSubs2[index]
-                              ? classes.rotate
-                              : classes.rotate__end
-                          }`}
-                          onClick={() => toggleOpenSub2(index)}>
-                          <p>{dropdown.name}</p>
-                          <i className="bx bx-chevron-right"></i>
-                        </div>
-                        {localStorage.getItem("email") != null &&
-                        oneUser.role === "admin" ? (
-                          <FontAwesomeIcon
-                            icon={faTrash}
-                            className={classes.trash__icon}
-                            onClick={() => openDeleteModal(dropdown.id)}
-                          />
-                        ) : (
-                          <span></span>
-                        )}
-                      </div>
-
+                {archive_var?.map((dropdown, index) => (
+                  <div
+                    onClick={() => getVolumeInfo(dropdown.id)}
+                    key={index}
+                    className={`${
+                      openSubs2[index] ? "" : classes.sub__menu__end
+                    }`}>
+                    <div className={classes.trash}>
                       <div
-                        className={
+                        className={`${classes.year} ${
                           openSubs2[index]
-                            ? classes.sub__menu
-                            : classes.sub__menu__hide
-                        }>
-                        {localStorage.getItem("email") != null &&
-                        oneUser.role === "admin" ? (
-                          <div className={classes.add__edit}>
-                            <p>+</p>
-                            <button
-                              onClick={() => openEditionModal(dropdown.id)}>
-                              Edition
-                            </button>
-                          </div>
-                        ) : (
-                          <span></span>
-                        )}
+                            ? classes.rotate
+                            : classes.rotate__end
+                        }`}
+                        onClick={() => toggleOpenSub2(index)}>
+                        <p>{dropdown.name}</p>
+                        <i className="bx bx-chevron-right"></i>
+                      </div>
+                      {localStorage.getItem("email") != null &&
+                      oneUser.role === "admin" ? (
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className={classes.trash__icon}
+                          onClick={() => openDeleteModal(dropdown.id)}
+                        />
+                      ) : (
+                        <span></span>
+                      )}
+                    </div>
 
-                        {dropdown?.editions?.map((edition, editionIndex) => (
-                          <div key={editionIndex} className={classes.edition}>
-                            <div className={classes.trash2}>
-                              <p
-                                className={classes.edition_link_a}
-                                href={dropdown.editions.fileUrl}>
-                                Выпуск № {edition.name}
-                              </p>
+                    <div
+                      className={
+                        openSubs2[index]
+                          ? classes.sub__menu
+                          : classes.sub__menu__hide
+                      }>
+                      {localStorage.getItem("email") != null &&
+                      oneUser.role === "admin" ? (
+                        <div className={classes.add__edit}>
+                          <p>+</p>
+                          <button onClick={() => openEditionModal(dropdown.id)}>
+                            Edition
+                          </button>
+                        </div>
+                      ) : (
+                        <span></span>
+                      )}
+
+                      {volumeInfo?.map((edition, editionIndex) => (
+                        <div key={editionIndex} className={classes.edition}>
+                          <div className={classes.trash2}>
+                            <p
+                              className={classes.edition_link_a}
+                              href={edition.fileUrl}>
+                              Выпуск № {edition.name}
+                            </p>
+                            {localStorage.getItem("email") != null &&
+                            oneUser.role === "admin" ? (
                               <FontAwesomeIcon
                                 icon={faTrash}
                                 className={classes.trash__icon2}
                                 onClick={() => openDeleteModal2(edition.id)}
                               />
-                            </div>
+                            ) : (
+                              <span></span>
+                            )}
+                          </div>
+
+                          {localStorage.getItem("email") != null &&
+                          oneUser.role === "admin" ? (
                             <div className={classes.add__art}>
                               <p>+</p>
                               <button
@@ -305,89 +222,46 @@ export default function ArchiveCategoryPage() {
                                 Add article
                               </button>
                             </div>
-                            <ul className={classes.sub__menu2}>
-                              {edition.categories.map(
-                                (category, categoryIndex) => (
-                                  <li key={categoryIndex}>
-                                    <a href={category.link}>{category.name}</a>
-                                  </li>
-                                )
-                              )}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
+                          ) : (
+                            <span></span>
+                          )}
+                          <ul className={classes.sub__menu2}>
+                            {edition.categories.map(
+                              (category, categoryIndex) => (
+                                <li key={categoryIndex}>
+                                  <p
+                                    style={{ color: "black" }}
+                                    onClick={() =>
+                                      navigate(
+                                        `/articles/${edition.id}/${category.name}`
+                                      )
+                                    }>
+                                    {category.name}
+                                  </p>
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                ))}
+                <div className={`${openCouns ? "" : classes.sub__couns__end}`}>
                   <div
-                    className={`${openCouns ? "" : classes.sub__couns__end}`}>
-                    <div
-                      className={`${classes.council} ${
-                        openCouns ? classes.rotate : classes.rotate__end
-                      }`}
-                      onClick={toggleOpenCoun}>
-                      <p>{t("archivepage.council")}</p>
-                      <i className="bx bx-chevron-right"></i>
-                    </div>
-                    <div
-                      className={
-                        openCouns
-                          ? classes.sub__couns
-                          : classes.sub__couns__hide
-                      }>
-                      <div className={classes.members}>
-                        <p>{archive.councilMembers}</p>
-                      </div>
-                      <button className={classes.edit} onClick={openEditModal}>
-                        Edit
-                      </button>
-                    </div>
+                    className={`${classes.council} ${
+                      openCouns ? classes.rotate : classes.rotate__end
+                    }`}
+                    onClick={toggleOpenCoun}>
+                    <p>{t("archivepage.council")}</p>
+                    <i className="bx bx-chevron-right"></i>
                   </div>
-                </div>
-                <div className={classes.archive__inner__2}>
-                  <div className={classes.slider}>
-                    <Slider />
-                  </div>
-                  <div className={classes.text}>
-                    <h3>{t("archivepage.title")}</h3>
-                    <div className={classes.text1}>
-                      <p>{t("archivepage.title2")}</p>
-                      <p>{t("archivepage.title3")}</p>
-                    </div>
-                    <div className={classes.text2}>
-                      <p>{archive.description}</p>
-                    </div>
-                    <div className={classes.text3}>
-                      <p>
-                        ISSN: 1694-5263 <span>{t("archivepage.version1")}</span>
-                      </p>
-                      <p>
-                        ISSN: 1694-7916 <span>{t("archivepage.version2")}</span>
-                      </p>
-                    </div>
-                    <div className={classes.text4}>
-                      <p>
-                        <b>{t("archivepage.title5")}</b>
-                      </p>
-                      <p>{archive.adress}</p>
-                      <p>
-                        <b>{t("archivepage.tel")}</b>
-                        {archive.phoneNumber}
-                      </p>
-                      <p>
-                        <b>{t("archivepage.fax")}</b>
-                        {archive.faxNumber}
-                      </p>
-                      <p>
-                        <b>Е-mail: </b>
-                        {archive.email}
-                      </p>
-                    </div>
-                    <div className={classes.text5}>
-                      <p>
-                        <b>{t("archivepage.board")}</b>
-                      </p>
-                      <p>{archive.editorialCouncil}</p>
+                  <div
+                    className={
+                      openCouns ? classes.sub__couns : classes.sub__couns__hide
+                    }>
+                    <div className={classes.members}>
+                      <p>{archive.councilMembers}</p>
                     </div>
                     <button className={classes.edit} onClick={openEditModal}>
                       Edit
@@ -395,29 +269,80 @@ export default function ArchiveCategoryPage() {
                   </div>
                 </div>
               </div>
+              <div className={classes.archive__inner__2}>
+                <div className={classes.slider}>
+                  <Slider />
+                </div>
+                <div className={classes.text}>
+                  <h3>{t("archivepage.title")}</h3>
+                  <div className={classes.text1}>
+                    <p>{t("archivepage.title2")}</p>
+                    <p>{t("archivepage.title3")}</p>
+                  </div>
+                  <div className={classes.text2}>
+                    <p>{archive.description}</p>
+                  </div>
+                  <div className={classes.text3}>
+                    <p>
+                      ISSN: 1694-5263 <span>{t("archivepage.version1")}</span>
+                    </p>
+                    <p>
+                      ISSN: 1694-7916 <span>{t("archivepage.version2")}</span>
+                    </p>
+                  </div>
+                  <div className={classes.text4}>
+                    <p>
+                      <b>{t("archivepage.title5")}</b>
+                    </p>
+                    <p>{archive.adress}</p>
+                    <p>
+                      <b>{t("archivepage.tel")}</b>
+                      {archive.phoneNumber}
+                    </p>
+                    <p>
+                      <b>{t("archivepage.fax")}</b>
+                      {archive.faxNumber}
+                    </p>
+                    <p>
+                      <b>Е-mail: </b>
+                      {archive.email}
+                    </p>
+                  </div>
+                  <div className={classes.text5}>
+                    <p>
+                      <b>{t("archivepage.board")}</b>
+                    </p>
+                    <p>{archive.editorialCouncil}</p>
+                  </div>
+                  <button className={classes.edit} onClick={openEditModal}>
+                    Edit
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          {activeVolume === "addVolume" && (
-            <AddVolume closeModal={closeModalHandler} />
-          )}
-          {activeEdition === "addEdition" && (
-            <AddEdition closeModal={closeModalHandler} />
-          )}
-          {activeArticle === "addArticle" && (
-            <AddArticle closeModal={closeModalHandler} />
-          )}
-          {activeDelete === "delete" && (
-            <Delete editionId={editionId} closeModal={closeModalHandler} />
-          )}
-          {activeDelete2 === "delete2" && (
-            <Delete2 volumeId={volumeId} closeModal={closeModalHandler} />
-          )}
-          {activeDelete3 === "delete3" && (
-            <Delete3 closeModal={closeModalHandler} />
-          )}
-          {activeEdit === "edit" && <Edit closeModal={closeModalHandler} />}
         </div>
-      )}
+        {activeVolume === "addVolume" && (
+          <AddVolume closeModal={closeModalHandler} />
+        )}
+        {activeEdition === "addEdition" && (
+          <AddEdition id={volumeId} closeModal={closeModalHandler} />
+        )}
+        {activeArticle === "addArticle" && (
+          <AddArticle id={editionId} closeModal={closeModalHandler} />
+        )}
+        {activeDelete === "delete" && (
+          <Delete volumeId={volumeId} closeModal={closeModalHandler} />
+        )}
+        {activeDelete2 === "delete2" && (
+          <Delete2 editionId={editionId} closeModal={closeModalHandler} />
+        )}
+        {activeDelete3 === "delete3" && (
+          <Delete3 closeModal={closeModalHandler} />
+        )}
+        {activeEdit === "edit" && <Edit closeModal={closeModalHandler} />}
+      </div>
+      {/* )} */}
     </>
   );
 }

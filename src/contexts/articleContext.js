@@ -12,6 +12,8 @@ const INIT_STATE = {
   my_articles: [],
   notPublished: [],
   approved_articles: [],
+  volumeInfo: [],
+  editionArticlesByCategory: [],
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -28,6 +30,10 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, notPublished: action.payload };
     case "APPROVED_ARTICLES":
       return { ...state, approved_articles: action.payload };
+    case "GET_VOLUME_INFO":
+      return { ...state, volumeInfo: action.payload };
+    case "GET_EDITION_ARTICLES_BY_CATEGORY":
+      return { ...state, editionArticlesByCategory: action.payload };
     default:
       return state;
   }
@@ -94,14 +100,7 @@ const ArticleContextsProvider = ({ children }) => {
 
   async function getAllApproved() {
     try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios(`${API}/article/get/approved`, config);
+      const res = await axios(`${API}/article/get/approved`);
       dispatch({
         type: "APPROVED_ARTICLES",
         payload: res.data,
@@ -113,14 +112,7 @@ const ArticleContextsProvider = ({ children }) => {
 
   async function getArchive() {
     try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios(`${API}/archive`, config);
+      const res = await axios(`${API}/archive`);
       dispatch({
         type: "GET_ARCHIVE",
         payload: res.data,
@@ -132,16 +124,37 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
+  async function getVolumeInfo(id) {
+    try {
+      const res = await axios(`${API}/archive/${id}`);
+      dispatch({
+        type: "GET_VOLUME_INFO",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function getEditionArticlesByCategory(id, categoryName) {
+    try {
+      const res = await axios(`${API}/archive/${id}/${categoryName}`);
+      dispatch({
+        type: "GET_EDITION_ARTICLES_BY_CATEGORY",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   async function getOneArticle(id) {
     try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios(`${API}/article/${id}/`, config);
+      const res = await axios(`${API}/article/find/${id}/`);
       dispatch({
         type: "GET_ONE_ARTICLE",
         payload: res.data,
@@ -307,6 +320,7 @@ const ArticleContextsProvider = ({ children }) => {
         formData,
         config
       );
+      console.log(res);
     } catch (err) {
       console.log(err);
     }
@@ -374,11 +388,12 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.delete(
-        `${API}/archive/delete/volume/${id}`,
-        config,
-        obj
-      );
+      const res = await axios.request({
+        method: "DELETE",
+        url: `${API}/archive/delete/volume/${id}`,
+        data: obj,
+        ...config,
+      });
       alert("Том удален!");
     } catch (err) {
       console.log(err);
@@ -394,11 +409,13 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.delete(
-        `${API}/archive/delete/edition/${id}`,
-        config,
-        obj
-      );
+      const res = await axios.request({
+        method: "DELETE",
+        url: `${API}/archive/delete/edition/${id}`,
+        data: obj,
+        ...config,
+      });
+
       alert("Выпуск удален!");
     } catch (err) {
       console.log(err);
@@ -418,6 +435,7 @@ const ArticleContextsProvider = ({ children }) => {
         `${API}/archive/delete/article/${id}`,
         config
       );
+
       alert("Статья удалена!");
     } catch (err) {
       console.log(err);
@@ -434,6 +452,8 @@ const ArticleContextsProvider = ({ children }) => {
         my_articles: state.my_articles,
         notPublished: state.notPublished,
         approved_articles: state.approved_articles,
+        volumeInfo: state.volumeInfo,
+        editionArticlesByCategory: state.editionArticlesByCategory,
 
         updateArticle,
         getOneArticle,
@@ -457,6 +477,8 @@ const ArticleContextsProvider = ({ children }) => {
         deleteArchiveEdition,
         deleteArchiveVolume,
         getAllApproved,
+        getVolumeInfo,
+        getEditionArticlesByCategory,
       }}>
       {children}
     </articlesContext.Provider>

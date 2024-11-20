@@ -1,18 +1,18 @@
 import React, { useContext, useEffect } from "react";
-import classes from "./ArticleCard.module.scss";
+import classes from "../ArticleCard/ArticleCard.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { articlesContext } from "../../contexts/articleContext";
 
-const ArticleCard = ({ item }) => {
+const ArticleCardDefault = ({ item }) => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
   const getTrimmedText = () => {
-    if (item.textEn.length > 80) {
-      return item.textEn.substring(0, 80).trimEnd() + "...";
+    if (item.text.length > 80) {
+      return item.text.substring(0, 80).trimEnd() + "...";
     } else {
-      return item.textEn;
+      return item.text;
     }
   };
 
@@ -34,4 +34,4 @@ const ArticleCard = ({ item }) => {
   );
 };
 
-export default ArticleCard;
+export default ArticleCardDefault;

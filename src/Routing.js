@@ -17,6 +17,7 @@ import { ConfirmReg } from "./components/Navbar/modals/confirmReg/ConfirmReg";
 import { ChangePassword } from "./components/Navbar/modals/changePassword/ChangePassword";
 import ArticlesPage from "./pages/articlesPage/ArticlesPage";
 import { CommentsPage } from "./pages/commentsPage/CommentsPage";
+import ArticlesPageDefault from "./pages/ArticlesPageDefault/ArticlesPafeDefault";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -91,14 +92,19 @@ const Routing = () => {
       id: 15,
     },
     {
-      link: "/articles",
+      link: "/articles/:id/:categoryName",
       element: <ArticlesPage />,
       id: 16,
     },
     {
-      link: "/comments",
+      link: "/comments/:id",
       element: <CommentsPage />,
       id: 17,
+    },
+    {
+      link: "/all_articles",
+      element: <ArticlesPageDefault />,
+      id: 18,
     },
   ];
   return (

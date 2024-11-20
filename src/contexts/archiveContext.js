@@ -26,7 +26,6 @@ const ArchiveContextsProvider = ({ children }) => {
 
   async function getAllArchiveArticles() {
     const { data } = await axios(`${API}/${window.location.search}`);
-    console.log(data);
     dispatch({
       type: "GET_ARCHIVE_ARTICLES",
       payload: data,
@@ -45,7 +44,6 @@ const ArchiveContextsProvider = ({ children }) => {
   async function getOneArchiveArticle(id) {
     let res = await fetch(`${API}/${id}`);
     const data = await res.json();
-    console.log(data);
     dispatch({
       type: "GET_ONE_ARCHIVE_ARTICLE",
       payload: data,
