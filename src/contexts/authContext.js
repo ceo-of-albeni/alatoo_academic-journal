@@ -78,14 +78,13 @@ const AuthContextProvider = ({ children }) => {
       setCurrentUser(res);
       localStorage.setItem("tokens", JSON.stringify(res.data));
       localStorage.setItem("email", email);
-      closeModal();
+      // closeModal();
       navigate("/");
       // window.location.reload();
     } catch (err) {
       console.log(err);
       setError(err);
       alert("Вы ввели неправильную почту или пароль!");
-    } finally {
     }
   }
 
