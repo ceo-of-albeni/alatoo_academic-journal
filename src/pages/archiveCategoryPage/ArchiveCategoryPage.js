@@ -35,14 +35,10 @@ export default function ArchiveCategoryPage() {
     setArchiveVar(archive.volumes ? archive.volumes : []);
   }, [archive]);
 
-  const [openSubs2, setOpenSubs2] = useState(
-    Array(archive_var.length).fill(false)
-  );
+  const [activeYearIndex, setActiveYearIndex] = useState(null);
 
   const toggleOpenSub2 = (index) => {
-    const updatedOpenSubs2 = [...openSubs2];
-    updatedOpenSubs2[index] = !updatedOpenSubs2[index];
-    setOpenSubs2(updatedOpenSubs2);
+    setActiveYearIndex(activeYearIndex === index ? null : index);
   };
 
   const [openCouns, setOpenCouns] = useState(false);
@@ -118,6 +114,8 @@ export default function ArchiveCategoryPage() {
     setActiveEdit(null);
   };
 
+
+
   return (
     <>
       {/* {loading ? (
@@ -139,7 +137,7 @@ export default function ArchiveCategoryPage() {
                 oneUser.role === "admin" ? (
                   <div className={classes.add__vol}>
                     <p>+</p>
-                    <button onClick={openVolumeModal}>Add Volume</button>
+                    <button onClick={openVolumeModal}>Добавить том</button>
                   </div>
                 ) : (
                   <span></span>
@@ -150,14 +148,12 @@ export default function ArchiveCategoryPage() {
                     onClick={() => getVolumeInfo(dropdown.id)}
                     key={index}
                     className={`${
-                      openSubs2[index] ? "" : classes.sub__menu__end
+                      activeYearIndex === index ? "" : classes.sub__menu__end
                     }`}>
                     <div className={classes.trash}>
                       <div
                         className={`${classes.year} ${
-                          openSubs2[index]
-                            ? classes.rotate
-                            : classes.rotate__end
+                          activeYearIndex === index ? classes.rotate : classes.rotate__end
                         }`}
                         onClick={() => toggleOpenSub2(index)}>
                         <p>{dropdown.name}</p>
@@ -177,16 +173,14 @@ export default function ArchiveCategoryPage() {
 
                     <div
                       className={
-                        openSubs2[index]
-                          ? classes.sub__menu
-                          : classes.sub__menu__hide
+                        activeYearIndex === index ? classes.sub__menu : classes.sub__menu__hide
                       }>
                       {localStorage.getItem("email") != null &&
                       oneUser.role === "admin" ? (
                         <div className={classes.add__edit}>
                           <p>+</p>
                           <button onClick={() => openEditionModal(dropdown.id)}>
-                            Edition
+                            Выпуск
                           </button>
                         </div>
                       ) : (
@@ -219,7 +213,7 @@ export default function ArchiveCategoryPage() {
                               <p>+</p>
                               <button
                                 onClick={() => openArticleModal(edition.id)}>
-                                Add article
+                                Статья
                               </button>
                             </div>
                           ) : (

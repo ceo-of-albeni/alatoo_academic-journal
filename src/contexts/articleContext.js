@@ -14,6 +14,8 @@ const INIT_STATE = {
   approved_articles: [],
   volumeInfo: [],
   editionArticlesByCategory: [],
+  publishedNews: [],
+  allNews: [],
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -34,6 +36,10 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, volumeInfo: action.payload };
     case "GET_EDITION_ARTICLES_BY_CATEGORY":
       return { ...state, editionArticlesByCategory: action.payload };
+    case "GET_PUBLISHED_NEWS":
+      return { ...state, publishedNews: action.payload };
+    case "GET_ALL_NEWS":
+      return { ...state, allNews: action.payload };
     default:
       return state;
   }
@@ -442,6 +448,68 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
+  //NEWS
+
+  async function getPublishedNews() {
+    try {
+      const res = await axios(`${API}/news/published`);
+      dispatch({
+        type: "GET_PUBLISHED_NEWS",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function getAllNews() {
+    try {
+      const res = await axios(`${API}/news/all`);
+      dispatch({
+        type: "GET_ALL_NEWS",
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function uploadNews(formData) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}/news/upload`, formData, config);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function publishNews(volumeId) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}/news/publish/${volumeId}`, config);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <articlesContext.Provider
       value={{
@@ -454,8 +522,12 @@ const ArticleContextsProvider = ({ children }) => {
         approved_articles: state.approved_articles,
         volumeInfo: state.volumeInfo,
         editionArticlesByCategory: state.editionArticlesByCategory,
+        publishedNews: state.publishedNews,
+        allNews: state.allNews,
 
         updateArticle,
+        uploadNews,
+        publishNews,
         getOneArticle,
         getCategories,
         addArchiveArticles,
@@ -479,6 +551,8 @@ const ArticleContextsProvider = ({ children }) => {
         getAllApproved,
         getVolumeInfo,
         getEditionArticlesByCategory,
+        getPublishedNews,
+        getAllNews,
       }}>
       {children}
     </articlesContext.Provider>

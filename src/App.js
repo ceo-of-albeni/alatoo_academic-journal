@@ -2,12 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import Routing from "./Routing";
 import Navbar from "./components/Navbar/Navabr";
 import Footer from "./components/Footer/Footer";
-import AuthContextProvider, { authContext } from "./contexts/authContext";
+import AuthContextProvider from "./contexts/authContext";
 import ArticleContextsProvider from "./contexts/articleContext";
-import ArchiveContextsProvider from "./contexts/archiveContext";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from 'i18next-browser-languagedetector';
+import LanguageDetector from "i18next-browser-languagedetector";
 import translationEN from "./locales/en/translation.json";
 import translationRU from "./locales/ru/translation.json";
 
@@ -23,10 +22,18 @@ i18n
         translation: translationRU,
       },
     },
-    fallbackLng: 'en', // Fallback language
+    fallbackLng: "en", // Fallback language
     detection: {
-      order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
-      caches: ['localStorage', 'cookie'],
+      order: [
+        "querystring",
+        "cookie",
+        "localStorage",
+        "navigator",
+        "htmlTag",
+        "path",
+        "subdomain",
+      ],
+      caches: ["localStorage", "cookie"],
     },
     interpolation: {
       escapeValue: false, // Not needed for React
@@ -58,21 +65,21 @@ const App = () => {
 
   return (
     <>
-      <ArchiveContextsProvider>
-        <ArticleContextsProvider>
-          <AuthContextProvider>
-            {serverStatus ? (
-              <>
-                <Navbar />
-                <Routing />
-                <Footer />
-              </>
-            ) : (
-              <p>500 ERROR, SERVER IS NOT RESPONDING</p>
-            )}
-          </AuthContextProvider>
-        </ArticleContextsProvider>
-      </ArchiveContextsProvider>
+      {/* <ArchiveContextsProvider> */}
+      <ArticleContextsProvider>
+        <AuthContextProvider>
+          {serverStatus ? (
+            <>
+              <Navbar />
+              <Routing />
+              <Footer />
+            </>
+          ) : (
+            <p>500 ERROR, SERVER IS NOT RESPONDING</p>
+          )}
+        </AuthContextProvider>
+      </ArticleContextsProvider>
+      {/* </ArchiveContextsProvider> */}
     </>
   );
 };
