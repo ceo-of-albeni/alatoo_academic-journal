@@ -55,8 +55,6 @@ export function AddEdition({ closeModal, id }) {
               <input
                 type="text"
                 placeholder="Click and type"
-                // value={inputValue1}
-                // onChange={handleInputChange1}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 name="email"
@@ -65,8 +63,6 @@ export function AddEdition({ closeModal, id }) {
               <input
                 type="text"
                 placeholder="Click and type"
-                // value={inputValue2}
-                // onChange={handleInputChange2}
                 value={fileUrl}
                 onChange={(e) => setFileUrl(e.target.value)}
                 name="email"

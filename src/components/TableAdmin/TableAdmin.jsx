@@ -39,6 +39,17 @@ function createData(
   };
 }
 
+function createData2(id, title, createdAt, content, imagePath, buttons) {
+  return {
+    id,
+    title,
+    createdAt,
+    content,
+    imagePath,
+    buttons,
+  };
+}
+
 export default function BasicTableAdmin() {
   const { t, i18n } = useTranslation();
   const {
@@ -46,24 +57,35 @@ export default function BasicTableAdmin() {
     paymentArticle,
     declineArticle,
     getCategories,
-    categories,
     createCategory,
     notPublished,
     approveArticle,
+    getAllNews,
+    allNews,
+    publishNews,
+    publishedNews,
   } = useContext(articlesContext);
 
   useEffect(() => {
     getCategories();
     getAllNotPublished();
+    getAllNews();
+    console.log(allNews);
+    console.log(publishedNews);
   }, []);
 
   const handlePage = (e, p) => {
     setPage(p);
   };
 
+  const handlePage2 = (e, p) => {
+    setPage2(p);
+  };
+
   const itemsOnPage = 5;
 
   const count = Math.ceil(notPublished.length / itemsOnPage);
+  const count2 = Math.ceil(allNews.length / itemsOnPage);
 
   function currentData() {
     const begin = (page - 1) * itemsOnPage;
@@ -71,10 +93,17 @@ export default function BasicTableAdmin() {
     return notPublished.slice(begin, end);
   }
 
+  function currentData2() {
+    const begin = (page2 - 1) * itemsOnPage;
+    const end = begin + itemsOnPage;
+    return allNews.slice(begin, end);
+  }
+
   const [categoryCreateEn, setCategoryCreateEn] = useState("");
   const [categoryCreateRu, setCategoryCreateRu] = useState("");
   const [categoryCreateKg, setCategoryCreateKg] = useState("");
   const [page, setPage] = React.useState(1);
+  const [page2, setPage2] = React.useState(1);
 
   function handleCategoryCreate() {
     if (!categoryCreateEn && !categoryCreateRu && !categoryCreateKg) {
@@ -88,7 +117,6 @@ export default function BasicTableAdmin() {
     };
 
     createCategory(newCategory);
-    console.log(newCategory);
 
     setCategoryCreateEn("");
     setCategoryCreateRu("");
@@ -111,152 +139,247 @@ export default function BasicTableAdmin() {
     )
   );
 
+  let rows2 = [];
+  allNews.map((item) =>
+    rows2.push(
+      createData2(
+        item.id,
+        item.title,
+        item.createdAt.slice(0, 10),
+        item.content,
+        item.imagePath
+      )
+    )
+  );
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}>
-      <div className="admin_article-categoty_main">
-        <div className="article_form" id="article_div">
-          <h4>{t("tableadmin.category3")}</h4>
-          <div className="article_form-inputs">
-            <div className="short_inp">
-              <p className="input_p">{t("tableadmin.add")} En</p>
-              <input
-                className="text_input"
-                placeholder={t("tableadmin.ph")}
-                type="text"
-                value={categoryCreateEn}
-                onChange={(e) => setCategoryCreateEn(e.target.value)}
-              />
-            </div>
+    <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}>
+        <div className="admin_article-categoty_main">
+          <div className="article_form" id="article_div">
+            <h4>{t("tableadmin.category3")}</h4>
+            <div className="article_form-inputs">
+              <div className="short_inp">
+                <p className="input_p">{t("tableadmin.add")} En</p>
+                <input
+                  className="text_input"
+                  placeholder={t("tableadmin.ph")}
+                  type="text"
+                  value={categoryCreateEn}
+                  onChange={(e) => setCategoryCreateEn(e.target.value)}
+                />
+              </div>
 
-            <div className="short_inp">
-              <p className="input_p">{t("tableadmin.add")} Ru</p>
-              <input
-                className="text_input"
-                placeholder={t("tableadmin.ph")}
-                type="text"
-                value={categoryCreateRu}
-                onChange={(e) => setCategoryCreateRu(e.target.value)}
-              />
-            </div>
+              <div className="short_inp">
+                <p className="input_p">{t("tableadmin.add")} Ru</p>
+                <input
+                  className="text_input"
+                  placeholder={t("tableadmin.ph")}
+                  type="text"
+                  value={categoryCreateRu}
+                  onChange={(e) => setCategoryCreateRu(e.target.value)}
+                />
+              </div>
 
-            <div className="short_inp">
-              <p className="input_p">{t("tableadmin.add")} Kg</p>
-              <input
-                className="text_input"
-                placeholder={t("tableadmin.ph")}
-                type="text"
-                value={categoryCreateKg}
-                onChange={(e) => setCategoryCreateKg(e.target.value)}
-              />
-            </div>
+              <div className="short_inp">
+                <p className="input_p">{t("tableadmin.add")} Kg</p>
+                <input
+                  className="text_input"
+                  placeholder={t("tableadmin.ph")}
+                  type="text"
+                  value={categoryCreateKg}
+                  onChange={(e) => setCategoryCreateKg(e.target.value)}
+                />
+              </div>
 
-            <br />
-            <button onClick={handleCategoryCreate}>
-              {t("tableadmin.button")}
-            </button>
+              <br />
+              <button onClick={handleCategoryCreate}>
+                {t("tableadmin.button")}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell width="50px" align="center">
-                <strong>Nº</strong>
-              </TableCell>
-              <TableCell width="330px" align="center">
-                <strong>{t("table.title")}</strong>
-              </TableCell>
-              <TableCell width="100px" align="center">
-                <strong>{t("table.date")}</strong>
-              </TableCell>
-              <TableCell width="130px" align="center">
-                <strong>{t("table.author")}</strong>
-              </TableCell>
-              <TableCell width="80px" align="center">
-                <strong>{t("table.pages")}</strong>
-              </TableCell>
-              <TableCell width="150px" align="center">
-                <strong>{t("table.category")}</strong>
-              </TableCell>
-              <TableCell width="100px" align="center">
-                <strong>{t("table.status")}</strong>
-              </TableCell>
-              <TableCell width="80px" align="center">
-                <strong></strong>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody className="tableBody">
-            {currentData().map((row) => (
-              <TableRow
-                key={row.id}
-                height="60px"
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                <TableCell component="th" scope="row">
-                  {row.id}
+        <h3>Статьи</h3>
+        <br />
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell width="50px" align="center">
+                  <strong>Nº</strong>
                 </TableCell>
-                <TableCell align="left">
-                  <a className="table_a" href={row.fileUrl}>
-                    {row.title}
-                  </a>
+                <TableCell width="330px" align="center">
+                  <strong>{t("table.title")}</strong>
                 </TableCell>
-                <TableCell align="center">{row.createdAt}</TableCell>
-                <TableCell align="center">{row.coauthors}</TableCell>
-                <TableCell align="center">{row.pages}</TableCell>
-                <TableCell align="center">{row.category.name}</TableCell>
-                <TableCell key={row.id} align="center">
-                  {row.status}
+                <TableCell width="100px" align="center">
+                  <strong>{t("table.date")}</strong>
                 </TableCell>
-                <TableCell align="center">
-                  {row.status === "Payment" ? (
-                    <>
-                      <button
-                        key={`${row.id}-approve`}
-                        onClick={() => approveArticle(row.id)}
-                        id="approve">
-                        {t("tableadmin.apr_arc")}
-                      </button>
-                      <button
-                        key={`${row.id}-decline`}
-                        id="decline"
-                        onClick={() => declineArticle(row.id)}>
-                        {t("tableadmin.dec_pay")}
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <button
-                        key={`${row.id}-approve`}
-                        onClick={() => paymentArticle(row.id)}
-                        id="approve">
-                        {t("tableadmin.apr_pay")}
-                      </button>
-                      <button
-                        key={`${row.id}-decline`}
-                        id="decline"
-                        onClick={() => declineArticle(row.id)}>
-                        {t("tableadmin.dec_arc")}
-                      </button>
-                    </>
-                  )}
+                <TableCell width="130px" align="center">
+                  <strong>{t("table.author")}</strong>
+                </TableCell>
+                <TableCell width="80px" align="center">
+                  <strong>{t("table.pages")}</strong>
+                </TableCell>
+                <TableCell width="150px" align="center">
+                  <strong>{t("table.category")}</strong>
+                </TableCell>
+                <TableCell width="100px" align="center">
+                  <strong>{t("table.status")}</strong>
+                </TableCell>
+                <TableCell width="80px" align="center">
+                  <strong></strong>
                 </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <Pagination
-        style={{ marginTop: "40px" }}
-        count={count}
-        page={page}
-        onChange={handlePage}
-      />
+            </TableHead>
+            <TableBody className="tableBody">
+              {currentData().map((row) => (
+                <TableRow
+                  key={row.id}
+                  height="60px"
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                  <TableCell component="th" scope="row">
+                    {row.id}
+                  </TableCell>
+                  <TableCell align="left">
+                    <a className="table_a" href={row.fileUrl}>
+                      {row.title}
+                    </a>
+                  </TableCell>
+                  <TableCell align="center">{row.createdAt}</TableCell>
+                  <TableCell align="center">{row.coauthors}</TableCell>
+                  <TableCell align="center">{row.pages}</TableCell>
+                  <TableCell align="center">{row.category.name}</TableCell>
+                  <TableCell key={row.id} align="center">
+                    {row.status}
+                  </TableCell>
+                  <TableCell align="center">
+                    {row.status === "Payment" ? (
+                      <>
+                        <button
+                          key={`${row.id}-approve`}
+                          onClick={() => approveArticle(row.id)}
+                          id="approve">
+                          {t("tableadmin.apr_arc")}
+                        </button>
+                        <button
+                          key={`${row.id}-decline`}
+                          id="decline"
+                          onClick={() => declineArticle(row.id)}>
+                          {t("tableadmin.dec_pay")}
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          key={`${row.id}-approve`}
+                          onClick={() => paymentArticle(row.id)}
+                          id="approve">
+                          {t("tableadmin.apr_pay")}
+                        </button>
+                        <button
+                          key={`${row.id}-decline`}
+                          id="decline"
+                          onClick={() => declineArticle(row.id)}>
+                          {t("tableadmin.dec_arc")}
+                        </button>
+                      </>
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <Pagination
+          style={{ marginTop: "40px" }}
+          count={count}
+          page={page}
+          onChange={handlePage}
+        />
+      </div>
+      <br />
+      <br />
+
+      {/* news */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}>
+        <h3>Новости</h3>
+        <br />
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell width="50px" align="center">
+                  <strong>Nº</strong>
+                </TableCell>
+                <TableCell width="210px" align="center">
+                  <strong>{t("table.title")}</strong>
+                </TableCell>
+                <TableCell width="80px" align="center">
+                  <strong>{t("table.date")}</strong>
+                </TableCell>
+                <TableCell width="330px" align="center">
+                  <strong>Контент</strong>
+                </TableCell>
+                <TableCell width="50px" align="center">
+                  <strong></strong>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody className="tableBody">
+              {currentData2().map((row) => (
+                <TableRow
+                  key={row.id}
+                  height="60px"
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                  <TableCell component="th" scope="row">
+                    {row.id}
+                  </TableCell>
+                  <TableCell align="left">
+                    {/* <a className="table_a" href={row.imagePath}>
+                      {row.title}
+                    </a> */}
+                    <img src={row.imagePath} alt="" />
+                  </TableCell>
+                  <TableCell align="center">{row.createdAt}</TableCell>
+                  <TableCell align="center">{row.content}</TableCell>
+                  <TableCell align="center">
+                    {row.isPublic === false ? (
+                      <>
+                        <button
+                          key={`${row.id}-approve`}
+                          onClick={() => publishNews(row.id)}
+                          id="approve">
+                          Опубликовать
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <strong></strong>
+                      </>
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <Pagination
+          style={{ marginTop: "40px" }}
+          count={count2}
+          page={page2}
+          onChange={handlePage}
+        />
+      </div>
     </div>
   );
 }

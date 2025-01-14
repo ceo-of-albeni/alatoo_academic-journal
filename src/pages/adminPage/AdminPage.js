@@ -17,40 +17,69 @@ const AdminPage = () => {
   useEffect(() => {
     getPublishedNews();
     getAllNews();
+    console.log(allNews);
   }, []);
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [image, setImage] = useState(null);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setImage(file);
   };
 
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [image, setImage] = useState(null);
-
-  function handleNewsCreate() {
+  const handleNewsCreate = async () => {
     if (!title && !content && !image) {
       alert("Поле не заполнено!");
+      return;
     }
 
-    let newNews = {
-      title: title,
-      content: content,
-      image: image,
-    };
+    const newArticle = new FormData();
+    newArticle.append("image", image);
+    newArticle.append("title", title);
+    newArticle.append("content", content);
 
-    uploadNews(newNews);
-    console.log(newNews);
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const response = await fetch("http://localhost:3001/api/news/upload", {
+        method: "POST",
+        body: newArticle,
+        headers: {
+          Authorization,
+        },
+      });
 
+      if (!response.ok) {
+        console.error(
+          "Server returned an error:",
+          response.status,
+          response.statusText
+        );
+        const responseText = await response.text();
+        console.error("Server Response:", responseText);
+        alert("Ошибка!");
+        return;
+      }
+
+      alert("Статья успешно создана!");
+      window.location.reload();
+    } catch (error) {
+      console.error("Error during article creation:", error);
+    }
+
+    setImage(null);
     setTitle("");
-    setImage("");
     setContent("");
-  }
+  };
 
   return (
     <div style={{ padding: "60px" }}>
       <div>
-        <h4>News</h4>
+        <h4 style={{ textAlign: "center" }}>
+          <b>НОВОСТИ</b>
+        </h4>
         <div className="article_form-inputs">
           <div className="short_inp">
             <p className="input_p">Название</p>
@@ -77,7 +106,11 @@ const AdminPage = () => {
           <div className="short_inp">
             <p className="input_p">Фото</p>
             <label className="custom-file-upload">
-              <input type="file" accept="" onChange={handleFileChange} />
+              <input
+                type="file"
+                // accept=""
+                onChange={handleFileChange}
+              />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"

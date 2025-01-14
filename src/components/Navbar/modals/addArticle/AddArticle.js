@@ -39,8 +39,6 @@ export function AddArticle({ closeModal, id }) {
       //   return;
     }
 
-    console.log(id);
-
     let newObj = {
       authorName: authorName,
       fileUrl: fileUrl,
@@ -54,7 +52,6 @@ export function AddArticle({ closeModal, id }) {
     };
 
     addArchiveArticles(newObj, id);
-    console.log(newObj);
 
     setAuthorName("");
     setFileUrl("");

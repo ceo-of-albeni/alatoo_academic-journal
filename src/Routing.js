@@ -7,7 +7,6 @@ import RulesPage2 from "./pages/RulesPage/RulesPage2";
 import RulesPage3 from "./pages/RulesPage/RulesPage3";
 import RulesPage4 from "./pages/RulesPage/RulesPage4";
 import ArchiveCategoryPage from "./pages/archiveCategoryPage/ArchiveCategoryPage";
-import ArchivePage from "./pages/archivePage/ArchivePage";
 import CategoryPage from "./pages/categoryPage/CategoryPage";
 import AdminPage from "./pages/adminPage/AdminPage";
 import EthicsPage from "./pages/ethicsPage/EthicsPage";

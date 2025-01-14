@@ -11,6 +11,7 @@ import { AddEdition } from "../../components/Navbar/modals/addEdition/AddEdition
 import { AddArticle } from "../../components/Navbar/modals/addArticle/AddArticle";
 import { Delete } from "../../components/Navbar/modals/delete/Delete";
 import { Edit } from "../../components/Navbar/modals/edit/Edit";
+import { EditCouns } from "../../components/Navbar/modals/editCouns/EditCouns";
 import { articlesContext } from "../../contexts/articleContext";
 import { Delete2 } from "../../components/Navbar/modals/delete/Delete2";
 import { Delete3 } from "../../components/Navbar/modals/delete/Delete3";
@@ -30,6 +31,7 @@ export default function ArchiveCategoryPage() {
   }, []);
 
   const [archive_var, setArchiveVar] = useState([]);
+  console.log(archive_var);
 
   useEffect(() => {
     setArchiveVar(archive.volumes ? archive.volumes : []);
@@ -54,6 +56,7 @@ export default function ArchiveCategoryPage() {
   const [activeDelete2, setActiveDelete2] = useState(null);
   const [activeDelete3, setActiveDelete3] = useState(null);
   const [activeEdit, setActiveEdit] = useState(null);
+  const [activeEditCouns, setActiveEditCouns] = useState(null);
 
   const [volumeId, setVolumeId] = useState("");
   const [editionId, setEditionId] = useState("");
@@ -105,6 +108,12 @@ export default function ArchiveCategoryPage() {
     }
   };
 
+  const openEditCounModal = () => {
+    if (activeEditCouns === null) {
+      setActiveEditCouns("editCouns");
+    }
+  };
+
   const closeModalHandler = () => {
     setActiveVolume(null);
     setActiveEdition(null);
@@ -112,9 +121,8 @@ export default function ArchiveCategoryPage() {
     setActiveArticle(null);
     setActiveDelete(null);
     setActiveEdit(null);
+    setActiveEditCouns(null);
   };
-
-
 
   return (
     <>
@@ -153,7 +161,9 @@ export default function ArchiveCategoryPage() {
                     <div className={classes.trash}>
                       <div
                         className={`${classes.year} ${
-                          activeYearIndex === index ? classes.rotate : classes.rotate__end
+                          activeYearIndex === index
+                            ? classes.rotate
+                            : classes.rotate__end
                         }`}
                         onClick={() => toggleOpenSub2(index)}>
                         <p>{dropdown.name}</p>
@@ -173,7 +183,9 @@ export default function ArchiveCategoryPage() {
 
                     <div
                       className={
-                        activeYearIndex === index ? classes.sub__menu : classes.sub__menu__hide
+                        activeYearIndex === index
+                          ? classes.sub__menu
+                          : classes.sub__menu__hide
                       }>
                       {localStorage.getItem("email") != null &&
                       oneUser.role === "admin" ? (
@@ -257,7 +269,9 @@ export default function ArchiveCategoryPage() {
                     <div className={classes.members}>
                       <p>{archive.councilMembers}</p>
                     </div>
-                    <button className={classes.edit} onClick={openEditModal}>
+                    <button
+                      className={classes.edit}
+                      onClick={openEditCounModal}>
                       Edit
                     </button>
                   </div>
@@ -335,6 +349,9 @@ export default function ArchiveCategoryPage() {
           <Delete3 closeModal={closeModalHandler} />
         )}
         {activeEdit === "edit" && <Edit closeModal={closeModalHandler} />}
+        {activeEditCouns === "editCouns" && (
+          <EditCouns closeModal={closeModalHandler} />
+        )}
       </div>
       {/* )} */}
     </>
