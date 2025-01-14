@@ -145,7 +145,7 @@ export default function BasicTable() {
         item.createdAt,
         item.coauthors,
         item.pageCount,
-        item.category,
+        item.category.nameRu,
         item.status,
         item.fileUrl
       )

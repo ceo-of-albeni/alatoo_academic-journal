@@ -50,7 +50,21 @@ export function CommentsPage() {
             <a href="">{oneArticle.status}</a>
             <div className={classes.publish__text}>{oneArticle.text}</div>
           </div>
-          <div className={classes.comments__bar}>
+          {oneArticle.user.email === localStorage.getItem("email") &&
+          localStorage.getItem("email") !== "malaevaid@gmail.com" ? (
+            <div className={classes.comments__bar}>
+              <div className={classes.comments__text}>
+                <h4>2 Comments</h4>
+                <img src={comments} alt="comments_ico" />
+              </div>
+              <div className={classes.comments__input}>
+                <CommentBox />
+              </div>
+            </div>
+          ) : (
+            <span></span>
+          )}
+          {/* <div className={classes.comments__bar}>
             <div className={classes.comments__text}>
               <h4>2 Comments</h4>
               <img src={comments} alt="comments_ico" />
@@ -58,7 +72,7 @@ export function CommentsPage() {
             <div className={classes.comments__input}>
               <CommentBox />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

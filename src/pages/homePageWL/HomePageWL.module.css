@@ -180,6 +180,75 @@
   border-radius: 16px;
 }
 
+/****************publish**********************/
+.publish__inner {
+  width: 1252px;
+  height: 450px;
+  margin: 50px auto;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+}
+
+.publish__content__text {
+  width: 451px;
+  height: 397px;
+  padding: 29px 40px;
+}
+
+.publish__content {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 60px;
+}
+
+.publish__content__text h2 {
+  width: 461px;
+  height: 164px;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 41px;
+  text-align: left;
+  margin: 0px;
+}
+
+.publish__content__text p {
+  width: 371px;
+  height: 95px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  margin: 20px 0px;
+  border: none;
+}
+
+/* .content__frame__text button {
+  font-size: 16px;
+  font-weight: 300;
+  width: 133px;
+  height: 40px;
+  padding: 16px, 20px;
+  border-radius: 8px;
+  color: white;
+  background-color: black;
+  transition: 0.2s;
+}
+
+.content__frame__text button:hover {
+  transform: translateY(-5px);
+  color: black;
+  background: white;
+  cursor: pointer;
+  border: 2px solid rgb(232, 226, 226);
+} */
+
+.publish__content__img img {
+  width: 501px;
+  height: 334px;
+  border-radius: 16px;
+}
+
 /******************article__list*******************/
 .horizontal__cards__inner {
   /* width: 1173px;

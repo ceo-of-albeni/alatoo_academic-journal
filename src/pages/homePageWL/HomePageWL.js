@@ -8,16 +8,19 @@ import horizontal3 from "./img/horizontal3.png";
 import { useNavigate } from "react-router-dom";
 import { Login } from "../../components/Navbar/modals/login/Login";
 import { authContext } from "../../contexts/authContext";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+import { articlesContext } from "../../contexts/articleContext";
 
 export default function HomePageWL(closeModal) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const navigate = useNavigate();
   const { users, getUsers } = useContext(authContext);
   const { t, i18n } = useTranslation();
+  const { publishedNews, getPublishedNews } = useContext(articlesContext);
 
   useEffect(() => {
     getUsers();
+    getPublishedNews();
   }, []);
 
   const openLoginModal = () => {
@@ -29,17 +32,17 @@ export default function HomePageWL(closeModal) {
       <div className={classes.title__area}>
         <div className={classes.title__area__inner}>
           <div className={classes.title__area__text}>
-            <h1>{t('home.title')}</h1>
-            <p>{t('home.description')}</p>
+            <h1>{t("home.title")}</h1>
+            <p>{t("home.description")}</p>
             {localStorage.getItem("email") === null ? (
-              <button onClick={openLoginModal}>{t('button.submit')}</button> // сделай чтоб открывался Логин
+              <button onClick={openLoginModal}>{t("button.submit")}</button> // сделай чтоб открывался Логин
             ) : (
-              users.map(item =>
+              users.map((item) =>
                 localStorage.getItem("email") === item.email ? (
                   <button
                     key={item.id}
                     onClick={() => navigate(`/profile/${item.id}`)}>
-                    {t('button.submit')}
+                    {t("button.submit")}
                   </button>
                 ) : (
                   <span key={item.id}></span>
@@ -59,13 +62,11 @@ export default function HomePageWL(closeModal) {
         <div className={classes.content__inner}>
           <div className={classes.content__frame}>
             <div className={classes.content__frame__text}>
-              <h2>
-                {t('home.article_title')}
-              </h2>
-              <p>
-                {t('home.article')}
-              </p>
-              <button onClick={() => navigate("/archive")}>{t('home.read')}</button>
+              <h2>{t("home.article_title")}</h2>
+              <p>{t("home.article")}</p>
+              <button onClick={() => navigate("/archive")}>
+                {t("home.read")}
+              </button>
             </div>
             <div className={classes.content__frame__img}>
               <img src={content} alt="content"></img>
@@ -74,15 +75,27 @@ export default function HomePageWL(closeModal) {
         </div>
       </div>
 
+      <div className={classes.publish}>
+        <div className={classes.publish__inner}>
+          <div className={classes.publish__content}>
+            <div className={classes.publish__content__text}>
+              <h2>{publishedNews.title}</h2>
+              <p>{publishedNews.content}</p>
+            </div>
+            <div className={classes.publish__content__img}>
+              <img src={publishedNews.imagePath} />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className={classes.horizontal__cards}>
         <div className={classes.horizontal__cards__inner}>
-          <h2>{t('about.aboutus')}</h2>
+          <h2>{t("about.aboutus")}</h2>
           <div className={classes.horizontal__cards__card}>
             <div className={classes.horizontal__card__text}>
-              <h3>{t('about.title1')}</h3>
-              <p>
-                {t('about.content1')}{" "}
-              </p>
+              <h3>{t("about.title1")}</h3>
+              <p>{t("about.content1")} </p>
             </div>
             <div className={classes.horizontal__card__img}>
               <img src={horizontal} alt="horizontal" />
@@ -93,26 +106,16 @@ export default function HomePageWL(closeModal) {
               <img src={horizontal2} alt="horizontal2" />
             </div>
             <div className={classes.horizontal__card__text__2}>
-              <h3>
-                {t('about.title2')}
-              </h3>
-              <p>
-                {t('about.content2.1')}{" "}
-              </p>
-              <p>
-                {t('about.content2.2')}
-              </p>
+              <h3>{t("about.title2")}</h3>
+              <p>{t("about.content2.1")} </p>
+              <p>{t("about.content2.2")}</p>
             </div>
           </div>
           <div className={classes.horizontal__cards__card}>
             <div className={classes.horizontal__card__text__3}>
-              <h3>{t('about.title3')}</h3>
-              <p>
-                {t('about.content3.1')}
-              </p>
-              <p>
-                {t('about.content3.2')}
-              </p>
+              <h3>{t("about.title3")}</h3>
+              <p>{t("about.content3.1")}</p>
+              <p>{t("about.content3.2")}</p>
             </div>
             <div className={classes.horizontal__card__img__3}>
               <img src={horizontal3} alt="horizontal3" />

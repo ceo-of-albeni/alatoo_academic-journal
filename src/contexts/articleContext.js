@@ -471,6 +471,7 @@ const ArticleContextsProvider = ({ children }) => {
         type: "GET_ALL_NEWS",
         payload: res.data,
       });
+      console.log(res);
     } catch (err) {
       console.log(err);
     } finally {
@@ -487,24 +488,41 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(`${API}/news/upload`, formData, config);
+      const res = await axios.post(`${API}/news/upload`, formData, config);
       console.log(res);
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function publishNews(volumeId) {
+  // async function publishNews(newsId) {
+  //   try {
+  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
+  //     const Authorization = `Bearer ${tokens.access_token}`;
+  //     const config = {
+  //       headers: {
+  //         Authorization,
+  //       },
+  //     };
+  //     const res = await axios.post(`${API}/news/publish/${newsId}`, config);
+  //     console.log(res);
+  //     console.log(config);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+
+  async function publishNews(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
+      const res = await fetch(`${API}/news/publish/${id}`, {
+        method: "POST",
         headers: {
           Authorization,
         },
-      };
-      const res = await axios.patch(`${API}/news/publish/${volumeId}`, config);
-      console.log(res);
+      });
+      alert("Новость опубликована! Обновите страницу!");
     } catch (err) {
       console.log(err);
     }

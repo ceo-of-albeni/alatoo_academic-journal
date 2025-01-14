@@ -195,33 +195,6 @@ const UserProfilePage = () => {
                   onChange={(e) => setTitle(e.target.value)}
                 />
                 <p className="input_p">{t("tableadmin.category")}</p>
-                {/* <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
-                  <Select
-                    className="text_input max_mb"
-                    style={{
-                      height: "49px",
-                      marginBottom: "120px",
-                    }}
-                    value={category}
-                    onChange={handleChange}
-                    displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}>
-                    <MenuItem value="">
-                      <p style={{ color: "lightgrey", marginBottom: "0px" }}>
-                        {t("tableadmin.category2")}
-                      </p>
-                    </MenuItem>
-                    {categories ? (
-                      categories.map((item) => (
-                        <MenuItem key={item.id} value={getCategoryLang(item)}>
-                          {item.name}
-                        </MenuItem>
-                      ))
-                    ) : (
-                      <h3>{t("tableadmin.loading")}</h3>
-                    )}
-                  </Select>
-                </FormControl> */}
                 <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
                   <Select
                     className="text_input max_mb"
@@ -229,7 +202,7 @@ const UserProfilePage = () => {
                       height: "49px",
                       marginBottom: "120px",
                     }}
-                    value={category || ""} // Fallback to empty string if category is undefined
+                    value={category || ""}
                     onChange={handleChange}
                     displayEmpty
                     inputProps={{ "aria-label": "Without label" }}>
@@ -241,7 +214,7 @@ const UserProfilePage = () => {
                     {categories ? (
                       categories.map((item) => (
                         <MenuItem key={item.id} value={getCategoryLang(item)}>
-                          {item.name}
+                          {item.nameRu}
                         </MenuItem>
                       ))
                     ) : (

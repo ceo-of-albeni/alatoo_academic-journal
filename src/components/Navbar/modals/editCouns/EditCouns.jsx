@@ -14,8 +14,6 @@ export function EditCouns({ closeModal }) {
     getArchive();
   }, []);
 
-  console.log(archive);
-
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
