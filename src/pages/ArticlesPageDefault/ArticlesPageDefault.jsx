@@ -19,6 +19,8 @@ const ArticlesPageDefault = () => {
     console.log(approved_articles);
   }, []);
 
+  console.log(approved_articles);
+
   const itemsOnPage = 8;
   const count = Math.ceil(approved_articles.length / itemsOnPage);
 

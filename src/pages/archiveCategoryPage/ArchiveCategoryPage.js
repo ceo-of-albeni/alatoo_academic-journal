@@ -269,11 +269,16 @@ export default function ArchiveCategoryPage() {
                     <div className={classes.members}>
                       <p>{archive.councilMembers}</p>
                     </div>
-                    <button
-                      className={classes.edit}
-                      onClick={openEditCounModal}>
-                      Edit
-                    </button>
+                    {localStorage.getItem("email") != null &&
+                    oneUser.role === "admin" ? (
+                      <button
+                        className={classes.edit}
+                        onClick={openEditCounModal}>
+                        Edit
+                      </button>
+                    ) : (
+                      <span></span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -322,9 +327,14 @@ export default function ArchiveCategoryPage() {
                     </p>
                     <p>{archive.editorialCouncil}</p>
                   </div>
-                  <button className={classes.edit} onClick={openEditModal}>
-                    Edit
-                  </button>
+                  {localStorage.getItem("email") != null &&
+                  oneUser.role === "admin" ? (
+                    <button className={classes.edit} onClick={openEditModal}>
+                      Edit
+                    </button>
+                  ) : (
+                    <span></span>
+                  )}
                 </div>
               </div>
             </div>
