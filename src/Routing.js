@@ -16,7 +16,7 @@ import { ConfirmReg } from "./components/Navbar/modals/confirmReg/ConfirmReg";
 import { ChangePassword } from "./components/Navbar/modals/changePassword/ChangePassword";
 import ArticlesPage from "./pages/articlesPage/ArticlesPage";
 import { CommentsPage } from "./pages/commentsPage/CommentsPage";
-import ArticlesPageDefault from "./pages/ArticlesPageDefault/ArticlesPafeDefault";
+import ArticlesPageDefault from "./pages/ArticlesPageDefault/ArticlesPageDefault";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [

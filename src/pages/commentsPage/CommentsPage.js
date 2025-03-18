@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import classes from "./CommentsPage.module.scss";
 import arrow from "./img/arrow.svg";
@@ -14,15 +14,12 @@ export function CommentsPage() {
 
   const { oneArticle, getOneArticle } = useContext(articlesContext);
   const { id } = useParams();
-
-  console.log(id);
+  const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
     getOneArticle(id);
-    console.log(oneArticle);
+    setUserEmail(localStorage.getItem("email"));
   }, []);
-
-  console.log(oneArticle);
 
   return (
     <div className={classes.container}>
@@ -47,11 +44,10 @@ export function CommentsPage() {
                 <p>Position AIU: Author</p>
               </div>
             </div>
-            <a href="">{oneArticle.status}</a>
             <div className={classes.publish__text}>{oneArticle.text}</div>
           </div>
-          {oneArticle.user.email === localStorage.getItem("email") &&
-          localStorage.getItem("email") !== "malaevaid@gmail.com" ? (
+          {oneArticle.user?.email === userEmail ||
+          userEmail === "malaevaid@gmail.com" ? (
             <div className={classes.comments__bar}>
               <div className={classes.comments__text}>
                 <h4>2 Comments</h4>

@@ -1,81 +1,81 @@
-import React, { useState } from 'react';
-import classes from './CommentsBox.module.scss';
+import React, { useContext, useEffect, useState } from "react";
+import classes from "./CommentsBox.module.scss";
+import { articlesContext } from "../../contexts/articleContext";
+import { useParams } from "react-router-dom";
 
 const CommentBox = () => {
-  const [comment, setComment] = useState('');
-  const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState("");
 
-  const user = {
-    name: 'Иван Иванов',
-    profilePicture: 'https://example.com/profile.jpg',
-  };
+  const { id } = useParams();
 
-  const handleInputChange = (e) => {
-    setComment(e.target.value);
-  };
+  const { postComment, oneComment, deleteComment, getComments, allComments } =
+    useContext(articlesContext);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (comment.trim()) {
-      const newComment = {
-        id: Date.now(),
-        text: comment,
-        user: user,
-        timestamp: new Date(),
-        likes: 0
-      };
-      setComments([...comments, newComment]);
-      setComment('');
-    }
-  };
+  useEffect(() => {
+    getComments(id);
+  }, [id]);
 
-  const handleLike = (id) => {
-    setComments(comments.map(comment =>
-      comment.id === id ? { ...comment, likes: comment.likes + 1 } : comment
-    ));
-  };
+  function commentsPost(e) {
+    // e.preventDefault();
+    let newComment = {
+      text: comment,
+    };
 
-  const handleDelete = (id) => {
-    setComments(comments.filter(comment => comment.id !== id));
-  };
+    postComment(id, newComment);
+    console.log(oneComment);
 
-  const renderComments = (comments) => {
-    return comments.map(comment => (
-      <div className={classes.user} key={comment.id} style={{ marginBottom: '10px' }}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img
-            src={comment.user.profilePicture}
-            alt={`${comment.user.name}'s profile`}
-            style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }}
-          />
-          <div>
-            <strong>{comment.user.name}</strong>
-            <small>{comment.timestamp.toLocaleString()}</small>
-          </div>
-        </div>
-        <p>{comment.text}</p>
-        <button className={classes.like} onClick={() => handleLike(comment.id)}>Like {comment.likes}</button>
-        <button className={classes.delete} onClick={() => handleDelete(comment.id)}>Delete</button>
-      </div>
-    ));
-  };
+    setComment("");
+  }
 
+  console.log(allComments);
   return (
-    <div>
-      <form className={classes.commentbox__form} onSubmit={handleSubmit}>
-        <textarea
-          value={comment}
-          onChange={handleInputChange}
-          placeholder="Enter your comment"
-          rows="4"
-          cols="50"
-        />
-        <div>
-            {renderComments(comments)}
-        </div>
-        <button className={classes.send__comment} type="submit">Add a comment</button>
-      </form>
-    </div>
+    <>
+      <div>
+        <form className={classes.commentbox__form}>
+          <textarea
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            placeholder="Enter your comment"
+            rows="4"
+            cols="50"
+          />
+          {allComments?.map((a_comment) => (
+            <div
+              className={classes.user}
+              key={a_comment.id}
+              style={{ marginBottom: "10px" }}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <img
+                  src="https://example.com/profile.jpg"
+                  alt="pic"
+                  // alt={`${a_comment.user.las}'s profile`}
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    marginRight: "10px",
+                  }}
+                />
+                <div>
+                  <strong>
+                    {a_comment.user.firstName} {a_comment.user.lastName}
+                  </strong>
+                </div>
+              </div>
+              <p>{a_comment.text}</p>
+              <button
+                className={classes.delete}
+                onClick={() => deleteComment(a_comment.id)}>
+                Delete
+              </button>
+            </div>
+          ))}
+          <button className={classes.send__comment} onClick={commentsPost}>
+            Add a comment
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 

@@ -16,6 +16,8 @@ const INIT_STATE = {
   editionArticlesByCategory: [],
   publishedNews: [],
   allNews: [],
+  rules: [],
+  oneComment: [],
 };
 
 function reducer(state = INIT_STATE, action) {
@@ -40,6 +42,12 @@ function reducer(state = INIT_STATE, action) {
       return { ...state, publishedNews: action.payload };
     case "GET_ALL_NEWS":
       return { ...state, allNews: action.payload };
+    case "GET_RULES":
+      return { ...state, rules: action.payload };
+    case "GET_COMMENT":
+      return { ...state, oneComment: action.payload };
+    case "GET_ALL_COMMENTS":
+      return { ...state, allComments: action.payload };
     default:
       return state;
   }
@@ -160,7 +168,7 @@ const ArticleContextsProvider = ({ children }) => {
 
   async function getOneArticle(id) {
     try {
-      const res = await axios(`${API}/article/find/${id}/`);
+      const res = await axios(`${API}/article/find/${id}`);
       dispatch({
         type: "GET_ONE_ARTICLE",
         payload: res.data,
@@ -495,23 +503,6 @@ const ArticleContextsProvider = ({ children }) => {
     }
   }
 
-  // async function publishNews(newsId) {
-  //   try {
-  //     const tokens = JSON.parse(localStorage.getItem("tokens"));
-  //     const Authorization = `Bearer ${tokens.access_token}`;
-  //     const config = {
-  //       headers: {
-  //         Authorization,
-  //       },
-  //     };
-  //     const res = await axios.post(`${API}/news/publish/${newsId}`, config);
-  //     console.log(res);
-  //     console.log(config);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
   async function publishNews(id) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
@@ -523,6 +514,110 @@ const ArticleContextsProvider = ({ children }) => {
         },
       });
       alert("Новость опубликована! Обновите страницу!");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  // Rules
+  async function getRules() {
+    try {
+      const res = await axios.get(`${API}/files/get/rules`, {
+        responseType: "blob", // Important: Treat response as binary data
+      });
+
+      const pdfBlob = new Blob([res.data], { type: "application/pdf" });
+      const pdfUrl = URL.createObjectURL(pdfBlob); // Create object URL
+
+      dispatch({
+        type: "GET_RULES",
+        payload: pdfUrl, // Save the URL in state
+      });
+
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function uploadRules(formData) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(`${API}/files/upload`, formData, config);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function postComment(id, newComment) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.post(
+        `${API}/comment/to/${id}`,
+        newComment,
+        config
+      );
+      dispatch({
+        type: "GET_COMMENT",
+        payload: res.data,
+      });
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function deleteComment(id) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.request({
+        method: "DELETE",
+        url: `${API}/comment/delete/${id}`,
+        // data: obj,
+        ...config,
+      });
+      alert("Комментарий удален!");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function getComments(id) {
+    try {
+      const tokens = JSON.parse(localStorage.getItem("tokens"));
+      const Authorization = `Bearer ${tokens.access_token}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios(`${API}/comment/${id}`, config);
+      dispatch({
+        type: "GET_ALL_COMMENTS",
+        payload: res.data,
+      });
+      console.log(res);
     } catch (err) {
       console.log(err);
     }
@@ -542,6 +637,9 @@ const ArticleContextsProvider = ({ children }) => {
         editionArticlesByCategory: state.editionArticlesByCategory,
         publishedNews: state.publishedNews,
         allNews: state.allNews,
+        rules: state.rules,
+        oneComment: state.oneComment,
+        allComments: state.allComments,
 
         updateArticle,
         uploadNews,
@@ -571,6 +669,11 @@ const ArticleContextsProvider = ({ children }) => {
         getEditionArticlesByCategory,
         getPublishedNews,
         getAllNews,
+        getRules,
+        uploadRules,
+        postComment,
+        deleteComment,
+        getComments,
       }}>
       {children}
     </articlesContext.Provider>
