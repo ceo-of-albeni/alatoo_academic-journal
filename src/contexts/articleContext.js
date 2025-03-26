@@ -513,7 +513,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      alert("Новость опубликована! Обновите страницу!");
+      alert("Новость опубликована! Обновите страницу!");      
     } catch (err) {
       console.log(err);
     }

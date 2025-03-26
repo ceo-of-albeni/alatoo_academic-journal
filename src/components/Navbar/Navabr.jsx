@@ -40,7 +40,7 @@ const Navabr = ({ closeModal }) => {
               alt=""
             />
           </a>
-          <p className="logo_p">Alatoo Academic Journal</p>
+          <p className="logo_p">Ala-Too Academic Journal</p>
         </div>
 
         <div className="header_inner">

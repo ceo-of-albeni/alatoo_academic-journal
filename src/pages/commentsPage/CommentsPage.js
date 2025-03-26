@@ -32,7 +32,7 @@ export function CommentsPage() {
             </a>
           </div>
           <div className={classes.category}>
-            <p>CATEGORY: {oneArticle?.category?.nameEn}</p>
+            <p>{oneArticle?.category?.nameRu}</p>
             <h4>{oneArticle.createdAt?.slice(0, 10)}</h4>
           </div>
           <div className={classes.publish}>
@@ -41,7 +41,7 @@ export function CommentsPage() {
               <img src={img} alt="img" />
               <div className={classes.author__name}>
                 <p>{oneArticle.authorName}</p>
-                <p>Position AIU: Author</p>
+                <p>Автор статьи</p>
               </div>
             </div>
             <div className={classes.publish__text}>{oneArticle.text}</div>
@@ -50,7 +50,7 @@ export function CommentsPage() {
           userEmail === "malaevaid@gmail.com" ? (
             <div className={classes.comments__bar}>
               <div className={classes.comments__text}>
-                <h4>2 Comments</h4>
+                <h4>Комментарии</h4>
                 <img src={comments} alt="comments_ico" />
               </div>
               <div className={classes.comments__input}>

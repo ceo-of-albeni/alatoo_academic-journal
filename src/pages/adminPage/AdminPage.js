@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import BasicTableAdmin from "../../components/TableAdmin/TableAdmin";
 import { articlesContext } from "../../contexts/articleContext";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const AdminPage = () => {
   const { t, i18n } = useTranslation();
@@ -14,6 +15,8 @@ const AdminPage = () => {
     publishNews,
     uploadRules,
   } = useContext(articlesContext);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getPublishedNews();
@@ -70,8 +73,10 @@ const AdminPage = () => {
         return;
       }
 
-      alert("Статья успешно создана!");
+      alert("Новость успешно создана!");
+      navigate('/')
       window.location.reload();
+      
     } catch (error) {
       console.error("Error during article creation:", error);
     }
@@ -132,7 +137,7 @@ const AdminPage = () => {
         </h4>
         <div className="article_form-inputs">
           <div className="short_inp">
-            <p className="input_p">Название</p>
+            <p className="input_p">Заголовок</p>
             <input
               className="text_input"
               placeholder={t("tableadmin.ph")}

@@ -132,7 +132,7 @@ export default function BasicTableAdmin() {
         item.createdAt.slice(0, 10),
         item.coauthors,
         item.pageCount,
-        item.category.name,
+        item.category.nameRu,
         item.status,
         item.fileUrl
       )
@@ -252,8 +252,8 @@ export default function BasicTableAdmin() {
                   </TableCell>
                   <TableCell align="center">{row.createdAt}</TableCell>
                   <TableCell align="center">{row.coauthors}</TableCell>
-                  <TableCell align="center">{row.pages}</TableCell>
-                  <TableCell align="center">{row.category.name}</TableCell>
+                  <TableCell align="center">{row.pageCount}</TableCell>
+                  <TableCell align="center">{row.category.nameRu}</TableCell>
                   <TableCell key={row.id} align="center">
                     {row.status}
                   </TableCell>
