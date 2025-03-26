@@ -42,45 +42,70 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
-  async function getOneUser() {
-    try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios(`${API}/user/get/profile`, config);
-      dispatch({
-        type: "GET_ONE_USER",
-        payload: res.data,
-      });
-    } catch (err) {
-      console.log(err);
+async function getOneUser() {
+  try {
+    const tokens = localStorage.getItem("tokens");
+    if (!tokens) {
+      console.warn("No tokens found in localStorage");
+      return;
+    }
+
+    const { access_token } = JSON.parse(tokens);
+    if (!access_token) {
+      console.warn("No access token found");
+      return;
+    }
+
+    const res = await axios.get(`${API}/user/get/profile`, {
+      headers: { Authorization: `Bearer ${access_token}` },
+    });
+
+    dispatch({
+      type: "GET_ONE_USER",
+      payload: res.data,
+    });
+  } catch (err) {
+    console.error("Error fetching user profile:", err);
+
+    if (err.response) {
+      if (err.response.status === 401) {
+        console.warn("Unauthorized: Redirecting to login...");
+        // Например, перенаправление на страницу логина
+        // window.location.href = "/login";
+      }
     }
   }
+}
+
 
   async function handleRegister(newObj) {
     try {
-      const res = await axios.post(`${API}/auth/register`, newObj);
-      // navigate("/profile");
+      await axios.post(`${API}/auth/register`, newObj);
     } catch (err) {
       console.log(err);
       setError(err);
-    } finally {
     }
   }
 
   async function handleLogin(formData, email, closeModal) {
     try {
       const res = await axios.post(`${API}/auth/login`, formData);
-      setCurrentUser(res);
-      localStorage.setItem("tokens", JSON.stringify(res.data));
-      localStorage.setItem("email", email);
-      // closeModal();
-      navigate("/");
-      // window.location.reload();
+  
+      if (res.data.access_token) {
+        localStorage.setItem("tokens", JSON.stringify(res.data));  // Сохраняем токен
+        localStorage.setItem("email", email);  // Сохраняем email
+  
+        setCurrentUser(res);
+        alert("Вы успешно вошли в систему!");
+        navigate("/");  // Навигация после логина
+  
+        // Закрываем модальное окно, если оно открыто
+        if (closeModal) {
+          closeModal();
+        }
+      } else {
+        throw new Error("No access token returned from login");
+      }
     } catch (err) {
       console.log(err);
       setError(err);
@@ -90,7 +115,7 @@ const AuthContextProvider = ({ children }) => {
 
   async function handleConfirm(formData) {
     try {
-      const res = await axios.post(`${API}/auth/confirmEmail`, formData);
+      await axios.post(`${API}/auth/confirmEmail`, formData);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -101,7 +126,7 @@ const AuthContextProvider = ({ children }) => {
 
   async function sendCodeAgain(formData) {
     try {
-      const res = await axios.patch(`${API}/auth/sendCodeAgain`, formData);
+      await axios.patch(`${API}/auth/sendCodeAgain`, formData);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -111,15 +136,14 @@ const AuthContextProvider = ({ children }) => {
 
   async function forgotPassword(email) {
     try {
-      const res = await axios.post(`${API}/auth/forgotPassword`, email);
+      await axios.post(`${API}/auth/forgotPassword`, email);
     } catch (err) {
       console.log(err);
       setError(err);
-    } finally {
     }
   }
 
-  async function handleUser(newProduct, navigate) {
+  async function handleUser(newProduct) {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
@@ -128,7 +152,7 @@ const AuthContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.post(`${API}/user-profile/`, newProduct, config);
+      await axios.post(`${API}/user-profile/`, newProduct, config);
     } catch (err) {
       console.log(err);
     }
@@ -137,9 +161,9 @@ const AuthContextProvider = ({ children }) => {
   function handleLogout() {
     localStorage.removeItem("tokens");
     localStorage.removeItem("email");
-    setCurrentUser(false);
-    window.location.reload();
-    navigate("/");
+    setCurrentUser(null);  // Сбрасываем состояние пользователя
+    window.location.reload();  // Перезагружаем страницу
+    navigate("/");  // Редиректим на главную страницу
   }
 
   return (
@@ -149,7 +173,6 @@ const AuthContextProvider = ({ children }) => {
         error,
         users: state.users,
         oneUser: state.oneUser,
-
         handleRegister,
         handleConfirm,
         setError,

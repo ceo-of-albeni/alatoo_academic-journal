@@ -73,7 +73,7 @@ export function Login({ closeModal }) {
         <div className={classes.login} onClick={handleOutsideClick}>
           <div className={classes.login__inner} onClick={handleLoginClick}>
             <img src={arrow} alt="back" onClick={() => closeModal()} />
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <div>{t("login.login")}</div>
               <label>{t("login.email")}</label>
               <input
@@ -91,7 +91,7 @@ export function Login({ closeModal }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button onClick={loginUser}>{t("login.signin")}</button>
+              <button type="submit" onClick={loginUser}>{t("login.signin")}</button>
               <div className={classes.login__signup} onClick={openReg}>
                 <a href="javascript:void(0);" className={classes.sign}>
                   {t("login.signup")}
