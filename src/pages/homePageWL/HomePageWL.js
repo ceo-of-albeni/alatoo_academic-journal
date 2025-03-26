@@ -15,13 +15,13 @@ export default function HomePageWL(closeModal) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const navigate = useNavigate();
   const { users, getUsers } = useContext(authContext);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { publishedNews, getPublishedNews } = useContext(articlesContext);
 
   useEffect(() => {
     getUsers();
     getPublishedNews();
-  }, []);
+  });
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true);
@@ -83,7 +83,7 @@ export default function HomePageWL(closeModal) {
               <p>{publishedNews.content}</p>
             </div>
             <div className={classes.publish__content__img}>
-              <img src={publishedNews.imagePath} />
+              <img src={publishedNews.imagePath} alt="Новость" crossOrigin="anonymous" />
             </div>
           </div>
         </div>
