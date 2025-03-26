@@ -2,21 +2,16 @@ import React, { useState, useContext, useEffect } from "react";
 import BasicTableAdmin from "../../components/TableAdmin/TableAdmin";
 import { articlesContext } from "../../contexts/articleContext";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 
 const AdminPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const {
     getPublishedNews,
     getAllNews,
-    publishedNews,
     allNews,
-    uploadNews,
-    publishNews,
     uploadRules,
   } = useContext(articlesContext);
 
-  const navigate = useNavigate();
 
   useEffect(() => {
     getPublishedNews();
@@ -74,7 +69,6 @@ const AdminPage = () => {
       }
 
       alert("Новость успешно создана!");
-      navigate('/')
       window.location.reload();
       
     } catch (error) {
