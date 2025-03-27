@@ -50,8 +50,8 @@ export function AddEdition({ closeModal, id }) {
         <div className={classes.edition} onClick={handleOutsideClick}>
           <div className={classes.edition__inner} onClick={handleClick}>
             <form>
-              <div>Add Editon</div>
-              <label>Name</label>
+              <div>Добавить выпуск</div>
+              <label>Номер выпуска</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -59,7 +59,7 @@ export function AddEdition({ closeModal, id }) {
                 onChange={(e) => setName(e.target.value)}
                 name="email"
               />
-              <label>Link to PDF</label>
+              <label>Файл с изданием</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -68,7 +68,7 @@ export function AddEdition({ closeModal, id }) {
                 name="email"
               />
 
-              <button onClick={addNewEdition}>Add</button>
+              <button onClick={addNewEdition}>Добавить</button>
             </form>
           </div>
         </div>

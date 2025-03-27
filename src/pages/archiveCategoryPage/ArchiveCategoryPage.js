@@ -120,6 +120,7 @@ export default function ArchiveCategoryPage() {
     setEditionId(null);
     setActiveArticle(null);
     setActiveDelete(null);
+    setActiveDelete2(null)
     setActiveEdit(null);
     setActiveEditCouns(null);
   };

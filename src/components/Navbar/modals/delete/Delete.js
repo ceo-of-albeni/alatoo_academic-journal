@@ -4,12 +4,12 @@ import classes from "./Delete.module.scss";
 import { articlesContext } from "../../../../contexts/articleContext";
 
 export function Delete({ closeModal, volumeId }) {
-  const { deleteArchiveVolume } = useContext(articlesContext);
-
   const [activeDelete, setActiveDelete] = useState("delete");
   const [password, setPassword] = useState("");
+  
+  const { deleteArchiveVolume } = useContext(articlesContext);
 
-  function deleteVolume() {
+  async function deleteVolume() {
     if (!password.trim()) {
       alert("Некоторые поля пустые!");
       return;
@@ -19,7 +19,7 @@ export function Delete({ closeModal, volumeId }) {
       password: password,
     };
 
-    deleteArchiveVolume(volumeId, newObj);
+    await deleteArchiveVolume(volumeId, newObj);
     console.log(newObj);
 
     setPassword("");
@@ -51,22 +51,22 @@ export function Delete({ closeModal, volumeId }) {
         <div className={classes.delete} onClick={handleOutsideClick}>
           <div className={classes.delete__inner} onClick={handleClick}>
             <form>
-              <div>Do you want to delete?</div>
-              <label>To confirm, type admin password in the box below</label>
+              <div>Удалить весь том?</div>
+              <label>Введите пароль админа для подтверждения</label>
               <input
                 type="text"
                 placeholder="Your password..."
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                name="email"
+                name="password"
               />
-              <button onClick={deleteVolume}>Confirm</button>
-              <div className={classes.clear} onClick={clearAllInputs}>
+              <button onClick={deleteVolume}>Удалить</button>
+              <div className={classes.clear}>
                 <a
                   href="javascript:void(0);"
                   className={classes.sign}
-                  onClick={clearAllInputs}>
-                  Clear
+                  onClick={closeModal}>
+                  Отмена
                 </a>
               </div>
             </form>

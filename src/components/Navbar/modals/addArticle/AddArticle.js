@@ -102,13 +102,13 @@ export function AddArticle({ closeModal, id }) {
         <div className={classes.article} onClick={handleOutsideClick}>
           <div className={classes.article__inner} onClick={handleClick}>
             <form>
-              <div>Add article</div>
-              <label>Category</label>
+              <div>Добавить статью</div>
+              <label>Категория</label>
               <select
                 name="category"
                 value={category}
                 onChange={handleSelectChange}>
-                <option value="">Select a category</option>
+                <option value="">Выберите категорию</option>
                 {categories.map((categoryName) => (
                   <option value={categoryName.name}>
                     {categoryName.nameEn}
@@ -120,7 +120,7 @@ export function AddArticle({ closeModal, id }) {
                 <option value="category3">INFORMATICS</option>
                 <option value="category3">MATHEMATICS</option>
               </select>
-              <label>Link to article</label>
+              <label>Ссылка к статье</label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -128,7 +128,7 @@ export function AddArticle({ closeModal, id }) {
                 onChange={(e) => setFileUrl(e.target.value)}
                 name="email"
               />
-              <label>Author's name</label>
+              <label>Имена автора(ов)</label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -136,7 +136,7 @@ export function AddArticle({ closeModal, id }) {
                 onChange={(e) => setAuthorName(e.target.value)}
                 name="email"
               />
-              <label>Title of the article in Kyrgyz Language</label>
+              <label>Заголовок на кырг языке</label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -144,7 +144,7 @@ export function AddArticle({ closeModal, id }) {
                 onChange={(e) => setTitleKg(e.target.value)}
                 name="email"
               />
-              <label>Text in Kyrgyz Language</label>
+              <label>Текст на кырг языке</label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -152,7 +152,7 @@ export function AddArticle({ closeModal, id }) {
                 onChange={(e) => setTextKg(e.target.value)}
                 name="email"
               />
-              <label>Title of the article in Russian Language</label>
+              <label>Заголовок на рус языке</label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -160,7 +160,7 @@ export function AddArticle({ closeModal, id }) {
                 onChange={(e) => setTitleRu(e.target.value)}
                 name="email"
               />
-              <label>Text in Russian Language</label>
+              <label>Текст на рус языке</label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -168,7 +168,7 @@ export function AddArticle({ closeModal, id }) {
                 onChange={(e) => setTextRu(e.target.value)}
                 name="email"
               />
-              <label>Title of the article in English Language</label>
+              <label>Заголовок на англ языке</label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -176,7 +176,7 @@ export function AddArticle({ closeModal, id }) {
                 onChange={(e) => setTitleEn(e.target.value)}
                 name="email"
               />
-              <label>Text in English Language</label>
+              <label>Текст на англ языке</label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -184,10 +184,10 @@ export function AddArticle({ closeModal, id }) {
                 onChange={(e) => setTextEn(e.target.value)}
                 name="email"
               />
-              <button onClick={addNewArticle}>Add</button>
+              <button onClick={addNewArticle}>Добавить</button>
               <div className={classes.clear} onClick={clearAllInputs}>
                 <a href="javascript:void(0);" className={classes.sign}>
-                  Clear All
+                  Очистить поля
                 </a>
               </div>
             </form>

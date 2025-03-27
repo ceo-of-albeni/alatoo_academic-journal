@@ -5,24 +5,24 @@ import { articlesContext } from "../../../../contexts/articleContext";
 
 export function Delete2({ closeModal, editionId }) {
   const [activeDelete2, setActiveDelete2] = useState("delete2");
-  const [inputValue1, setInputValue1] = useState("");
+  const [password, setPassword] = useState("");
 
   const { deleteArchiveEdition } = useContext(articlesContext);
 
-  function deleteEdition() {
-    if (!inputValue1.trim()) {
+  async function deleteEdition() {
+    if (!password.trim()) {
       alert("Некоторые поля пустые!");
       return;
     }
 
     let newObj = {
-      password: inputValue1,
+      password: password,
     };
 
     deleteArchiveEdition(editionId, newObj);
     console.log(newObj);
 
-    setInputValue1("");
+    setPassword("");
   }
 
   useEffect(() => {
@@ -40,29 +40,28 @@ export function Delete2({ closeModal, editionId }) {
     closeModal();
     console.log("Closing modal");
   };
-
-  const clearAllInputs = () => {
-    setInputValue1("");
-  };
   return (
     <>
       {activeDelete2 === "delete2" && (
         <div className={classes.delete} onClick={handleOutsideClick}>
           <div className={classes.delete__inner} onClick={handleClick}>
             <form>
-              <div>Do you want to delete?</div>
-              <label>To confirm, type admin password in the box below</label>
+              <div>Удалить весь выпуск?</div>
+              <label>Введите пароль админа для подтверждения</label>
               <input
                 type="text"
                 placeholder="Your password..."
-                value={inputValue1}
-                onChange={(e) => setInputValue1(e.target.value)}
-                name="email"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                name="password"
               />
-              <button onClick={deleteEdition}>Confirm</button>
-              <div className={classes.clear} onClick={clearAllInputs}>
-                <a href="javascript:void(0);" className={classes.sign}>
-                  Clear
+              <button onClick={deleteEdition}>Удалить</button>
+              <div className={classes.clear}>
+                <a
+                  href="javascript:void(0);"
+                  className={classes.sign}
+                  onClick={closeModal}>
+                  Отмена
                 </a>
               </div>
             </form>
