@@ -12,7 +12,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import { useTranslation } from "react-i18next";
 
@@ -61,6 +61,7 @@ export default function BasicTable() {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = React.useState(searchParams.get("q") || "");
+  const navigate = useNavigate();
 
   const handleClose = () => setOpen(false);
 
@@ -241,9 +242,12 @@ export default function BasicTable() {
                 <TableCell align="left">
                   <a
                     className="table_a"
-                    href={row.fileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer">
+                    // href={row.fileUrl}
+                    // href={`/`}
+                    onClick={() => navigate(`/comments/${row.id}`)}
+                    // target="_blank"
+                    // rel="noopener noreferrer"
+                  >
                     {row.title}
                   </a>
                 </TableCell>

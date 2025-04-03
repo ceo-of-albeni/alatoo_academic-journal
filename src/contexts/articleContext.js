@@ -617,7 +617,7 @@ const ArticleContextsProvider = ({ children }) => {
         type: "GET_ALL_COMMENTS",
         payload: res.data,
       });
-      console.log(res);
+      // console.log(res);
     } catch (err) {
       console.log(err);
     }

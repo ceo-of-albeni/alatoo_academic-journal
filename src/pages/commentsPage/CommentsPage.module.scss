@@ -98,7 +98,31 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+  justify-content: space-between;
   margin: 24px 0px 20px 0px;
+}
+
+.author_info {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 24px 0px 20px 0px;
+}
+
+.pdf_downl button {
+  padding: 10px 20px;
+  background-color: #39446b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0px;
+  width: 100%;
+  transition: 0.2s;
+}
+
+.pdf_downl:hover {
+  color: #39446b;
+  background-color: white;
 }
 
 .author img {
