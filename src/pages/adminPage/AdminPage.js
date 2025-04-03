@@ -4,16 +4,14 @@ import { articlesContext } from "../../contexts/articleContext";
 import { useTranslation } from "react-i18next";
 
 const AdminPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const {
     getPublishedNews,
     getAllNews,
-    publishedNews,
     allNews,
-    uploadNews,
-    publishNews,
     uploadRules,
   } = useContext(articlesContext);
+
 
   useEffect(() => {
     getPublishedNews();
@@ -70,8 +68,9 @@ const AdminPage = () => {
         return;
       }
 
-      alert("Статья успешно создана!");
+      alert("Новость успешно создана!");
       window.location.reload();
+      
     } catch (error) {
       console.error("Error during article creation:", error);
     }
@@ -132,7 +131,7 @@ const AdminPage = () => {
         </h4>
         <div className="article_form-inputs">
           <div className="short_inp">
-            <p className="input_p">Название</p>
+            <p className="input_p">Заголовок</p>
             <input
               className="text_input"
               placeholder={t("tableadmin.ph")}
@@ -144,7 +143,7 @@ const AdminPage = () => {
 
           <div className="short_inp">
             <p className="input_p">Контент</p>
-            <input
+            <textarea
               className="text_input"
               placeholder={t("tableadmin.ph")}
               type="text"
@@ -181,7 +180,7 @@ const AdminPage = () => {
         </h4>
         <div className="article_form-inputs">
           <div className="short_inp">
-            <p className="input_p">Фото</p>
+            <p className="input_p">Файл</p>
             <label className="custom-file-upload">
               <input type="file" accept=".pdf" onChange={handleFileChange2} />
               <svg

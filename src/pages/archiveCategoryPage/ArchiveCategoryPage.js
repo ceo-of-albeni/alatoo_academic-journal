@@ -120,6 +120,7 @@ export default function ArchiveCategoryPage() {
     setEditionId(null);
     setActiveArticle(null);
     setActiveDelete(null);
+    setActiveDelete2(null)
     setActiveEdit(null);
     setActiveEditCouns(null);
   };
@@ -254,33 +255,59 @@ export default function ArchiveCategoryPage() {
                   </div>
                 ))}
                 <div className={`${openCouns ? "" : classes.sub__couns__end}`}>
-                  <div
-                    className={`${classes.council} ${
-                      openCouns ? classes.rotate : classes.rotate__end
-                    }`}
-                    onClick={toggleOpenCoun}>
-                    <p>{t("archivepage.council")}</p>
-                    <i className="bx bx-chevron-right"></i>
-                  </div>
-                  <div
-                    className={
-                      openCouns ? classes.sub__couns : classes.sub__couns__hide
-                    }>
-                    <div className={classes.members}>
-                      <p>{archive.councilMembers}</p>
-                    </div>
-                    {localStorage.getItem("email") != null &&
-                    oneUser.role === "admin" ? (
-                      <button
-                        className={classes.edit}
-                        onClick={openEditCounModal}>
-                        Edit
-                      </button>
-                    ) : (
-                      <span></span>
-                    )}
-                  </div>
+                <div
+                  className={`${classes.council} ${
+                    openCouns ? classes.rotate : classes.rotate__end
+                  }`}
+                  onClick={toggleOpenCoun}
+                >
+                  <p>{t("archivepage.council")}</p>
+                  <i className="bx bx-chevron-right"></i>
                 </div>
+                <div
+                  className={openCouns ? classes.sub__couns : classes.sub__couns__hide}
+                >
+                  <div className={classes.members}>
+                    <p>{archive.councilMembers}</p>
+                  </div>
+                  {localStorage.getItem("email") != null && oneUser.role === "admin" ? (
+                    <button className={classes.edit} onClick={openEditCounModal}>
+                      Edit
+                    </button>
+                  ) : (
+                    <span></span>
+                  )}
+                </div>
+                <div className={classes.links}>
+                    <a
+                      href={archive.publicationEthicEn}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >
+                      {t("Publication Ethics and Publication Malpractice")}
+                    </a>
+                    <a
+                      href={archive.publicationEthicsRu}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >
+                      {t("ЭТИКА ПУБЛИКАЦИИ журнала «Alatoo Academic Studies»")}
+                    </a>
+                    <a
+                    href="/rules1"
+                    target="_blank"
+                    >
+                      {t("ПРАВИЛА ДЛЯ АВТОРОВ")}
+                    </a>
+                    <a
+                      href={archive.reviewerRulesUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {t("ПОРЯДОК РЕЦЕНЗИРОВАНИЯ РУКОПИСЕЙ В РЕДАКЦИЮ ЖУРНАЛА AAS")}
+                    </a>
+                  </div>  
+              </div>
               </div>
               <div className={classes.archive__inner__2}>
                 <div className={classes.slider}>

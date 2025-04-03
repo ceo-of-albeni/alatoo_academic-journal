@@ -48,16 +48,16 @@ export function AddVolume({ closeModal }) {
         <div className={classes.volume} onClick={handleOutsideClick}>
           <div className={classes.volume__inner} onClick={handleClick}>
             <form>
-              <div>Add Volume</div>
-              <label>Name</label>
+              <div>Добавить том</div>
+              <label>Год и номер</label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 type="text"
                 placeholder="Click and type"
-                name="email"
+                name="name"
               />
-              <button onClick={addNewVolume}>Add</button>
+              <button onClick={addNewVolume}>Добавить</button>
             </form>
           </div>
         </div>

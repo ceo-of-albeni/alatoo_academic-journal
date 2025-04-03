@@ -132,7 +132,7 @@ export default function BasicTableAdmin() {
         item.createdAt.slice(0, 10),
         item.coauthors,
         item.pageCount,
-        item.category.name,
+        item.category.nameRu,
         item.status,
         item.fileUrl
       )
@@ -250,10 +250,10 @@ export default function BasicTableAdmin() {
                       {row.title}
                     </a>
                   </TableCell>
-                  <TableCell align="center">{row.createdAt}</TableCell>
+                  <TableCell align="center">{row.createdAt.slice(0, 10)}</TableCell>
                   <TableCell align="center">{row.coauthors}</TableCell>
-                  <TableCell align="center">{row.pages}</TableCell>
-                  <TableCell align="center">{row.category.name}</TableCell>
+                  <TableCell align="center">{row.pageCount}</TableCell>
+                  <TableCell align="center">{row.category.nameRu}</TableCell>
                   <TableCell key={row.id} align="center">
                     {row.status}
                   </TableCell>
@@ -344,13 +344,8 @@ export default function BasicTableAdmin() {
                   <TableCell component="th" scope="row">
                     {row.id}
                   </TableCell>
-                  <TableCell align="left">
-                    {/* <a className="table_a" href={row.imagePath}>
-                      {row.title}
-                    </a> */}
-                    <img src={row.imagePath} alt="" />
-                  </TableCell>
-                  <TableCell align="center">{row.createdAt}</TableCell>
+                  <TableCell align="center">{row.title}</TableCell>
+                  <TableCell align="center">{row.createdAt.slice(0, 10)}</TableCell>
                   <TableCell align="center">{row.content}</TableCell>
                   <TableCell align="center">
                     {row.isPublic === false ? (

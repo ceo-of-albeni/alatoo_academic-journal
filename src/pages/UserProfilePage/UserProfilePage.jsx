@@ -257,12 +257,13 @@ const UserProfilePage = () => {
                 </label>
 
                 <p className="input_p input_p-text">{t("tableadmin.text")}</p>
-                <input
+                <textarea
                   className="text_input"
                   placeholder={t("tableadmin.ph")}
                   type="text"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
+                  rows={5}
                 />
               </div>
 

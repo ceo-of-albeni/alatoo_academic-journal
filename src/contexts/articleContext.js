@@ -513,34 +513,35 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      alert("Новость опубликована! Обновите страницу!");
+      alert("Новость опубликована! Обновите страницу!");      
     } catch (err) {
       console.log(err);
     }
   }
 
-  // Rules
+  // Функция для получения PDF с API
   async function getRules() {
     try {
       const res = await axios.get(`${API}/files/get/rules`, {
-        responseType: "blob", // Important: Treat response as binary data
+        responseType: 'arraybuffer',  // Получаем бинарные данные
       });
-
+  
       const pdfBlob = new Blob([res.data], { type: "application/pdf" });
-      const pdfUrl = URL.createObjectURL(pdfBlob); // Create object URL
-
+      const pdfUrl = URL.createObjectURL(pdfBlob); // Создаем объект URL
+  
       dispatch({
         type: "GET_RULES",
-        payload: pdfUrl, // Save the URL in state
+        payload: pdfUrl, // Сохраняем URL в состояние
       });
-
+  
       console.log(res);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     } finally {
       setLoading(false);
     }
   }
+
 
   async function uploadRules(formData) {
     try {
@@ -552,7 +553,8 @@ const ArticleContextsProvider = ({ children }) => {
         },
       };
       const res = await axios.post(`${API}/files/upload`, formData, config);
-      console.log(res);
+      alert('Файл загружен!')
+      window.location.reload()
     } catch (err) {
       console.log(err);
     }

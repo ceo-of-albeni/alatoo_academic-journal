@@ -102,16 +102,16 @@ export function Edit({ closeModal }) {
         <div className={classes.edit} onClick={handleOutsideClick}>
           <div className={classes.edit__inner} onClick={handleClick}>
             <form>
-              <div>Edit Information</div>
-              <label>Description</label>
-              <input
+              <div>Редактировать информацию</div>
+              <label>Описание</label>
+              <textarea
                 type="text"
                 placeholder="Click and type"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 name="email"
               />
-              <label>Editorial Council</label>
+              <label>Редакционный совет</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -119,7 +119,7 @@ export function Edit({ closeModal }) {
                 onChange={(e) => setEditorialCouncil(e.target.value)}
                 name="email"
               />
-              <label>Address</label>
+              <label>Адрес</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -127,7 +127,7 @@ export function Edit({ closeModal }) {
                 onChange={(e) => setAdress(e.target.value)}
                 name="email"
               />
-              <label>Phone number</label>
+              <label>Номер телефона</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -135,7 +135,7 @@ export function Edit({ closeModal }) {
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 name="email"
               />
-              <label>Fax number</label>
+              <label>Номер факса</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -152,7 +152,7 @@ export function Edit({ closeModal }) {
                 name="email"
               />
 
-              <label>Link to ethics in Russian</label>
+              <label>Этика публикации на русском (ссылка)</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -160,7 +160,7 @@ export function Edit({ closeModal }) {
                 onChange={(e) => setPublicationEthicsRu(e.target.value)}
                 name="email"
               />
-              <label>Link to ethics in English</label>
+              <label>Этика публикации на англ (ссылка)</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -168,7 +168,7 @@ export function Edit({ closeModal }) {
                 onChange={(e) => setPublicationEthicEn(e.target.value)}
                 name="email"
               />
-              <label>Rules for authors</label>
+              <label>Правила для авторов</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -176,7 +176,7 @@ export function Edit({ closeModal }) {
                 onChange={(e) => setRulesUrl(e.target.value)}
                 name="email"
               />
-              <label>Rules for reviewers</label>
+              <label>Порядок рецензирования</label>
               <input
                 type="text"
                 placeholder="Click and type"
@@ -184,10 +184,10 @@ export function Edit({ closeModal }) {
                 onChange={(e) => setReviewerRulesUrl(e.target.value)}
                 name="email"
               />
-              <button onClick={saveChanges}>Add</button>
+              <button onClick={saveChanges}>Сохранить</button>
               <div className={classes.clear} onClick={clearAllInputs}>
                 <a href="javascript:void(0);" className={classes.sign}>
-                  Clear All
+                  Очистить всё
                 </a>
               </div>
             </form>
