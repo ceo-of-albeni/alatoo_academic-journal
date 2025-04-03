@@ -1,25 +1,37 @@
 import React, { useEffect, useContext, useState } from "react";
 import classes from "../articlesPage/ArticlesPage.module.css";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import { useTranslation } from "react-i18next";
 import { articlesContext } from "../../contexts/articleContext";
 import ArticleCardDefault from "../../components/ArticleCardDefault/ArticlesCardDefault";
 
 const ArticlesPageDefault = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+
   const [page, setPage] = useState(1);
   const { t, i18n } = useTranslation();
 
-  const { id } = useParams();
+  //const { id } = useParams();
   const { approved_articles, getAllApproved } = useContext(articlesContext);
+
+  // useEffect(() => {
+    //getAllApproved();
+ // }, []);
 
   useEffect(() => {
     getAllApproved();
-    console.log(approved_articles);
-  }, []);
+  }, [searchParams]);
 
-  console.log(approved_articles);
+  useEffect(() => {
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
+
+
+  //console.log(approved_articles);
 
   const itemsOnPage = 8;
   const count = Math.ceil(approved_articles.length / itemsOnPage);
@@ -39,6 +51,29 @@ const ArticlesPageDefault = () => {
       <div className={classes.list_main_div}>
         <h1>{t("approved_articles.title")}</h1>
         <div className={classes.list_courses_div}>
+          
+        <div className={classes.filAndSr}>
+        <a href="#">
+          <div className={classes.icon}>
+            <i className="fa-solid fa-filter fa-2xl"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div className={classes.icon} id={classes.search}>
+            <i
+              className="fa-solid fa-magnifying-glass fa-2xl"
+              id={classes.search}></i>
+          </div>
+        </a>
+        <input
+          type="search"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder="Search..."
+          className={classes.sr_inp}
+        />
+      </div>
+
           {approved_articles ? (
             currentData().map((item) => (
               <ArticleCardDefault key={item.id} item={item} />

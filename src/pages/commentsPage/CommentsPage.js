@@ -7,12 +7,26 @@ import img from "./img/user.png";
 import comments from "./img/comments.svg";
 import CommentBox from "../../components/CommentsBox/CommentsBox";
 import { articlesContext } from "../../contexts/articleContext";
+import jsPDF from "jspdf"
 
 export function CommentsPage() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
+  
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    doc.text("Article Title: " + oneArticle.title, 10, 10);
+    doc.text("Author: " + oneArticle.authorName, 10, 20);
+    doc.text("Content: " + oneArticle.content, 10, 30);
+    doc.save("article.pdf");
+  };
 
-  const { oneArticle, getOneArticle } = useContext(articlesContext);
+  const {
+    oneArticle,
+    getOneArticle,
+    getComments,
+    allComments = [],
+  } = useContext(articlesContext);
   const { id } = useParams();
   const [userEmail, setUserEmail] = useState("");
 
@@ -20,6 +34,10 @@ export function CommentsPage() {
     getOneArticle(id);
     setUserEmail(localStorage.getItem("email"));
   }, []);
+
+  useEffect(() => {
+    getComments(id);
+  }, [id]);
 
   return (
     <div className={classes.container}>
@@ -41,10 +59,15 @@ export function CommentsPage() {
           <div className={classes.publish}>
             <h2>{oneArticle.title}</h2>
             <div className={classes.author}>
-              <img src='https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg' alt={img} />
-              <div className={classes.author__name}>
-                <p>{oneArticle.authorName}</p>
-                <p>Автор статьи</p>
+              <div className={classes.author_info}>
+                <img src={img} alt="img" />
+                <div className={classes.author__name}>
+                  <p>{oneArticle.authorName}</p>
+                  <p>Position AIU: Author</p>
+                </div>
+              </div>
+              <div className={classes.pdf_downl}>
+                <button onClick={downloadPDF}>Download PDF</button>
               </div>
             </div>
             <div className={classes.publish__text}>{oneArticle.text}</div>
@@ -53,7 +76,9 @@ export function CommentsPage() {
           userEmail === "malaevaid@gmail.com" ? (
             <div className={classes.comments__bar}>
               <div className={classes.comments__text}>
-                <h4>Комментарии</h4>
+                <h4>
+                  {Array.isArray(allComments) ? allComments.length : 0} Comments
+                </h4>
                 <img src={comments} alt="comments_ico" />
               </div>
               <div className={classes.comments__input}>
@@ -63,15 +88,6 @@ export function CommentsPage() {
           ) : (
             <span></span>
           )}
-          {/* <div className={classes.comments__bar}>
-            <div className={classes.comments__text}>
-              <h4>2 Comments</h4>
-              <img src={comments} alt="comments_ico" />
-            </div>
-            <div className={classes.comments__input}>
-              <CommentBox />
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

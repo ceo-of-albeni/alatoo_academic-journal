@@ -5,77 +5,86 @@ import { useParams } from "react-router-dom";
 
 const CommentBox = () => {
   const [comment, setComment] = useState("");
+  const [visibleComments, setVisibleComments] = useState(3); // Initially show 10 comments
 
   const { id } = useParams();
 
-  const { postComment, oneComment, deleteComment, getComments, allComments } =
+  const { postComment, deleteComment, getComments, allComments } =
     useContext(articlesContext);
 
   useEffect(() => {
-    getComments(id);
-  }, [id]);
+    if (id) getComments(id);
+  }, [id, getComments]);
 
   function commentsPost(e) {
-    // e.preventDefault();
+    e.preventDefault(); // Prevent page refresh
+    if (!comment.trim()) return;
     let newComment = {
       text: comment,
     };
 
     postComment(id, newComment);
-    console.log(oneComment);
-
     setComment("");
   }
 
-  console.log(allComments);
+  const loadMoreComments = () => {
+    setVisibleComments((prev) => Math.min(prev + 5, allComments.length)); // Load 10 more comments or the total length
+  };
+
   return (
-    <>
-      <div>
-        <form className={classes.commentbox__form}>
-          <textarea
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            placeholder="Enter your comment"
-            rows="4"
-            cols="50"
-          />
-          {allComments?.map((a_comment) => (
-            <div
-              className={classes.user}
-              key={a_comment.id}
-              style={{ marginBottom: "10px" }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img
-                  src="https://example.com/profile.jpg"
-                  alt="pic"
-                  // alt={`${a_comment.user.las}'s profile`}
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    marginRight: "10px",
-                  }}
-                />
-                <div>
-                  <strong>
-                    {a_comment.user.firstName} {a_comment.user.lastName}
-                  </strong>
-                </div>
+    <div>
+      <form className={classes.commentbox__form} onSubmit={commentsPost}>
+        <textarea
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder="Enter your comment"
+          rows="4"
+          cols="50"
+        />
+        <button type="submit" className={classes.send__comment}>
+          Add a comment
+        </button>
+      </form>
+      {allComments && allComments.length > 0 ? (
+        allComments.slice(0, visibleComments).map((a_comment) => (
+          <div
+            className={classes.user}
+            key={a_comment.id}
+            style={{ marginBottom: "10px" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <img
+                src="https://thumbs.dreamstime.com/b/default-profile-picture-avatar-photo-placeholder-vector-illustration-default-profile-picture-avatar-photo-placeholder-vector-189495158.jpg"
+                alt="pic"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  marginRight: "10px",
+                }}
+              />
+              <div>
+                <strong>
+                  {a_comment.user?.firstName} {a_comment.user?.lastName}
+                </strong>
               </div>
-              <p>{a_comment.text}</p>
-              <button
-                className={classes.delete}
-                onClick={() => deleteComment(a_comment.id)}>
-                Delete
-              </button>
             </div>
-          ))}
-          <button className={classes.send__comment} onClick={commentsPost}>
-            Add a comment
-          </button>
-        </form>
-      </div>
-    </>
+            <p>{a_comment.text}</p>
+            <button
+              className={classes.delete}
+              onClick={() => deleteComment(a_comment.id)}>
+              Delete
+            </button>
+          </div>
+        ))
+      ) : (
+        <p>No comments yet.</p>
+      )}
+      {allComments && allComments.length > visibleComments && (
+        <button className={classes.loadMore} onClick={loadMoreComments}>
+          Load More
+        </button>
+      )}
+    </div>
   );
 };
 

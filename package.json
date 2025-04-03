@@ -25,7 +25,11 @@
     "i18next-browser-languagedetector": "^8.0.0",
     "json-server": "^1.0.0-alpha.23",
     "json5": "^2.2.3",
+<<<<<<< HEAD
+    "jspdf": "^3.0.1",
+=======
     "pdfjs-dist": "^3.11.174",
+>>>>>>> 4192166373d2f2f19293201613c8fb3cb294edf9
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.2",
     "react-dom": "^18.2.0",
