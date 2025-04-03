@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import classes from "./CommentsPage.module.scss";
 import arrow from "./img/arrow.svg";
@@ -7,19 +7,11 @@ import img from "./img/user.png";
 import comments from "./img/comments.svg";
 import CommentBox from "../../components/CommentsBox/CommentsBox";
 import { articlesContext } from "../../contexts/articleContext";
-import jsPDF from "jspdf"
+import jsPDF from "jspdf";
 
 export function CommentsPage() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  
-  const downloadPDF = () => {
-    const doc = new jsPDF();
-    doc.text("Article Title: " + oneArticle.title, 10, 10);
-    doc.text("Author: " + oneArticle.authorName, 10, 20);
-    doc.text("Content: " + oneArticle.content, 10, 30);
-    doc.save("article.pdf");
-  };
 
   const {
     oneArticle,
@@ -39,6 +31,25 @@ export function CommentsPage() {
     getComments(id);
   }, [id]);
 
+  const downloadPDF = useCallback(() => {
+    if (!oneArticle?.fileUrl) {
+      console.error("File URL is missing");
+      return;
+    }
+
+    try {
+      const link = document.createElement("a");
+      link.href = oneArticle.fileUrl;
+      link.target = "_blank";
+      link.download = oneArticle.fileUrl.split("/").pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Error downloading file:", error);
+    }
+  }, [oneArticle?.fileUrl]);
+
   return (
     <div className={classes.container}>
       <div className={classes.comments}>
@@ -54,7 +65,9 @@ export function CommentsPage() {
             <h4>{oneArticle.createdAt?.slice(0, 10)}</h4>
           </div>
           <div className={classes.link}>
-            <a href={oneArticle?.fileUrl} target="_blank" rel="noreferrer">Открыть статью</a>
+            <a href={oneArticle?.fileUrl} target="_blank" rel="noreferrer">
+              Открыть статью
+            </a>
           </div>
           <div className={classes.publish}>
             <h2>{oneArticle.title}</h2>

@@ -18,25 +18,11 @@ const UserProfilePage = () => {
     useContext(articlesContext);
   const { getOneUser, oneUser } = useContext(authContext);
 
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const [search, setSearch] = useState(searchParams.get("q") || "");
-
   useEffect(() => {
     getAllMyArticles();
     getCategories();
     getOneUser();
   }, []);
-
-  // useEffect(() => {
-  //   getAllMyArticles();
-  //   // getArticles();
-  // }, [searchParams]);
-
-  // useEffect(() => {
-  //   setSearchParams({
-  //     q: search,
-  //   });
-  // }, [search]);
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -57,9 +43,8 @@ const UserProfilePage = () => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setArticleFile(file);
+    console.log(file);
   };
-
-  console.log(title, category, coauthors, text, articleFile, coauthorsEmails);
 
   const handleUpload = async () => {
     if (
