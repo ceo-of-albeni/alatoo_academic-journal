@@ -143,7 +143,7 @@ const AdminPage = () => {
 
           <div className="short_inp">
             <p className="input_p">Контент</p>
-            <input
+            <textarea
               className="text_input"
               placeholder={t("tableadmin.ph")}
               type="text"

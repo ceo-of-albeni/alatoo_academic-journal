@@ -263,6 +263,7 @@ const UserProfilePage = () => {
                   type="text"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
+                  rows={5}
                 />
               </div>
 

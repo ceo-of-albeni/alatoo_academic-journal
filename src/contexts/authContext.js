@@ -162,7 +162,6 @@ async function getOneUser() {
     localStorage.removeItem("tokens");
     localStorage.removeItem("email");
     setCurrentUser(null);  // Сбрасываем состояние пользователя
-    window.location.reload();  // Перезагружаем страницу
     navigate("/");  // Редиректим на главную страницу
   }
 

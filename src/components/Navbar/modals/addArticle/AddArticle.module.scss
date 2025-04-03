@@ -44,6 +44,20 @@
     margin-bottom: 22px;
     color: black
   }
+  textarea {
+    flex: 1;
+    outline: none;
+    width: 450px;
+    height: 51px;
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    border-radius: 8px;
+    border: 1px solid black;
+    margin-bottom: 22px;
+    color: black
+  }
 
   form {
     display: flex;
@@ -61,7 +75,7 @@
     line-height: 16px;
     letter-spacing: -0.02em;
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: #666666;
   }
 }

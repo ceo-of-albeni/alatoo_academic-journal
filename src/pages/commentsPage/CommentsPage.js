@@ -38,7 +38,7 @@ export function CommentsPage() {
           <div className={classes.publish}>
             <h2>{oneArticle.title}</h2>
             <div className={classes.author}>
-              <img src={img} alt="img" />
+              <img src='https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg' alt={img} />
               <div className={classes.author__name}>
                 <p>{oneArticle.authorName}</p>
                 <p>Автор статьи</p>

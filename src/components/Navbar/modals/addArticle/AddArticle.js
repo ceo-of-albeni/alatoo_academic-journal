@@ -145,12 +145,13 @@ export function AddArticle({ closeModal, id }) {
                 name="email"
               />
               <label>Текст на кырг языке</label>
-              <input
+              <textarea
                 type="text"
                 placeholder="Click and typing"
                 value={textKg}
                 onChange={(e) => setTextKg(e.target.value)}
-                name="email"
+                rows={4}
+                cols={57}
               />
               <label>Заголовок на рус языке</label>
               <input
@@ -161,14 +162,18 @@ export function AddArticle({ closeModal, id }) {
                 name="email"
               />
               <label>Текст на рус языке</label>
-              <input
+              <textarea
                 type="text"
                 placeholder="Click and typing"
                 value={textRu}
                 onChange={(e) => setTextRu(e.target.value)}
                 name="email"
+                rows={4}
+                cols={57}
               />
-              <label>Заголовок на англ языке</label>
+              <label>
+                Заголовок на англ языке
+              </label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -177,12 +182,13 @@ export function AddArticle({ closeModal, id }) {
                 name="email"
               />
               <label>Текст на англ языке</label>
-              <input
+              <textarea
                 type="text"
                 placeholder="Click and typing"
                 value={textEn}
                 onChange={(e) => setTextEn(e.target.value)}
-                name="email"
+                rows={4}
+                cols={57}
               />
               <button onClick={addNewArticle}>Добавить</button>
               <div className={classes.clear} onClick={clearAllInputs}>
