@@ -76,6 +76,26 @@
   line-height: 16.71px;
 }
 
+.link a {
+  width: 266px;
+  padding: 8px 15px;
+  border-radius: 15px;
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.71px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.link a:hover {
+  background-color: white;
+  color: black;
+}
+
 .category h4 {
   margin: 0px 0px 0px 24px;
   font-family: SF Pro Display;
@@ -87,6 +107,7 @@
 }
 
 .publish h2 {
+  margin-top: 20px;
   font-family: SF Pro Display;
   font-size: 34px;
   font-weight: 700;

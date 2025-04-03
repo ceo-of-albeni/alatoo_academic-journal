@@ -35,6 +35,9 @@ export function CommentsPage() {
             <p>{oneArticle?.category?.nameRu}</p>
             <h4>{oneArticle.createdAt?.slice(0, 10)}</h4>
           </div>
+          <div className={classes.link}>
+            <a href={oneArticle?.fileUrl} target="_blank" rel="noreferrer">Открыть статью</a>
+          </div>
           <div className={classes.publish}>
             <h2>{oneArticle.title}</h2>
             <div className={classes.author}>

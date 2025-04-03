@@ -180,7 +180,7 @@ const AdminPage = () => {
         </h4>
         <div className="article_form-inputs">
           <div className="short_inp">
-            <p className="input_p">Фото</p>
+            <p className="input_p">Файл</p>
             <label className="custom-file-upload">
               <input type="file" accept=".pdf" onChange={handleFileChange2} />
               <svg
