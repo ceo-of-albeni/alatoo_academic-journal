@@ -24,9 +24,14 @@ const ArticlesPageDefault = () => {
     getAllApproved();
   }, [searchParams]);
 
-  const filteredArticles = approved_articles.filter((article) =>
-    article.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredArticles = approved_articles.filter((article) => {
+    const query = search.toLowerCase();
+    return (
+      article.title.toLowerCase().includes(query) ||
+      article.authorName.toLowerCase().includes(query) ||
+      article.category?.nameRu?.toLowerCase().includes(query)
+    );
+  });
 
   const itemsOnPage = 8;
   const count = Math.ceil(filteredArticles.length / itemsOnPage);

@@ -14,6 +14,7 @@ import "../Table/Table.scss";
 import "../TableAdmin/TableAdmin.scss";
 import { useTranslation } from "react-i18next";
 import Pagination from "@mui/material/Pagination";
+import { useNavigate } from "react-router-dom";
 
 function createData(
   id,
@@ -50,8 +51,31 @@ function createData2(id, title, createdAt, content, imagePath, buttons) {
   };
 }
 
+function createData3(
+  id,
+  title,
+  createdAt,
+  coauthors,
+  pages,
+  // category,
+  status,
+  fileUrl
+) {
+  return {
+    id,
+    title,
+    createdAt,
+    coauthors,
+    pages,
+    // category,
+    status,
+    fileUrl,
+  };
+}
+
 export default function BasicTableAdmin() {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const {
     getAllNotPublished,
     paymentArticle,
@@ -64,15 +88,19 @@ export default function BasicTableAdmin() {
     allNews,
     publishNews,
     publishedNews,
+    getAllApproved,
+    approved_articles,
   } = useContext(articlesContext);
 
   useEffect(() => {
     getCategories();
     getAllNotPublished();
     getAllNews();
-    console.log(allNews);
-    console.log(publishedNews);
+    getAllApproved();
   }, []);
+
+  console.log(approved_articles);
+  console.log(notPublished);
 
   const handlePage = (e, p) => {
     setPage(p);
@@ -82,10 +110,15 @@ export default function BasicTableAdmin() {
     setPage2(p);
   };
 
+  const handlePage3 = (e, p) => {
+    setPage3(p);
+  };
+
   const itemsOnPage = 5;
 
   const count = Math.ceil(notPublished.length / itemsOnPage);
   const count2 = Math.ceil(allNews.length / itemsOnPage);
+  const count3 = Math.ceil(approved_articles.length / itemsOnPage);
 
   function currentData() {
     const begin = (page - 1) * itemsOnPage;
@@ -99,11 +132,18 @@ export default function BasicTableAdmin() {
     return allNews.slice(begin, end);
   }
 
+  function currentData3() {
+    const begin = (page3 - 1) * itemsOnPage;
+    const end = begin + itemsOnPage;
+    return approved_articles.slice(begin, end);
+  }
+
   const [categoryCreateEn, setCategoryCreateEn] = useState("");
   const [categoryCreateRu, setCategoryCreateRu] = useState("");
   const [categoryCreateKg, setCategoryCreateKg] = useState("");
   const [page, setPage] = React.useState(1);
   const [page2, setPage2] = React.useState(1);
+  const [page3, setPage3] = React.useState(1);
 
   function handleCategoryCreate() {
     if (!categoryCreateEn && !categoryCreateRu && !categoryCreateKg) {
@@ -148,6 +188,22 @@ export default function BasicTableAdmin() {
         item.createdAt.slice(0, 10),
         item.content,
         item.imagePath
+      )
+    )
+  );
+
+  let rows3 = [];
+  approved_articles.map((item) =>
+    rows3.push(
+      createData3(
+        item.id,
+        item.title,
+        item.createdAt.slice(0, 10),
+        item.coauthors,
+        item.pageCount,
+        // item.category.nameRu,
+        item.status,
+        item.fileUrl
       )
     )
   );
@@ -204,7 +260,7 @@ export default function BasicTableAdmin() {
             </div>
           </div>
         </div>
-        <h3>Статьи</h3>
+        <h3>Статьи на рассмотрении</h3>
         <br />
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -246,14 +302,18 @@ export default function BasicTableAdmin() {
                     {row.id}
                   </TableCell>
                   <TableCell align="left">
-                    <a className="table_a" href={row.fileUrl}>
+                    <a
+                      className="table_a"
+                      onClick={() => navigate(`/comments/${row.id}`)}>
                       {row.title}
                     </a>
                   </TableCell>
-                  <TableCell align="center">{row.createdAt.slice(0, 10)}</TableCell>
+                  <TableCell align="center">
+                    {row.createdAt.slice(0, 10)}
+                  </TableCell>
                   <TableCell align="center">{row.coauthors}</TableCell>
                   <TableCell align="center">{row.pageCount}</TableCell>
-                  <TableCell align="center">{row.category.nameRu}</TableCell>
+                  <TableCell align="center">{row.category?.nameRu}</TableCell>
                   <TableCell key={row.id} align="center">
                     {row.status}
                   </TableCell>
@@ -301,7 +361,81 @@ export default function BasicTableAdmin() {
           page={page}
           onChange={handlePage}
         />
+
+        <br />
+        <br />
+        <h3>Опубикованные статьи</h3>
+        <br />
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell width="50px" align="center">
+                  <strong>Nº</strong>
+                </TableCell>
+                <TableCell width="330px" align="center">
+                  <strong>{t("table.title")}</strong>
+                </TableCell>
+                <TableCell width="100px" align="center">
+                  <strong>{t("table.date")}</strong>
+                </TableCell>
+                <TableCell width="130px" align="center">
+                  <strong>{t("table.author")}</strong>
+                </TableCell>
+                <TableCell width="80px" align="center">
+                  <strong>{t("table.pages")}</strong>
+                </TableCell>
+                {/* <TableCell width="150px" align="center">
+                <strong>{t("table.category")}</strong>
+              </TableCell> */}
+                <TableCell width="100px" align="center">
+                  <strong>{t("table.status")}</strong>
+                </TableCell>
+                {/* <TableCell width="80px" align="center">
+                <strong></strong>
+              </TableCell> */}
+              </TableRow>
+            </TableHead>
+            <TableBody className="tableBody">
+              {currentData3().map((row) => (
+                <TableRow
+                  key={row.id}
+                  height="60px"
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                  <TableCell component="th" scope="row">
+                    {row.id}
+                  </TableCell>
+                  <TableCell align="left">
+                    <a
+                      className="table_a"
+                      onClick={() => navigate(`/comments/${row.id}`)}>
+                      {row.title}
+                    </a>
+                  </TableCell>
+                  <TableCell align="center">
+                    {row.createdAt.slice(0, 10)}
+                  </TableCell>
+                  <TableCell align="center">{row.coauthors}</TableCell>
+                  <TableCell align="center">{row.pageCount}</TableCell>
+                  {/* <TableCell align="center">{row.category?.nameRu}</TableCell> */}
+                  <TableCell key={row.id} align="center">
+                    {row.status}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <Pagination
+          style={{ marginTop: "40px" }}
+          count={count3}
+          page={page3}
+          onChange={handlePage3}
+        />
       </div>
+      <br />
+      <br />
+
       <br />
       <br />
 
@@ -345,7 +479,9 @@ export default function BasicTableAdmin() {
                     {row.id}
                   </TableCell>
                   <TableCell align="center">{row.title}</TableCell>
-                  <TableCell align="center">{row.createdAt.slice(0, 10)}</TableCell>
+                  <TableCell align="center">
+                    {row.createdAt.slice(0, 10)}
+                  </TableCell>
                   <TableCell align="center">{row.content}</TableCell>
                   <TableCell align="center">
                     {row.isPublic === false ? (
@@ -372,7 +508,7 @@ export default function BasicTableAdmin() {
           style={{ marginTop: "40px" }}
           count={count2}
           page={page2}
-          onChange={handlePage}
+          onChange={handlePage2}
         />
       </div>
     </div>
