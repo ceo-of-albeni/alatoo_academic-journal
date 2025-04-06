@@ -513,7 +513,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       });
-      alert("Новость опубликована! Обновите страницу!");      
+      alert("Новость опубликована! Обновите страницу!");
     } catch (err) {
       console.log(err);
     }
@@ -523,17 +523,17 @@ const ArticleContextsProvider = ({ children }) => {
   async function getRules() {
     try {
       const res = await axios.get(`${API}/files/get/rules`, {
-        responseType: 'arraybuffer',  // Получаем бинарные данные
+        responseType: "arraybuffer", // Получаем бинарные данные
       });
-  
+
       const pdfBlob = new Blob([res.data], { type: "application/pdf" });
       const pdfUrl = URL.createObjectURL(pdfBlob); // Создаем объект URL
-  
+
       dispatch({
         type: "GET_RULES",
         payload: pdfUrl, // Сохраняем URL в состояние
       });
-  
+
       console.log(res);
     } catch (err) {
       console.error(err);
@@ -541,7 +541,6 @@ const ArticleContextsProvider = ({ children }) => {
       setLoading(false);
     }
   }
-
 
   async function uploadRules(formData) {
     try {
@@ -553,8 +552,8 @@ const ArticleContextsProvider = ({ children }) => {
         },
       };
       const res = await axios.post(`${API}/files/upload`, formData, config);
-      alert('Файл загружен!')
-      window.location.reload()
+      alert("Файл загружен!");
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -619,9 +618,8 @@ const ArticleContextsProvider = ({ children }) => {
         type: "GET_ALL_COMMENTS",
         payload: res.data,
       });
-      // console.log(res);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   }
 

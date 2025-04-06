@@ -242,12 +242,7 @@ export default function BasicTable() {
                 <TableCell align="left">
                   <a
                     className="table_a"
-                    // href={row.fileUrl}
-                    // href={`/`}
-                    onClick={() => navigate(`/comments/${row.id}`)}
-                    // target="_blank"
-                    // rel="noopener noreferrer"
-                  >
+                    onClick={() => navigate(`/comments/${row.id}`)}>
                     {row.title}
                   </a>
                 </TableCell>
