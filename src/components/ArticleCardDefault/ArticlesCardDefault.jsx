@@ -9,11 +9,10 @@ const ArticleCardDefault = ({ item }) => {
   const { t, i18n } = useTranslation();
 
   const getTrimmedText = () => {
-    if (item.text.length > 80) {
-      return item.text.substring(0, 80).trimEnd() + "...";
-    } else {
-      return item.text;
-    }
+    if (!item.text) return "No preview available.";
+    return item.text.length > 80
+      ? item.text.substring(0, 80).trimEnd() + "..."
+      : item.text;
   };
 
   return (
@@ -21,14 +20,14 @@ const ArticleCardDefault = ({ item }) => {
       className={classes.project_main_div}
       onClick={() => navigate(`/comments/${item.id}`)}>
       <div className={classes.container}>
-        <div className={classes.cards}>
+        {item && (
           <div className={classes.card}>
-            <h4>{item.title}</h4>
-            <p>Author(s): {item.authorName}</p>
-            <p>Category: {item.category}</p>
-            <p>{getTrimmedText()}</p>
-          </div>
-        </div>
+            <h4>{item.title || "No title"}</h4>
+            <p>Author(s): {item.authorName || "Unknown"}</p>
+           <p>Category: {item.category?.nameRu || "Uncategorized"}</p>
+           <p>{getTrimmedText()}</p>
+         </div>
+        )}
       </div>
     </div>
   );

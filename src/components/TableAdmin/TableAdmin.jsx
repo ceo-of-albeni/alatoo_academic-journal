@@ -57,7 +57,7 @@ function createData3(
   createdAt,
   coauthors,
   pages,
-  // category,
+  category,
   status,
   fileUrl
 ) {
@@ -67,7 +67,7 @@ function createData3(
     createdAt,
     coauthors,
     pages,
-    // category,
+    category,
     status,
     fileUrl,
   };
@@ -385,9 +385,9 @@ export default function BasicTableAdmin() {
                 <TableCell width="80px" align="center">
                   <strong>{t("table.pages")}</strong>
                 </TableCell>
-                {/* <TableCell width="150px" align="center">
+                <TableCell width="150px" align="center">
                 <strong>{t("table.category")}</strong>
-              </TableCell> */}
+              </TableCell>
                 <TableCell width="100px" align="center">
                   <strong>{t("table.status")}</strong>
                 </TableCell>
@@ -417,7 +417,7 @@ export default function BasicTableAdmin() {
                   </TableCell>
                   <TableCell align="center">{row.coauthors}</TableCell>
                   <TableCell align="center">{row.pageCount}</TableCell>
-                  {/* <TableCell align="center">{row.category?.nameRu}</TableCell> */}
+                  <TableCell align="center">{row.category?.nameRu}</TableCell>
                   <TableCell key={row.id} align="center">
                     {row.status}
                   </TableCell>

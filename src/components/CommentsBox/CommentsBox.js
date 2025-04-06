@@ -72,7 +72,7 @@ const CommentBox = () => {
             <button
               className={classes.delete}
               onClick={() => deleteComment(a_comment.id)}>
-              Delete
+              Удалить
             </button>
           </div>
         ))

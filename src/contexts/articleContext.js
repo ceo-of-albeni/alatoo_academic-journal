@@ -619,7 +619,7 @@ const ArticleContextsProvider = ({ children }) => {
         payload: res.data,
       });
     } catch (err) {
-      // console.log(err);
+      console.log(err);
     }
   }
 

@@ -71,12 +71,13 @@ export function CommentsPage() {
           </div>
           <div className={classes.publish}>
             <h2>{oneArticle.title}</h2>
+            <h5>Авторы: {oneArticle.coauthors}</h5>
             <div className={classes.author}>
               <div className={classes.author_info}>
                 <img src={img} alt="img" />
                 <div className={classes.author__name}>
-                  <p>{oneArticle.authorName}</p>
-                  <p>Position AIU: Author</p>
+                <p>{`${oneArticle.user?.firstName} ${oneArticle.user?.lastName}`}</p>
+                <p>Загрузил(а)</p>
                 </div>
               </div>
               <div className={classes.pdf_downl}>
@@ -86,7 +87,7 @@ export function CommentsPage() {
             <div className={classes.publish__text}>{oneArticle.text}</div>
           </div>
           {oneArticle.user?.email === userEmail ||
-          userEmail === "malaevaid@gmail.com" ? (
+          userEmail === "sardarkasmaliev@gmail.com" ? (
             <div className={classes.comments__bar}>
               <div className={classes.comments__text}>
                 <h4>
