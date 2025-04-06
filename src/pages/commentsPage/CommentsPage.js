@@ -20,11 +20,11 @@ export function CommentsPage() {
     allComments = [],
   } = useContext(articlesContext);
   const { id } = useParams();
-  const [userEmail, setUserEmail] = useState("");
+  const [userRole, setUserRole] = useState("");
 
   useEffect(() => {
     getOneArticle(id);
-    setUserEmail(localStorage.getItem("email"));
+    setUserRole(localStorage.getItem("role"));
   }, []);
 
   useEffect(() => {
@@ -86,8 +86,8 @@ export function CommentsPage() {
             </div>
             <div className={classes.publish__text}>{oneArticle.text}</div>
           </div>
-          {oneArticle.user?.email === userEmail ||
-          userEmail === "sardarkasmaliev@gmail.com" ? (
+          {oneArticle.user?.role === userRole ||
+          userRole === "admin" ? (
             <div className={classes.comments__bar}>
               <div className={classes.comments__text}>
                 <h4>

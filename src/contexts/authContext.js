@@ -90,10 +90,13 @@ async function getOneUser() {
   async function handleLogin(formData, email, closeModal) {
     try {
       const res = await axios.post(`${API}/auth/login`, formData);
+      console.log(res.config);
+      
   
       if (res.data.access_token) {
         localStorage.setItem("tokens", JSON.stringify(res.data));  // Сохраняем токен
         localStorage.setItem("email", email);  // Сохраняем email
+        localStorage.setItem("role", res.data.role);
   
         setCurrentUser(res);
         alert("Вы успешно вошли в систему!");
