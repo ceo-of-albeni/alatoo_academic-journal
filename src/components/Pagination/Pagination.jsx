@@ -6,7 +6,7 @@ const Pagination = () => {
 
   return (
     <div className="pagination-container">
-      <button onClick={() => navigate("/rules1")} id="pagination_btn">
+      <button onClick={() => navigate("/rules")} id="pagination_btn">
         1
       </button>
       <button onClick={() => navigate("/rules2")} id="pagination_btn">

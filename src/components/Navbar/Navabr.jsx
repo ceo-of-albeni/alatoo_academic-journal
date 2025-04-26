@@ -51,7 +51,7 @@ const Navabr = ({ closeModal }) => {
             </select>
           </div>
           <div className="header_links">
-            <a href="/rules1" className="header_links__item">
+            <a href="/rules" className="header_links__item">
               {t("navbar.rules")}
             </a>
             <a href="/archive" className="header_links__item">

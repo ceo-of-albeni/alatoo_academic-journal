@@ -4,12 +4,8 @@ import HomePageWL from "./pages/homePageWL/HomePageWL";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 import RulesPage from "./pages/RulesPage/RulesPage";
 import RulesPage2 from "./pages/RulesPage/RulesPage2";
-import RulesPage3 from "./pages/RulesPage/RulesPage3";
-import RulesPage4 from "./pages/RulesPage/RulesPage4";
 import ArchiveCategoryPage from "./pages/archiveCategoryPage/ArchiveCategoryPage";
-import CategoryPage from "./pages/categoryPage/CategoryPage";
 import AdminPage from "./pages/adminPage/AdminPage";
-import EthicsPage from "./pages/ethicsPage/EthicsPage";
 import { Register } from "./components/Navbar/modals/register/Register";
 import { ForgotPassword } from "./components/Navbar/modals/forgotPassword/ForgotPassword";
 import { ConfirmReg } from "./components/Navbar/modals/confirmReg/ConfirmReg";
@@ -17,6 +13,7 @@ import { ChangePassword } from "./components/Navbar/modals/changePassword/Change
 import ArticlesPage from "./pages/articlesPage/ArticlesPage";
 import { CommentsPage } from "./pages/commentsPage/CommentsPage";
 import ArticlesPageDefault from "./pages/ArticlesPageDefault/ArticlesPageDefault";
+import ArticlesList from "./pages/articlesPage/ArticlesPage";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -31,24 +28,9 @@ const Routing = () => {
       id: 2,
     },
     {
-      link: "/rules1",
+      link: "/rules",
       element: <RulesPage />,
       id: 3,
-    },
-    {
-      link: "/rules2",
-      element: <RulesPage2 />,
-      id: 4,
-    },
-    {
-      link: "/rules3",
-      element: <RulesPage3 />,
-      id: 5,
-    },
-    {
-      link: "/rules4",
-      element: <RulesPage4 />,
-      id: 6,
     },
     {
       link: "/archive",
@@ -56,19 +38,9 @@ const Routing = () => {
       id: 7,
     },
     {
-      link: "/category__",
-      element: <CategoryPage />,
-      id: 9,
-    },
-    {
       link: "/admin",
       element: <AdminPage />,
       id: 10,
-    },
-    {
-      link: "/ethics",
-      element: <EthicsPage />,
-      id: 11,
     },
     {
       link: "/register",
@@ -91,8 +63,8 @@ const Routing = () => {
       id: 15,
     },
     {
-      link: "/articles/:id/:categoryName",
-      element: <ArticlesPage />,
+      link: "/articles/:id/:NameEn",
+      element: <ArticlesList />,
       id: 16,
     },
     {

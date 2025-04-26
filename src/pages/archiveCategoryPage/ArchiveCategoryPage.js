@@ -240,10 +240,10 @@ export default function ArchiveCategoryPage() {
                                     style={{ color: "black" }}
                                     onClick={() =>
                                       navigate(
-                                        `/articles/${edition.id}/${category.name}`
+                                        `/articles/${edition.id}/${category.nameEn}`
                                       )
                                     }>
-                                    {category.name}
+                                    {category.nameRu}
                                   </p>
                                 </li>
                               )
@@ -294,7 +294,7 @@ export default function ArchiveCategoryPage() {
                       {t("ЭТИКА ПУБЛИКАЦИИ журнала «Alatoo Academic Studies»")}
                     </a>
                     <a
-                    href="/rules1"
+                    href="/rules"
                     target="_blank"
                     >
                       {t("ПРАВИЛА ДЛЯ АВТОРОВ")}
@@ -357,7 +357,7 @@ export default function ArchiveCategoryPage() {
                   {localStorage.getItem("email") != null &&
                   oneUser.role === "admin" ? (
                     <button className={classes.edit} onClick={openEditModal}>
-                      Edit
+                      Редактировать
                     </button>
                   ) : (
                     <span></span>

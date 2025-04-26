@@ -1,70 +1,51 @@
-import React, { useEffect, useContext, useState } from "react";
-import classes from "./ArticlesPage.module.css";
-import { useParams, useSearchParams } from "react-router-dom";
-import Pagination from "@mui/material/Pagination";
-import ArticleCard from "../../components/ArticleCard/ArticleCard";
-import { useTranslation } from "react-i18next";
-import { articlesContext } from "../../contexts/articleContext";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import ArticleCard from '../../components/ArticleCard/ArticleCard'; // Импортируем компонент ArticleCard
 
-const ArticlesPage = () => {
-  const [searchParams] = useSearchParams();
-  const [page, setPage] = useState(1);
-  const { t, i18n } = useTranslation();
-
-  const { id, categoryName } = useParams();
-
-  const { editionArticlesByCategory, getEditionArticlesByCategory } =
-    useContext(articlesContext);
+const ArticlesList = () => {
+  const { id, NameEn } = useParams();
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getEditionArticlesByCategory(id, categoryName);
-  }, []);
+    const fetchArticles = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3001/api/archive/${id}/${NameEn}`);
+        console.log('Ответ сервера:', response.data);
 
-  console.log(editionArticlesByCategory);
-  const [articlesArr, setArchiveVar] = useState([]);
+        if (response.data && Array.isArray(response.data.articles)) {
+          setArticles(response.data.articles);
+        } else {
+          console.error('Некорректный ответ сервера, нет массива статей');
+        }
+      } catch (error) {
+        console.error('Ошибка при загрузке статей:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  useEffect(() => {
-    setArchiveVar(
-      editionArticlesByCategory.articles
-        ? editionArticlesByCategory.articles
-        : []
-    );
-  }, [editionArticlesByCategory.articles]);
+    fetchArticles();
+  }, [id, NameEn]);
 
-  console.log(articlesArr);
-  const itemsOnPage = 8;
-  const count = Math.ceil((articlesArr?.length || 0) / itemsOnPage);
+  if (loading) {
+    return <div className="text-center mt-10">Загрузка...</div>;
+  }
 
-  const handlePage = (e, p) => {
-    setPage(p);
-  };
-
-  const currentData = () => {
-    const begin = (page - 1) * itemsOnPage;
-    const end = begin + itemsOnPage;
-    return articlesArr?.slice(begin, end);
-  };
+  if (articles.length === 0) {
+    return <div className="text-center mt-10">Нет статей</div>;
+  }
 
   return (
-    <div className={classes.list_main}>
-      <div className={classes.list_main_div}>
-        <h1>{t("approved_articles.title")}</h1>
-        <div className={classes.list_courses_div}>
-          {articlesArr ? (
-            currentData().map((item) => (
-              <ArticleCard key={item.id} item={item} />
-            ))
-          ) : (
-            <h3>Loading...</h3>
-          )}
+    <div className="p-6">
+      {articles.map((article) => (
+        <div key={article.id} className="mb-10"> {/* Отступ между статьями */}
+          <ArticleCard article={article} />
         </div>
-
-        <div className={classes.pagin}>
-          <Pagination count={count} page={page} onChange={handlePage} />
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
 
-export default ArticlesPage;
+export default ArticlesList;

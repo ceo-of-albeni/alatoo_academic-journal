@@ -19,7 +19,7 @@ export default function EthicsPage() {
                 </div>
                 <div className={classes.ethics_inner}>
                     <div className={classes.title}>
-                        <h3>ALATOO ACADEMIC STUDIES</h3>
+                        <h3>Test</h3>
                         <p>ISSN: 1694-5263</p>
                     </div>
                     <div className={classes.text}>

@@ -1,34 +1,73 @@
-import React, { useContext, useEffect } from "react";
-import classes from "./ArticleCard.module.scss";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { articlesContext } from "../../contexts/articleContext";
+import React from 'react';
 
-const ArticleCard = ({ item }) => {
-  const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+const ArticleCard = ({ article }) => {
+  if (!article) return null;
 
-  const getTrimmedText = () => {
-    if (item.textEn.length > 80) {
-      return item.textEn.substring(0, 80).trimEnd() + "...";
-    } else {
-      return item.textEn;
-    }
-  };
+  const {
+    titleRu,
+    titleKg,
+    titleEn,
+    authorName,
+    createdAt,
+    category,
+    fileUrl,
+    textRu,
+    textKg,
+    textEn,
+  } = article;
 
   return (
-    <div
-      className={classes.project_main_div}
-      onClick={() => navigate(`/comments/${item.id}`)}>
-      <div className={classes.container}>
-        <div className={classes.cards}>
-          <div className={classes.card}>
-            <h4>{item.title}</h4>
-            <p>Author(s): {item.authorName}</p>
-            <p>Category: {item.category}</p>
-            <p>{getTrimmedText()}</p>
+    <div className="p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 mb-6">
+      {/* Категория статьи */}
+      <div className="font-semibold text-xl mb-4">{category?.nameRu || 'Категория не указана'}</div>
+
+      {/* Информация об авторе и дате */}
+      <div className="text-sm text-gray-600 mb-2">
+        Автор(ы): {authorName || 'Не указано'}
+      </div>
+      <div className="text-sm text-gray-500 mb-1">
+        Дата публикации: {new Date(createdAt).toLocaleDateString()}
+      </div>
+
+      {/* Контент статьи на разных языках */}
+      <div className="mt-4">
+
+        {/* Текст на кыргызском */}
+        {titleKg && (
+          <div className="mt-4">
+            <div className="font-semibold text-blue-600">
+              <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+                {titleKg}
+              </a>
+            </div>
+            <p>{textKg}</p>
           </div>
-        </div>
+        )}
+
+        {/* Текст на русском */}
+        {titleRu && (
+          <div className="mt-4">
+            <div className="font-semibold text-blue-600">
+              <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+                {titleRu}
+              </a>
+            </div>
+            <p>{textRu}</p>
+          </div>
+        )}
+
+        {/* Текст на английском */}
+        {titleEn && (
+          <div className="mt-4">
+            <div className="font-semibold text-blue-600">
+              <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+                {titleEn}
+              </a>
+            </div>
+            <p>{textEn}</p>
+          </div>
+        )}
+
       </div>
     </div>
   );
