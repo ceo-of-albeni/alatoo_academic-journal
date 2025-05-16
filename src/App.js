@@ -9,6 +9,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import translationEN from "./locales/en/translation.json";
 import translationRU from "./locales/ru/translation.json";
+import translationKG from "./locales/ky/translation.json";
 
 i18n
   .use(LanguageDetector)
@@ -20,6 +21,9 @@ i18n
       },
       ru: {
         translation: translationRU,
+      },
+      ky: {
+        translation: translationKG,
       },
     },
     fallbackLng: "en", // Fallback language
@@ -48,7 +52,7 @@ const App = () => {
   useEffect(() => {
     const checkServerStatus = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/user");
+        const response = await fetch("http://localhost:3000/api/user"); //changed 3001 to 3000
         if (response.ok) {
           setServerStatus(true);
         } else {
