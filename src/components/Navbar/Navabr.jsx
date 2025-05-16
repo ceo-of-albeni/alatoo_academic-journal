@@ -40,7 +40,7 @@ const Navabr = ({ closeModal }) => {
               alt=""
             />
           </a>
-          <p className="logo_p">Ala-Too Academic Studies</p>
+          <p className="logo_p">Alatoo Academic Studies</p>
         </div>
 
         <div className="header_inner">
@@ -48,6 +48,7 @@ const Navabr = ({ closeModal }) => {
             <select className="change_lang" onChange={handleChangeLanguage}>
               <option value="en">{t("En")}</option>
               <option value="ru">{t("Ru")}</option>
+              <option value="ky">{t("Kg")}</option>
             </select>
           </div>
           <div className="header_links">
