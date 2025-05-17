@@ -45,11 +45,15 @@ const Navabr = ({ closeModal }) => {
 
         <div className="header_inner">
           <div>
-            <select className="change_lang" onChange={handleChangeLanguage}>
-              <option value="en">{t("En")}</option>
-              <option value="ru">{t("Ru")}</option>
-              <option value="ky">{t("Kg")}</option>
-            </select>
+          <select
+            className="change_lang"
+            onChange={handleChangeLanguage}
+            value={i18n.language}
+          >
+            <option value="en">{t("En")}</option>
+            <option value="ru">{t("Ru")}</option>
+            <option value="ky">{t("Kg")}</option>
+          </select>
           </div>
           <div className="header_links">
             <a href="/rules" className="header_links__item">

@@ -164,6 +164,8 @@ async function getOneUser() {
   function handleLogout() {
     localStorage.removeItem("tokens");
     localStorage.removeItem("email");
+    localStorage.removeItem("role");
+    localStorage.removeItem("timerSeconds");
     setCurrentUser(null);  // Сбрасываем состояние пользователя
     navigate("/");  // Редиректим на главную страницу
   }
