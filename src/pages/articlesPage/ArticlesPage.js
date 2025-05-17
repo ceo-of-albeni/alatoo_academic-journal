@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ArticleCard from '../../components/ArticleCard/ArticleCard'; // Импортируем компонент ArticleCard
+import { useTranslation } from "react-i18next";
 
 const ArticlesList = () => {
   const { id, NameEn } = useParams();
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -30,11 +32,11 @@ const ArticlesList = () => {
   }, [id, NameEn]);
 
   if (loading) {
-    return <div className="text-center mt-10">Загрузка...</div>;
+    return <div className="text-center mt-10">{t("articlespage.loading")}</div>;
   }
 
   if (articles.length === 0) {
-    return <div className="text-center mt-10">Нет статей</div>;
+    return <div className="text-center mt-10">{t("articlespage.no")}</div>;
   }
 
   return (

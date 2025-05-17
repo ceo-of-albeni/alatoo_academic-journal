@@ -23,8 +23,8 @@ const ArticleCardDefault = ({ item }) => {
         {item && (
           <div className={classes.card}>
             <h4>{item.title || "No title"}</h4>
-            <p>Author(s): {item.authorName || "Unknown"}</p>
-           <p>Category: {item.category?.nameRu || "Uncategorized"}</p>
+            <p>{t("articlecard.authors")}{item.authorName || "Unknown"}</p>
+           <p>{t("articlecard.category")}{item.category?.nameRu || "Uncategorized"}</p>
            <p>{getTrimmedText()}</p>
          </div>
         )}

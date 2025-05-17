@@ -127,11 +127,11 @@ const AdminPage = () => {
     <div style={{ padding: "60px" }}>
       <div>
         <h4 style={{ textAlign: "center" }}>
-          <b>НОВОСТИ</b>
+          <b>{t("adminpage.news")}</b>
         </h4>
         <div className="article_form-inputs">
           <div className="short_inp">
-            <p className="input_p">Заголовок</p>
+            <p className="input_p">{t("adminpage.title")}</p>
             <input
               className="text_input"
               placeholder={t("tableadmin.ph")}
@@ -142,7 +142,7 @@ const AdminPage = () => {
           </div>
 
           <div className="short_inp">
-            <p className="input_p">Контент</p>
+            <p className="input_p">{t("adminpage.content")}</p>
             <textarea
               className="text_input"
               placeholder={t("tableadmin.ph")}
@@ -153,7 +153,7 @@ const AdminPage = () => {
           </div>
 
           <div className="short_inp">
-            <p className="input_p">Фото</p>
+            <p className="input_p">{t("adminpage.photo")}</p>
             <label className="custom-file-upload">
               <input
                 type="file"
@@ -176,11 +176,11 @@ const AdminPage = () => {
       {/* Rules */}
       <div style={{ margin: "90px 0px" }}>
         <h4 style={{ textAlign: "center" }}>
-          <b>Правила</b>
+          <b>{t("adminpage.rules")}</b>
         </h4>
         <div className="article_form-inputs">
           <div className="short_inp">
-            <p className="input_p">Файл</p>
+            <p className="input_p">{t("adminpage.file")}</p>
             <label className="custom-file-upload">
               <input type="file" accept=".pdf" onChange={handleFileChange2} />
               <svg

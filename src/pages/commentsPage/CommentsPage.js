@@ -66,22 +66,22 @@ export function CommentsPage() {
           </div>
           <div className={classes.link}>
             <a href={oneArticle?.fileUrl} target="_blank" rel="noreferrer">
-              Открыть статью
+            {t("commentspage.open")}
             </a>
           </div>
           <div className={classes.publish}>
             <h2>{oneArticle.title}</h2>
-            <h5>Авторы: {oneArticle.coauthors}</h5>
+            <h5>{t("commentspage.authors")}{oneArticle.coauthors}</h5>
             <div className={classes.author}>
               <div className={classes.author_info}>
                 <img src={img} alt="img" />
                 <div className={classes.author__name}>
                 <p>{`${oneArticle.user?.firstName} ${oneArticle.user?.lastName}`}</p>
-                <p>Загрузил(а)</p>
+                <p>{t("commentspage.uploaded")}</p>
                 </div>
               </div>
               <div className={classes.pdf_downl}>
-                <button onClick={downloadPDF}>Download PDF</button>
+                <button onClick={downloadPDF}>{t("commentspage.pdf")}</button>
               </div>
             </div>
             <div className={classes.publish__text}>{oneArticle.text}</div>
@@ -91,7 +91,7 @@ export function CommentsPage() {
             <div className={classes.comments__bar}>
               <div className={classes.comments__text}>
                 <h4>
-                  {Array.isArray(allComments) ? allComments.length : 0} Comments
+                  {Array.isArray(allComments) ? allComments.length : 0} {t("commentspage.comments")}
                 </h4>
                 <img src={comments} alt="comments_ico" />
               </div>
