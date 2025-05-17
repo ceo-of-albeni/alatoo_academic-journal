@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 const ArticleCard = ({ article }) => {
+  const { t, i18n } = useTranslation();
   if (!article) return null;
 
   const {
@@ -23,10 +25,10 @@ const ArticleCard = ({ article }) => {
 
       {/* Информация об авторе и дате */}
       <div className="text-sm text-gray-600 mb-2">
-        Автор(ы): {authorName || 'Не указано'}
+      {t("articlecard.authors")}{authorName || 'Не указано'}
       </div>
       <div className="text-sm text-gray-500 mb-1">
-        Дата публикации: {new Date(createdAt).toLocaleDateString()}
+      {t("articlecard.date")}{new Date(createdAt).toLocaleDateString()}
       </div>
 
       {/* Контент статьи на разных языках */}

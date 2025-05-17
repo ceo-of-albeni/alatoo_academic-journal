@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import classes from "./CommentsBox.module.scss";
 import { articlesContext } from "../../contexts/articleContext";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const CommentBox = () => {
   const [comment, setComment] = useState("");
   const [visibleComments, setVisibleComments] = useState(3); // Initially show 10 comments
+  const { t, i18n } = useTranslation();
 
   const { id } = useParams();
 
@@ -37,12 +39,12 @@ const CommentBox = () => {
         <textarea
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="Enter your comment"
+          placeholder={t("commentsbox.ph")}
           rows="4"
           cols="50"
         />
         <button type="submit" className={classes.send__comment}>
-          Add a comment
+        {t("commentsbox.add")}
         </button>
       </form>
       {allComments && allComments.length > 0 ? (
@@ -72,16 +74,16 @@ const CommentBox = () => {
             <button
               className={classes.delete}
               onClick={() => deleteComment(a_comment.id)}>
-              Удалить
+              {t("commentsbox.delete")}
             </button>
           </div>
         ))
       ) : (
-        <p>No comments yet.</p>
+        <p>{t("commentsbox.no")}</p>
       )}
       {allComments && allComments.length > visibleComments && (
         <button className={classes.loadMore} onClick={loadMoreComments}>
-          Load More
+          {t("commentsbox.more")}
         </button>
       )}
     </div>

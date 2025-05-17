@@ -67,7 +67,7 @@ const ArticlesPageDefault = () => {
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search..."
+            placeholder={t("articlespage.search")}
             className={classes.sr_inp}
           />
         </div>
@@ -77,7 +77,7 @@ const ArticlesPageDefault = () => {
               <ArticleCardDefault key={item.id} item={item} />
             ))
           ) : (
-            <h3>No results found...</h3>
+            <h3>{t("articlespage.no2")}</h3>
           )}
         </div>
 

@@ -93,6 +93,9 @@
     "tel2": "Tel: +996 (312) 630407",
     "close": "Close"
   },
+  "rules_page": {
+    "rules": "Rules and bank details"
+  },
   "rules_page1": {
     "rules": "RULES FOR AUTHORS",
     "title": "SCIENTIFIC JOURNAL \"ALATOO ACADEMIC STUDIES\"",
@@ -222,7 +225,20 @@
     "apr_arc": "Approve article",
     "dec_pay": "Decline payment",
     "apr_pay": "Approve payment",
-    "dec_arc": "Decline article"
+    "dec_arc": "Decline article",
+    "under_review": "Articles Under Review",
+    "published": "Published Articles",
+    "news": "News",
+    "content": "Content",
+    "publish": "Publish"
+  },
+  "adminpage": {
+    "news": "NEWS",
+    "title": "Title",
+    "content": "Content",
+    "photo": "Photo",
+    "rules": "Rules",
+    "file": "File"
   },
   "userprofilepage": {
     "next": "Next",
@@ -257,6 +273,28 @@
     "description2": "deputy Ch. editor, Doctor of Pedagogical Sciences, Professor of AIU (pedagogy);",
     "name3": "Zeki Pektash – "
   },
+  "archivecategorypage": {
+    "volume": "Add Volume",
+    "issue": "Issue",
+    "article": "Article",
+    "edit": "Edit",
+    "ethics": "Publication Ethics and Publication Malpractice",
+    "ethics2": "Publication Ethics of the journal “Alatoo Academic Studies”",
+    "guidelines": "Author Guidelines",
+    "aas": "Manuscript Review Procedure for the AAS Journal Editorial Board",
+    "email": "E-mail: "
+  },
+  "articlespage": {
+    "loading": "Loading...",
+    "no": "No Articles",
+    "no2": "No results found...",
+    "search": "Search..."
+  },
+  "articlecard": {
+    "authors": "Author(s): ",
+    "date": "Publication date: ",
+    "category": "Category: "
+  },
   "ethicspage": {
     "content": "The editorial board of the scientific journal Alatoo Academic Studies is guided in its work by the international ethical rules of scientific publications, including the rules of decency, confidentiality, supervision of publications, consideration of possible conflicts of interest, etc. Alatoo Academic Studies is committed to objective and fair double-blind peer-review of the submitted works. In its activities, the editors follow the recommendations of the Committee on Publication Ethics and, in particular, the Ethical Resource Kit (Publishing Ethics Resource Kit) of Elsevier.",
     "content1": "When deciding on publication, the editor of a scientific journal is guided by the reliability of the presented data and the scientific significance of the manuscripts.",
@@ -277,5 +315,26 @@
   },
   "approved_articles": {
     "title": "Articles"
+  },
+  "commentspage": {
+    "open": "Open Article",
+    "authors": "Authors: ",
+    "uploaded": "Uploaded by",
+    "pdf": "Download PDF",
+    "comments": "Comments"
+  },
+  "commentsbox": {
+    "ph": "Enter your comment",
+    "add": "Add a comment",
+    "delete": "Delete",
+    "no": "No comments yet.",
+    "more": "Load More"
+  },
+  "category": {
+    "category": "Category",
+    "1": "Philosophy",
+    "2": "Mathematics",
+    "3": "Languages",
+    "4": "History"
   }
 }

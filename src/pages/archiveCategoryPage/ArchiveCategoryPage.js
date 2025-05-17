@@ -146,7 +146,7 @@ export default function ArchiveCategoryPage() {
                 oneUser.role === "admin" ? (
                   <div className={classes.add__vol}>
                     <p>+</p>
-                    <button onClick={openVolumeModal}>Добавить том</button>
+                    <button onClick={openVolumeModal}>{t("archivecategorypage.volume")}</button>
                   </div>
                 ) : (
                   <span></span>
@@ -193,7 +193,7 @@ export default function ArchiveCategoryPage() {
                         <div className={classes.add__edit}>
                           <p>+</p>
                           <button onClick={() => openEditionModal(dropdown.id)}>
-                            Выпуск
+                          {t("archivecategorypage.issue")}
                           </button>
                         </div>
                       ) : (
@@ -206,7 +206,7 @@ export default function ArchiveCategoryPage() {
                             <p
                               className={classes.edition_link_a}
                               href={edition.fileUrl}>
-                              Выпуск № {edition.name}
+                              {t("archivecategorypage.issue")} № {edition.name}
                             </p>
                             {localStorage.getItem("email") != null &&
                             oneUser.role === "admin" ? (
@@ -226,7 +226,7 @@ export default function ArchiveCategoryPage() {
                               <p>+</p>
                               <button
                                 onClick={() => openArticleModal(edition.id)}>
-                                Статья
+                                {t("archivecategorypage.article")}
                               </button>
                             </div>
                           ) : (
@@ -284,27 +284,27 @@ export default function ArchiveCategoryPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       >
-                      {t("Publication Ethics and Publication Malpractice")}
+                      {t("archivecategorypage.ethics")}
                     </a>
                     <a
                       href={archive.publicationEthicsRu}
                       target="_blank"
                       rel="noopener noreferrer"
                       >
-                      {t("ЭТИКА ПУБЛИКАЦИИ журнала «Alatoo Academic Studies»")}
+                      {t("archivecategorypage.ethics2")}
                     </a>
                     <a
                     href="/rules"
                     target="_blank"
                     >
-                      {t("ПРАВИЛА ДЛЯ АВТОРОВ")}
+                      {t("archivecategorypage.guidelines")}
                     </a>
                     <a
                       href={archive.reviewerRulesUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {t("ПОРЯДОК РЕЦЕНЗИРОВАНИЯ РУКОПИСЕЙ В РЕДАКЦИЮ ЖУРНАЛА AAS")}
+                      {t("archivecategorypage.aas")}
                     </a>
                   </div>  
               </div>
@@ -344,7 +344,7 @@ export default function ArchiveCategoryPage() {
                       {archive.faxNumber}
                     </p>
                     <p>
-                      <b>Е-mail: </b>
+                      <b>{t("archivecategorypage.email")}</b>
                       {archive.email}
                     </p>
                   </div>
@@ -357,7 +357,7 @@ export default function ArchiveCategoryPage() {
                   {localStorage.getItem("email") != null &&
                   oneUser.role === "admin" ? (
                     <button className={classes.edit} onClick={openEditModal}>
-                      Редактировать
+                      {t("archivecategorypage.edit")}
                     </button>
                   ) : (
                     <span></span>

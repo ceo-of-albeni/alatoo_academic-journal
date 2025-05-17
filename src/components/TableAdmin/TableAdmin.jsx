@@ -260,7 +260,7 @@ export default function BasicTableAdmin() {
             </div>
           </div>
         </div>
-        <h3>Статьи на рассмотрении</h3>
+        <h3>{t("tableadmin.under_review")}</h3>
         <br />
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -364,7 +364,7 @@ export default function BasicTableAdmin() {
 
         <br />
         <br />
-        <h3>Опубикованные статьи</h3>
+        <h3>{t("tableadmin.published")}</h3>
         <br />
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -446,7 +446,7 @@ export default function BasicTableAdmin() {
           flexDirection: "column",
           alignItems: "center",
         }}>
-        <h3>Новости</h3>
+        <h3>{t("tableadmin.news")}</h3>
         <br />
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -462,7 +462,7 @@ export default function BasicTableAdmin() {
                   <strong>{t("table.date")}</strong>
                 </TableCell>
                 <TableCell width="330px" align="center">
-                  <strong>Контент</strong>
+                  <strong>{t("tableadmin.content")}</strong>
                 </TableCell>
                 <TableCell width="50px" align="center">
                   <strong></strong>
@@ -490,7 +490,7 @@ export default function BasicTableAdmin() {
                           key={`${row.id}-approve`}
                           onClick={() => publishNews(row.id)}
                           id="approve">
-                          Опубликовать
+                          {t("tableadmin.publish")}
                         </button>
                       </>
                     ) : (

@@ -4,9 +4,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useTranslation } from "react-i18next";
 
 export default function Category() {
   const [category, setCategory] = React.useState("");
+  const { t, i18n } = useTranslation();
 
   const handleChange = event => {
     setCategory(event.target.value);
@@ -28,12 +30,12 @@ export default function Category() {
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}>
           <MenuItem value="">
-            <p style={{ color: "lightgrey", marginBottom: "0px" }}>Category</p>
+            <p style={{ color: "lightgrey", marginBottom: "0px" }}>{t("category.category")}</p>
           </MenuItem>
-          <MenuItem value={10}>Philosophy</MenuItem>
-          <MenuItem value={20}>Mathematics</MenuItem>
-          <MenuItem value={40}>Languages</MenuItem>
-          <MenuItem value={30}>History</MenuItem>
+          <MenuItem value={10}>{t("category.1")}</MenuItem>
+          <MenuItem value={20}>{t("category.2")}</MenuItem>
+          <MenuItem value={40}>{t("category.3")}</MenuItem>
+          <MenuItem value={30}>{t("category.4")}</MenuItem>
         </Select>
       </FormControl>
     </div>
