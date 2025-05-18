@@ -74,7 +74,7 @@ function createData3(
 }
 
 export default function BasicTableAdmin() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const {
     getAllNotPublished,

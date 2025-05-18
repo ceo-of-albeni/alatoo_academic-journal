@@ -51,7 +51,7 @@ function createData(
 }
 
 export default function BasicTable() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { getAllMyArticles, my_articles } = React.useContext(articlesContext);
 
   const [open, setOpen] = React.useState(false);

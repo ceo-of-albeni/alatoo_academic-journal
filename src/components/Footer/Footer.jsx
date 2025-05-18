@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
   const [open, setOpen] = React.useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleClickOpen = () => {
     setOpen(true);

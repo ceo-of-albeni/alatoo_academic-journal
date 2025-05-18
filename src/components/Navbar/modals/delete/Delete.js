@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import classes from "./Delete.module.scss";
 import { articlesContext } from "../../../../contexts/articleContext";
+import { useTranslation } from "react-i18next";
 
 export function Delete({ closeModal, volumeId }) {
   const [activeDelete, setActiveDelete] = useState("delete");
   const [password, setPassword] = useState("");
-  
+  const { t } = useTranslation();
+
   const { deleteArchiveVolume } = useContext(articlesContext);
 
   async function deleteVolume() {
@@ -51,22 +53,22 @@ export function Delete({ closeModal, volumeId }) {
         <div className={classes.delete} onClick={handleOutsideClick}>
           <div className={classes.delete__inner} onClick={handleClick}>
             <form>
-              <div>Удалить весь том?</div>
-              <label>Введите пароль админа для подтверждения</label>
+              <div>{t("delete.q")}</div>
+              <label>{t("delete.confirm")}</label>
               <input
                 type="text"
-                placeholder="Your password..."
+                placeholder={t("delete.ph")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 name="password"
               />
-              <button onClick={deleteVolume}>Удалить</button>
+              <button onClick={deleteVolume}>{t("delete.delete")}</button>
               <div className={classes.clear}>
                 <a
                   href="javascript:void(0);"
                   className={classes.sign}
                   onClick={closeModal}>
-                  Отмена
+                  {t("delete.cancel")}
                 </a>
               </div>
             </form>

@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import classes from "./EditCouns.module.scss";
 import { articlesContext } from "../../../../contexts/articleContext";
+import { useTranslation } from "react-i18next";
+
 export function EditCouns({ closeModal }) {
+  const { t } = useTranslation();
+
   const { getArchive, archive, editCouncilMembers } =
     useContext(articlesContext);
   const [councilMembers, setCouncilMembers] = useState(archive.councilMembers);
@@ -44,10 +48,10 @@ export function EditCouns({ closeModal }) {
         <div className={classes.edit} onClick={handleOutsideClick}>
           <div className={classes.edit__inner} onClick={handleClick}>
             <form>
-              <div>Edit Information</div>
-              <label>Council Members</label>
+              <div>{t("edit.edit")}</div>
+              <label>{t("edit.council")}</label>
               <textarea
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={councilMembers}
                 onChange={(e) => setCouncilMembers(e.target.value)}
                 name="council_members"
@@ -55,7 +59,7 @@ export function EditCouns({ closeModal }) {
                 cols={30}
               />
 
-              <button onClick={saveChanges}>Add</button>
+              <button onClick={saveChanges}>{t("edit.add")}</button>
             </form>
           </div>
         </div>

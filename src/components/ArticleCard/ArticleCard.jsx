@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from "react-i18next";
 
 const ArticleCard = ({ article }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   if (!article) return null;
 
   const {

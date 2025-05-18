@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 export function ChangePassword({closeModal}) {
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const [modalOpen, setModalOpen] = useState(true);
     const [openSuccess, setOpenSuccess] = useState(false);
     const [openForgot, setOpenForgot] = useState(false);

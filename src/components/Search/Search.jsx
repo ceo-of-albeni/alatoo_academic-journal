@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 
 export default function BasicTextFields() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams(); 
   const { fetchByParams } = React.useContext(articlesContext);
   return (

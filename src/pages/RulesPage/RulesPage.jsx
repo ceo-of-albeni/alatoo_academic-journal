@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 const RulesPage = () => {
   const { getRules, rules } = useContext(articlesContext);
   const [iframeHeight, setIframeHeight] = useState("800px");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     getRules();
