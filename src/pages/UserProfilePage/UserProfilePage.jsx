@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 // import { useSearchParams } from "react-router-dom";
 
 const UserProfilePage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { categories, getCategories, getAllMyArticles } =
     useContext(articlesContext);
   const { getOneUser, oneUser } = useContext(authContext);

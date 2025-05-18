@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import { useTranslation } from 'react-i18next';
 
 export default function SelectLabels() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [status, setStatus] = React.useState("");
 
   const handleChange = event => {

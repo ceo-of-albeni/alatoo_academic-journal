@@ -10,7 +10,7 @@ const ArticlesPageDefault = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("q") || "");
   const [page, setPage] = useState(1);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const { approved_articles, getAllApproved } = useContext(articlesContext);
 

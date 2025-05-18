@@ -6,7 +6,7 @@ import { articlesContext } from "../../contexts/articleContext";
 
 const ArticleCardDefault = ({ item }) => {
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const getTrimmedText = () => {
     if (!item.text) return "No preview available.";

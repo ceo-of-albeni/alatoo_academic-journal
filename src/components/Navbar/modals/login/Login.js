@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 
 export function Login({ closeModal }) {
   const [activeModal, setActiveModal] = useState("login");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 

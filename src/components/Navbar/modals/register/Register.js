@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 export function Register() {
   const { handleRegister, error, setError } = useContext(authContext);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);

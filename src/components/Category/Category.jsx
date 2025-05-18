@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Category() {
   const [category, setCategory] = React.useState("");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleChange = event => {
     setCategory(event.target.value);

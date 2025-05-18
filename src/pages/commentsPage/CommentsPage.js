@@ -11,7 +11,7 @@ import jsPDF from "jspdf";
 
 export function CommentsPage() {
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const {
     oneArticle,

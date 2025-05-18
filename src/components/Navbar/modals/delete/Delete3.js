@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import classes from './Delete.module.scss';
+import { useTranslation } from "react-i18next";
 
 export function Delete3({closeModal}) {
     
     const [activeDelete3, setActiveDelete3] = useState("delete3");
     const [inputValue1, setInputValue1] = useState('');
+    const { t } = useTranslation();
 
     useEffect(() => {
         document.body.style.overflow = "hidden";  
@@ -37,19 +39,19 @@ export function Delete3({closeModal}) {
                 <div className={classes.delete} onClick={handleOutsideClick}>
                     <div className={classes.delete__inner} onClick={handleClick}>
                         <form>
-                            <div>Do you want to delete?</div>
-                            <label>To confirm, type admin password in the box below</label>
+                            <div>{t("delete.q3")}</div>
+                            <label>{t("delete.confirm")}</label>
                             <input
                                 type="text"
-                                placeholder="Your password..."
+                                placeholder={t("delete.ph")}
                                 value={inputValue1}
                                 onChange={handleInputChange1}
                                 name="email"
                             />
-                            <button>Confirm</button>
+                            <button>{t("delete.confirm2")}</button>
                             <div className={classes.clear} onClick={clearAllInputs}>
                                 <a href="javascript:void(0);" className={classes.sign}>
-                                    Clear
+                                    {t("delete.clear")}
                                 </a>
                             </div>
                         </form>

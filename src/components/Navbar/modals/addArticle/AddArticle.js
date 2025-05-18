@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import classes from "./AddArticle.module.scss";
 import { articlesContext } from "../../../../contexts/articleContext";
+import { useTranslation } from "react-i18next";
 
 export function AddArticle({ closeModal, id }) {
   const [activeArticle, setActiveArticle] = useState("addArticle");
+  const { t } = useTranslation();
 
   const { addArchiveArticles, categories, getCategories } =
     useContext(articlesContext);
@@ -102,41 +104,41 @@ export function AddArticle({ closeModal, id }) {
         <div className={classes.article} onClick={handleOutsideClick}>
           <div className={classes.article__inner} onClick={handleClick}>
             <form>
-              <div>Добавить статью</div>
-              <label>Категория</label>
+              <div>{t("addarticle.add")}</div>
+              <label>{t("addarticle.category")}</label>
               <select
                 name="category"
                 value={category}
                 onChange={handleSelectChange}>
-                <option value="">Выберите категорию</option>
+                <option value="">{t("addarticle.select")}</option>
                 {categories.map((categoryName) => (
                   <option value={categoryName.name}>
                     {categoryName.nameEn}
                   </option>
                 ))}
                 <option value="category3">
-                  SOCIAL AND HUMANITARIAN SCIENCE
+                {t("addarticle.cat")}
                 </option>
-                <option value="category3">INFORMATICS</option>
-                <option value="category3">MATHEMATICS</option>
+                <option value="category3">{t("addarticle.cat1")}</option>
+                <option value="category3">{t("addarticle.cat2")}</option>
               </select>
-              <label>Ссылка к статье</label>
+              <label>{t("addarticle.link")}</label>
               <input
                 type="text"
-                placeholder="Click and typing"
+                placeholder={t("addarticle.ph")}
                 value={fileUrl}
                 onChange={(e) => setFileUrl(e.target.value)}
                 name="email"
               />
-              <label>Имена автора(ов)</label>
+              <label>{t("addarticle.author")}</label>
               <input
                 type="text"
-                placeholder="Click and typing"
+                placeholder={t("addarticle.ph")}
                 value={authorName}
                 onChange={(e) => setAuthorName(e.target.value)}
                 name="email"
               />
-              <label>Заголовок на кырг языке</label>
+              <label>{t("addarticle.kg")}</label>
               <input
                 type="text"
                 placeholder="Click and typing"
@@ -144,27 +146,27 @@ export function AddArticle({ closeModal, id }) {
                 onChange={(e) => setTitleKg(e.target.value)}
                 name="email"
               />
-              <label>Текст на кырг языке</label>
+              <label>{t("addarticle.kg2")}</label>
               <textarea
                 type="text"
-                placeholder="Click and typing"
+                placeholder={t("addarticle.ph")}
                 value={textKg}
                 onChange={(e) => setTextKg(e.target.value)}
                 rows={4}
                 cols={57}
               />
-              <label>Заголовок на рус языке</label>
+              <label>{t("addarticle.ru")}</label>
               <input
                 type="text"
-                placeholder="Click and typing"
+                placeholder={t("addarticle.ph")}
                 value={titleRu}
                 onChange={(e) => setTitleRu(e.target.value)}
                 name="email"
               />
-              <label>Текст на рус языке</label>
+              <label>{t("addarticle.ru2")}</label>
               <textarea
                 type="text"
-                placeholder="Click and typing"
+                placeholder={t("addarticle.ph")}
                 value={textRu}
                 onChange={(e) => setTextRu(e.target.value)}
                 name="email"
@@ -172,28 +174,28 @@ export function AddArticle({ closeModal, id }) {
                 cols={57}
               />
               <label>
-                Заголовок на англ языке
+                {t("addarticle.en")}
               </label>
               <input
                 type="text"
-                placeholder="Click and typing"
+                placeholder={t("addarticle.ph")}
                 value={titleEn}
                 onChange={(e) => setTitleEn(e.target.value)}
                 name="email"
               />
-              <label>Текст на англ языке</label>
+              <label>{t("addarticle.en2")}</label>
               <textarea
                 type="text"
-                placeholder="Click and typing"
+                placeholder={t("addarticle.ph")}
                 value={textEn}
                 onChange={(e) => setTextEn(e.target.value)}
                 rows={4}
                 cols={57}
               />
-              <button onClick={addNewArticle}>Добавить</button>
+              <button onClick={addNewArticle}>{t("addarticle.add2")}</button>
               <div className={classes.clear} onClick={clearAllInputs}>
                 <a href="javascript:void(0);" className={classes.sign}>
-                  Очистить поля
+                  {t("addarticle.clear")}
                 </a>
               </div>
             </form>

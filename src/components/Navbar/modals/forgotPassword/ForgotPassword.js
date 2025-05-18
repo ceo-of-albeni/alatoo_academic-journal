@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 export function ForgotPassword({ closeModal }) {
   const [email, setEmail] = useState("");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const { forgotPassword, setError } = useContext(authContext);
 

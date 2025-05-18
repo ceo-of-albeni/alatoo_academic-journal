@@ -336,5 +336,63 @@
     "2": "Mathematics",
     "3": "Languages",
     "4": "History"
+  },
+  "addarticle": {
+    "add": "Add Article",
+    "category": "Category",
+    "select": "Select Category",
+    "cat": "SOCIAL AND HUMANITARIAN SCIENCE",
+    "cat1": "INFORMATICS",
+    "cat2": "MATHEMATICS",
+    "link": "Article Link",
+    "author": "Author(s) Name(s)",
+    "kg": "Title in Kyrgyz",
+    "kg2": "Text in Kyrgyz",
+    "ru": "Title in Russian",
+    "ru2": "Text in Russian",
+    "en": "Title in English",
+    "en2": "Text in English",
+    "add2": "Add",
+    "clear": "Clear Fields",
+    "ph": "Click to start typing"
+  },
+  "addedition": {
+    "add": "Add Issue",
+    "number": "Issue Number",
+    "file": "Issue File",
+    "add2": "Add"
+  },
+  "addvolume": {
+    "add": "Add Volume",
+    "number": "Year and Number",
+    "add2": "Add"
+  },
+  "delete": {
+    "q": "Delete the entire volume?",
+    "q2": "Delete the entire issue?",
+    "q3": "Do you want to delete?",
+    "confirm": "Enter admin password to confirm",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "confirm2": "Confirm",
+    "ph": "Your password..."
+  },
+  "edit": {
+    "edit": "Edit Information",
+    "cap": "Description",
+    "ph": "Click to start typing",
+    "cap2": "Editorial Board",
+    "address": "Address",
+    "phone": "Phone Number",
+    "fax": "Fax Number",
+    "email": "Email",
+    "ru": "Publication Ethics in Russian (link)",
+    "en": "Publication Ethics in English (link)",
+    "rules": "Author Guidelines",
+    "rules2": "Review Process",
+    "save": "Save",
+    "clear": "Clear All",
+    "add": "Add",
+    "council": "Council Members"
   }
 }

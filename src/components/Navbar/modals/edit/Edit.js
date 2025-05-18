@@ -2,8 +2,11 @@ import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import classes from "./Edit.module.scss";
 import { articlesContext } from "../../../../contexts/articleContext";
+import { useTranslation } from "react-i18next";
 
 export function Edit({ closeModal }) {
+  const { t } = useTranslation();
+
   const { getArchive, archive, loading, setLoading, editArchive } =
     useContext(articlesContext);
 
@@ -102,92 +105,92 @@ export function Edit({ closeModal }) {
         <div className={classes.edit} onClick={handleOutsideClick}>
           <div className={classes.edit__inner} onClick={handleClick}>
             <form>
-              <div>Редактировать информацию</div>
-              <label>Описание</label>
+              <div>{t("edit.edit")}</div>
+              <label>{t("edit.cap")}</label>
               <textarea
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 name="email"
               />
-              <label>Редакционный совет</label>
+              <label>{t("edit.cap2")}</label>
               <input
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={editorialCouncil}
                 onChange={(e) => setEditorialCouncil(e.target.value)}
                 name="email"
               />
-              <label>Адрес</label>
+              <label>{t("edit.address")}</label>
               <input
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={adress}
                 onChange={(e) => setAdress(e.target.value)}
                 name="email"
               />
-              <label>Номер телефона</label>
+              <label>{t("edit.phone")}</label>
               <input
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 name="email"
               />
-              <label>Номер факса</label>
+              <label>{t("edit.fax")}</label>
               <input
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={faxNumber}
                 onChange={(e) => setFaxNumber(e.target.value)}
                 name="email"
               />
-              <label>E-mail</label>
+              <label>{t("edit.email")}</label>
               <input
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 name="email"
               />
 
-              <label>Этика публикации на русском (ссылка)</label>
+              <label>{t("edit.ru")}</label>
               <input
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={publicationEthicsRu}
                 onChange={(e) => setPublicationEthicsRu(e.target.value)}
                 name="email"
               />
-              <label>Этика публикации на англ (ссылка)</label>
+              <label>{t("edit.en")}</label>
               <input
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={publicationEthicEn}
                 onChange={(e) => setPublicationEthicEn(e.target.value)}
                 name="email"
               />
-              <label>Правила для авторов</label>
+              <label>{t("edit.rules")}</label>
               <input
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={rulesUrl}
                 onChange={(e) => setRulesUrl(e.target.value)}
                 name="email"
               />
-              <label>Порядок рецензирования</label>
+              <label>{t("edit.rules2")}</label>
               <input
                 type="text"
-                placeholder="Click and type"
+                placeholder={t("edit.ph")}
                 value={reviewerRulesUrl}
                 onChange={(e) => setReviewerRulesUrl(e.target.value)}
                 name="email"
               />
-              <button onClick={saveChanges}>Сохранить</button>
+              <button onClick={saveChanges}>{t("edit.save")}</button>
               <div className={classes.clear} onClick={clearAllInputs}>
                 <a href="javascript:void(0);" className={classes.sign}>
-                  Очистить всё
+                  {t("edit.clear")}
                 </a>
               </div>
             </form>

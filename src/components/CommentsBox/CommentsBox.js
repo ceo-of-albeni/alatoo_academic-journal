@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 const CommentBox = () => {
   const [comment, setComment] = useState("");
   const [visibleComments, setVisibleComments] = useState(3); // Initially show 10 comments
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const { id } = useParams();
 
