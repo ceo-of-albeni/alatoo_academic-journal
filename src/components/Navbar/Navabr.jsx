@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 const Navabr = ({ closeModal }) => {
   const [activeModal, setActiveModal] = useState(null);
-  const { handleLogout, getOneUser, oneUser } = useContext(authContext);
+  const { handleLogout, getOneUser, oneUser, checkLoginTime } = useContext(authContext);
   const { t, i18n } = useTranslation();
   const handleChangeLanguage = (event) => {
     const selectedLanguage = event.target.value;
@@ -17,6 +17,7 @@ const Navabr = ({ closeModal }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    checkLoginTime();
     getOneUser();
   }, []);
 

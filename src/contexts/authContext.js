@@ -94,9 +94,11 @@ async function getOneUser() {
       
   
       if (res.data.access_token) {
-        localStorage.setItem("tokens", JSON.stringify(res.data));  // Сохраняем токен
-        localStorage.setItem("email", email);  // Сохраняем email
-        localStorage.setItem("role", res.data.role);
+      const loginTime = new Date().toISOString(); 
+      localStorage.setItem("tokens", JSON.stringify(res.data));  
+      localStorage.setItem("email", email);                     
+      localStorage.setItem("role", res.data.role);              
+      localStorage.setItem("loginTime", loginTime);  
   
         setCurrentUser(res);
         alert("Вы успешно вошли в систему!");
@@ -166,8 +168,21 @@ async function getOneUser() {
     localStorage.removeItem("email");
     localStorage.removeItem("role");
     localStorage.removeItem("timerSeconds");
+    localStorage.removeItem("loginTime");
     setCurrentUser(null);  // Сбрасываем состояние пользователя
     navigate("/");  // Редиректим на главную страницу
+  }
+
+  function checkLoginTime() {
+    const loginTime = localStorage.getItem("loginTime");
+    if (loginTime) {
+      const currentTime = new Date();
+      const timeDiff = currentTime - new Date(loginTime);
+      const minutesDiff = Math.floor(timeDiff / 1000 / 60);
+      if (minutesDiff > 1440) {
+        handleLogout();
+      }
+    }
   }
 
   return (
@@ -187,6 +202,7 @@ async function getOneUser() {
         handleUser,
         sendCodeAgain,
         forgotPassword,
+        checkLoginTime,
       }}>
       {children}
     </authContext.Provider>
