@@ -218,7 +218,7 @@
     "year": "Year*",
     "volume": "Volume*",
     "edition": "Edition*",
-    "file": "Article file*",
+    "file": "Article file PDF, Word (DOCX)*",
     "text": "Text*",
     "button": "Upload",
     "add": "Category to add*",
@@ -275,7 +275,7 @@
   },
   "archivecategorypage": {
     "volume": "Add Volume",
-    "issue": "Issue",
+    "issue": "Edition",
     "article": "Article",
     "edit": "Edit",
     "ethics": "Publication Ethics and Publication Malpractice",

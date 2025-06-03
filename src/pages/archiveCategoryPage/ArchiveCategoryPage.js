@@ -203,11 +203,13 @@ export default function ArchiveCategoryPage() {
                       {volumeInfo?.map((edition, editionIndex) => (
                         <div key={editionIndex} className={classes.edition}>
                           <div className={classes.trash2}>
-                            <p
+                            <a
                               className={classes.edition_link_a}
-                              href={edition.fileUrl}>
+                              href={edition.fileUrl}
+                              target="_blank"
+                              rel="noopener noreferrer">
                               {t("archivecategorypage.issue")} № {edition.name}
-                            </p>
+                            </a>
                             {localStorage.getItem("email") != null &&
                             oneUser.role === "admin" ? (
                               <FontAwesomeIcon

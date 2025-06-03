@@ -56,7 +56,7 @@ const Footer = () => {
         </DialogActions>
       </Dialog>
 
-      <p>© 2024 {t('footer.credits')}</p>
+      <p>© 2025 {t('footer.credits')}</p>
       <div className="footer_icon">
         <LocalPhoneIcon onClick={handleClickOpen} />
       </div>
