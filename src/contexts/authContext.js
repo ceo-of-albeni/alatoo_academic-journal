@@ -19,8 +19,8 @@ function reducer(state = INIT_STATE, action) {
       return state;
   }
 }
-
-const API = "http://localhost:3001/api";
+const apiUrl = process.env.REACT_APP_API_URL;
+const API = `${apiUrl}/api`;
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -46,13 +46,13 @@ async function getOneUser() {
   try {
     const tokens = localStorage.getItem("tokens");
     if (!tokens) {
-      console.warn("No tokens found in localStorage");
+      console.log("No tokens found in localStorage");
       return;
     }
 
     const { access_token } = JSON.parse(tokens);
     if (!access_token) {
-      console.warn("No access token found");
+      console.log("No access token found");
       return;
     }
 

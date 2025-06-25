@@ -262,6 +262,26 @@ export default function BasicTableAdmin() {
         </div>
         <h3>{t("tableadmin.under_review")}</h3>
         <br />
+      <div className="status-explanation">
+        <h4>{t("userprofilepage.status_explanation")}</h4>
+        <ul>
+          <li>
+            <span className="status-cell status-pending">Pending</span> — {t("userprofilepage.status_pending")}
+          </li>
+          <li>
+            <span className="status-cell status-payment">Payment</span> — {t("userprofilepage.status_payment_admin")}
+          </li>
+          <li>
+            <span className="status-cell status-payment-no-check">Payment</span> — {t("userprofilepage.status_payment_no_check")}
+          </li>
+          <li>
+            <span className="status-cell status-approved">Approved</span> — {t("userprofilepage.status_approved")}
+          </li>
+          <li>
+            <span className="status-cell status-declined">Declined</span> — {t("userprofilepage.status_declined")}
+          </li>
+        </ul>
+      </div>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
@@ -314,8 +334,31 @@ export default function BasicTableAdmin() {
                   <TableCell align="center">{row.coauthors}</TableCell>
                   <TableCell align="center">{row.pageCount}</TableCell>
                   <TableCell align="center">{row.category?.nameRu}</TableCell>
-                  <TableCell key={row.id} align="center">
-                    {row.status}
+                  <TableCell align="center">
+                    {row.status === "Payment" && row.checkFile ? (
+                      <a
+                        href={row.checkFile}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="status-cell status-payment"
+                      >
+                        {row.status}
+                      </a>
+                    ) : (
+                      <span
+                        className={`status-cell ${
+                          row.status === "Pending"
+                            ? "status-pending"
+                            : row.status === "Approved"
+                            ? "status-approved"
+                            : row.status === "Declined"
+                            ? "status-declined"
+                            : ""
+                        }`}
+                      >
+                        {row.status}
+                      </span>
+                    )}
                   </TableCell>
                   <TableCell align="center">
                     {row.status === "Payment" ? (

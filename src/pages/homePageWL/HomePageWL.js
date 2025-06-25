@@ -21,7 +21,7 @@ export default function HomePageWL(closeModal) {
   useEffect(() => {
     getUsers();
     getPublishedNews();
-  }, []);
+  }, [getUsers, getPublishedNews]);
 
   const openLoginModal = () => {
     setIsLoginModalOpen(true);

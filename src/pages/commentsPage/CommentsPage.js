@@ -7,7 +7,6 @@ import img from "./img/user.png";
 import comments from "./img/comments.svg";
 import CommentBox from "../../components/CommentsBox/CommentsBox";
 import { articlesContext } from "../../contexts/articleContext";
-import jsPDF from "jspdf";
 
 export function CommentsPage() {
   const navigate = useNavigate();
@@ -25,7 +24,7 @@ export function CommentsPage() {
   useEffect(() => {
     getOneArticle(id);
     setUserRole(localStorage.getItem("role"));
-  }, []);
+  }, [getOneArticle, id]);
 
   useEffect(() => {
     getComments(id);

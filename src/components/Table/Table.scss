@@ -51,3 +51,31 @@
   border-color: black !important;
   color: black !important;
 }
+.status-cell {
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 5px;
+  padding: 4px 8px;
+  display: inline-block;
+}
+
+.status-pending {
+  color: #b36b00;
+  background-color: #fff4e5;
+}
+
+.status-payment {
+  color: #00529b;
+  background-color: #e5f1ff;
+  cursor: pointer;
+}
+
+.status-approved {
+  color: #0a7d0a;
+  background-color: #e6f4ea;
+}
+
+.status-declined {
+  color: #a50000;
+  background-color: #ffe5e5;
+}

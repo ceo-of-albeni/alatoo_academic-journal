@@ -17,7 +17,7 @@ const AdminPage = () => {
     getPublishedNews();
     getAllNews();
     console.log(allNews);
-  }, []);
+  }, [getPublishedNews, getAllNews, allNews]);
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -29,6 +29,7 @@ const AdminPage = () => {
     setImage(file);
   };
 
+  
   const handleFileChange2 = (event) => {
     const file2 = event.target.files[0];
     setRulesFile(file2);
@@ -45,10 +46,11 @@ const AdminPage = () => {
     newArticle.append("title", title);
     newArticle.append("content", content);
 
+    const apiUrl = process.env.REACT_APP_API_URL;
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const response = await fetch("http://localhost:3001/api/news/upload", {
+      const response = await fetch(`${apiUrl}/api/news/upload`, {
         method: "POST",
         body: newArticle,
         headers: {
@@ -172,7 +174,7 @@ const AdminPage = () => {
           <button onClick={handleNewsCreate}>{t("tableadmin.button")}</button>
         </div>
       </div>
-
+      
       {/* Rules */}
       <div style={{ margin: "90px 0px" }}>
         <h4 style={{ textAlign: "center" }}>
@@ -195,6 +197,7 @@ const AdminPage = () => {
           <button onClick={handleRulesCreate}>{t("tableadmin.button")}</button>
         </div>
       </div>
+      
       <BasicTableAdmin />
     </div>
   );

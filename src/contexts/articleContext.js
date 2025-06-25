@@ -52,12 +52,14 @@ function reducer(state = INIT_STATE, action) {
       return state;
   }
 }
+const apiUrl = process.env.REACT_APP_API_URL;
+
 
 const ArticleContextsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const [loading, setLoading] = useState(true);
 
-  const API = "http://localhost:3001/api";
+  const API = `${apiUrl}/api`;
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -182,7 +184,7 @@ const ArticleContextsProvider = ({ children }) => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const res = await fetch(`${API}/article/payment/${id}`, {
+      await fetch(`${API}/article/payment/${id}`, {
         method: "POST",
         headers: {
           Authorization,
@@ -198,7 +200,7 @@ const ArticleContextsProvider = ({ children }) => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const res = await fetch(`${API}/article/approve/${id}`, {
+      await fetch(`${API}/article/approve/${id}`, {
         method: "POST",
         headers: {
           Authorization,
@@ -214,7 +216,7 @@ const ArticleContextsProvider = ({ children }) => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const res = await fetch(`${API}/article/decline/${id}`, {
+      await fetch(`${API}/article/decline/${id}`, {
         method: "POST",
         // body: newArticle,
         headers: {
@@ -260,7 +262,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.put(
+      await axios.put(
         `${API}article/${slug}`,
         editedArticle,
         config
@@ -295,7 +297,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.post(`${API}/category/create`, formData, config);
+      await axios.post(`${API}/category/create`, formData, config);
     } catch (err) {
       console.log(err);
     }
@@ -310,7 +312,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(
+      await axios.patch(
         `${API}/archive/add/volume`,
         formData,
         config
@@ -349,7 +351,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(
+      await axios.patch(
         `${API}/archive/add/article/${editionId}`,
         formData,
         config
@@ -368,7 +370,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(`${API}/archive/edit`, formData, config);
+      await axios.patch(`${API}/archive/edit`, formData, config);
     } catch (err) {
       console.log(err);
     }
@@ -383,7 +385,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.patch(
+      await axios.patch(
         `${API}/archive/edit/members`,
         formData,
         config
@@ -402,7 +404,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.request({
+      await axios.request({
         method: "DELETE",
         url: `${API}/archive/delete/volume/${id}`,
         data: obj,
@@ -423,7 +425,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.request({
+      await axios.request({
         method: "DELETE",
         url: `${API}/archive/delete/edition/${id}`,
         data: obj,
@@ -445,7 +447,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.delete(
+      await axios.delete(
         `${API}/archive/delete/article/${id}`,
         config
       );
@@ -507,7 +509,7 @@ const ArticleContextsProvider = ({ children }) => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const res = await fetch(`${API}/news/publish/${id}`, {
+      await fetch(`${API}/news/publish/${id}`, {
         method: "POST",
         headers: {
           Authorization,
@@ -551,7 +553,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.post(`${API}/files/upload`, formData, config);
+      await axios.post(`${API}/files/upload`, formData, config);
       alert("Файл загружен!");
       window.location.reload();
     } catch (err) {
@@ -592,7 +594,7 @@ const ArticleContextsProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.request({
+      await axios.request({
         method: "DELETE",
         url: `${API}/comment/delete/${id}`,
         // data: obj,

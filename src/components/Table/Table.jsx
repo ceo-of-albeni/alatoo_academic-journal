@@ -60,7 +60,7 @@ export default function BasicTable() {
   const [page, setPage] = React.useState(1);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const [search, setSearch] = React.useState(searchParams.get("q") || "");
+  const [search] = React.useState(searchParams.get("q") || "");
   const navigate = useNavigate();
 
   const handleClose = () => setOpen(false);
@@ -72,13 +72,13 @@ export default function BasicTable() {
 
   React.useEffect(() => {
     getAllMyArticles();
-  }, [searchParams]);
+  }, [searchParams, getAllMyArticles]);
 
   React.useEffect(() => {
     setSearchParams({
       q: search,
     });
-  }, [search]);
+  }, [search, setSearchParams]);
 
   const handlePage = (e, p) => {
     setPage(p);
@@ -89,9 +89,13 @@ export default function BasicTable() {
   const count = Math.ceil(my_articles.length / itemsOnPage);
 
   function currentData() {
+    const sorted = [...my_articles].sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+
     const begin = (page - 1) * itemsOnPage;
     const end = begin + itemsOnPage;
-    return my_articles.slice(begin, end);
+    return sorted.slice(begin, end);
   }
 
   const handleUpload = async () => {
@@ -103,12 +107,13 @@ export default function BasicTable() {
     const checkData = new FormData();
     checkData.append("checkFile", checkFile);
     checkData.append("articleId", articleId);
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
       const response = await fetch(
-        "http://localhost:3001/api/article/send/checkFile",
+        `${apiUrl}/api/article/send/checkFile`,
         {
           method: "POST",
           body: checkData,
@@ -193,7 +198,7 @@ export default function BasicTable() {
               variant="outlined"
               className="sub_check"
               onClick={() => handleUpload()}>
-              Submit
+              {t("table.submit")}
             </Button>
           </Box>
         </Modal>
@@ -240,11 +245,11 @@ export default function BasicTable() {
                   {row.id}
                 </TableCell>
                 <TableCell align="left">
-                  <a
+                  <p
                     className="table_a"
                     onClick={() => navigate(`/comments/${row.id}`)}>
                     {row.title}
-                  </a>
+                  </p>
                 </TableCell>
                 <TableCell align="center">
                   {row.createdAt.slice(0, 10)}
@@ -252,13 +257,24 @@ export default function BasicTable() {
                 <TableCell align="center">{row.coauthors}</TableCell>
                 <TableCell align="center">{row.pageCount}</TableCell>
                 <TableCell align="center">{row.category.nameRu}</TableCell>
-                {row.status == "Payment" ? (
-                  <TableCell align="center" onClick={() => handleOpen(row.id)}>
+                <TableCell
+                  align="center"
+                  onClick={() => row.status === "Payment" && handleOpen(row.id)}>
+                  <span
+                    className={`status-cell ${
+                      row.status === "Pending"
+                        ? "status-pending"
+                        : row.status === "Payment"
+                        ? "status-payment"
+                        : row.status === "Approved"
+                        ? "status-approved"
+                        : row.status === "Declined"
+                        ? "status-declined"
+                        : ""
+                    }`}>
                     {row.status}
-                  </TableCell>
-                ) : (
-                  <TableCell align="center">{row.status}</TableCell>
-                )}
+                  </span>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

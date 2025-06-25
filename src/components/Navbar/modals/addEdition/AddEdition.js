@@ -5,7 +5,7 @@ import { articlesContext } from "../../../../contexts/articleContext";
 import { useTranslation } from "react-i18next";
 
 export function AddEdition({ closeModal, id }) {
-  const [activeEdition, setActiveEdition] = useState("addEdition");
+  const [activeEdition] = useState("addEdition");
   const { addEditions } = useContext(articlesContext);
   const { t } = useTranslation();
 

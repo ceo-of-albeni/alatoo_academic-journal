@@ -195,3 +195,32 @@ input[type="file"] {
     padding-bottom: 50px;
   }
 }
+
+.status-cell {
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 5px;
+  padding: 4px 8px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.status-pending {
+  color: #b36b00;
+  background-color: #fff4e5;
+}
+
+.status-payment {
+  color: #00529b;
+  background-color: #e5f1ff;
+}
+
+.status-approved {
+  color: #0a7d0a;
+  background-color: #e6f4ea;
+}
+
+.status-declined {
+  color: #a50000;
+  background-color: #ffe5e5;
+}

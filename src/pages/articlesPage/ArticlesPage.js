@@ -9,11 +9,12 @@ const ArticlesList = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/archive/${id}/${NameEn}`);
+        const response = await axios.get(`${apiUrl}/api/archive/${id}/${NameEn}`);
         console.log('Ответ сервера:', response.data);
 
         if (response.data && Array.isArray(response.data.articles)) {
@@ -29,7 +30,7 @@ const ArticlesList = () => {
     };
 
     fetchArticles();
-  }, [id, NameEn]);
+  }, [id, NameEn, apiUrl]);
 
   if (loading) {
     return <div className="text-center mt-10">{t("articlespage.loading")}</div>;

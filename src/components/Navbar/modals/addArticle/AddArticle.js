@@ -113,14 +113,9 @@ export function AddArticle({ closeModal, id }) {
                 <option value="">{t("addarticle.select")}</option>
                 {categories.map((categoryName) => (
                   <option value={categoryName.name}>
-                    {categoryName.nameEn}
+                    {categoryName.nameRu}
                   </option>
                 ))}
-                <option value="category3">
-                {t("addarticle.cat")}
-                </option>
-                <option value="category3">{t("addarticle.cat1")}</option>
-                <option value="category3">{t("addarticle.cat2")}</option>
               </select>
               <label>{t("addarticle.link")}</label>
               <input

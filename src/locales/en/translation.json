@@ -203,7 +203,8 @@
     "pages": "Pages",
     "category": "Category",
     "status": "Status",
-    "check": "Check"
+    "check": "Payment check",
+    "submit": "Submit"
   },
   "tableadmin": {
     "title": "ARTICLE",
@@ -246,7 +247,14 @@
     "firstname": "First Name: ",
     "lastname": "Last Name: ",
     "position": "Position: ",
-    "email": "Email: "
+    "email": "Email: ",
+    "status_explanation": "Status explanation:",
+    "status_pending": "the article is under editorial review.",
+    "status_payment": "the article is approved and awaiting payment. Click the PAYMENT button to upload the payment receipt. It will be reviewed by the editorial team.",
+    "status_payment_admin": "the article is approved and awaiting payment. The check file was uploaded by author.",
+    "status_approved": "the article has been fully approved.",
+    "status_declined": "the article was rejected by the editorial board.",
+    "status_payment_no_check": "the article is approved and awaiting payment. The check file was NOT uploaded by author."
   },
   "archivepage": {
     "back": "Back",
@@ -341,9 +349,7 @@
     "add": "Add Article",
     "category": "Category",
     "select": "Select Category",
-    "cat": "SOCIAL AND HUMANITARIAN SCIENCE",
-    "cat1": "INFORMATICS",
-    "cat2": "MATHEMATICS",
+
     "link": "Article Link",
     "author": "Author(s) Name(s)",
     "kg": "Title in Kyrgyz",
@@ -396,3 +402,4 @@
     "council": "Council Members"
   }
 }
+

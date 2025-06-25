@@ -17,7 +17,7 @@ function Slider() {
             className="d-block w-100"
             style={{ height: "330px" }}
             src={book}
-            alt="Image One"
+            alt="img"
           />
           <Carousel.Caption>
             {/* <h3 style={{color: "black"}}>2006</h3> */}

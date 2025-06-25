@@ -224,3 +224,25 @@
 .short_inp {
     padding: 0px !important;
 }
+.status-pending {
+  color: #b36b00;
+  background-color: #fff4e5;
+}
+
+.status-payment {
+  color: #00529b;
+  background-color: #e5f1ff;
+}
+.status-payment-no-check {
+  background-color: #ffffff;
+}
+
+.status-approved {
+  color: #0a7d0a;
+  background-color: #e6f4ea;
+}
+
+.status-declined {
+  color: #a50000;
+  background-color: #ffe5e5;
+}

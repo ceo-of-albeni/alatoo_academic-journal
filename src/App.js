@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Routing from "./Routing";
 import Navbar from "./components/Navbar/Navabr";
 import Footer from "./components/Footer/Footer";
@@ -52,7 +52,7 @@ const App = () => {
   useEffect(() => {
     const checkServerStatus = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/user"); //changed 3001 to 3000
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user`);
         if (response.ok) {
           setServerStatus(true);
         } else {

@@ -1,28 +1,17 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./UserProfilePage.scss";
 import DataTable from "../../components/Table/Table";
-import BasicDatePicker from "../../components/DatePicker/DatePicker";
-import MultipleSelectPlaceholder from "../../components/StatusDrop/Status";
-import Category from "../../components/Category/Category";
 import { articlesContext } from "../../contexts/articleContext";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { authContext } from "../../contexts/authContext";
 import { useTranslation } from "react-i18next";
-// import { useSearchParams } from "react-router-dom";
 
 const UserProfilePage = () => {
   const { t } = useTranslation();
-  const { categories, getCategories, getAllMyArticles } =
-    useContext(articlesContext);
+  const { categories, getCategories, getAllMyArticles } = useContext(articlesContext);
   const { getOneUser, oneUser } = useContext(authContext);
-
-  useEffect(() => {
-    getAllMyArticles();
-    getCategories();
-    getOneUser();
-  }, []);
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -31,30 +20,31 @@ const UserProfilePage = () => {
   const [articleFile, setArticleFile] = useState(null);
   const [coauthorsEmails, setCoauthorsEmails] = useState("");
 
-  function clearAll() {
+  const [openArticle] = useState(true);
+  const apiUrl = process.env.REACT_APP_API_URL;
+
+  useEffect(() => {
+    getAllMyArticles();
+    getCategories();
+    getOneUser();
+  }, [getAllMyArticles, getCategories, getOneUser]);
+
+  const clearAll = () => {
     setTitle("");
     setCategory("");
     setCoauthors("");
     setText("");
     setArticleFile(null);
     setCoauthorsEmails("");
-  }
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setArticleFile(file);
-    console.log(file);
   };
 
   const handleUpload = async () => {
-    if (
-      !articleFile ||
-      !title ||
-      !coauthors ||
-      !text ||
-      !category ||
-      !coauthorsEmails
-    ) {
+    if (!articleFile || !title || !coauthors || !text || !category || !coauthorsEmails) {
       alert("Некоторые поля не заполнены!");
       return;
     }
@@ -67,12 +57,10 @@ const UserProfilePage = () => {
     newArticle.append("coauthors", coauthors);
     newArticle.append("coauthorsEmails", coauthorsEmails);
 
-    // alert("Wait for a few seconds and refresh the page!");
-
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const response = await fetch("http://localhost:3001/api/article/create", {
+      const response = await fetch(`${apiUrl}/api/article/create`, {
         method: "POST",
         body: newArticle,
         headers: {
@@ -81,11 +69,6 @@ const UserProfilePage = () => {
       });
 
       if (!response.ok) {
-        console.error(
-          "Server returned an error:",
-          response.status,
-          response.statusText
-        );
         const responseText = await response.text();
         console.error("Server Response:", responseText);
         alert("Ошибка!");
@@ -97,45 +80,22 @@ const UserProfilePage = () => {
     } catch (error) {
       console.error("Error during article creation:", error);
     }
-
-    setTitle("");
-    setCategory("");
-    setCoauthors("");
-    setText("");
-    setArticleFile(null);
-    setCoauthorsEmails("");
-    // setCheckFile(null);
   };
 
   const handleChange = (event) => {
     setCategory(event.target.value);
   };
 
-  // Определяем, какое поле использовать в зависимости от языка
   const getCategoryLang = (item) => {
     switch (oneUser?.language) {
       case "KG":
-        return item.nameKg || item.nameRu; // fallback на RU если KG не определен
+        return item.nameKg || item.nameRu;
       case "ENG":
-        return item.nameEn || item.nameRu; // fallback на RU если ENG не определен
+        return item.nameEn || item.nameRu;
       case "RU":
       default:
         return item.nameRu;
     }
-  };
-  const [openArticle, setOpenArticle] = useState(true);
-  const [openPayment, setOpenPayment] = useState(false);
-  const [openSuccess, setOpenSuccess] = useState(false);
-
-  const closeOpenPayment = () => {
-    setOpenArticle(false);
-    setOpenPayment(true);
-  };
-
-  const closeOpenSuccess = () => {
-    setOpenPayment(false);
-    setOpenSuccess(true);
-    handleUpload();
   };
 
   return (
@@ -148,13 +108,10 @@ const UserProfilePage = () => {
           />
           <div className="profile_main-info">
             <p>
-              <strong>{t("userprofilepage.firstname")}</strong>{" "}
-              {oneUser?.firstName}
+              <strong>{t("userprofilepage.firstname")}</strong> {oneUser?.firstName}
             </p>
-
             <p>
-              <strong>{t("userprofilepage.lastname")}</strong>{" "}
-              {oneUser?.lastName}
+              <strong>{t("userprofilepage.lastname")}</strong> {oneUser?.lastName}
             </p>
             <p>
               <strong>{t("userprofilepage.position")}</strong> {oneUser?.role}
@@ -163,7 +120,6 @@ const UserProfilePage = () => {
               <strong>{t("userprofilepage.email")}</strong> {oneUser?.email}
             </p>
           </div>
-          {/* <p className="edit_prof">Edit Profile</p> */}
         </div>
 
         {openArticle && (
@@ -183,28 +139,22 @@ const UserProfilePage = () => {
                 <FormControl sx={{ m: 1, minWidth: 120, height: "49px" }}>
                   <Select
                     className="text_input max_mb"
-                    style={{
-                      height: "49px",
-                      marginBottom: "120px",
-                    }}
+                    style={{ height: "49px", marginBottom: "120px" }}
                     value={category || ""}
                     onChange={handleChange}
                     displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}>
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
                     <MenuItem value="">
                       <p style={{ color: "lightgrey", marginBottom: "0px" }}>
                         {t("tableadmin.category2")}
                       </p>
                     </MenuItem>
-                    {categories ? (
-                      categories.map((item) => (
-                        <MenuItem key={item.id} value={getCategoryLang(item)}>
-                          {item.nameRu}
-                        </MenuItem>
-                      ))
-                    ) : (
-                      <h3>{t("tableadmin.loading")}</h3>
-                    )}
+                    {categories?.map((item) => (
+                      <MenuItem key={item.id} value={getCategoryLang(item)}>
+                        {item.nameRu}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
 
@@ -228,16 +178,9 @@ const UserProfilePage = () => {
 
                 <p className="input_p">{t("tableadmin.file")}</p>
                 <label className="custom-file-upload">
-                  <input
-                    type="file"
-                    // accept=""
-                    onChange={handleFileChange}
-                  />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="1em"
-                    viewBox="0 0 640 512">
-                    <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z" />
+                  <input type="file" onChange={handleFileChange} />
+                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
+                    <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9..."/>
                   </svg>
                 </label>
 
@@ -245,7 +188,6 @@ const UserProfilePage = () => {
                 <textarea
                   className="text_input"
                   placeholder={t("tableadmin.ph")}
-                  type="text"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   rows={5}
@@ -253,9 +195,7 @@ const UserProfilePage = () => {
               </div>
 
               <br />
-              <button onClick={handleUpload}>
-                {t("userprofilepage.next")}
-              </button>
+              <button onClick={handleUpload}>{t("userprofilepage.next")}</button>
               <p id="clear_all" onClick={clearAll}>
                 {t("userprofilepage.clear")}
               </p>
@@ -264,18 +204,24 @@ const UserProfilePage = () => {
         )}
       </div>
 
-      <div className="filtration">
-        {/* <BasicDatePicker /> */}
-        {/* <input
-          type="search"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          placeholder="Search..."
-          // className={classes.sr_inp}
-        /> */}
-        {/* <MultipleSelectPlaceholder /> */}
-        {/* <Category /> */}
+      <div className="status-explanation">
+        <h4>{t("userprofilepage.status_explanation")}</h4>
+        <ul>
+          <li>
+            <span className="status-cell status-pending">Pending</span> — {t("userprofilepage.status_pending")}
+          </li>
+          <li>
+            <span className="status-cell status-payment">Payment</span> — {t("userprofilepage.status_payment")}
+          </li>
+          <li>
+            <span className="status-cell status-approved">Approved</span> — {t("userprofilepage.status_approved")}
+          </li>
+          <li>
+            <span className="status-cell status-declined">Declined</span> — {t("userprofilepage.status_declined")}
+          </li>
+        </ul>
       </div>
+
       <DataTable user={oneUser} id={oneUser?.id} />
     </div>
   );
