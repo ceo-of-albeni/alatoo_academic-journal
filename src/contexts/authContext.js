@@ -79,13 +79,16 @@ async function getOneUser() {
 
 
   async function handleRegister(newObj) {
-    try {
-      await axios.post(`${API}/auth/register`, newObj);
-    } catch (err) {
-      console.log(err);
-      setError(err);
-    }
+  try {
+    await axios.post(`${API}/auth/register`, newObj);
+    return true; // Успешная регистрация
+  } catch (err) {
+    console.log(err);
+    setError(err);
+    return false; // Ошибка регистрации
   }
+}
+
 
   async function handleLogin(formData, email, closeModal) {
     try {
@@ -118,16 +121,31 @@ async function getOneUser() {
     }
   }
 
-  async function handleConfirm(formData) {
+async function handleConfirm(newObj) {
     try {
-      await axios.post(`${API}/auth/confirmEmail`, formData);
-      navigate("/");
+        const response = await axios.post(`${API}/auth/confirmEmail`, newObj);
+
+        // Если сервер вернул 200 или 201
+        if (response.status === 200 || response.status === 201) {
+            return true;
+        }
+
+        // Если по какой-то причине сервер вернул другой код
+        console.error(`Unexpected status: ${response.status}`);
+        return false;
+
     } catch (err) {
-      console.log(err);
-      alert("Ошибка!");
-      setError(err);
+        if (err.response && err.response.status === 400) {
+            console.error("Ошибка 400: Неверный код подтверждения или данные", err.response.data);
+            setError("Неверный код подтверждения или данные");
+        } else {
+            console.error("Произошла другая ошибка при подтверждении:", err);
+            setError("Произошла ошибка при подтверждении");
+        }
+
+        return false;
     }
-  }
+}
 
   async function sendCodeAgain(formData) {
     try {

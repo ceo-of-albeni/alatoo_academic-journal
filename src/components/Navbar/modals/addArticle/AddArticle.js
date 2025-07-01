@@ -188,11 +188,6 @@ export function AddArticle({ closeModal, id }) {
                 cols={57}
               />
               <button onClick={addNewArticle}>{t("addarticle.add2")}</button>
-              <div className={classes.clear} onClick={clearAllInputs}>
-                <a href="javascript:void(0);" className={classes.sign}>
-                  {t("addarticle.clear")}
-                </a>
-              </div>
             </form>
           </div>
         </div>

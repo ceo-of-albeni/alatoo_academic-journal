@@ -1,16 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import classes from "./login.module.scss";
 import arrow from "../img/arrow.svg";
-import { Register } from "../register/Register";
-import { Success } from "../success/Success";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../../../contexts/authContext";
-import Loader from "../../../Loader/Loader";
-import { ForgotPassword } from "../forgotPassword/ForgotPassword";
 import { useTranslation } from "react-i18next";
 
 export function Login({ closeModal }) {
-  const [activeModal, setActiveModal] = useState("login");
+  const [activeModal] = useState("login");
   const { t } = useTranslation();
 
   const navigate = useNavigate();
@@ -92,13 +88,11 @@ export function Login({ closeModal }) {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button type="submit" onClick={loginUser}>{t("login.signin")}</button>
-              <div className={classes.login__signup} onClick={openReg}>
-                <a href="javascript:void(0);" className={classes.sign}>
-                  {t("login.signup")}
-                </a>
+              <div className={classes.login__signup} onClick={openReg} role="button" tabIndex={0} onKeyPress={(e) => { if (e.key === 'Enter') openReg(); }}>
+                <span className={classes.sign}>{t("login.signup")}</span>
               </div>
-              <div className={classes.login__fpassword} onClick={openForg}>
-                <a href="javascript:void(0);">{t("login.forgot_pw")}</a>
+              <div className={classes.login__fpassword} onClick={openForg} role="button" tabIndex={0} onKeyPress={(e) => { if (e.key === 'Enter') openForg(); }}>
+                <span>{t("login.forgot_pw")}</span>
               </div>
             </form>
           </div>

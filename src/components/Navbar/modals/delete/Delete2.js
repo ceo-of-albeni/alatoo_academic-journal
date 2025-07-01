@@ -58,14 +58,7 @@ export function Delete2({ closeModal, editionId }) {
                 name="password"
               />
               <button onClick={deleteEdition}>{t("delete.delete")}</button>
-              <div className={classes.clear}>
-                <a
-                  href="javascript:void(0);"
-                  className={classes.sign}
-                  onClick={closeModal}>
-                  {t("delete.cancel")}
-                </a>
-              </div>
+
             </form>
           </div>
         </div>

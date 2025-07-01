@@ -99,9 +99,6 @@ export default function BasicTableAdmin() {
     getAllApproved();
   }, []);
 
-  console.log(approved_articles);
-  console.log(notPublished);
-
   const handlePage = (e, p) => {
     setPage(p);
   };
@@ -115,7 +112,7 @@ export default function BasicTableAdmin() {
   };
 
   const itemsOnPage = 5;
-
+  
   const count = Math.ceil(notPublished.length / itemsOnPage);
   const count2 = Math.ceil(allNews.length / itemsOnPage);
   const count3 = Math.ceil(approved_articles.length / itemsOnPage);
@@ -162,7 +159,7 @@ export default function BasicTableAdmin() {
     setCategoryCreateRu("");
     setCategoryCreateKg("");
   }
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   let rows = [];
   notPublished.map((item) =>
     rows.push(
@@ -269,10 +266,10 @@ export default function BasicTableAdmin() {
             <span className="status-cell status-pending">Pending</span> — {t("userprofilepage.status_pending")}
           </li>
           <li>
-            <span className="status-cell status-payment">Payment</span> — {t("userprofilepage.status_payment_admin")}
+            <span className="status-cell status-payment-no-check">Payment</span> — {t("userprofilepage.status_payment_no_check")}
           </li>
           <li>
-            <span className="status-cell status-payment-no-check">Payment</span> — {t("userprofilepage.status_payment_no_check")}
+            <span className="status-cell status-payment">Payment</span> — {t("userprofilepage.status_payment_admin")}
           </li>
           <li>
             <span className="status-cell status-approved">Approved</span> — {t("userprofilepage.status_approved")}
@@ -337,7 +334,7 @@ export default function BasicTableAdmin() {
                   <TableCell align="center">
                     {row.status === "Payment" && row.checkFile ? (
                       <a
-                        href={row.checkFile}
+                        href={`${apiUrl}/api/files/${row.checkFile}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="status-cell status-payment"

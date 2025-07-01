@@ -133,3 +133,22 @@
   color: black;
   text-decoration: underline;
 }
+
+.login__signup span,
+.login__fpassword span {
+  font-family: SF Pro Display;
+  font-size: 16px; /* для signup, для fpassword можно 14px, если нужно точнее */
+  font-weight: 510;
+  line-height: 19px; /* для signup, для fpassword 17px, можно настроить отдельно */
+  letter-spacing: -0.02em;
+  color: #666666;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login__signup span:hover,
+.login__fpassword span:hover {
+  color: black;
+  text-decoration: underline;
+}

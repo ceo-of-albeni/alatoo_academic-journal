@@ -188,11 +188,6 @@ export function Edit({ closeModal }) {
                 name="email"
               />
               <button onClick={saveChanges}>{t("edit.save")}</button>
-              <div className={classes.clear} onClick={clearAllInputs}>
-                <a href="javascript:void(0);" className={classes.sign}>
-                  {t("edit.clear")}
-                </a>
-              </div>
             </form>
           </div>
         </div>

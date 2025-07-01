@@ -21,47 +21,38 @@ export function ConfirmReg({ closeModal }) {
 
   const { handleConfirm, setError, sendCodeAgain } = useContext(authContext);
 
-  function handleSendAgain() {
+  async function handleSendAgain() {
     if (!email.trim()) {
       alert("Некоторые поля пустые!");
       return;
     }
 
-    let newObj = {
-      email: email,
-    };
-
     try {
-      sendCodeAgain(newObj);
-
-      setEmail("");
+      await sendCodeAgain({ email });
       setTimerRunning(true);
+      setSeconds(59);
     } catch (error) {
-      console.error("Error during send again:", error);
+      console.error("Ошибка при повторной отправке кода:", error);
+      alert("Не удалось отправить код, попробуйте позже.");
     }
   }
 
-  function handleSigninClick() {
+  async function handleSigninClick(e) {
+    e.preventDefault();
+
     if (!email.trim() || !code.trim()) {
       alert("Некоторые поля пустые!");
       return;
     }
 
-    let newObj = {
-      email: email,
-      code: code,
-    };
+  const success = await handleConfirm({ email, code });
 
-    // try {
-    handleConfirm(newObj);
-    closeOpenSuccess();
-
-    setEmail("");
-    setCode("");
-    setTimerRunning(true);
-    // } catch (error) {
-    //   console.error("Error during confirmation:", error);
-    // }
+  if (success) {
+      setOpenSuccess("success");
+      setTimeout(() => navigate("/"), 2000);
+  } else {
+      alert("Неверный код подтверждения");
+  }
   }
 
   useEffect(() => {
@@ -69,73 +60,30 @@ export function ConfirmReg({ closeModal }) {
   }, []);
 
   useEffect(() => {
-    const tick = () => {
-      // setSeconds(prevSeconds => (prevSeconds > 0 ? prevSeconds - 1 : 0));
-
+    const timer = setInterval(() => {
       if (timerRunning && seconds > 0) {
-        setSeconds((prevSeconds) => prevSeconds - 1);
+        setSeconds((prev) => prev - 1);
       } else {
         setTimerRunning(false);
       }
-    };
+    }, 1000);
 
-    const timer = setInterval(tick, 1000);
-
-    return () => {
-      clearInterval(timer);
-    };
+    return () => clearInterval(timer);
   }, [seconds, timerRunning]);
-
-  useEffect(() => {
-    if (seconds === 0) {
-      setTimerRunning(false);
-    }
-  }, [seconds]);
 
   useEffect(() => {
     localStorage.setItem("timerSeconds", seconds);
   }, [seconds]);
 
-  // useEffect(() => {
-  //   localStorage.removeItem("timerExpired");
-  // }, []);
-
-  // useEffect(() => {
-  //   const timerExpired = localStorage.getItem("timerExpired");
-  //   if (timerExpired === "true") {
-  //     setTimerRunning(false);
-  //     setSeconds(0);
-  //   }
-  // }, []);
-
-  const closeOpenSuccess = (e) => {
-    // e.preventDefault();
-    setOpenSuccess("success");
-  };
-
-  const closeM = () => {
-    setOpenSuccess(null);
-  };
-
-  // const handleResendClick = () => {
-  //   setSeconds(59);
-  //   setTimerRunning(true);
-  // };
-
-  // const handleButtonClick = () => {
-  //   if (timerRunning) {
-  //     handleResendClick();
-  //   } else {
-  //     handleSigninClick();
-  //   }
-  // };
+  const closeM = () => setOpenSuccess(null);
 
   return (
     <div className={classes.confirm}>
       <div className={classes.confirm__inner}>
         <img src={arrow} alt="back" onClick={() => navigate("/register")} />
-        <form action="">
+        <form>
           <div>{t("confirm_reg.button")}</div>
+
           <label>{t("confirm_reg.email")}</label>
           <input
             type="text"
@@ -156,6 +104,7 @@ export function ConfirmReg({ closeModal }) {
             value={code}
             onChange={(e) => setCode(e.target.value)}
           />
+
           {timerRunning ? (
             <button onClick={handleSigninClick}>
               {t("confirm_reg.signin")}
@@ -170,6 +119,7 @@ export function ConfirmReg({ closeModal }) {
           )}
         </form>
       </div>
+
       {openSuccess === "success" && <Success closeModal={closeM} />}
     </div>
   );

@@ -27,7 +27,7 @@ const UserProfilePage = () => {
     getAllMyArticles();
     getCategories();
     getOneUser();
-  }, [getAllMyArticles, getCategories, getOneUser]);
+  });
 
   const clearAll = () => {
     setTitle("");
