@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import { articlesContext } from "../../contexts/articleContext";
 import { useTranslation } from 'react-i18next';
 
@@ -28,7 +28,7 @@ const RulesPage = () => {
       <h3>{t('rules_page.rules')}</h3>
       {rules ? (
         <iframe
-          src={rules + "#view=FitH"}
+          src={rules + "#zoom=100"}
           width="85%" // Уменьшил ширину на 15%
           height={iframeHeight}
           style={{ border: "none", overflow: "hidden" }}

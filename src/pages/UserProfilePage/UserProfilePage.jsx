@@ -23,11 +23,18 @@ const UserProfilePage = () => {
   const [openArticle] = useState(true);
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  useEffect(() => {
-    getAllMyArticles();
-    getCategories();
-    getOneUser();
-  });
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      await getAllMyArticles();
+      await getCategories();
+      await getOneUser();
+    } catch (error) {
+      console.error("Ошибка загрузки данных:", error);
+    }
+  };
+  fetchData();
+}, []);
 
   const clearAll = () => {
     setTitle("");

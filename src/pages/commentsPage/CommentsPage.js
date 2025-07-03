@@ -61,7 +61,17 @@ export function CommentsPage() {
           </div>
           <div className={classes.category}>
             <p>{oneArticle?.category?.nameRu}</p>
-            <h4>{oneArticle.createdAt?.slice(0, 10)}</h4>
+            <h4>
+              {oneArticle.createdAt
+                ? (() => {
+                    const d = new Date(oneArticle.createdAt);
+                    const day = String(d.getDate()).padStart(2, '0');
+                    const month = String(d.getMonth() + 1).padStart(2, '0');
+                    const year = d.getFullYear();
+                    return `${day} ${month} ${year}`;
+                  })()
+                : ''}
+            </h4>
           </div>
           <div className={classes.link}>
             <a href={oneArticle?.fileUrl} target="_blank" rel="noreferrer">
