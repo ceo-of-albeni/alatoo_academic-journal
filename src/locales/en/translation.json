@@ -298,7 +298,9 @@
     "ethics2": "Publication Ethics of the journal “Alatoo Academic Studies”",
     "guidelines": "Author Guidelines",
     "aas": "Manuscript Review Procedure for the AAS Journal Editorial Board",
-    "email": "E-mail: "
+    "email": "E-mail: ",
+    "search": "Search by author name",
+    "searchButton": "Search"
   },
   "articlespage": {
     "loading": "Loading...",

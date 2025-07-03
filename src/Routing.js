@@ -12,6 +12,7 @@ import { ChangePassword } from "./components/Navbar/modals/changePassword/Change
 import { CommentsPage } from "./pages/commentsPage/CommentsPage";
 import ArticlesPageDefault from "./pages/ArticlesPageDefault/ArticlesPageDefault";
 import ArticlesList from "./pages/articlesPage/ArticlesPage";
+import SearchResultsPage from "./components/Search/SearchResultPage";
 
 const Routing = () => {
   const PUBLIC_ROUTES = [
@@ -75,6 +76,11 @@ const Routing = () => {
       element: <ArticlesPageDefault />,
       id: 18,
     },
+      {
+    link: "/search-results",
+    element: <SearchResultsPage />,
+    id: 20,
+  },
   ];
   return (
     <Routes>
@@ -83,6 +89,7 @@ const Routing = () => {
       ))}
     </Routes>
   );
+  
 };
 
 export default Routing;

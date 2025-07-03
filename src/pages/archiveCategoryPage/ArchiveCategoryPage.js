@@ -29,6 +29,8 @@ export default function ArchiveCategoryPage() {
     getOneUser();
     getArchive();
   }, []);
+  const [searchResults, setSearchResults] = useState([]);
+const [isLoading, setIsLoading] = useState(false);
 
   const [archive_var, setArchiveVar] = useState([]);
   console.log(archive_var);
@@ -67,6 +69,13 @@ export default function ArchiveCategoryPage() {
     }
   };
 
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // Здесь можно сделать вызов API или фильтрацию, если нужно
+    console.log("Поиск:", searchQuery);
+  };
   const openEditionModal = (id) => {
     if (activeEdition === null) {
       setActiveEdition("addEdition");
@@ -124,6 +133,12 @@ export default function ArchiveCategoryPage() {
     setActiveEdit(null);
     setActiveEditCouns(null);
   };
+  const handleSearchByName = (e) => {
+  e.preventDefault();
+  if (searchQuery.trim() === "") return;
+  navigate(`/search-results?name=${encodeURIComponent(searchQuery.trim())}`);
+};
+
 
   return (
     <>
@@ -132,6 +147,19 @@ export default function ArchiveCategoryPage() {
       ) : ( */}
       <div className={classes.container}>
         <div className={classes.archive}>
+        <form onSubmit={handleSearchByName} className={classes.search}>
+          <div className={classes.search__bar}>
+            <input
+              type="text"
+              placeholder={t("archivecategorypage.search")}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button type="submit">
+              {t("archivecategorypage.searchButton")}
+            </button>
+          </div>
+        </form>
           <div className={classes.archive__inner}>
             <div className={classes.back}>
               <a onClick={() => navigate("/")}>
