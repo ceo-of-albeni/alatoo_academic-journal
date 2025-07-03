@@ -16,8 +16,7 @@ const AdminPage = () => {
   useEffect(() => {
     getPublishedNews();
     getAllNews();
-    console.log(allNews);
-  }, [getPublishedNews, getAllNews, allNews]);
+  }, []);
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");

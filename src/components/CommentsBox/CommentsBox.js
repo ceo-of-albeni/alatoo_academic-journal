@@ -16,7 +16,7 @@ const CommentBox = () => {
 
   useEffect(() => {
     if (id) getComments(id);
-  }, [id, getComments]);
+  }, []);
 
   function commentsPost(e) {
     e.preventDefault(); // Prevent page refresh

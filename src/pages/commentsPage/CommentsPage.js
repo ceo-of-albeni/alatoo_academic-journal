@@ -24,11 +24,11 @@ export function CommentsPage() {
   useEffect(() => {
     getOneArticle(id);
     setUserRole(localStorage.getItem("role"));
-  }, [getOneArticle, id]);
+  }, []);
 
   useEffect(() => {
     getComments(id);
-  }, [id]);
+  }, []);
 
   const downloadPDF = useCallback(() => {
     if (!oneArticle?.fileUrl) {

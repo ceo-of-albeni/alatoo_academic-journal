@@ -60,8 +60,21 @@ export default function BasicTable() {
   const [page, setPage] = React.useState(1);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const [search] = React.useState(searchParams.get("q") || "");
-  const navigate = useNavigate();
+const q = searchParams.get("q") || "";
+
+const [search, setSearch] = React.useState(q);
+
+React.useEffect(() => {
+  setSearch(q);
+}, [q]);
+
+React.useEffect(() => {
+  setSearchParams({ q: search });
+}, [search, setSearchParams]);
+
+React.useEffect(() => {
+  getAllMyArticles();
+}, [q, getAllMyArticles]);
 
   const handleClose = () => setOpen(false);
 
@@ -69,17 +82,7 @@ export default function BasicTable() {
     setArticleId(id);
     setOpen(true);
   }
-
-  React.useEffect(() => {
-    getAllMyArticles();
-  }, [searchParams, getAllMyArticles]);
-
-  React.useEffect(() => {
-    setSearchParams({
-      q: search,
-    });
-  }, [search, setSearchParams]);
-
+  const navigate = useNavigate();
   const handlePage = (e, p) => {
     setPage(p);
   };

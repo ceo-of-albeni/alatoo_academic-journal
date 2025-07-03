@@ -57,14 +57,22 @@
     "text": "Forgotten your password? Enter your e-mail address below, and we'll send you an e-mail allowing you to reset it.",
     "email": "Email",
     "ph_email": "Enter your email",
-    "reset_btn": "Reset my password"
+    "reset_btn": "Reset my password",
+    "enter_code": "Enter the code from the email",
+    "code_label": "Confirmation Code",
+    "code_ph": "Enter code",
+    "submit_code_btn": "Submit Code",
+    "sending": "Sending...",
+    "code_confirmed": "Code confirmed",
+     "verifying": "Verifying..."
   },
   "change_pw": {
     "change": "Change Password",
     "new": "New Password",
     "confirm_new": "Confrim New Password",
     "ph": "Click to start typing",
-    "message": "Your password is now changed."
+    "message": "Your password is now changed.",
+    "success": "Success!"
   },
   "success": {
     "fully": "Successfully!"

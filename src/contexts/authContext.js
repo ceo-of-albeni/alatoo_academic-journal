@@ -124,25 +124,14 @@ async function getOneUser() {
 async function handleConfirm(newObj) {
     try {
         const response = await axios.post(`${API}/auth/confirmEmail`, newObj);
-
-        // Если сервер вернул 200 или 201
-        if (response.status === 200 || response.status === 201) {
+        if (response.status === 200) {
             return true;
-        }
-
-        // Если по какой-то причине сервер вернул другой код
-        console.error(`Unexpected status: ${response.status}`);
-        return false;
-
-    } catch (err) {
-        if (err.response && err.response.status === 400) {
-            console.error("Ошибка 400: Неверный код подтверждения или данные", err.response.data);
-            setError("Неверный код подтверждения или данные");
         } else {
-            console.error("Произошла другая ошибка при подтверждении:", err);
-            setError("Произошла ошибка при подтверждении");
+            return false;
         }
-
+    } catch (err) {
+        console.error(err);
+        setError(err);
         return false;
     }
 }
