@@ -14,15 +14,16 @@ const ArticlesPageDefault = () => {
 
   const { approved_articles, getAllApproved } = useContext(articlesContext);
 
-  useEffect(() => {
-    setSearchParams({
-      q: search,
-    });
-  }, [search]);
+useEffect(() => {
+  setSearchParams({ q: search });
+}, [search, setSearchParams]);
 
-  useEffect(() => {
-    getAllApproved();
-  }, [searchParams]);
+useEffect(() => {
+  // Получаем текущий параметр 'q' из searchParams
+  const q = searchParams.get("q") || "";
+  // Если нужно, можно проверять совпадение с search
+  getAllApproved(q);
+}, [searchParams]);
 
   const filteredArticles = approved_articles.filter((article) => {
     const query = search.toLowerCase();
@@ -71,15 +72,15 @@ const ArticlesPageDefault = () => {
             className={classes.sr_inp}
           />
         </div>
-        <div className={classes.list_courses_div}>
-          {filteredArticles.length > 0 ? (
-            currentData().map((item) => (
-              <ArticleCardDefault key={item.id} item={item} />
-            ))
-          ) : (
-            <h3>{t("articlespage.no2")}</h3>
-          )}
-        </div>
+          <ul className={classes.list_courses_div} style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            {filteredArticles.length > 0 ? (
+              currentData().map((item) => (
+                <ArticleCardDefault key={item.id} item={item} />
+              ))
+            ) : (
+              <h3>{t("articlespage.no2")}</h3>
+            )}
+          </ul>
 
         <div className={classes.pagin}>
           <Pagination count={count} page={page} onChange={handlePage} />

@@ -14,9 +14,9 @@ const CommentBox = () => {
   const { postComment, deleteComment, getComments, allComments } =
     useContext(articlesContext);
 
-  useEffect(() => {
-    if (id) getComments(id);
-  }, []);
+useEffect(() => {
+  if (id) getComments(id);
+}, [id]);
 
   function commentsPost(e) {
     e.preventDefault(); // Prevent page refresh

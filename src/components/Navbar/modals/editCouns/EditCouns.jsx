@@ -11,10 +11,10 @@ export function EditCouns({ closeModal }) {
     useContext(articlesContext);
   const [councilMembers, setCouncilMembers] = useState(archive.councilMembers);
   const [activeEdit, setActiveEdit] = useState("edit");
+  
   useEffect(() => {
     getArchive();
   }, []);
-  console.log(archive);
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {

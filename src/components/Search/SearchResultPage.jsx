@@ -13,19 +13,20 @@ export default function SearchResultsPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    if (!name) return;
+useEffect(() => {
+  if (!name) return;
 
+  const delayDebounceFn = setTimeout(() => {
     const fetchResults = async () => {
       setLoading(true);
       setError(null);
       try {
         const apiUrl = process.env.REACT_APP_API_URL;
         const response = await fetch(`${apiUrl}/api/archive/search/by-name?name=${encodeURIComponent(name.trim())}`, {
-        method: "GET",
-        headers: {
+          method: "GET",
+          headers: {
             "Content-Type": "application/json",
-        },
+          },
         });
 
         if (!response.ok) {
@@ -42,7 +43,11 @@ export default function SearchResultsPage() {
     };
 
     fetchResults();
-  }, [name]);
+  }, 500); // ждем 500 мс после последнего изменения name
+
+  return () => clearTimeout(delayDebounceFn);
+}, [name]);
+
 
   return (
     <div>

@@ -6,7 +6,8 @@ import axios from "axios";
 import { authContext } from "../../../../contexts/authContext";
 import { useTranslation } from "react-i18next";
 
-const API = "http://localhost:3001/api";
+const apiUrl = process.env.REACT_APP_API_URL
+const API = `${apiUrl}/api`;
 
 export function ForgotPassword({ closeModal }) {
   const { t } = useTranslation();
@@ -71,7 +72,7 @@ async function handleConfirmCode(e) {
 
   useEffect(() => {
     setError(false);
-  }, [setError]);
+  }, []);
 
   return (
     <div className={classes.forgot}>

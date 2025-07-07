@@ -21,21 +21,24 @@ export function ConfirmReg({ closeModal }) {
 
   const { handleConfirm, setError, sendCodeAgain } = useContext(authContext);
 
-  async function handleSendAgain() {
-    if (!email.trim()) {
-      alert("Некоторые поля пустые!");
-      return;
-    }
+ const [isSendingCode, setIsSendingCode] = useState(false);
 
-    try {
-      await sendCodeAgain({ email });
-      setTimerRunning(true);
-      setSeconds(59);
-    } catch (error) {
-      console.error("Ошибка при повторной отправке кода:", error);
-      alert("Не удалось отправить код, попробуйте позже.");
-    }
+
+async function handleSendAgain() {
+  if (!email.trim() || isSendingCode) return;
+
+  try {
+    setIsSendingCode(true);
+    await sendCodeAgain({ email });
+    setTimerRunning(true);
+    setSeconds(59);
+  } catch (error) {
+    alert("Не удалось отправить код, попробуйте позже.");
+  } finally {
+    setIsSendingCode(false);
   }
+}
+
 
   async function handleSigninClick(e) {
     e.preventDefault();
@@ -59,17 +62,22 @@ export function ConfirmReg({ closeModal }) {
     setError(false);
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (timerRunning && seconds > 0) {
-        setSeconds((prev) => prev - 1);
-      } else {
-        setTimerRunning(false);
-      }
-    }, 1000);
+useEffect(() => {
+  if (!timerRunning) return;
 
-    return () => clearInterval(timer);
-  }, [seconds, timerRunning]);
+  const timer = setInterval(() => {
+    setSeconds(prev => {
+      if (prev > 0) return prev - 1;
+      else {
+        setTimerRunning(false);
+        clearInterval(timer);
+        return 0;
+      }
+    });
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, [timerRunning]);
 
   useEffect(() => {
     localStorage.setItem("timerSeconds", seconds);
@@ -114,7 +122,12 @@ export function ConfirmReg({ closeModal }) {
               <button onClick={handleSigninClick}>
                 {t("confirm_reg.signin")}
               </button>
-              <p onClick={handleSendAgain}>{t("confirm_reg.resend")}</p>
+              <p 
+                onClick={handleSendAgain} 
+                style={{ pointerEvents: isSendingCode ? "none" : "auto", opacity: isSendingCode ? 0.6 : 1 }}
+              >
+                {isSendingCode ? "Отправка..." : t("confirm_reg.resend")}
+              </p>
             </div>
           )}
         </form>

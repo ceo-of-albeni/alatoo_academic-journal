@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Routing from "./Routing";
 import Navbar from "./components/Navbar/Navabr";
 import Footer from "./components/Footer/Footer";
@@ -49,23 +49,24 @@ export { i18n };
 const App = () => {
   const [serverStatus, setServerStatus] = useState(true);
 
-  useEffect(() => {
-    const checkServerStatus = async () => {
-      try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user`);
-        if (response.ok) {
-          setServerStatus(true);
-        } else {
-          throw new Error("Server is not responding");
-        }
-      } catch (error) {
-        setServerStatus(false);
-        console.error("Error checking server status:", error);
-      }
-    };
+const hasCheckedServer = useRef(false);
 
-    setTimeout(checkServerStatus, 10);
-  }, []);
+useEffect(() => {
+  if (hasCheckedServer.current) return;
+  hasCheckedServer.current = true;
+
+  const checkServerStatus = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user`);
+      setServerStatus(response.ok);
+    } catch (error) {
+      setServerStatus(false);
+      console.error(error);
+    }
+  };
+
+  checkServerStatus();
+}, []);
 
   return (
     <>

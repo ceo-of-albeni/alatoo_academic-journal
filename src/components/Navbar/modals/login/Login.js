@@ -8,7 +8,6 @@ import { useTranslation } from "react-i18next";
 export function Login({ closeModal }) {
   const [activeModal] = useState("login");
   const { t } = useTranslation();
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,23 +21,7 @@ export function Login({ closeModal }) {
   const [password, setPassword] = useState("");
   const { handleLogin, setError } = useContext(authContext);
 
-  function loginUser() {
-    if (!email.trim() || !password.trim()) {
-      alert("Некоторые поля пустые!");
-      return;
-    }
-
-    let newObj = {
-      email: email,
-      password: password,
-    };
-
-    handleLogin(newObj, email, closeModal);
-    console.log(newObj);
-
-    setEmail("");
-    setPassword("");
-  }
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setError(false);
@@ -50,7 +33,6 @@ export function Login({ closeModal }) {
 
   const handleOutsideClick = () => {
     closeModal();
-    console.log("Closing modal");
   };
 
   const openReg = () => {
@@ -63,12 +45,35 @@ export function Login({ closeModal }) {
     closeModal();
   };
 
+  const loginUser = async () => {
+    if (loading) return; // Блокируем повторные клики
+
+    if (!email.trim() || !password.trim()) {
+      alert("Некоторые поля пустые!");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const success = await handleLogin({ email, password }, email, closeModal);
+      if (success) {
+        setEmail("");
+        setPassword("");
+      }
+    } catch (error) {
+      console.error("Ошибка при логине:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       {activeModal === "login" && (
         <div className={classes.login} onClick={handleOutsideClick}>
           <div className={classes.login__inner} onClick={handleLoginClick}>
-            <img src={arrow} alt="back" onClick={() => closeModal()} />
+            <img src={arrow} alt="back" onClick={closeModal} />
             <form onSubmit={(e) => e.preventDefault()}>
               <div>{t("login.login")}</div>
               <label>{t("login.email")}</label>
@@ -87,11 +92,29 @@ export function Login({ closeModal }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button type="submit" onClick={loginUser}>{t("login.signin")}</button>
-              <div className={classes.login__signup} onClick={openReg} role="button" tabIndex={0} onKeyPress={(e) => { if (e.key === 'Enter') openReg(); }}>
+              <button type="button" onClick={loginUser} disabled={loading}>
+                {loading ? t("login.signing_in") : t("login.signin")}
+              </button>
+              <div
+                className={classes.login__signup}
+                onClick={openReg}
+                role="button"
+                tabIndex={0}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") openReg();
+                }}
+              >
                 <span className={classes.sign}>{t("login.signup")}</span>
               </div>
-              <div className={classes.login__fpassword} onClick={openForg} role="button" tabIndex={0} onKeyPress={(e) => { if (e.key === 'Enter') openForg(); }}>
+              <div
+                className={classes.login__fpassword}
+                onClick={openForg}
+                role="button"
+                tabIndex={0}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") openForg();
+                }}
+              >
                 <span>{t("login.forgot_pw")}</span>
               </div>
             </form>

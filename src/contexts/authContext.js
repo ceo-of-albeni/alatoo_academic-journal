@@ -90,36 +90,37 @@ async function getOneUser() {
 }
 
 
-  async function handleLogin(formData, email, closeModal) {
-    try {
-      const res = await axios.post(`${API}/auth/login`, formData);
-      console.log(res.config);
-      
-  
+ async function handleLogin(formData, email, closeModal) {
+  try {
+    const res = await axios.post(`${API}/auth/login`, formData);
+
+    if (res.data.access_token) {
       if (res.data.access_token) {
-      const loginTime = new Date().toISOString(); 
-      localStorage.setItem("tokens", JSON.stringify(res.data));  
-      localStorage.setItem("email", email);                     
-      localStorage.setItem("role", res.data.role);              
-      localStorage.setItem("loginTime", loginTime);  
-  
+        localStorage.setItem("tokens", JSON.stringify(res.data));
+        localStorage.setItem("email", email);
+        localStorage.setItem("role", res.data.role);
+        localStorage.setItem("loginTime", new Date().toISOString());
+
         setCurrentUser(res);
+        if (closeModal) closeModal();
         alert("Вы успешно вошли в систему!");
-        navigate("/");  // Навигация после логина
-  
-        // Закрываем модальное окно, если оно открыто
-        if (closeModal) {
-          closeModal();
-        }
-      } else {
-        throw new Error("No access token returned from login");
-      }
-    } catch (err) {
-      console.log(err);
-      setError(err);
-      alert("Вы ввели неправильную почту или пароль!");
+        navigate("/");
+        return true;
+      }         
+      setCurrentUser(res);
+      if (closeModal) closeModal();
+      alert("Вы успешно вошли в систему!");
+      navigate("/");
+      return true; // Успешный логин
+    } else {
+      throw new Error("No access token returned from login");
     }
+  } catch (err) {
+    setError(err);
+    alert("Вы ввели неправильную почту или пароль!");
+    return false; // Ошибка логина
   }
+}
 
 async function handleConfirm(newObj) {
     try {
@@ -146,29 +147,7 @@ async function handleConfirm(newObj) {
     }
   }
 
-  async function forgotPassword(email) {
-    try {
-      await axios.post(`${API}/auth/forgotPassword`, email);
-    } catch (err) {
-      console.log(err);
-      setError(err);
-    }
-  }
 
-  async function handleUser(newProduct) {
-    try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      await axios.post(`${API}/user-profile/`, newProduct, config);
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
   function handleLogout() {
     localStorage.removeItem("tokens");
@@ -206,9 +185,7 @@ async function handleConfirm(newObj) {
         getOneUser,
         getUsers,
         handleLogout,
-        handleUser,
         sendCodeAgain,
-        forgotPassword,
         checkLoginTime,
       }}>
       {children}

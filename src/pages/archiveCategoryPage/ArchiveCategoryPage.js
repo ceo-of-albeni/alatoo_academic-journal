@@ -37,7 +37,7 @@ const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setArchiveVar(archive.volumes ? archive.volumes : []);
-  }, [archive]);
+  }, [archive.volumes]);
 
   const [activeYearIndex, setActiveYearIndex] = useState(null);
 

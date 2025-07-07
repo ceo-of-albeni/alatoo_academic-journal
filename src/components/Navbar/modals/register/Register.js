@@ -22,7 +22,7 @@ export function Register() {
     setError(false);
   }, []);
 
-  const createUser = async () => {
+const createUser = async () => {
   if (
     !firstName.trim() ||
     !lastName.trim() ||
@@ -39,18 +39,25 @@ export function Register() {
     return;
   }
 
-  const newObj = {
-    firstName,
-    lastName,
-    email,
-    password,
-  };
+  // Простая проверка email (можно усложнить)
+  if (!/\S+@\S+\.\S+/.test(email)) {
+    alert("Введите корректный email");
+    return;
+  }
+
+  const newObj = { firstName, lastName, email, password };
 
   try {
     setIsLoading(true);
     const success = await handleRegister(newObj);
     if (success) {
-      navigate("/confirm", { state: { email } }); // переходим только при успехе
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPassword("");
+      setPasswordConfirm("");
+      setError(false);
+      navigate("/confirm", { state: { email } });
     } else {
       alert("Ошибка регистрации. Проверьте введённые данные.");
     }
