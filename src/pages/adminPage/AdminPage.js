@@ -8,7 +8,6 @@ const AdminPage = () => {
   const {
     getPublishedNews,
     getAllNews,
-    allNews,
     uploadRules,
   } = useContext(articlesContext);
 

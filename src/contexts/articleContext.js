@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useCallback, useReducer, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -64,36 +64,60 @@ const ArticleContextsProvider = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  async function getCategories() {
-    try {
-      const res = await axios(`${API}/category/list`);
-      dispatch({
-        type: "GET_CATEGORIES",
-        payload: res.data,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }
+const getCategories = useCallback(async () => {
+  try {
+    const res = await axios(`${API}/category/list`);
+    
+    // Простой вариант - всегда диспатчим данные
+    dispatch({
+      type: "GET_CATEGORIES",
+      payload: res.data
+    });
 
-  async function getAllMyArticles() {
-    try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
+    // Либо вариант с проверкой изменений (если категории редко меняются)
+    /*
+    dispatch((prevState) => {
+      if (JSON.stringify(prevState.categories) === JSON.stringify(res.data)) {
+        return prevState;
+      }
+      return {
+        ...prevState,
+        categories: res.data
       };
-      const res = await axios(`${API}/article/allMy`, config);
-      dispatch({
-        type: "GET_MY_ARTICLES",
-        payload: res.data,
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    });
+    */
+  } catch (err) {
+    console.error("Error fetching categories:", err);
+    // Можно добавить обработку ошибок в стейт
+    dispatch({
+      type: "CATEGORIES_ERROR",
+      payload: err.message
+    });
   }
+}, [API]); // API в зависимостях
+
+const getAllMyArticles = useCallback(async () => {
+  try {
+    const tokens = JSON.parse(localStorage.getItem("tokens"));
+    const Authorization = `Bearer ${tokens.access_token}`;
+    const res = await axios(`${API}/article/allMy`, {
+      headers: { Authorization }
+    });
+
+    // Вариант 1: Просто dispatch без проверки (если данные небольшие)
+    dispatch({ type: "GET_MY_ARTICLES", payload: res.data });
+
+    // Вариант 2: "Глубокая" проверка через Lodash (если данные сложные)
+    // import _ from "lodash";
+    // dispatch((prev) => {
+    //   return _.isEqual(prev.articles, res.data) 
+    //     ? prev 
+    //     : { type: "GET_MY_ARTICLES", payload: res.data };
+    // });
+  } catch (err) {
+    console.log(err);
+  }
+}, [API]); // Зависимости для useCallback
 
   async function getAllNotPublished() {
     try {
@@ -460,34 +484,67 @@ const ArticleContextsProvider = ({ children }) => {
 
   //NEWS
 
-  async function getPublishedNews() {
-    try {
-      const res = await axios(`${API}/news/published`);
-      dispatch({
-        type: "GET_PUBLISHED_NEWS",
-        payload: res.data,
-      });
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  }
+ const getPublishedNews = useCallback(async () => {
+  try {
+    setLoading(true);
+    const tokens = JSON.parse(localStorage.getItem("tokens"));
+    const controller = new AbortController();
 
-  async function getAllNews() {
-    try {
-      const res = await axios(`${API}/news/all`);
+    const res = await axios(`${API}/news/published`, {
+      signal: controller.signal,
+      headers: {
+        Authorization: `Bearer ${tokens?.access_token}`
+      }
+    });
+
+    dispatch({
+      type: "GET_PUBLISHED_NEWS",
+      payload: res.data
+    });
+
+  } catch (err) {
+    if (!axios.isCancel(err)) {
+      console.error("News error:", err);
       dispatch({
-        type: "GET_ALL_NEWS",
-        payload: res.data,
+        type: "NEWS_ERROR",
+        payload: err.response?.data?.message || "Ошибка загрузки новостей"
       });
-      console.log(res);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
     }
+  } finally {
+    setLoading(false);
   }
+}, [API]);
+
+const getAllNews = useCallback(async () => {
+  try {
+    setLoading(true);
+    const tokens = JSON.parse(localStorage.getItem("tokens"));
+    const controller = new AbortController();
+
+    const res = await axios(`${API}/news/all`, {
+      signal: controller.signal,
+      headers: {
+        Authorization: `Bearer ${tokens?.access_token}`
+      }
+    });
+
+    dispatch({
+      type: "GET_ALL_NEWS",
+      payload: res.data
+    });
+
+  } catch (err) {
+    if (!axios.isCancel(err)) {
+      console.error("All news error:", err);
+      dispatch({
+        type: "NEWS_ERROR",
+        payload: err.response?.data?.message || "Ошибка загрузки всех новостей"
+      });
+    }
+  } finally {
+    setLoading(false);
+  }
+}, [API]);
 
   async function uploadNews(formData) {
     try {

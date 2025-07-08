@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -42,40 +42,28 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
-async function getOneUser() {
+const getOneUser = useCallback(async () => {
   try {
     const tokens = localStorage.getItem("tokens");
     if (!tokens) {
-      console.log("No tokens found in localStorage");
+      dispatch({ type: "RESET_USER" });
       return;
     }
 
     const { access_token } = JSON.parse(tokens);
-    if (!access_token) {
-      console.log("No access token found");
-      return;
-    }
-
     const res = await axios.get(`${API}/user/get/profile`, {
-      headers: { Authorization: `Bearer ${access_token}` },
+      headers: { Authorization: `Bearer ${access_token}` }
     });
 
-    dispatch({
-      type: "GET_ONE_USER",
-      payload: res.data,
-    });
+    // Простое обновление без проверки
+    dispatch({ type: "GET_ONE_USER", payload: res.data });
+
   } catch (err) {
-    console.error("Error fetching user profile:", err);
-
-    if (err.response) {
-      if (err.response.status === 401) {
-        console.warn("Unauthorized: Redirecting to login...");
-        // Например, перенаправление на страницу логина
-        // window.location.href = "/login";
-      }
+    if (err.response?.status === 401) {
+      dispatch({ type: "RESET_USER" });
     }
   }
-}
+}, [API]);
 
 
   async function handleRegister(newObj) {
