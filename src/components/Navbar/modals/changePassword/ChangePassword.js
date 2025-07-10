@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 
-const API = "http://localhost:3001/api";
+const API = `${process.env.REACT_APP_API_URL}/api`;
 
 export function ChangePassword({ closeModal }) {
   const { t } = useTranslation();

@@ -54,16 +54,6 @@ useEffect(() => {
             key={a_comment.id}
             style={{ marginBottom: "10px" }}>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src="https://thumbs.dreamstime.com/b/default-profile-picture-avatar-photo-placeholder-vector-illustration-default-profile-picture-avatar-photo-placeholder-vector-189495158.jpg"
-                alt="pic"
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  marginRight: "10px",
-                }}
-              />
               <div>
                 <strong>
                   {a_comment.user?.firstName} {a_comment.user?.lastName}

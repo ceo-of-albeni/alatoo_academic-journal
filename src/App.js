@@ -58,10 +58,12 @@ useEffect(() => {
   const checkServerStatus = async () => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user`);
+      console.log(process.env.REACT_APP_API_URL);
       setServerStatus(response.ok);
     } catch (error) {
       setServerStatus(false);
       console.error(error);
+      console.log(process.env.REACT_APP_API_URL);
     }
   };
 

@@ -110,8 +110,11 @@ useEffect(() => {
       <div className="main_div">
         <div className="profile_card">
           <img
-            src="https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
-            alt=""
+            src="/img/user.jpg"
+            alt="User Avatar"
+            width={120}
+            height={120}
+            style={{ objectFit: "cover", borderRadius: "50%" }}
           />
           <div className="profile_main-info">
             <p>

@@ -17,6 +17,9 @@
     "admin": "Admin",
     "profile": "My articles",
     "signin": "Sign in",
+    "logout_confirm_message": "Are you sure you want to sign out?",
+    "logout_confirm_yes": "Yes",
+    "logout_confirm_no": "No",
     "signout": "Sign Out"
   },
   "login": {
@@ -26,6 +29,7 @@
     "password": "Password",
     "ph_password": "Enter your password",
     "signin": "Sign in",
+    "signing_in": "Signing in...",
     "signup": "Sign up",
     "forgot_pw": "Forgot password?"
   },
@@ -261,7 +265,7 @@
     "status_payment": "the article is approved and awaiting payment. Click the PAYMENT button to upload the payment receipt. It will be reviewed by the editorial team.",
     "status_payment_admin": "the article is approved and awaiting payment. The check file was uploaded by author.",
     "status_approved": "the article has been fully approved.",
-    "status_declined": "the article was rejected by the editorial board.",
+    "status_declined": "the article was rejected by the editorial board. (Rejected articles are displayed in the profile only for 1 month after rejection.)",
     "status_payment_no_check": "the article is approved and awaiting payment. The check file was NOT uploaded by author."
   },
   "archivepage": {

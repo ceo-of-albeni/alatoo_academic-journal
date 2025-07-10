@@ -119,24 +119,37 @@ const getAllMyArticles = useCallback(async () => {
   }
 }, [API]); // Зависимости для useCallback
 
-  async function getAllNotPublished() {
-    try {
-      const tokens = JSON.parse(localStorage.getItem("tokens"));
-      const Authorization = `Bearer ${tokens.access_token}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios(`${API}/article/all/notPublished`, config);
+ const getAllNotPublished = useCallback(async () => {
+  try {
+    setLoading(true);
+    const tokens = JSON.parse(localStorage.getItem("tokens"));
+    const controller = new AbortController();
+
+    const res = await axios(`${API}/article/all/notPublished`, {
+      signal: controller.signal,
+      headers: {
+        Authorization: `Bearer ${tokens?.access_token}`
+      }
+    });
+
+    dispatch({
+      type: "NOT_PUBLISHED_ARTICLE",
+      payload: res.data
+    });
+
+    return () => controller.abort();
+  } catch (err) {
+    if (!axios.isCancel(err)) {
+      console.error("Not published articles error:", err);
       dispatch({
-        type: "NOT_PUBLISHED_ARTICLE",
-        payload: res.data,
+        type: "ARTICLE_ERROR",
+        payload: err.response?.data?.message || "Ошибка загрузки статей на рассмотрении"
       });
-    } catch (err) {
-      console.log(err);
     }
+  } finally {
+    setLoading(false);
   }
+}, [API]);
 
   async function getAllApproved() {
     try {
@@ -581,25 +594,18 @@ const getAllNews = useCallback(async () => {
   // Функция для получения PDF с API
   async function getRules() {
     try {
-      const res = await axios.get(`${API}/files/get/rules`, {
-        responseType: "arraybuffer", // Получаем бинарные данные
-      });
-
-      const pdfBlob = new Blob([res.data], { type: "application/pdf" });
-      const pdfUrl = URL.createObjectURL(pdfBlob); // Создаем объект URL
+      const pdfUrl = `${API}/files/get/rules`; // URL для PDF напрямую
 
       dispatch({
         type: "GET_RULES",
-        payload: pdfUrl, // Сохраняем URL в состояние
+        payload: pdfUrl,
       });
-
-      console.log(res);
     } catch (err) {
       console.error(err);
     } finally {
       setLoading(false);
     }
-  }
+    }
 
   async function uploadRules(formData) {
     try {

@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import classes from "./ForgotPassword.module.css";
 import { useNavigate } from "react-router-dom";
-import arrow from "../img/arrow.svg";
 import axios from "axios";
 import { authContext } from "../../../../contexts/authContext";
 import { useTranslation } from "react-i18next";
@@ -77,7 +76,7 @@ async function handleConfirmCode(e) {
   return (
     <div className={classes.forgot}>
       <div className={classes.forgot__inner}>
-        <img src={arrow} alt="back" onClick={() => navigate("/")} />
+        <img src="/img/arrow.svg" alt="back" onClick={() => navigate("/")} />
         {step === 1 && (
           <form onSubmit={handleSendEmail}>
             <div>{t("forgot_password.reset_pw")}</div>

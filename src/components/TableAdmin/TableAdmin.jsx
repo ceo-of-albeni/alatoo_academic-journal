@@ -87,7 +87,6 @@ export default function BasicTableAdmin() {
     getAllNews,
     allNews,
     publishNews,
-    publishedNews,
     getAllApproved,
     approved_articles,
   } = useContext(articlesContext);
@@ -326,15 +325,16 @@ export default function BasicTableAdmin() {
                     </a>
                   </TableCell>
                   <TableCell align="center">
-                    {new Date(row.createdAt).toLocaleString()}{(() => {
+                    {(() => {
                         const d = new Date(row.createdAt);
                         const day = String(d.getDate()).padStart(2, '0');
                         const month = String(d.getMonth() + 1).padStart(2, '0');
                         const year = d.getFullYear();
                         const hours = String(d.getHours()).padStart(2, '0');
                         const minutes = String(d.getMinutes()).padStart(2, '0');
-                        return `${day} ${month} ${year} ${hours}:${minutes}`;
+                        return `${day}.${month}.${year} ${hours}:${minutes}`;
                     })()}
+
                   </TableCell>
                   <TableCell align="center">{row.coauthors}</TableCell>
                   <TableCell align="center">{row.pageCount}</TableCell>

@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import classes from "./ConfirmReg.module.css";
 import { useNavigate } from "react-router-dom";
-import arrow from "../img/arrow.svg";
 import { Success } from "../success/Success";
 import { useTranslation } from "react-i18next";
 import { authContext } from "../../../../contexts/authContext";
@@ -88,7 +87,7 @@ useEffect(() => {
   return (
     <div className={classes.confirm}>
       <div className={classes.confirm__inner}>
-        <img src={arrow} alt="back" onClick={() => navigate("/register")} />
+        <img src="/img/arrow.svg" alt="back" onClick={() => navigate("/register")} />
         <form>
           <div>{t("confirm_reg.button")}</div>
 

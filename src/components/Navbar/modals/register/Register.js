@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import classes from "./register.module.scss";
-import arrow from "../img/arrow.svg";
 import { authContext } from "../../../../contexts/authContext";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
@@ -71,7 +70,7 @@ const createUser = async () => {
   return (
     <div className={classes.register}>
       <div className={classes.register__inner}>
-        <img src={arrow} alt="back" onClick={() => navigate("/")} />
+        <img src="/img/arrow.svg" alt="back" onClick={() => navigate("/")} />
         <form onSubmit={(e) => e.preventDefault()}>
           <div>{t("register.registration")}</div>
 

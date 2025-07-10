@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import classes from "./login.module.scss";
-import arrow from "../img/arrow.svg";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../../../../contexts/authContext";
 import { useTranslation } from "react-i18next";
@@ -46,7 +45,7 @@ export function Login({ closeModal }) {
   };
 
   const loginUser = async () => {
-    if (loading) return; // Блокируем повторные клики
+    if (loading) return; // блокируем повторные клики / сабмиты
 
     if (!email.trim() || !password.trim()) {
       alert("Некоторые поля пустые!");
@@ -73,8 +72,13 @@ export function Login({ closeModal }) {
       {activeModal === "login" && (
         <div className={classes.login} onClick={handleOutsideClick}>
           <div className={classes.login__inner} onClick={handleLoginClick}>
-            <img src={arrow} alt="back" onClick={closeModal} />
-            <form onSubmit={(e) => e.preventDefault()}>
+            <img src="/img/arrow.svg" alt="back" onClick={closeModal} />
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                loginUser();
+              }}
+            >
               <div>{t("login.login")}</div>
               <label>{t("login.email")}</label>
               <input
@@ -92,7 +96,7 @@ export function Login({ closeModal }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button type="button" onClick={loginUser} disabled={loading}>
+              <button type="submit" disabled={loading}>
                 {loading ? t("login.signing_in") : t("login.signin")}
               </button>
               <div
