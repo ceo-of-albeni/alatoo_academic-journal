@@ -15,6 +15,7 @@ import Modal from "@mui/material/Modal";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import { useTranslation } from "react-i18next";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const style = {
   position: "absolute",
@@ -58,23 +59,24 @@ export default function BasicTable() {
   const [checkFile, setCheckFile] = React.useState(null);
   const [articleId, setArticleId] = React.useState("");
   const [page, setPage] = React.useState(1);
+  const [loading, setLoading] = React.useState(false); // индикатор загрузки
 
   const [searchParams, setSearchParams] = useSearchParams();
-const q = searchParams.get("q") || "";
+  const q = searchParams.get("q") || "";
 
-const [search, setSearch] = React.useState(q);
+  const [search, setSearch] = React.useState(q);
 
-React.useEffect(() => {
-  setSearch(q);
-}, [q]);
+  React.useEffect(() => {
+    setSearch(q);
+  }, [q]);
 
-React.useEffect(() => {
-  setSearchParams({ q: search });
-}, [search, setSearchParams]);
+  React.useEffect(() => {
+    setSearchParams({ q: search });
+  }, [search, setSearchParams]);
 
-React.useEffect(() => {
-  getAllMyArticles();
-}, [q, getAllMyArticles]);
+  React.useEffect(() => {
+    getAllMyArticles();
+  }, [q, getAllMyArticles]);
 
   const handleClose = () => setOpen(false);
 
@@ -107,6 +109,8 @@ React.useEffect(() => {
       return;
     }
 
+    setLoading(true); // старт загрузки
+
     const checkData = new FormData();
     checkData.append("checkFile", checkFile);
     checkData.append("articleId", articleId);
@@ -115,16 +119,13 @@ React.useEffect(() => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
       const Authorization = `Bearer ${tokens.access_token}`;
-      const response = await fetch(
-        `${apiUrl}/api/article/send/checkFile`,
-        {
-          method: "POST",
-          body: checkData,
-          headers: {
-            Authorization,
-          },
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/article/send/checkFile`, {
+        method: "POST",
+        body: checkData,
+        headers: {
+          Authorization,
+        },
+      });
 
       if (!response.ok) {
         console.error(
@@ -135,6 +136,7 @@ React.useEffect(() => {
         const responseText = await response.text();
         console.error("Server Response:", responseText);
         alert("Ошибка!");
+        setLoading(false); // конец загрузки
         return;
       }
 
@@ -142,6 +144,9 @@ React.useEffect(() => {
       setOpen(false);
     } catch (error) {
       console.error("Error during article creation:", error);
+      alert("Ошибка при отправке!");
+    } finally {
+      setLoading(false); // конец загрузки
     }
   };
 
@@ -154,7 +159,7 @@ React.useEffect(() => {
         item.createdAt,
         item.coauthors,
         item.pageCount,
-        item.category.nameRu,
+        item.category,
         item.status,
         item.fileUrl
       )
@@ -172,14 +177,16 @@ React.useEffect(() => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-      }}>
+      }}
+    >
       <TableContainer component={Paper}>
         {/* Modal */}
         <Modal
           open={open}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description">
+          aria-describedby="modal-modal-description"
+        >
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
               {t("table.check")}
@@ -193,25 +200,28 @@ React.useEffect(() => {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
-                viewBox="0 0 640 512">
+                viewBox="0 0 640 512"
+              >
                 <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z" />
               </svg>
             </label>
             <Button
               variant="outlined"
               className="sub_check"
-              onClick={() => handleUpload()}>
-              {t("table.submit")}
+              onClick={handleUpload}
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <CircularProgress size={20} sx={{ mr: 1 }} />
+                  {t("table.sending")}
+                </>
+              ) : (
+                t("table.submit")
+              )}
             </Button>
           </Box>
         </Modal>
-        {/* <input
-        type="search"
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-        placeholder="Search..."
-        // className={classes.sr_inp}
-      /> */}
 
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -243,26 +253,28 @@ React.useEffect(() => {
             {currentData().map((row) => (
               <TableRow
                 key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
                 <TableCell component="th" scope="row">
                   {row.id}
                 </TableCell>
                 <TableCell align="left">
                   <p
                     className="table_a"
-                    onClick={() => navigate(`/comments/${row.id}`)}>
+                    onClick={() => navigate(`/comments/${row.id}`)}
+                  >
                     {row.title}
                   </p>
                 </TableCell>
                 <TableCell align="center">
                   {(() => {
-                      const d = new Date(row.createdAt);
-                      const day = String(d.getDate()).padStart(2, '0');
-                      const month = String(d.getMonth() + 1).padStart(2, '0');
-                      const year = d.getFullYear();
-                      const hours = String(d.getHours()).padStart(2, '0');
-                      const minutes = String(d.getMinutes()).padStart(2, '0');
-                      return `${day} ${month} ${year} ${hours}:${minutes}`;
+                    const d = new Date(row.createdAt);
+                    const day = String(d.getDate()).padStart(2, "0");
+                    const month = String(d.getMonth() + 1).padStart(2, "0");
+                    const year = d.getFullYear();
+                    const hours = String(d.getHours()).padStart(2, "0");
+                    const minutes = String(d.getMinutes()).padStart(2, "0");
+                    return `${day} ${month} ${year} ${hours}:${minutes}`;
                   })()}
                 </TableCell>
                 <TableCell align="center">{row.coauthors}</TableCell>
@@ -270,7 +282,10 @@ React.useEffect(() => {
                 <TableCell align="center">{row.category.nameRu}</TableCell>
                 <TableCell
                   align="center"
-                  onClick={() => row.status === "Payment" && handleOpen(row.id)}>
+                  onClick={() =>
+                    row.status === "Payment" && handleOpen(row.id)
+                  }
+                >
                   <span
                     className={`status-cell ${
                       row.status === "Pending"
@@ -282,7 +297,8 @@ React.useEffect(() => {
                         : row.status === "Declined"
                         ? "status-declined"
                         : ""
-                    }`}>
+                    }`}
+                  >
                     {row.status}
                   </span>
                 </TableCell>

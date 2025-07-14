@@ -74,7 +74,7 @@ export function CommentsPage() {
             </h4>
           </div>
           <div className={classes.link}>
-            <a href={oneArticle?.fileUrl} target="_blank" rel="noreferrer">
+            <a href={`${process.env.REACT_APP_API_URL}/api/files/${oneArticle?.fileUrl}`} target="_blank" rel="noreferrer">
             {t("commentspage.open")}
             </a>
           </div>
@@ -88,9 +88,6 @@ export function CommentsPage() {
                 <p>{`${oneArticle.user?.firstName} ${oneArticle.user?.lastName}`}</p>
                 <p>{t("commentspage.uploaded")}</p>
                 </div>
-              </div>
-              <div className={classes.pdf_downl}>
-                <button onClick={downloadPDF}>{t("commentspage.pdf")}</button>
               </div>
             </div>
             <div className={classes.publish__text}>{oneArticle.text}</div>

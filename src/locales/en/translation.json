@@ -1,7 +1,7 @@
 {
   "En": "En",
   "home": {
-    "title": "Alatoo Academic Journal",
+    "title": "Alatoo Academic Studies",
     "description": "We eagerly await your fascinating research!",
     "article_title": "\"Alatoo Academic Studies\" - the way to scientific leadership in the Kyrgyz Republic",
     "article": "It is noteworthy that in 2020, the impact factor of the scientific journal was 0.171, and by 2021, it increased to 0.210. By the end of 2022, it further rose to 0.421, and the journal continues to maintain its high rating.",
@@ -216,6 +216,7 @@
     "category": "Category",
     "status": "Status",
     "check": "Payment check",
+    "sending": "Sending...",
     "submit": "Submit"
   },
   "tableadmin": {
